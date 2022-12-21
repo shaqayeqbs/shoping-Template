@@ -1,0 +1,39 @@
+.container {
+  position: relative;
+}
+.overlays {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0px;
+  top: 227px;
+  background: rgba(132, 132, 132, 0.42);
+  backdrop-filter: blur(10.5px);
+  z-index: 1000;
+}
+
+.modal {
+  position: fixed;
+  isolation: isolate;
+  top: 375px;
+  margin: 0rem;
+  left: 2rem;
+  right: 2rem;
+  transform: translate(-0%, -50%);
+  padding: 0rem;
+  z-index: 1000000 !important;
+  min-height: 300px;
+  background: #ffffff;
+  border-radius: 20px;
+  border-radius: 19px;
+}
+
+.closeBtn {
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+  direction: ltr;
+  border: 0;
+  background: transparent;
+  font-size: 26px;
+}
