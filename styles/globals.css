@@ -7,3 +7,54 @@ html {
   margin: 0;
   padding: 0;
 }
+.swiper {
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0rem;
+}
+
+.swiper-slide {
+  text-align: center;
+
+  padding: 0.5rem;
+}
+
+.swiper-slide img {
+  object-fit: cover;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  color: #2f99a5;
+  display: block;
+  font-size: 14px !important;
+  margin: 0 0rem;
+  border-radius: 50%;
+  font-weight: bolder;
+}
+.swiper-button-prev:after {
+  margin-left: 0.5rem;
+}
+.swiper-button-next:after {
+  margin-right: 0.5rem;
+}
+
+.swiper-wrapper {
+  max-width: 100vh;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:focus-visible {
+  outline: 0;
+}
+.position-relative {
+  position: relative;
+}
+/*  */
