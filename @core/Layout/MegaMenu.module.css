@@ -11,6 +11,7 @@
   color: white;
   background-color: #238b44;
   width: 100%;
+  text-align: right;
   border-radius: 6px;
 }
 .children {

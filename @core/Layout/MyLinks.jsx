@@ -21,7 +21,7 @@ function MyLinks() {
         <li>
           <button onMouseEnter={openModalHandler}> دسته بندی</button>
         </li>
-        <li className={classes.color}>شگفت انگیزها</li>
+        <li className="text-green">شگفت انگیزها</li>
         <li>مقالات</li>
         <li>درباره ما</li>
         <li>تماس با ما</li>

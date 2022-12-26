@@ -1,7 +1,112 @@
 import Head from "next/head";
-import AmazingSection from "../@core/components/main/AmazingSection";
+import AmazingSection from "../@core/components/main/AmazingSale/AmazingSection";
+import Event from "../@core/components/main/Event";
+import Slider from "../@core/components/main/Slider/Slider";
+import AboutUs from "../@core/components/main/About/AboutUs";
+import Description from "../@core/components/main/About/Description";
+import HeaderCarousel from "../@core/components/main/Slider/HeaderCarousel";
 
 export default function Home() {
+  const headerCarousel = [
+    {
+      color: "#238B44",
+      title: "تاثیرات گیاهان بر روان انسان",
+      description: "رابطه بین گل و گیاه و سلامت روانی",
+      href: "/",
+      image: "/images/plant.png",
+    },
+    {
+      color: "#76A3A6",
+      title: "تاثیرات گیاهان بر روان انسان",
+      description: "رابطه بین گل و گیاه و سلامت روانی",
+      href: "/",
+      image: "/images/slider1.png",
+    },
+    {
+      color: "#c9A6A6",
+      title: "تاثیرات گیاهان بر روان انسان",
+      description: "رابطه بین گل و گیاه و سلامت روانی",
+      href: "/",
+      image: "/images/slider1.png",
+    },
+    {
+      color: "#76A7B6",
+      title: "تاثیرات گیاهان بر روان انسان",
+      description: "رابطه بین گل و گیاه و سلامت روانی",
+      href: "/",
+      image: "/images/slider1.png",
+    },
+  ];
+  const eventDummyData = [
+    {
+      image: "/images/event.png",
+      precent: "20٪",
+      description: " انواع گیاهان آپارتمانی",
+      color: "#238B44",
+    },
+    {
+      image: "/images/event.png",
+      precent: "15٪",
+      description: " انواع تراریوم زینتی ",
+      color: "#45BCE1",
+    },
+  ];
+  const event2_DummyData = [
+    {
+      image: "/images/event.png",
+      title: "يک بغل محبت",
+      description: "انواع دسته گل",
+      color: "#EC8916",
+    },
+    {
+      image: "/images/event.png",
+      title: "انتخاب خاص و لوکس",
+      description: "  انواع باکس های گل",
+      color: "#D71F46",
+    },
+  ];
+
+  const carousel = [
+    {
+      image: "/images/plant.png",
+      price: "285,000",
+      new: true,
+    },
+    {
+      image: "/images/plant.png",
+      price: "285,000",
+      new: true,
+    },
+    {
+      image: "/images/plant.png",
+      price: "285,000",
+      new: true,
+    },
+  ];
+
+  const articles = [
+    {
+      image: "/images/article.png",
+      title: "نحوه نگهداری سانسوریا",
+      description:
+        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.صنعت چاپ و با استفاده از طراحان گرافیک است.",
+    },
+    {
+      image: "/images/article.png",
+      title: "نحوه نگهداری سانسوریا",
+      description:
+        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.صنعت چاپ و با استفاده از طراحان گرافیک است.",
+    },
+    {
+      image: "/images/article.png",
+      title: "نحوه نگهداری سانسوریا",
+      description:
+        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.صنعت چاپ و با استفاده از طراحان گرافیک است.",
+    },
+  ];
+
+  const classes = "container flex gap-0 justify-around  text-2xl h-[23rem]";
+
   return (
     <>
       <Head>
@@ -11,7 +116,28 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <AmazingSection />
+        <HeaderCarousel items={headerCarousel} />
+        <Description />
+        <div className=" bg-green">
+          <AmazingSection />
+        </div>
+        <section className={classes}>
+          {eventDummyData.map((item) => (
+            <Event event={item} />
+          ))}
+        </section>
+
+        <Slider title="گلدان های جدید" data={carousel} />
+        <section className={classes}>
+          {event2_DummyData.map((item) => (
+            <Event event={item} />
+          ))}
+        </section>
+        <Slider title="گیاهان آپارتمانی" data={carousel} />
+        <section className="my-10">
+          <AboutUs />
+        </section>
+        <Slider title="مقالات اخیر " data={articles} />
       </main>
     </>
   );

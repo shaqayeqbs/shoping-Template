@@ -6,12 +6,12 @@ import Logo from "../icons/Logo";
 
 function NavBar() {
   return (
-    <nav className={classes.container}>
+    <nav className="container mx-20 px-0 text-center w-full   py-6 flex  justify-between border-b-2 border-green">
       <div className={classes.logo}>
         <div>
           <Logo />
         </div>
-        <h2>باغ هیوا</h2>
+        <h2 className="">باغ هیوا</h2>
       </div>
       <div className={classes.btn}>
         <button>

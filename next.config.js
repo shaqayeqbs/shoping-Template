@@ -1,9 +1,13 @@
-const withPWA = require("next-pwa");
+// const withPWA = require("next-pwa");
 
-module.exports = withPWA({
-  pwa: {
-    dest: "public",
-    register: true,
-    skipWaiting: true,
-  },
-});
+// module.exports = withPWA({
+//   pwa: {
+//     dest: "public",
+//     register: true,
+//     skipWaiting: true,
+//   },
+// });
+
+module.exports = {
+  /* config options here */
+};

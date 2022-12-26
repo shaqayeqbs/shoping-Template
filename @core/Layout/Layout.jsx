@@ -10,7 +10,10 @@ const Layout = ({ children }) => {
         <main>
           <div className={classes.navbar}>
             <Navbar />
-            <MyLinks />
+            <div className="container">
+              {" "}
+              <MyLinks />
+            </div>
           </div>
           {children}
         </main>

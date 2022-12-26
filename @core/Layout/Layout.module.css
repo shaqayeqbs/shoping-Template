@@ -1,13 +1,5 @@
-.container {
-  display: flex;
-  place-content: space-between;
-  margin: 0rem 3rem;
-  border-bottom: 1px solid #238b44;
-  padding: 1.5rem 0;
-}
 .navbar {
-  background-color: #f6f6f6;
-  padding: 2rem 0;
+  padding-bottom: 2rem;
 }
 .logo {
   display: flex;
@@ -22,14 +14,14 @@
 }
 .btn {
   color: #238b44;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 .btn button {
   margin: 0.5rem 2rem;
 }
 .btn button svg {
   position: absolute;
-  top: 75px;
+  top: 50px;
 }
 .register {
   background: #238b44;
@@ -41,11 +33,11 @@
   margin: 0 !important;
 }
 .links {
-  padding: 1rem 2rem;
+  padding: 1rem 0rem;
 }
 .links li {
   display: inline-block;
-  margin: 0 1rem;
+  margin: 0 2.5rem;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
