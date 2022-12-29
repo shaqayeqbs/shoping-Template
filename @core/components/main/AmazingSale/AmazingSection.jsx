@@ -1,25 +1,22 @@
 import React from "react";
-import classes from "./AmazingSection.module.css";
-import Image from "next/dist/client/image";
 import Link from "next/link";
 import useTimer from "../../../hooks/useTimer";
 import { AiOutlineLeft } from "react-icons/ai";
 import dynamic from "next/dynamic";
+import Offer from "../../../icons/Offer";
 const Carousel = dynamic(() => import("../carousel/carousel"), { ssr: false });
 
 function AmazingSection() {
   const [hours, minutes, seconds, Faminutes, FaHours, Faseconds] = useTimer();
   return (
-    <section className="container flex px-0 text-center max-w-full  py-16">
+    <section className="container flex px-0 text-center w-full  !py-12 overflow-x-hidden ">
       <div className="h-[30rem] bg-black">
-        <div className={classes.offer}>
-          <Image
-            alt="slider photo"
-            src="/images/offer.png"
-            width={400}
-            height={400}
-          />
-          <h1 className="">تخفیفات شگفت انگیز</h1>
+        <div className="bg-[white] rounded-2xl w-[100%] mx-0 p-[4%] h-[23rem]  ">
+          <div className="p-12">
+            <Offer />
+          </div>
+
+          <h1 className="text-xl">تخفیفات شگفت انگیز</h1>
           <div>
             {(hours === 0) & (minutes === 0) && seconds === 0 ? null : (
               <h3 className="" dir="ltr">
@@ -29,15 +26,18 @@ function AmazingSection() {
             )}
           </div>
         </div>
-        <div className=" flex justify-center text-[#ffff]">
-          <Link href="/" className="text-white text-green">
+        <div className=" flex justify-center text-[white] m-4 ">
+          <Link href="/" className="">
             مشاهده همه
           </Link>
           <AiOutlineLeft />
         </div>
       </div>
 
-      <Carousel />
+      <div className=" w-[135%]">
+        {" "}
+        <Carousel />
+      </div>
     </section>
   );
 }

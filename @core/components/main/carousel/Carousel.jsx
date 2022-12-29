@@ -8,10 +8,6 @@ import Image from "next/image";
 import classes from "./Carousel.module.css";
 
 const Carousel = () => {
-  //   const slidePerViw4 = data.length < 4 ? data.length : 4;
-  //   const slidePerViw3 = data.length < 3 ? data.length : 3;
-  //   const slidePerViw2 = data.length < 2 ? data.length : 2;
-
   return (
     <>
       <Swiper

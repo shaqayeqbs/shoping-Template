@@ -6,11 +6,8 @@
   margin: auto;
 }
 .offer {
-  background: #ffffff;
-  border-radius: 15px;
-  width: 16.375rem;
   height: 23rem;
   margin: auto 0.6rem;
-  margin-top: 0.5rem;
+  margin-top: 0rem;
   padding: 0;
 }

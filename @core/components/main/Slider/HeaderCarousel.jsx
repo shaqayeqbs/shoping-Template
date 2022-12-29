@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import { ArrowRight2, ArrowLeft2 } from "iconsax-react";
+import { ArrowRight2, ArrowLeft2, Key } from "iconsax-react";
 import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper";
 import Image from "next/image";
 
@@ -19,7 +19,6 @@ function HeaderCarousel({ items }) {
     swiper.slidePrev();
   };
 
-  console.log({ items });
   return (
     <div className="mb-8  relative">
       <Swiper
@@ -28,10 +27,6 @@ function HeaderCarousel({ items }) {
             slidesPerView: 1,
             slidesPerGroup: 1,
           },
-        }}
-        style={{
-          "--swiper-button-next ": "red",
-          "swiper-button-prev": "red",
         }}
         loop={true}
         spaceBetween={0}
@@ -47,10 +42,11 @@ function HeaderCarousel({ items }) {
       >
         {items.map((item) => (
           <SwiperSlide
+            key={item.id}
             style={{ backgroundColor: item.color }}
             className="py-12 pb-28"
           >
-            <div className="container flex justify-between  bg-[white] p-2 rounded-lg text-right">
+            <div className="container flex justify-between  bg-[white] !p-[.5%] rounded-lg text-right">
               <div className="translate-y-[12%] p-9">
                 <h1 className="font-bold text-4xl  my-8 ">{item.title}</h1>
                 <p className="text-lg">{item.description}</p>
@@ -72,7 +68,7 @@ function HeaderCarousel({ items }) {
         ))}
       </Swiper>
 
-      <div className="absolute bottom-11 cursor-pointer w-[27.2%] right-[16rem] ">
+      <div className="absolute bottom-11 cursor-pointer w-[25%] right-[18%] ">
         <Swiper
           onSwiper={setThumbsSwiper}
           loop={true}
@@ -89,7 +85,10 @@ function HeaderCarousel({ items }) {
           slideActiveClass="border-2 border-[red] w-[10rem]"
         >
           {items.map((item) => (
-            <SwiperSlide className="container rounded-lg !w-24 !h-12s text-right !ml-5 ">
+            <SwiperSlide
+              key={item.id}
+              className="container rounded-lg !w-[23%] !h-12s text-right !ml-[2%]  "
+            >
               <div className="rounded-md p-0">
                 {" "}
                 <img
@@ -101,19 +100,17 @@ function HeaderCarousel({ items }) {
           ))}
         </Swiper>
       </div>
-      <div className="relative z-20">
+      <div className="container relative z-20">
         {" "}
-        <div className="absolute bottom-11 right-36">
-          <button
-            className=" z-10 w-24 text-[white] border-2 align-middle rounded-md p-1 "
-            onClick={nextSlide}
-          >
-            <ArrowRight2 className="inline-block" size="32" />
-          </button>
-        </div>
+        <button
+          className=" absolute bottom-11 z-10 w-[8%] text-[white] border-2 border-[white] align-middle rounded-md p-1 "
+          onClick={nextSlide}
+        >
+          <ArrowRight2 className="inline-block" size="32" />
+        </button>
         <button
           onClick={prevSlide}
-          className="absolute w-24 left-36 bottom-11 text-[white] border-2 p-1 rounded-md align-middle"
+          className="absolute w-[8%] left-0 bottom-11 text-[white] border-[white] border-2 p-1 rounded-md align-middle"
         >
           <ArrowLeft2 className="inline-block" size="32" />
         </button>

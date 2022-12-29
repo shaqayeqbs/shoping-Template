@@ -9,5 +9,16 @@
 // });
 
 module.exports = {
-  /* config options here */
+  module: {
+    rules: [
+      {
+        test: /\.(svg|png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
+      },
+    ],
+  },
 };

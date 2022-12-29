@@ -19,9 +19,9 @@ function MyLinks() {
       )}
       <ul className={classes.links}>
         <li>
-          <button onMouseEnter={openModalHandler}> دسته بندی</button>
+          <div onMouseEnter={openModalHandler}> دسته بندی</div>
         </li>
-        <li className="text-green">شگفت انگیزها</li>
+        <li className="text-skin-primary ">شگفت انگیزها</li>
         <li>مقالات</li>
         <li>درباره ما</li>
         <li>تماس با ما</li>

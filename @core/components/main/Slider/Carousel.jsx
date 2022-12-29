@@ -28,7 +28,7 @@ const Carousel = ({ data }) => {
         className=""
       >
         {data?.map((item) => (
-          <SwiperSlide className="flex justify-center text-right">
+          <SwiperSlide className="flex justify-center text-right" key={item.id}>
             <div className="bg-[white] rounded-[15px] py-2 mx-2 w-full ">
               <Image
                 alt="slider photo"
@@ -44,7 +44,7 @@ const Carousel = ({ data }) => {
 
               <div className="flex justify-between mt-3 mb-8">
                 {item.new && (
-                  <div className="text-green mx-6 bg-[#E9F3EC] rounded-[3px] p-1 px-3 text-center">
+                  <div className="text-skin-primary mx-6 bg-[#E9F3EC] rounded-[3px] p-1 px-3 text-center">
                     جدید
                   </div>
                 )}

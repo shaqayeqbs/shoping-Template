@@ -16,15 +16,59 @@
   font-weight: bold;
   font-style: bold;
 }
+
+@layer base {
+  :root {
+    --color-text-base: #238b44;
+    --color-text-muted: #b4b4b4;
+    --color-text-subtitle: #6f6f6f;
+    --color-text-white: #ffffff;
+    --color-fill: #238b44;
+    --color-button-primary: "primary";
+    --color-button-primary-hover: "#56C679";
+  }
+  body {
+    @apply bg-[#f6f6f6] text-[#424242] tracking-wide;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-2xl text-[#424242];
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl;
+  }
+
+  li {
+    @apply cursor-pointer m-0;
+  }
+
+  button {
+    @apply rounded-xl hover:!text-[white] hover:border-0  hover:bg-[#56C679] uppercase border-2 border-primary;
+  }
+  /* a {
+    @apply hover:bg-[#56C679]  border-0 px-[2rem] py-[.8rem] w-[100%];
+  } */
+}
 *,
 html,
 body {
   font-family: "IranSans", "Courier New", Courier, monospace;
+  direction: rtl;
 }
 
 html {
   direction: rtl;
-  background-color: #f6f6f6;
+
   margin: 0;
   padding: 0;
 }
@@ -79,8 +123,8 @@ input:focus-visible {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 80%;
   margin: 0 auto;
-  padding: inherit 0;
+  padding: 0rem;
 }
 /*  */

@@ -9,7 +9,7 @@ function NewProducts({ data, title }) {
     <section className="container text-center">
       <div className=" flex justify-between mb-8">
         <h2 className="font-bold text-2xl mx-3">{title}</h2>
-        <div className=" relative flex text-green text-md">
+        <div className=" relative flex text-skin-primary text-md">
           <Link href="/" className="cursor-pointer">
             <div className="font-bold">
               <div className="mx-8"> مشاهده همه</div>

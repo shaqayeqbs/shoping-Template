@@ -9,6 +9,7 @@ import HeaderCarousel from "../@core/components/main/Slider/HeaderCarousel";
 export default function Home() {
   const headerCarousel = [
     {
+      id: "1",
       color: "#238B44",
       title: "تاثیرات گیاهان بر روان انسان",
       description: "رابطه بین گل و گیاه و سلامت روانی",
@@ -16,6 +17,7 @@ export default function Home() {
       image: "/images/plant.png",
     },
     {
+      id: "2",
       color: "#76A3A6",
       title: "تاثیرات گیاهان بر روان انسان",
       description: "رابطه بین گل و گیاه و سلامت روانی",
@@ -23,6 +25,7 @@ export default function Home() {
       image: "/images/slider1.png",
     },
     {
+      id: "3",
       color: "#c9A6A6",
       title: "تاثیرات گیاهان بر روان انسان",
       description: "رابطه بین گل و گیاه و سلامت روانی",
@@ -30,6 +33,7 @@ export default function Home() {
       image: "/images/slider1.png",
     },
     {
+      id: "4",
       color: "#76A7B6",
       title: "تاثیرات گیاهان بر روان انسان",
       description: "رابطه بین گل و گیاه و سلامت روانی",
@@ -39,12 +43,14 @@ export default function Home() {
   ];
   const eventDummyData = [
     {
+      id: "5",
       image: "/images/event.png",
       precent: "20٪",
       description: " انواع گیاهان آپارتمانی",
       color: "#238B44",
     },
     {
+      id: "6",
       image: "/images/event.png",
       precent: "15٪",
       description: " انواع تراریوم زینتی ",
@@ -53,12 +59,14 @@ export default function Home() {
   ];
   const event2_DummyData = [
     {
+      id: "7",
       image: "/images/event.png",
       title: "يک بغل محبت",
       description: "انواع دسته گل",
       color: "#EC8916",
     },
     {
+      id: "8",
       image: "/images/event.png",
       title: "انتخاب خاص و لوکس",
       description: "  انواع باکس های گل",
@@ -68,36 +76,32 @@ export default function Home() {
 
   const carousel = [
     {
+      id: "9",
       image: "/images/plant.png",
       price: "285,000",
       new: true,
     },
-    {
-      image: "/images/plant.png",
-      price: "285,000",
-      new: true,
-    },
-    {
-      image: "/images/plant.png",
-      price: "285,000",
-      new: true,
-    },
+    { id: "10", image: "/images/plant.png", price: "285,000", new: true },
+    { id: "11", image: "/images/plant.png", price: "285,000", new: true },
   ];
 
   const articles = [
     {
+      id: "12",
       image: "/images/article.png",
       title: "نحوه نگهداری سانسوریا",
       description:
         "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.صنعت چاپ و با استفاده از طراحان گرافیک است.",
     },
     {
+      id: "13",
       image: "/images/article.png",
       title: "نحوه نگهداری سانسوریا",
       description:
         "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.صنعت چاپ و با استفاده از طراحان گرافیک است.",
     },
     {
+      id: "14",
       image: "/images/article.png",
       title: "نحوه نگهداری سانسوریا",
       description:
@@ -118,19 +122,19 @@ export default function Home() {
       <main>
         <HeaderCarousel items={headerCarousel} />
         <Description />
-        <div className=" bg-green">
+        <div className=" bg-skin-fill">
           <AmazingSection />
         </div>
         <section className={classes}>
           {eventDummyData.map((item) => (
-            <Event event={item} />
+            <Event event={item} key={item.id} />
           ))}
         </section>
 
         <Slider title="گلدان های جدید" data={carousel} />
         <section className={classes}>
           {event2_DummyData.map((item) => (
-            <Event event={item} />
+            <Event event={item} key={item.id} />
           ))}
         </section>
         <Slider title="گیاهان آپارتمانی" data={carousel} />

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const mainColor = "rgb(35, 139, 68)";
 module.exports = {
   content: [
     "./pages/*.{html,js,jsx}",
@@ -7,7 +8,26 @@ module.exports = {
     "./@core/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    colors: { green: "#238b44" },
+    textColor: {
+      skin: {
+        primary: "var(--color-text-base)",
+        muted: "var(--color-text-muted)",
+      },
+    },
+    backgroundColor: {
+      skin: {
+        fill: "var(--color-fill)",
+        "button-primary": "var(--color-button-primary)",
+        "button-primary-hover": "var(--color-button-primary-hover)",
+      },
+      border: {
+        skin: {
+          primary: "red",
+        },
+      },
+    },
+
+    colors: { primary: "#238B44", second: "#56C679" },
     maxWidth: "initial",
     container: {
       padding: {
