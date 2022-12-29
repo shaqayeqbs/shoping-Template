@@ -3,6 +3,7 @@ import React from "react";
 function Logo() {
   return (
     <svg
+      className="border-0"
       width="61"
       height="61"
       viewBox="0 0 61 61"

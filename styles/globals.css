@@ -2,8 +2,129 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "IranSans";
+  src: url("../public/Fonts/iransansX family/IRANSansX-Regular.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "IranSans";
+  src: url("../public/Fonts/iransansX family/IRANSansX-Bold.ttf")
+    format("truetype");
+  font-weight: bold;
+  font-style: bold;
+}
+
+@layer base {
+  :root {
+    --color-text-base: #238b44;
+    --color-text-muted: #b4b4b4;
+    --color-text-subtitle: #6f6f6f;
+    --color-text-white: #ffffff;
+    --color-fill: #238b44;
+    --color-button-primary: "primary";
+    --color-button-primary-hover: "#56C679";
+  }
+  body {
+    @apply bg-[#f6f6f6] text-[#424242] tracking-wide;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-2xl text-[#424242];
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl;
+  }
+
+  li {
+    @apply cursor-pointer m-0;
+  }
+
+  button {
+    @apply rounded-xl hover:!text-[white] hover:border-0  hover:bg-[#56C679] uppercase border-2 border-primary;
+  }
+  /* a {
+    @apply hover:bg-[#56C679]  border-0 px-[2rem] py-[.8rem] w-[100%];
+  } */
+}
+*,
+html,
+body {
+  font-family: "IranSans", "Courier New", Courier, monospace;
+  direction: rtl;
+}
+
 html {
   direction: rtl;
+
   margin: 0;
   padding: 0;
 }
+.swiper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0rem;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  color: black;
+
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(180, 180, 180, 0.7);
+  background: transparent\10;
+  padding: 1rem;
+  padding-top: 1rem;
+  display: block;
+  font-size: 16px !important;
+  margin: 0 0rem;
+  border-radius: 50%;
+  font-weight: 900;
+}
+.swiper-button-prev:after {
+  margin-right: 1rem;
+}
+
+.swiper-button-next:after {
+  margin-left: 1rem;
+}
+
+.swiper-wrapper {
+  max-width: 100vh;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:focus-visible {
+  outline: 0;
+}
+.position-relative {
+  position: relative;
+}
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 0rem;
+}
+/*  */

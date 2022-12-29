@@ -2,20 +2,23 @@ import React, { memo } from "react";
 import Navbar from "./NavBar";
 import MyLinks from "./MyLinks";
 import classes from "./Layout.module.css";
+import Footer from "../components/footer/Footer";
 
 const Layout = ({ children }) => {
   return (
-    <div dir="rtl">
-      <section className="">
-        <main>
-          <div className={classes.navbar}>
-            <Navbar />
+    <>
+      <main>
+        <div className={classes.navbar}>
+          <Navbar />
+          <div className="container">
+            {" "}
             <MyLinks />
           </div>
-          {children}
-        </main>
-      </section>
-    </div>
+        </div>
+        {children}
+      </main>
+      <Footer />
+    </>
   );
 };
 
