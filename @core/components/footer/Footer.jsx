@@ -7,14 +7,14 @@ import Image from "next/image";
 
 function Footer() {
   const icons = [
-    { id: 1, icon: <Youtube size="32" /> },
+    { id: 6, icon: <Youtube size="32" /> },
     { id: 2, icon: <Instagram size="32" /> },
     { id: 3, icon: <SiTelegram size="32" /> },
     { id: 4, icon: <GrTwitter size="32" /> },
   ];
   console.log(data.links);
   return (
-    <footer className="container  !pt-16 border-t-2 border-primary !mt-16">
+    <footer className="container  !pt-16 border-t-2 border-primary !mt-16 ">
       <section className="flex justify-between">
         <div className="w-[30%] ml-16">
           <h2 className="text-xl">{data.title}</h2>
@@ -39,7 +39,7 @@ function Footer() {
           <h3 className="text-xl mb-6 text-center">لینک‌های مفید</h3>
           <div className=" bg-[r] text-left">
             {" "}
-            <ul className="grid grid-cols-2 w-full gap-2  justify-start text-sm text-right mr-16">
+            <ul className="grid grid-cols-2 w-full gap-2  justify-start text-sm text-right mr-8">
               {" "}
               {data?.links?.map((item) => (
                 <li
@@ -53,7 +53,7 @@ function Footer() {
           </div>
         </div>
         <div className="w-[30%]  text-left">
-          <div className=" flex justify-between w-[20%] text-skin-primary mb-4 mx-auto">
+          <div className=" flex justify-between w-[30%] text-skin-primary mb-4 mx-auto">
             {icons.map((item) => (
               <div
                 key={item.id}

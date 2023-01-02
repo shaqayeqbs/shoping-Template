@@ -24,11 +24,19 @@
     --color-text-subtitle: #6f6f6f;
     --color-text-white: #ffffff;
     --color-fill: #238b44;
+    --color-fill-oppacity: rgba(35, 139, 68, 0.1);
     --color-button-primary: "primary";
     --color-button-primary-hover: "#56C679";
   }
+  .ltr {
+    direction: ltr;
+  }
+  .blurr {
+    background: rgba(92, 92, 92, 0.59);
+    backdrop-filter: blur(11.5px);
+  }
   body {
-    @apply bg-[#f6f6f6] text-[#424242] tracking-wide;
+    @apply bg-[#f6f6f6] text-[#6f6f6f] tracking-wide text-[16px];
   }
 
   h1,
@@ -53,7 +61,7 @@
   }
 
   button {
-    @apply rounded-xl hover:!text-[white] hover:border-0  hover:bg-[#56C679] uppercase border-2 border-primary;
+    @apply rounded-xl hover:!text-[white] hover:border-[#56C679] p-1  hover:bg-[#56C679] uppercase border-2 border-primary;
   }
   /* a {
     @apply hover:bg-[#56C679]  border-0 px-[2rem] py-[.8rem] w-[100%];
@@ -79,6 +87,14 @@ html {
   height: 100%;
   text-align: center;
   padding: 0rem;
+}
+body.modal,
+html.modal,
+body.overlays,
+.html.overlays {
+  overflow: hidden !important;
+  position: fixed !important;
+  bottom: 0;
 }
 
 .swiper-button-next:after,

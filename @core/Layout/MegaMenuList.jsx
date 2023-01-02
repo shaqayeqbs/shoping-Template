@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./MegaMenu.module.css";
 import Link from "next/link";
 

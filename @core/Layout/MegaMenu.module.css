@@ -2,6 +2,7 @@
   display: flex;
 }
 .items {
+  overflow: hidden;
   color: #238b44;
   margin: 0rem 0;
   width: 100%;
@@ -10,7 +11,7 @@
 
 .items:hover {
   color: white;
-  /* background-color: #238b44; */
+  background-color: #238b44;
 
   text-align: right;
   border-radius: 6px;
