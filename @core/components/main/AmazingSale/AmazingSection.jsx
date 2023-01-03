@@ -8,10 +8,44 @@ const Carousel = dynamic(() => import("../carousel/carousel"), { ssr: false });
 
 function AmazingSection() {
   const [hours, minutes, seconds, Faminutes, FaHours, Faseconds] = useTimer();
+  const data = [
+    {
+      id: 1,
+      title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
+      src: "/images/plant.png",
+      precent: "   25%",
+      price: "285٬000",
+      lastPrice: "400٬000٬000",
+    },
+    {
+      id: 2,
+      title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
+      src: "/images/plant.png",
+      precent: "   25%",
+      price: "285٬000",
+      lastPrice: "400٬000٬000",
+    },
+    {
+      id: 3,
+      title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
+      src: "/images/plant.png",
+      precent: "   25%",
+      price: "285٬000",
+      lastPrice: "700٬000٬000",
+    },
+    {
+      id: 4,
+      title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
+      src: "/images/plant.png",
+      precent: "   25%",
+      lastPrice: "285٬000",
+      price: "300٬000٬000",
+    },
+  ];
   return (
-    <section className="container flex px-0 text-center w-full  !py-12 overflow-x-hidden ">
+    <section className="container flex px-0 text-center w-full  !py-9 overflow-x-hidden ">
       <div className="h-[30rem] bg-black">
-        <div className="bg-[white] rounded-2xl w-[100%] mx-0 p-[4%] h-[23rem]  ">
+        <div className="bg-[white] rounded-2xl w-[100%] mx-0 p-[4%] h-max  py-6 ">
           <div className="p-12">
             <Offer />
           </div>
@@ -26,8 +60,8 @@ function AmazingSection() {
             )}
           </div>
         </div>
-        <div className=" flex justify-center text-[white] m-4 ">
-          <Link href="/" className="">
+        <div className=" flex justify-center text-[white] m-4 pt-2">
+          <Link href="/products" className="py-4">
             مشاهده همه
           </Link>
           <AiOutlineLeft />
@@ -36,7 +70,7 @@ function AmazingSection() {
 
       <div className=" w-[135%]">
         {" "}
-        <Carousel />
+        <Carousel data={data} />
       </div>
     </section>
   );

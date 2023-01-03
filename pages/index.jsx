@@ -2,14 +2,14 @@ import Head from "next/head";
 import AmazingSection from "../@core/components/main/AmazingSale/AmazingSection";
 import Event from "../@core/components/main/Event";
 import Slider from "../@core/components/main/Slider/Slider";
-import AboutUs from "../@core/components/main/About/AboutUs";
+import AboutUsSection from "../@core/components/main/About/AboutUsSection";
 import Description from "../@core/components/main/About/Description";
 import HeaderCarousel from "../@core/components/main/Slider/HeaderCarousel";
 
 export default function Home() {
   const headerCarousel = [
     {
-      id: "1",
+      id: "130",
       color: "#238B44",
       title: "تاثیرات گیاهان بر روان انسان",
       description: "رابطه بین گل و گیاه و سلامت روانی",
@@ -139,7 +139,7 @@ export default function Home() {
         </section>
         <Slider title="گیاهان آپارتمانی" data={carousel} />
         <section className="my-10">
-          <AboutUs />
+          <AboutUsSection />
         </section>
         <Slider title="مقالات اخیر " data={articles} />
       </main>

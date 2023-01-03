@@ -1,9 +1,10 @@
 .navbar {
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 .logo {
   display: flex;
   place-content: space-between;
+  cursor: pointer;
 }
 .logo h2 {
   font-weight: 500;
@@ -14,14 +15,17 @@
 .btn {
   display: flex;
   color: #238b44;
-
   text-decoration-style: none;
   border: 0;
 }
+.btn button {
+  height: 3rem;
+  margin: 0 0.5rem;
+  margin-top: 0.5rem;
+}
 .btn svg,
 .btn a {
-  margin: 0.9rem 2rem;
-
+  margin: 0rem 1rem;
   border: 0;
 }
 .btn button {
@@ -33,13 +37,13 @@
   background: #238b44;
   border-radius: 6px;
   color: white;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 3em;
   text-align: center;
   justify-content: center;
   margin: 0 !important;
 }
 .links {
-  padding: 2rem 0rem;
+  padding: 1rem 1rem;
   padding-bottom: 1rem;
 }
 .links li {

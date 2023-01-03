@@ -11,12 +11,17 @@ function MegaMenu({ isOpen, onCloseModalHandler }) {
   };
   return (
     <div>
-      <Modal open={isOpen} onClose={onCloseModalHandler} selector="#portal">
+      <Modal
+        open={isOpen}
+        onClose={onCloseModalHandler}
+        selector="#portal"
+        MegaMenu={true}
+      >
         <ul className={classes.section}>
           <div>
-            {items.map((item, index) => (
+            {items.map((item) => (
               <MegaMenuList
-                key={index}
+                key={item.id}
                 item={item}
                 color
                 onChangeChildren={changeChildrenHandler}
@@ -24,8 +29,8 @@ function MegaMenu({ isOpen, onCloseModalHandler }) {
             ))}
           </div>
           <div>
-            {children.map((item, index) => (
-              <MegaMenuList key={index} item={item} />
+            {children.map((item) => (
+              <MegaMenuList key={item.id} item={item} />
             ))}
           </div>
         </ul>
