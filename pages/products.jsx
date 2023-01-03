@@ -3,6 +3,8 @@ import Pagination from "../@core/utils/Pagination";
 import OrderingList from "../@core/Helper/OrderingList";
 import FilterBar from "../@core/components/main/shop/filter/filterBar";
 import List from "../@core/components/main/Slider/List";
+import Categories from "../@core/components/main/Categories";
+
 function AllProducts() {
   const data = [
     {
@@ -219,11 +221,12 @@ function AllProducts() {
   ];
   return (
     <main className="container">
+      <Categories data={data} />
       <div className=" flex justify-between">
-        <div className="w-[18%]">
+        <div className="w-[21%]">
           <FilterBar />
         </div>
-        <div className="w-[80%]">
+        <div className="w-[77%]">
           <OrderingList data={SortList} />
           <List data={data} offcerPage={true} />
         </div>

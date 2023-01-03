@@ -12,6 +12,7 @@ module.exports = {
       skin: {
         primary: "var(--color-text-base)",
         muted: "var(--color-text-muted)",
+        color: "var(--color-border-melo)",
       },
     },
     backgroundColor: {
@@ -21,14 +22,13 @@ module.exports = {
         "button-primary": "var(--color-button-primary)",
         "button-primary-hover": "var(--color-button-primary-hover)",
       },
-      border: {
-        skin: {
-          primary: "red",
-        },
-      },
     },
 
-    colors: { primary: "#238B44", second: "#56C679" },
+    colors: {
+      primary: "#238B44",
+      second: "#56C679",
+      bordercolor: "var(--color-border-melo)",
+    },
     maxWidth: "initial",
     container: {
       padding: {

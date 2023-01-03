@@ -26,7 +26,7 @@ function List({ data, offcerPage, articles }) {
                 </div>
                 <div className={classes.flex}>
                   <div>
-                    <div className="text-[24px]">{item.lastPrice}</div>
+                    <div className="text-[130%]">{item.lastPrice}</div>
                     <p>{item.price}</p>
                   </div>
                   <div className="mt-[.3rem] mr-2">تومان</div>

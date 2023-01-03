@@ -27,6 +27,7 @@
     --color-fill-oppacity: rgba(35, 139, 68, 0.1);
     --color-button-primary: "primary";
     --color-button-primary-hover: "#56C679";
+    --color-border-melo: #f8f8f8;
   }
   .ltr {
     direction: ltr;
