@@ -4,7 +4,6 @@ import Link from "next/link";
 
 function MegaMenuList({ item, color, onChangeChildren }) {
   const setBtnActive = (e) => {
-    console.log(e.target.value);
     onChangeChildren(item);
   };
   return (

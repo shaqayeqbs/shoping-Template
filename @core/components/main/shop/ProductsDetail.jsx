@@ -16,7 +16,7 @@ const carousel = [
 
 function ProductsDetail({ item }) {
   const [hours, minutes, seconds, Faminutes, FaHours, Faseconds] = useTimer();
-  console.log({ item });
+
   const timerBtn = "bg-skin-opacity p-2 px-4 text-skin-primary rounded-md";
   const timerDevider = "text-skin-primary mx-2";
   return (

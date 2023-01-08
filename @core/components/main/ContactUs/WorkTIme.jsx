@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 function WorkTIme() {
   const [workTimes] = useSelector((state) => [state.businessSlice.workTimes]);
-  console.log({ workTimes });
+
   const weekData = [];
 
   const dayMaker = (index, day, times) => {
@@ -11,8 +11,6 @@ function WorkTIme() {
     for (var i = 0; i < workTimes.length; i++) {
       if (weekData[i]?.day == day) {
         found = true;
-        console.log("object", day);
-        console.log({ times });
         const startTime = times[0].startTime;
         const endTime = times[0].endTime;
         return weekData[i].times.push({ startTime, endTime });
@@ -20,7 +18,6 @@ function WorkTIme() {
     }
 
     if (!found) {
-      console.log({ day, times });
       weekData.push({ index, day, times });
     }
   };
@@ -56,8 +53,6 @@ function WorkTIme() {
     }
   });
 
-  console.log({ weekData });
-
   let options = {
     weekday: "long",
   };
@@ -71,7 +66,7 @@ function WorkTIme() {
       <ul className="flex w-full my-8">
         {weekData.map((item) => (
           <li
-            key={item.id}
+            key={item.index}
             className={
               item.day === today
                 ? "w-full !text-[white] bg-skin-fill ml-6 rounded-xl p-4 text-center"
@@ -79,8 +74,9 @@ function WorkTIme() {
             }
           >
             <div>{item.day}</div>
-            {item?.times.map((elemnt) => (
+            {item?.times.map((elemnt, index) => (
               <div
+                key={index}
                 className={
                   item.day === today
                     ? " text-[white] my-1"

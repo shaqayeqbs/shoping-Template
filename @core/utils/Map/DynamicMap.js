@@ -7,8 +7,13 @@ import "leaflet/dist/leaflet.css";
 
 const { MapContainer } = ReactLeaflet;
 
-const Map = ({ children, className, width, height, ...rest }) => {
+const Map = ({ children, className, width, height, center, zoom, ...rest }) => {
   let mapClassName = "w-[100%] h-[80%] my-10 rounded-lg";
+  function ChangeView({ center, zoom }) {
+    const map = ReactLeaflet.useMap();
+    map.setView(center, zoom);
+    return null;
+  }
 
   if (className) {
     mapClassName = `${mapClassName} ${className}`;
@@ -27,6 +32,7 @@ const Map = ({ children, className, width, height, ...rest }) => {
 
   return (
     <MapContainer className={mapClassName} {...rest}>
+      <ChangeView center={center} zoom={zoom} />
       {children(ReactLeaflet, Leaflet)}
     </MapContainer>
   );

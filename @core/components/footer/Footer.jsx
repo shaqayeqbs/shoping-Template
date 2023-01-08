@@ -14,8 +14,7 @@ function Footer() {
     { id: 3, icon: <SiTelegram size="32" /> },
     { id: 4, icon: <GrTwitter size="32" /> },
   ];
-  console.log({ addresses });
-  console.log(data.links);
+
   return (
     <footer className="container block !pt-16 border-t-2 border-primary !mt-16 ">
       <section className="!text-center mx-auto block   md:flex justify-between ">

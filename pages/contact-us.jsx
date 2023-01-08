@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Call, Location } from "iconsax-react";
 import HeartShine from "../@core/icons/HeartShine";
 import WorkTIme from "../@core/components/main/ContactUs/WorkTIme";
@@ -6,14 +6,24 @@ import Map from "../@core/utils/Map/Map";
 import { useSelector } from "react-redux";
 
 function contactUs() {
-  let [lat, lng] = [0, 0];
-  const address = useSelector((state) => state.businessSlice.addresses);
-  console.log(address[0]?.address, "kkkkkkkkkkkkk");
-  if (address[0]?.address) {
-    lat = +address[0]?.address?.lat;
-    lng = +address[0]?.address?.lng;
-  }
-  console.log({ lat, lng });
+  const [lat, setLat] = useState(0);
+  const [lng, setLng] = useState(0);
+  const [defaultCenter, setDefaultCenter] = useState([0, 0]);
+  const [address, connections] = useSelector((state) => [
+    state.businessSlice.addresses,
+    state.businessSlice.connections,
+  ]);
+  console.log(connections);
+  console.log(address[0]?.address?.address);
+
+  useEffect(() => {
+    if (address[0]?.address) {
+      setLat(+address[0]?.address?.lat);
+      setLng(+address[0]?.address?.lng);
+    }
+    setDefaultCenter([lat, lng]);
+  }, [address, lat]);
+
   const dataList = [
     {
       id: 1,
@@ -31,11 +41,12 @@ function contactUs() {
       id: 3,
       title: " آدرس ",
       icon: <Location variant="Bold" size={36} />,
-      items: ["رشت، بیستون ، خیابان طالقانی، خیابان سردار جنگل ، پلاک -۴۷۸"],
+      items: [address[0]?.address?.address],
     },
   ];
 
   const DEFAULT_CENTER = [lat, lng];
+  console.log(defaultCenter, "fffffffffffff", DEFAULT_CENTER);
   return (
     <section className="container">
       <h1>راه های ارتباطی</h1>
@@ -43,7 +54,7 @@ function contactUs() {
         {dataList.map((item) => (
           <div
             key={item.id}
-            className="bg-[white] flex justify-between ml-4 w-full rounded-md  py-3 mt-10 px-2  pt-8 "
+            className="bg-[white] flex justify-between ml-4 w-full rounded-md  py-4 mt-10 px-4  pt-8 "
           >
             <div>
               <div className="bg-skin-fill flex mx-10 align-middle text-[white]  w-[3rem] h-[3rem] text-center rounded-full p-2  px-[0.6rem]">
@@ -60,10 +71,10 @@ function contactUs() {
                   : "my-2 text-center mx-3 "
               }
             >
-              {item.items.map((item) => (
+              {item.items.map((item, index) => (
                 <div
                   dir="ltr"
-                  key={item}
+                  key={index}
                   className="text-center ltr my-2 w-full "
                 >
                   {item}
@@ -75,10 +86,12 @@ function contactUs() {
       </div>
       <div className="mt-4">
         <Map
+          readOnly
+          zoomControl={false}
           width="800"
           height="300"
-          center={DEFAULT_CENTER}
-          zoom={10}
+          center={defaultCenter}
+          zoom={5}
           className="rounded-2xl"
         >
           {({ TileLayer, Marker, Popup }) => (
@@ -87,10 +100,8 @@ function contactUs() {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               />
-              <Marker position={DEFAULT_CENTER}>
-                <Popup>
-                  A pretty CSS3 popup. <br /> Easily customizable.
-                </Popup>
+              <Marker position={defaultCenter} Location={defaultCenter}>
+                <Popup></Popup>
               </Marker>
             </>
           )}

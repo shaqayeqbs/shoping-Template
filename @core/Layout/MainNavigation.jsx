@@ -57,7 +57,6 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
 function Nav({ nav, selector, handleNav }) {
   const [mounted, setMounted] = useState(false);
 
-  console.log(nav);
   useEffect(() => {
     setMounted(true);
     return () => setMounted(false);

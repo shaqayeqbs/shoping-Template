@@ -11,14 +11,13 @@ import Image from "next/image";
 function NavBar({ onCloseModalHandler }) {
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const authHandler = () => {
-    console.log({ openAuthModal });
     setOpenAuthModal((prevState) => !prevState);
   };
   const [businessName, logo] = useSelector((state) => [
     state.businessSlice.name,
     state.businessSlice.logo,
   ]);
-  console.log({ logo });
+
   const myLoader = ({ src }) => {
     return logo;
   };

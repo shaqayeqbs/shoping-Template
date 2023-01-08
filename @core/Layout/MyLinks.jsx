@@ -7,7 +7,7 @@ import { Headerlinks } from "../data/headerLinks";
 
 function MyLinks({ onAddClose, showMenu, openModal, mobile }) {
   const router = useRouter();
-  console.log(router.pathname);
+
   return (
     <>
       {showMenu && (
