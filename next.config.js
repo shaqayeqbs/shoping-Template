@@ -9,6 +9,17 @@
 // });
 
 module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "core.behzi.net",
+        domains: ["core.behzi.net"],
+        port: "",
+        pathname: "/**/**",
+      },
+    ],
+  },
   module: {
     rules: [
       {

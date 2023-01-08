@@ -1,8 +1,6 @@
 import axios from "axios";
 import APP_CONFIG from "../constants/app-config";
-import logout from "../../components/Hepler/logout";
-import { serverError } from "../constants/toasts-messages";
-import { SiIpfs } from "react-icons/si";
+// import logout from "../../components/Hepler/logout";
 
 export function getLocalAccessToken() {
   const accessToken = localStorage.getItem("token");
@@ -10,11 +8,11 @@ export function getLocalAccessToken() {
 }
 
 const instance = axios.create({
-  baseURL: APP_CONFIG.apiBaseUrl + "/api/v1/",
+  baseURL: APP_CONFIG.apiBaseUrl,
   headers: {
     "Content-Type": "application/json",
-    // "Access-Control-Allow-Origin": "*",
-    // "Access-Control-Allow-Credentials": "*",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Credentials": "*",
     // withCredentials: false,
   },
 });
@@ -43,17 +41,17 @@ instance.interceptors.response.use(
       if (err.code === "ERR_NETWORK" || err.code === "ECONNABORTED") {
         return err.code;
       }
-      if (err.response.status === 503) {
-        serverError();
-      }
-      if (err.response.status === 503 && !token) {
-        serverError();
-      }
+      // if (err.response.status === 503) {
+      //   serverError();
+      // }
+      // if (err.response.status === 503 && !token) {
+      //   serverError();
+      // }
 
-      if (err.response.status === 401) {
-        console.log("checked user Auth", err.response.status);
-        logout();
-      }
+      // if (err.response.status === 401) {
+      //   console.log("checked user Auth", err.response.status);
+      //   logout();
+      // }
       return;
     } catch (_error) {
       // return Promise.reject(_error);

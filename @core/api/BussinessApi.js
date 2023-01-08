@@ -1,12 +1,13 @@
 import instance from "../utils/request.js";
 import END_POINTS from "../constants/endpoints";
 
-export const accountList = async () => {
+export const bussinessByDomainApi = async () => {
   try {
-    const res = await instance.get(END_POINTS.account_list);
-
-    if (res?.data) {
-      return res?.data[0];
+    console.log(END_POINTS.getSpecifiedBusinessBydDomain);
+    const res = await instance.get(END_POINTS.getSpecifiedBusinessBydDomain);
+    console.log(res);
+    if (res?.data?.data) {
+      return res.data.data;
     } else {
       return res;
     }

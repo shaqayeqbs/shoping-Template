@@ -227,7 +227,7 @@ function Offer() {
     <>
       <section className="bg-skin-fill py-16 mt-4">
         <div className="container">
-          <h1 className="text-center text-[white] mb-10 tracking-wide text-5xl">
+          <h1 className="text-center text-[white] mb-10  text-5xl">
             تخفیفات شگفت انگیز
           </h1>
 

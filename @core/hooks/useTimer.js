@@ -42,6 +42,7 @@ export default function useTimer() {
       clearInterval(myInterval);
     };
   });
+  const farsMin = digitsEnToFa(Faminutes);
 
-  return [hours, minutes, seconds, Faminutes, FaHours, Faseconds];
+  return [hours, minutes, seconds, farsMin, FaHours, Faseconds];
 }

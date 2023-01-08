@@ -9,6 +9,8 @@ const END_POINTS = {
   analyze_account: "instagram/analyze/account?",
   clone_post: "instagram/post/clone/account",
   analyze_post_account: "instagram/analyze/post/account?",
+  /////////////
+  getSpecifiedBusinessBydDomain: "api/business/byDomin/zaay.ir?lang=fa",
 };
 
 export const COMPETITOR_END_PONINTS = {

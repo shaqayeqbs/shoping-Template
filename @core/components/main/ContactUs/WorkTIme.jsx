@@ -1,87 +1,95 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 function WorkTIme() {
-  const data = [
-    {
-      id: 1,
-      day: "شنبه",
-      startTime: "14:30 تا 16:30",
-      endTime: "14:30 تا 16:30",
-    },
-    {
-      id: 2,
-      day: " یکشنبه ",
-      startTime: "14:30 تا 16:30",
-      endTime: "14:30 تا 16:30",
-    },
-    {
-      id: 3,
-      day: "دوشنبه",
-      startTime: "14:30 تا 16:30",
-      endTime: "14:30 تا 16:30",
-    },
-    {
-      id: 4,
-      day: "سه شنبه",
-      startTime: "14:30 تا 16:30",
-      endTime: "14:30 تا 16:30",
-    },
-    {
-      id: 5,
-      day: "چهارشنبه",
-      startTime: "14:30 تا 16:30",
-      endTime: "14:30 تا 16:30",
-    },
-    {
-      id: 6,
-      day: "پنج شنبه",
-      startTime: "14:30 تا 16:30",
-      endTime: "14:30 تا 16:30",
-    },
-    {
-      id: 7,
-      day: "جمعه",
-      startTime: "14:30 تا 16:30",
-      endTime: "14:30 تا 16:30",
-    },
-  ];
+  const [workTimes] = useSelector((state) => [state.businessSlice.workTimes]);
+  console.log({ workTimes });
+  const weekData = [];
+
+  const dayMaker = (index, day, times) => {
+    var found = false;
+    for (var i = 0; i < workTimes.length; i++) {
+      if (weekData[i]?.day == day) {
+        found = true;
+        console.log("object", day);
+        console.log({ times });
+        const startTime = times[0].startTime;
+        const endTime = times[0].endTime;
+        return weekData[i].times.push({ startTime, endTime });
+      }
+    }
+
+    if (!found) {
+      console.log({ day, times });
+      weekData.push({ index, day, times });
+    }
+  };
+  workTimes.map((item) => {
+    const startTime = item.start_time.slice(0, 5);
+    const endTime = item.end_time.slice(0, 5);
+    const times = [{ startTime, endTime }];
+    switch (item.week_day.index) {
+      case 0:
+        dayMaker(0, "شنبه", times);
+        break;
+      case 1:
+        dayMaker(1, "یکشنبه", times);
+        break;
+      case 2:
+        dayMaker(2, "دوشنبه", times);
+        break;
+      case 3:
+        dayMaker(3, "سه‌شنبه", times);
+        break;
+      case 4:
+        dayMaker(4, "چهارشنبه", times);
+        break;
+      case 5:
+        dayMaker(6, "پنج شنبه", times);
+        break;
+      case 6:
+        dayMaker(7, "جمعه ", times);
+        break;
+
+      default:
+      // code block
+    }
+  });
+
+  console.log({ weekData });
+
   let options = {
     weekday: "long",
   };
   let today = new Date().toLocaleDateString("fa-IR", options);
-  console.log(today);
+
+  weekData.sort((a, b) => (a.index > b.index ? 1 : b.index > a.index ? -1 : 0));
+
   return (
     <section className="mb-4">
       <h1>ساعات کاری</h1>
-      <ul className="flex w-full my-10">
-        {data.map((item) => (
+      <ul className="flex w-full my-8">
+        {weekData.map((item) => (
           <li
             key={item.id}
             className={
               item.day === today
-                ? "w-full text-[white] bg-skin-fill ml-6 rounded-xl p-4 text-center"
+                ? "w-full !text-[white] bg-skin-fill ml-6 rounded-xl p-4 text-center"
                 : "w-full bg-[white] ml-6 rounded-xl p-4 text-center"
             }
           >
             <div>{item.day}</div>
-            <div
-              className={
-                item.day === today
-                  ? " text-[white] my-1"
-                  : "text-skin-primary my-1"
-              }
-            >
-              {item.startTime}
-            </div>
-            <div
-              className={
-                item.day === today
-                  ? " text-[white] my-1"
-                  : "text-skin-primary my-1"
-              }
-            >
-              {item.endTime}
-            </div>
+            {item?.times.map((elemnt) => (
+              <div
+                className={
+                  item.day === today
+                    ? " text-[white] my-1"
+                    : "text-skin-primary my-1"
+                }
+              >
+                {elemnt.startTime} تا {elemnt.endTime}
+              </div>
+            ))}
           </li>
         ))}
       </ul>

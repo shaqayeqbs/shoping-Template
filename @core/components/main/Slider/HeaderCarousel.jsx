@@ -4,7 +4,8 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import { ArrowRight2, ArrowLeft2, Key } from "iconsax-react";
+
+import { ArrowRight2, ArrowLeft2 } from "iconsax-react";
 import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper";
 import Image from "next/image";
 
@@ -20,7 +21,7 @@ function HeaderCarousel({ items }) {
   };
 
   return (
-    <div className="mb-8  relative">
+    <div className="mb-8  h-max relative">
       <Swiper
         breakpoints={{
           700: {
@@ -44,11 +45,13 @@ function HeaderCarousel({ items }) {
           <SwiperSlide
             key={item.id}
             style={{ backgroundColor: item.color }}
-            className="py-12 pb-28"
+            className="py-12 pb-28 "
           >
-            <div className="container flex justify-between  bg-[white] !p-[.5%] rounded-lg text-right">
-              <div className="translate-y-[12%] p-9">
-                <h1 className="font-bold text-4xl  my-8 ">{item.title}</h1>
+            <div className="container flex justify-between  cadr   ">
+              <div className="translate-y-[5%] p-9">
+                <h1 className=" text-[32px] leading-[54.5px] font-extrabold  my-8 ">
+                  {item.title}
+                </h1>
                 <p className="text-lg">{item.description}</p>
                 <button
                   className="border-2 rounded-xl p-2 px-8 my-8 "
@@ -68,7 +71,7 @@ function HeaderCarousel({ items }) {
         ))}
       </Swiper>
 
-      <div className="absolute bottom-11 cursor-pointer w-[25%] right-[18%] ">
+      <div className="absolute bottom-11 cursor-pointer w-[25%] right-[18%] 2xl:right-[23%]  3xl:right-[33%]">
         <Swiper
           onSwiper={setThumbsSwiper}
           loop={true}

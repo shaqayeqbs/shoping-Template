@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Headerlinks } from "../data/headerLinks";
 
-function MyLinks({ onAddClose, showMenu, openModal }) {
+function MyLinks({ onAddClose, showMenu, openModal, mobile }) {
   const router = useRouter();
   console.log(router.pathname);
   return (
@@ -13,8 +13,8 @@ function MyLinks({ onAddClose, showMenu, openModal }) {
       {showMenu && (
         <MegaMenu isOpen={showMenu} onCloseModalHandler={onAddClose} />
       )}
-      <ul className={classes.links}>
-        <li>
+      <ul className={!mobile ? classes.links : ""}>
+        <li className={!mobile ? "" : " my-4"}>
           <div onMouseEnter={openModal}> دسته بندی</div>
         </li>
 
@@ -26,7 +26,9 @@ function MyLinks({ onAddClose, showMenu, openModal }) {
               router.pathname == item.href ? "text-skin-primary font-bold" : ""
             }
           >
-            <Link href={item.href}>{item.title}</Link>
+            <div className={!mobile ? "" : " my-4"}>
+              <Link href={item.href}>{item.title}</Link>
+            </div>
           </li>
         ))}
       </ul>

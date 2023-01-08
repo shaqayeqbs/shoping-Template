@@ -4,29 +4,33 @@ import { Youtube, Instagram, Location, Call } from "iconsax-react";
 import { SiTelegram } from "react-icons/si";
 import { GrTwitter } from "react-icons/gr";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
 function Footer() {
+  const addresses = useSelector((state) => state.businessSlice.addresses);
   const icons = [
     { id: 6, icon: <Youtube size="32" /> },
     { id: 2, icon: <Instagram size="32" /> },
     { id: 3, icon: <SiTelegram size="32" /> },
     { id: 4, icon: <GrTwitter size="32" /> },
   ];
+  console.log({ addresses });
   console.log(data.links);
   return (
-    <footer className="container  !pt-16 border-t-2 border-primary !mt-16 ">
-      <section className="flex justify-between">
-        <div className="w-[30%] ml-16">
-          <h2 className="text-xl">{data.title}</h2>
-          {data?.address.map((item) => (
-            <div className="my-8" key={item.id}>
+    <footer className="container block !pt-16 border-t-2 border-primary !mt-16 ">
+      <section className="!text-center mx-auto block   md:flex justify-between ">
+        <div className="p-6 md:p-0 text-center mx-auto  w-[100%] md:w-fit md:ml-16">
+          <h2 className="text-xl text-center">{data.title}</h2>
+          {addresses?.map((item, index) => (
+            <div className="my-8" key={index}>
               <div className="flex">
                 <Location
                   size="32"
                   className="text-skin-primary ml-2"
                   variant="Bold"
                 />
-                {item.detail}
+                <span className="ml-2"> {item.name}-</span>
+                <span>{item.address.address}</span>
               </div>
             </div>
           ))}
@@ -35,15 +39,15 @@ function Footer() {
             <div>{data.phone}</div>
           </div>
         </div>
-        <div className="w-[29%] text-left ">
+        <div className="w-[100%] lg:w-[59%] md:text-left  p-6 md:p-0 ">
           <h3 className="text-xl mb-6 text-center">لینک‌های مفید</h3>
-          <div className=" bg-[r] text-left">
+          <div className="  mx-auto  ">
             {" "}
-            <ul className="grid grid-cols-2 w-full gap-2  justify-start text-sm text-right mr-8">
+            <ul className="lg:grid grid-cols-2  text-center  w-full gap-2  justify-start text-sm lg:text-right mr-8 mx-auto">
               {" "}
               {data?.links?.map((item) => (
                 <li
-                  className="mx-0 w-[60%] list-disc marker:text-skin-primary marker:text-2xl "
+                  className="w-[70%] md:w-[100%] list-disc marker:text-skin-primary marker:text-center text-center md:text-right marker:text-2xl "
                   key={item.id}
                 >
                   {item.title}
@@ -52,41 +56,44 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div className="w-[30%]  text-left">
-          <div className=" flex justify-between w-[30%] text-skin-primary mb-4 mx-auto">
+        <div className=" text-left">
+          <div className="text-center mx-auto  flex justify-between  text-skin-primary mb-4 ">
             {icons.map((item) => (
               <div
                 key={item.id}
-                className="bg-[white] h-[2.5rem] w-[2.5rem] p-1 rounded-md mx-2 "
+                className="bg-[white] h-[2.5rem] md:w-[2.5rem] p-1 rounded-md mx-2 "
               >
                 {item.icon}
               </div>
             ))}
           </div>
-          <div className="flex justify-end my-12 text-left">
-            <div>
-              <Image
-                height="100"
-                width="100"
-                src="/images/footer/footer1.svg"
-                alt="Your SVG"
-              />
-            </div>
-            <div>
-              <Image
-                height="100"
-                width="100"
-                src="/images/footer/footer2.svg"
-                alt="Your SVG"
-              />
-            </div>
-            <div>
-              <Image
-                height="100"
-                width="100"
-                src="/images/footer/footer3.svg"
-                alt="Your SVG"
-              />
+          <div className="mx-auto !text-center  my-12 md:text-left">
+            <div className=" flex justify-center  md:justify-end mx-auto text-center">
+              {" "}
+              <div>
+                <Image
+                  height="100"
+                  width="100"
+                  src="/images/footer/footer1.svg"
+                  alt="Your SVG"
+                />
+              </div>
+              <div>
+                <Image
+                  height="100"
+                  width="100"
+                  src="/images/footer/footer2.svg"
+                  alt="Your SVG"
+                />
+              </div>
+              <div>
+                <Image
+                  height="100"
+                  width="100"
+                  src="/images/footer/footer3.svg"
+                  alt="Your SVG"
+                />
+              </div>
             </div>
           </div>
         </div>

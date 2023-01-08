@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 
-function aboutUp() {
+function aboutUs() {
   return (
     <section className="container">
-      <h2 className="text-center my-4">درباره هیوا گاردن 🌱</h2>
+      <h1 className="text-center my-4">درباره هیوا گاردن 🌱</h1>
       <div className=" my-12">
         <Image
           src="/images/about.png"
@@ -32,4 +32,4 @@ function aboutUp() {
   );
 }
 
-export default aboutUp;
+export default aboutUs;

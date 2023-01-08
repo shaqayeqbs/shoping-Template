@@ -6,8 +6,8 @@ const Carousel = dynamic(() => import("./Carousel"), { ssr: false });
 
 function NewProducts({ data, title }) {
   return (
-    <section className="container text-center">
-      <div className=" flex justify-between mb-8">
+    <section className="container block  text-center">
+      <div className=" flex justify-between my-8">
         <h2 className="font-bold text-2xl mx-3">{title}</h2>
         <div className=" relative flex text-skin-primary text-md">
           <Link href="/products" className="cursor-pointer">

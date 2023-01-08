@@ -16,6 +16,13 @@
   font-weight: bold;
   font-style: bold;
 }
+@font-face {
+  font-family: "IranSansXFaNum";
+  src: url("../public/Fonts/Farsi numerals/IRANSansXFaNum-Bold.ttf")
+    format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
 
 @layer base {
   :root {
@@ -32,12 +39,20 @@
   .ltr {
     direction: ltr;
   }
+  .cadr {
+    display: block;
+    width: 95%;
+    padding: 9px !important;
+    background-color: white;
+    border-radius: 15px;
+    text-align: center;
+  }
   .blurr {
     background: rgba(92, 92, 92, 0.59);
     backdrop-filter: blur(11.5px);
   }
   body {
-    @apply bg-[#f6f6f6] text-[#6f6f6f] tracking-wide text-[16px];
+    @apply bg-[#f6f6f6] text-[#424242]   text-[16px] text-justify;
   }
 
   h1,
@@ -50,11 +65,11 @@
   }
 
   h1 {
-    @apply text-2xl text-[#424242];
+    @apply text-[36px] leading-[44px];
   }
 
   h2 {
-    @apply text-3xl sm:text-4xl;
+    @apply text-base;
   }
 
   li {
@@ -62,16 +77,19 @@
   }
 
   button {
-    @apply rounded-xl hover:!text-[white] hover:border-[#56C679] p-1  hover:bg-[#56C679] uppercase border-2 border-primary;
+    @apply rounded-xl hover:!text-[white] hover:border-[#56C679] p-1  hover:bg-[#56C679] uppercase border-2 border-primary text-center active:bg-[#098330];
   }
-  /* a {
-    @apply hover:bg-[#56C679]  border-0 px-[2rem] py-[.8rem] w-[100%];
-  } */
+  a {
+    @apply hover:text-[#56C679] active:text-skin-primary  border-0  py-[1rem] w-[100%]  active:text-[#098330];
+  }
+  p {
+    @apply text-justify tracking-tighter text-[#6f6f6f];
+  }
 }
 *,
 html,
 body {
-  font-family: "IranSans", "Courier New", Courier, monospace;
+  font-family: "IranSans", "IranSansXFaNum", Courier, monospace;
   direction: rtl;
 }
 
@@ -140,8 +158,13 @@ input:focus-visible {
 }
 
 .container {
-  max-width: 80%;
+  width: 80%;
+  max-width: 1116px;
   margin: 0 auto;
   padding: 0rem;
+  height: max-content;
+}
+.swiper-slide {
+  height: 50% !important;
 }
 /*  */
