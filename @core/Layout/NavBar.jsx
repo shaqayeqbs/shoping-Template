@@ -1,18 +1,26 @@
 import React, { useState } from "react";
 import classes from "./Layout.module.css";
-import Logo from "../icons/Logo";
+
 import { SearchNormal1, Bag2 } from "iconsax-react";
 import ModalVerification from "./modals/ModalVerification";
 import ProfileDrop from "../components/main/Profile/ProfileDrop";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import Image from "next/image";
 
 function NavBar({ onCloseModalHandler }) {
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const authHandler = () => {
-    console.log({ openAuthModal });
     setOpenAuthModal((prevState) => !prevState);
   };
+  const [businessName, logo] = useSelector((state) => [
+    state.businessSlice.name,
+    state.businessSlice.logo,
+  ]);
 
+  const myLoader = ({ src }) => {
+    return logo;
+  };
   return (
     <>
       {<ModalVerification isOpen={openAuthModal} onClose={authHandler} />}
@@ -21,12 +29,15 @@ function NavBar({ onCloseModalHandler }) {
         onMouseEnter={onCloseModalHandler}
       >
         <Link href="/">
-          <div className={classes.logo}>
-            {" "}
-            <div>
-              <Logo />
-            </div>
-            <h2 className="">باغ هیوا</h2>
+          <div className="flex">
+            <Image
+              src="http://core.behzi.net/storage/image/business/logo/1670323071.png"
+              width={50}
+              height={50}
+              loader={myLoader}
+              alt="logo"
+            />
+            <h2 className="mt-5 mx-2"> {businessName}</h2>
           </div>
         </Link>
         <div className="flex">
@@ -41,9 +52,12 @@ function NavBar({ onCloseModalHandler }) {
               <Bag2 size="28" />
             </button>
 
-            <button onClick={authHandler}> ثبت نام | ورود</button>
+            <button onClick={authHandler} className={classes.register}>
+              {" "}
+              ثبت نام | ورود
+            </button>
           </div>
-          <div className="mr-4">
+          <div className="">
             <ProfileDrop />
           </div>
         </div>

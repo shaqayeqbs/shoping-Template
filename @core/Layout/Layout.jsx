@@ -1,8 +1,8 @@
 import React, { memo, useState, useEffect } from "react";
-import Navbar from "./NavBar";
-import MyLinks from "./MyLinks";
+
 import classes from "./Layout.module.css";
 import Footer from "../components/footer/Footer";
+import MainNavigation from "./MainNavigation";
 
 const Layout = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -24,7 +24,15 @@ const Layout = ({ children }) => {
     <>
       <main>
         <div className={classes.navbar}>
-          <Navbar onCloseModalHandler={onCloseHandler} />
+          <MainNavigation
+            open={showMenu}
+            selector="#portal"
+            onCloseModalHandler={onCloseHandler}
+            onCloseHandler={onCloseHandler}
+            openModalHandler={openModalHandler}
+            showMenu={showMenu}
+          />
+          {/* <Navbar onCloseModalHandler={onCloseHandler} />
           <div className="container">
             {" "}
             <MyLinks
@@ -32,7 +40,7 @@ const Layout = ({ children }) => {
               openModal={openModalHandler}
               showMenu={showMenu}
             />
-          </div>
+          </div> */}
         </div>
         {children}
       </main>

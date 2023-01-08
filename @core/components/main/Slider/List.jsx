@@ -3,13 +3,14 @@ import TimeHistory from "../../../icons/TimeHistory";
 import useTimer from "../../../hooks/useTimer";
 import classes from "../carousel/Carousel.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 function List({ data, offcerPage, articles }) {
   const [hours, minutes, seconds, Faminutes, FaHours, Faseconds] = useTimer();
   return (
     <ul className="grid grid-cols-1 md:grid-cols-4">
       {data?.map((item) => (
-        <li key={item.id}>
+        <Link href={`/products/${item.id}`} key={item.id}>
           <div className={classes.CarouselItem}>
             <Image
               alt="slider photo"
@@ -49,7 +50,7 @@ function List({ data, offcerPage, articles }) {
               </div>
             )}
           </div>
-        </li>
+        </Link>
       ))}
     </ul>
   );

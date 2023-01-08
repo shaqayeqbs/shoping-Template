@@ -1,6 +1,6 @@
 const APP_CONFIG = {
   defaultLang: "fa",
-  apiBaseUrl: "http://116.203.93.62:8000",
+  apiBaseUrl: "http://core.behzi.net",
 };
 
 export default APP_CONFIG;

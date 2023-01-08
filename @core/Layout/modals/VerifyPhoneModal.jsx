@@ -28,7 +28,7 @@ function VerifyPhoneModal({ onMobileVerified }) {
   };
 
   return (
-    <section className="m-16 mx-auto w-[50%]">
+    <section className="m-16 mx-auto w-[52%]">
       <h3>
         ثبت نام
         <span className="text-skin-primary"> | </span>
@@ -45,7 +45,7 @@ function VerifyPhoneModal({ onMobileVerified }) {
           id="phone"
           name="phone"
           ref={phoneInputRef}
-          className="border-2 w-full border-primary rounded-[6.3px] h-[40px] "
+          className="border-2 w-full border-primary rounded-[6.3px] h-[40px] p-3"
         />
         <p className="text-[10px] my-2 text-[#6f6f6f]">مثال: 09112345678</p>
         <div className="text-[12px] my-2 text-black font-medium">
@@ -69,10 +69,10 @@ function VerifyPhoneModal({ onMobileVerified }) {
       </form>
 
       <Link href="/">
-        <div className="my-10 text-skin-primary text-[12px] font-medium">
+        <a className=" inline-block mt-5 pb-0 text-skin-primary text-[12px] font-medium">
           ورود با حساب بهزی
           <ArrowLeft size="16" className="inline-block mx-2 " />
-        </div>
+        </a>
       </Link>
     </section>
   );

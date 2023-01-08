@@ -16,39 +16,34 @@
   display: flex;
   color: #238b44;
   text-decoration-style: none;
-  border: 0;
 }
 .btn button {
   height: 3rem;
-  margin: 0 0.5rem;
-  margin-top: 0.5rem;
+  margin: 0 0.1rem;
+  margin-top: 0.4rem;
+  border: 0;
 }
 .btn svg,
 .btn a {
-  margin: 0rem 1rem;
-  border: 0;
-}
-.btn button {
-  border: 0;
-  padding: 0;
+  margin: 0rem 0.5rem;
 }
 
 .register {
   background: #238b44;
   border-radius: 6px;
   color: white;
-  padding: 0.5rem 3em;
+  padding: 0.5rem 1rem;
   text-align: center;
   justify-content: center;
-  margin: 0 !important;
+  margin: 0.4rem !important;
 }
 .links {
-  padding: 1rem 1rem;
+  padding: 2rem 1rem;
   padding-bottom: 1rem;
 }
 .links li {
   display: inline-block;
-  margin: 0 5%;
+  margin: 0 3%;
   margin-right: 0;
   font-weight: 500;
   font-size: 16px;

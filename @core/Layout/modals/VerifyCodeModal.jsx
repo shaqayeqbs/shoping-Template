@@ -5,13 +5,14 @@ import useTimer from "../../hooks/useTimer";
 // import PinField from "react-pin-field";
 import { ArrowLeft, ArrowRight } from "iconsax-react";
 import TimeHistory from "../../icons/TimeHistory";
+import { digitsEnToFa } from "@persian-tools/persian-tools";
 
 function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
   const [loading, setLoading] = useState(false);
   const [code, setCode] = useState("");
   const codeInputRef = useRef("");
 
-  const [minutes, seconds, Faminutes, Faseconds, refreshTimer] = useTimer();
+  const [minutes, seconds, farsMin, Faseconds, refreshTimer] = useTimer();
 
   const btnClass = "w-full bg-skin-fill rounded-[5px] text-[white] py-2 mt-4";
 
@@ -47,7 +48,7 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
     setLoading(false);
   };
   return (
-    <section className=" m-16 mx-auto w-[50%]">
+    <section className=" m-16 mx-auto w-[52%]">
       <button
         onClick={returnToVerifyModal}
         className="absolute top-[4%] right-4 border-0"
@@ -70,7 +71,7 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
             ref={codeInputRef}
             onChange={setCode}
             length={4}
-            className=" border-2 w-full border-primary rounded-[6.3px] h-[40px] "
+            className=" border-2 w-full border-primary rounded-[6.3px] h-[40px] p-3"
           />
         </div>
         <div className="absolute flex left-[27%] top-[38%] border-r-2 pr-4 border-primary">
@@ -78,7 +79,7 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
             {" "}
             {minutes === 0 && seconds === 0 ? null : (
               <h3 dir="ltr" className="text-[12px]">
-                {Faminutes} :{seconds < 10 ? `۰${Faseconds}` : Faseconds}
+                {farsMin} :{seconds < 10 ? `۰${Faseconds}` : Faseconds}
               </h3>
             )}
           </span>

@@ -8,14 +8,14 @@
   right: 0;
   left: 0px;
   top: 0px;
-  background: rgba(132, 132, 132, 0.42);
+  background: #8585856b;
 
   backdrop-filter: blur(2px);
   z-index: 1000;
 }
 .megaModal {
-  position: fixed;
-  top: 330px;
+  position: absolute;
+  top: 22.2rem;
   left: 0rem;
   right: 0rem;
   transform: translate(-0%, -50%);
@@ -27,13 +27,13 @@
   overflow: hidden;
 }
 .megaOverLay {
-  position: fixed;
+  position: absolute;
   text-align: center;
   overflow: hidden !important;
   bottom: 0;
   right: 0;
   left: 0px;
-  top: 180px;
+  top: 13rem;
   background: rgba(132, 132, 132, 0.42);
   backdrop-filter: blur(2px);
   z-index: 1000;

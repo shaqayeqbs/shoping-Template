@@ -17,8 +17,8 @@ const Carousel = ({ data, offcerPage }) => {
       <Swiper
         breakpoints={{
           700: {
-            slidesPerView: 4,
-            slidesPerGroup: 4,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
           },
         }}
         spaceBetween={0}
@@ -30,29 +30,30 @@ const Carousel = ({ data, offcerPage }) => {
         }}
         navigation={true}
         modules={[Autoplay, Navigation]}
-        // className={classes.container}
       >
         {data?.map((item) => (
           <SwiperSlide key={item.id}>
-            <div className={classes.CarouselItem}>
+            <div className="cadr ml-3 !min-h-[430px] max-w-[262px]">
               <Image
                 alt="slider photo"
-                src={item.src}
+                src={item.image}
                 width={400}
                 height={400}
                 className={classes.image}
               />
-              <h2>{item.title}</h2>
+              <h2 className="!text-md mb-[14%]">{item.title}</h2>
               <div className={classes.flexBetween}>
-                <div className="flex justify-center align-middle bg-skin-opacity text-skin-primary rounded-lg p-[.8rem] px-8 w-[2.5rem] h-[2.5rem] text-center">
+                <div className="flex justify-center align-middle bg-skin-opacity text-skin-primary rounded-lg p-[.3rem] px-6  w-[.1rem] h-[2rem] text-center">
                   {item.precent}
                 </div>
-                <div className={classes.flex}>
+                <div className="flex">
                   <div>
-                    <div className="text-[24px]">{item.lastPrice}</div>
-                    <p>{item.price}</p>
+                    <div className="text-2xl !containerfont-extrabold">
+                      <strong>{item.price}</strong>
+                    </div>
+                    <p>{item.lastPrice}</p>
                   </div>
-                  <div className="mt-[.3rem] mr-2">تومان</div>
+                  <div className="mt-[.3rem] text-base mr-2">تومان</div>
                 </div>
               </div>
               {offcerPage && (

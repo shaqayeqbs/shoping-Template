@@ -4,12 +4,14 @@ import Link from "next/link";
 
 function AboutUs() {
   return (
-    <section className=" relative flex container gap-0 bg-skin-fill rounded-3xl text-[white] max-h-[30rem] ">
-      <div className="my-2 w-[50%] ml-4 h-full mr-8 text-lg tracking-widest">
+    <section className=" lg:flex container cadr  h-max">
+      <div className="my-2 lg:w-[50%] ml-4 h-full mr-8 text-lg leading-9">
         <div>
           {" "}
-          <h2 className="my-4 font-bold text-3xl w-full">درباره ما</h2>
-          <div className="  w-full overflow-auto">
+          <h2 className="my-4 py-7  font-bold text-3xl w-full text-right">
+            درباره ما
+          </h2>
+          <p className=" ml-8 w-full">
             {" "}
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
             استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
@@ -20,19 +22,20 @@ function AboutUs() {
             رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد
             کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
             راهکارها، و شرایط سخت تایپ به پایان رسد.
-          </div>
+          </p>
         </div>
-        <div className=" absolute bottom-[-2rem] border-2 rounded-md w-[10rem] text-center my-16 py-[1%] ">
+        <div className=" border-primary text-skin-primary  border-2 rounded-md w-[10rem] text-center my-8 py-[1%] ">
           {" "}
           <Link href="/">ادامه مطلب</Link>
         </div>
       </div>
-      <div className=" m-4 w-[50%] text-left  max-h-[100%] overflow-hidden">
+      <div className="relative hidden lg:block lg:w-[60%] mr-8 pt-[9px] ">
         <Image
           src="/images/about.png"
-          width={600}
-          height={480}
-          className="object-cover w-full h-screen rounded-2xl"
+          // width="fill"
+          // height={1650}
+          layout="fill"
+          className="object-cover rounded-[15px] p-0 m-0"
         />
       </div>
     </section>

@@ -1,3 +1,18 @@
+let url = "";
+
+if (typeof window !== "undefined") {
+  url = window.location.href;
+  if (
+    url === "http://localhost:3000/" ||
+    url === "http://localhost:3001/" ||
+    url === "http://localhost:3002/"
+  ) {
+    url = "zaay.ir";
+  }
+}
+
+console.log(url, "jjjjjjjjj");
+
 const END_POINTS = {
   register: `/user/register`,
   verfy_code: "user/verifycode",
@@ -9,6 +24,8 @@ const END_POINTS = {
   analyze_account: "instagram/analyze/account?",
   clone_post: "instagram/post/clone/account",
   analyze_post_account: "instagram/analyze/post/account?",
+  /////////////
+  getSpecifiedBusinessBydDomain: `api/business/byDomin/${url}?lang=fa`,
 };
 
 export const COMPETITOR_END_PONINTS = {

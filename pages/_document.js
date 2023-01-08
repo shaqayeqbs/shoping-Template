@@ -13,6 +13,7 @@ export default function Document() {
       <body>
         <Main />
         <div id="portal"></div>
+        <div id="sidebar"></div>
         <NextScript />
       </body>
     </Html>
