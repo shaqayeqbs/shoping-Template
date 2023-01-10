@@ -29,6 +29,7 @@
     --color-text-base: #238b44;
     --color-text-muted: #b4b4b4;
     --color-text-subtitle: #6f6f6f;
+    --color-bg-gray: "#f6f6f6";
     --color-text-white: #ffffff;
     --color-fill: #238b44;
     --color-fill-oppacity: rgba(35, 139, 68, 0.1);
@@ -106,6 +107,7 @@ html {
   height: 100%;
   text-align: center;
   padding: 0rem;
+  margin: 0 !important;
 }
 body.modal,
 html.modal,
@@ -142,6 +144,8 @@ body.overlays,
 
 .swiper-wrapper {
   max-width: 100vh;
+
+  /* transform: translate3d(0px, 0px, 0px) !important; */
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -165,6 +169,6 @@ input:focus-visible {
   height: max-content;
 }
 .swiper-slide {
-  height: 50% !important;
+  height: 20% !important;
 }
 /*  */

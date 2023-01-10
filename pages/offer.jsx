@@ -1,5 +1,3 @@
-import { Container } from "postcss";
-import React from "react";
 import List from "../@core/components/main/Slider/List";
 import dynamic from "next/dynamic";
 import Pagination from "../@core/utils/Pagination";

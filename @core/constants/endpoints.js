@@ -11,8 +11,6 @@ if (typeof window !== "undefined") {
   }
 }
 
-console.log(url, "jjjjjjjjj");
-
 const END_POINTS = {
   register: `/user/register`,
   verfy_code: "user/verifycode",

@@ -11,7 +11,6 @@ function VerifyPhoneModal({ onMobileVerified }) {
     event.preventDefault();
     const phone = phoneInputRef.current.value;
     if (phone === "") {
-      console.log("empty input");
       return;
     }
     if (!phoneRegex(phone)) {

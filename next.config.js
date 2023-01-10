@@ -7,8 +7,9 @@
 //     skipWaiting: true,
 //   },
 // });
+const nextTranslate = require("next-translate");
 
-module.exports = {
+module.exports = nextTranslate({
   images: {
     remotePatterns: [
       {
@@ -32,4 +33,4 @@ module.exports = {
       },
     ],
   },
-};
+});

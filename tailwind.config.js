@@ -17,6 +17,7 @@ module.exports = {
     },
     backgroundColor: {
       skin: {
+        gray: "var(--color-bg-gray)",
         fill: "var(--color-fill)",
         opacity: "var(--color-fill-oppacity)",
         "button-primary": "var(--color-button-primary)",

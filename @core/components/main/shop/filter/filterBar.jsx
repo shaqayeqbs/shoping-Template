@@ -1,4 +1,3 @@
-import React from "react";
 import Accordion from "../../../../Helper/Accordion/Accordion";
 import Toggle from "../../../../Helper/Toggle";
 
