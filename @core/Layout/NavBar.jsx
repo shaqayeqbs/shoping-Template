@@ -14,8 +14,8 @@ function NavBar({ onCloseModalHandler }) {
     setOpenAuthModal((prevState) => !prevState);
   };
   const [businessName, logo] = useSelector((state) => [
-    state.businessSlice.name,
-    state.businessSlice.logo,
+    state.businessSlice?.name,
+    state.businessSlice?.logo,
   ]);
 
   const myLoader = ({ src }) => {

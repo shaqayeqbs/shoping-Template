@@ -4,17 +4,24 @@ import BussinessData from "../@core/components/BussinessData";
 // import LanguageProvider from "../@core/constants/Language";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Provider } from "react-redux";
-import store from "../store/store";
+// import { Provider } from "react-redux";
+// import store from "../store/store";
+import { wrapper } from "../store/store";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return (
-    <Provider store={store}>
-      <BussinessData>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </BussinessData>
-    </Provider>
+    // <Provider store={store}>
+    <BussinessData>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </BussinessData>
+    // </Provider>
   );
 }
+
+export default wrapper.withRedux(App);

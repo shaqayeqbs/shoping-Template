@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useSelector } from "react-redux";
 
 function Footer() {
-  const addresses = useSelector((state) => state.businessSlice.addresses);
+  const addresses = useSelector((state) => state.businessSlice?.addresses);
   const icons = [
     { id: 6, icon: <Youtube size="32" /> },
     { id: 2, icon: <Instagram size="32" /> },

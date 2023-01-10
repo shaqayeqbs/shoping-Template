@@ -1,18 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-
 import { ArrowRight2, ArrowLeft2 } from "iconsax-react";
 import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper";
 import Image from "next/image";
+import { FastAverageColor } from "fast-average-color";
 
 function HeaderCarousel({ items }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [color, setColor] = useState("#ffffff");
   const [swiper, setSwiper] = useState(null);
+  const fac = new FastAverageColor();
 
+  // useEffect(() => {
+  //   const getColor = async () => {
+  //     const res = await fac.getColorAsync(
+  //       "http://core.behzi.net/storage/image/businessBanner/cover/1673343630.jpg"
+  //     );
+  //     return res;
+  //   };
+
+  //   const temp = getColor();
+  //   console.log(temp);
+  //   setColor(temp);
+  //   return () => {
+  //     console.log(
+  //       "Use this return as a 'clean up tool' (this runs before the actual code)"
+  //     );
+  //   };
+  // }, []);
   const nextSlide = () => {
     swiper.slideNext();
   };
@@ -44,15 +63,15 @@ function HeaderCarousel({ items }) {
         {items.map((item) => (
           <SwiperSlide
             key={item.id}
-            style={{ backgroundColor: item.color }}
-            className="py-12 pb-28 "
+            style={{ backgroundColor: color }}
+            className="pb-28 "
           >
             <div className="container flex justify-between  cadr   ">
               <div className="translate-y-[5%] p-9">
-                <h1 className=" text-[32px] leading-[54.5px] font-extrabold  my-8 ">
+                <h1 className=" text-[30px] leading-[54.5px] font-extrabold  my-8 ">
                   {item.title}
                 </h1>
-                <p className="text-lg">{item.description}</p>
+                <p className="text-lg">{item.sub_title}</p>
                 <button
                   className="border-2 rounded-xl p-2 px-8 my-8 "
                   style={{ color: item.color, borderColor: item.color }}
@@ -60,12 +79,24 @@ function HeaderCarousel({ items }) {
                   مشاهده
                 </button>
               </div>
-              <Image
-                src={item.image}
-                width={1000}
-                height={500}
-                className="object-cover rounded-xl"
-              />
+              <div className="w-[800px]">
+                {" "}
+                <img
+                  // loader={() => {
+                  //   return item?.file[0]?.details.location;
+                  // }}
+
+                  src={
+                    item?.file[0]?.details.location
+                      ? item?.file[0]?.details.location
+                      : "/"
+                  }
+                  alt={item?.file[0]?.details.location}
+                  width={1000}
+                  height={500}
+                  className="object-cover rounded-xl"
+                />
+              </div>
             </div>
           </SwiperSlide>
         ))}
@@ -95,7 +126,7 @@ function HeaderCarousel({ items }) {
               <div className="rounded-md p-0">
                 {" "}
                 <img
-                  src={item.image}
+                  src={item?.file[0]?.details.location}
                   className="object-cover h-[2.5rem] w-full rounded-lg"
                 />
               </div>

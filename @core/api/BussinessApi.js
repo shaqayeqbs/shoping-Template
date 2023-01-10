@@ -1,16 +1,20 @@
 import instance from "../utils/request.js";
 import END_POINTS from "../constants/endpoints";
+import axios from "axios";
+import APP_CONFIG from "../constants/app-config.js";
 
 export const bussinessByDomainApi = async () => {
+  console.log("first");
   try {
-    console.log(END_POINTS.getSpecifiedBusinessBydDomain);
-    const res = await instance.get(END_POINTS.getSpecifiedBusinessBydDomain);
-    console.log(res);
-    if (res?.data?.data) {
-      return res.data.data;
-    } else {
-      return res;
-    }
+    //http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa
+    console.log(
+      `${APP_CONFIG.apiBaseUrl}${END_POINTS.getSpecifiedBusinessBydDomain}`
+    );
+    const res = await axios(
+      "http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa"
+    );
+
+    return res;
   } catch (err) {
     console.log({ err });
     if (err.response) {

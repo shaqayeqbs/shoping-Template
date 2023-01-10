@@ -31,5 +31,8 @@ function aboutUs() {
     </section>
   );
 }
+// export const getServerSideProps=()=>{
+//   const res= api/call
+// }
 
 export default aboutUs;

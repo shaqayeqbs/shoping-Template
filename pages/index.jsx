@@ -6,12 +6,28 @@ import AboutUsSection from "../@core/components/main/About/AboutUsSection";
 import Description from "../@core/components/main/About/Description";
 import HeaderCarousel from "../@core/components/main/Slider/HeaderCarousel";
 import { useSelector } from "react-redux";
+import useTranslation from "next-translate/useTranslation";
+import { useDispatch } from "react-redux";
+import { businessAction } from "../store/Slices/BussinessSlice";
+import { bussinessByDomainApi } from "../@core/api/BussinessApi";
+import { useEffect } from "react";
 
-export default function Home() {
+export default function Home({ data = null }) {
+  console.log({ data }, "dddddddddddddddddddd");
+  const banners = data.data.domin.business.banners;
+  console.log({ banners });
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(businessAction.fetchFirspageData(data));
+    return () => {};
+  }, []);
+
+  const { t } = useTranslation();
   const [description, events] = useSelector((state) => [
-    state.businessSlice.description,
-    state.businessSlice.events,
+    state.businessSlice?.description,
+    state.businessSlice?.events,
   ]);
+
   const headerCarousel = [
     {
       id: "130",
@@ -93,20 +109,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <HeaderCarousel items={headerCarousel} />
+        <HeaderCarousel items={banners} />
         <Description />
         <div className=" bg-skin-fill">
           <AmazingSection />
         </div>
         <section className={classes}>
-          {events.slice(-3, -1).map((item) => (
+          {events?.slice(-3, -1).map((item) => (
             <Event event={item} key={item.id} />
           ))}
         </section>
 
         <Slider title="گلدان های جدید" data={carousel} />
         <section className={classes}>
-          {events.slice(0, 2).map((item) => (
+          {events?.slice(0, 2).map((item) => (
             <Event event={item} key={item.id} />
           ))}
         </section>
@@ -114,8 +130,22 @@ export default function Home() {
         <section className="my-10">
           <AboutUsSection />
         </section>
-        <Slider title="مقالات اخیر " data={articles} />
+
+        <Slider title={t("landing:articles")} data={articles} />
       </main>
     </>
   );
 }
+
+export const getServerSideProps = async () => {
+  let response = await bussinessByDomainApi();
+  // let response = await axios(
+  //   "http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa"
+  // );
+
+  return {
+    props: {
+      data: response?.data || null,
+    },
+  };
+};
