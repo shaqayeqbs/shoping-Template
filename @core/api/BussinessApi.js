@@ -4,19 +4,15 @@ import axios from "axios";
 import APP_CONFIG from "../constants/app-config.js";
 
 export const bussinessByDomainApi = async () => {
-  console.log("first");
   try {
     //http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa
-    console.log(
-      `${APP_CONFIG.apiBaseUrl}${END_POINTS.getSpecifiedBusinessBydDomain}`
-    );
+
     const res = await axios(
       "http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa"
     );
 
     return res;
   } catch (err) {
-    console.log({ err });
     if (err.response) {
       return err.response.data.code;
     } else {

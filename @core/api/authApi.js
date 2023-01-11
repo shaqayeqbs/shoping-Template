@@ -20,18 +20,21 @@ export const register = async ({ phone, password }) => {
 };
 
 export const verifyCode = async ({ phone, code }) => {
+  const mobile = phone;
+  const lang = "fa";
   try {
     console.log({ phone, code });
     const res = await instance.post(END_POINTS.verfy_code, {
-      phone,
-      verifyCode: code,
+      mobile,
+      code,
+      lang,
     });
     console.log({ res });
     if (res?.status === 200) {
-      localStorage.setItem("token", res.data.access);
+      localStorage.setItem("token", res.data?.token);
     }
 
-    return res?.statusText;
+    return res;
   } catch (err) {
     if (err.response) {
       console.log(err.response.data);
@@ -44,9 +47,12 @@ export const verifyCode = async ({ phone, code }) => {
 
 export const verifyPhone = async ({ phone }) => {
   try {
+    const mobile = phone;
     const res = await instance.post(END_POINTS.verfy_phone, {
-      phone,
+      mobile,
+      lang: "fa",
     });
+    console.log(res);
     return res?.status;
   } catch (err) {
     if (err.response) {

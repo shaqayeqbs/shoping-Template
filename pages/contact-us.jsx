@@ -13,8 +13,6 @@ function contactUs() {
     state.businessSlice.addresses,
     state.businessSlice.connections,
   ]);
-  console.log(connections);
-  console.log(address[0]?.address?.address);
 
   useEffect(() => {
     if (address[0]?.address) {
@@ -46,7 +44,7 @@ function contactUs() {
   ];
 
   const DEFAULT_CENTER = [lat, lng];
-  console.log(defaultCenter, "fffffffffffff", DEFAULT_CENTER);
+
   return (
     <section className="container">
       <h1>راه های ارتباطی</h1>

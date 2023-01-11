@@ -13,8 +13,6 @@ if (typeof window !== "undefined") {
 
 const END_POINTS = {
   register: `/user/register`,
-  verfy_code: "user/verifycode",
-  verfy_phone: "user/verifyphone",
   verify_instagram: `/instagram/account/create`,
   reset_password: "user/resetpassword",
   account_list: "instagram/account/list",
@@ -24,6 +22,8 @@ const END_POINTS = {
   analyze_post_account: "instagram/analyze/post/account?",
   /////////////
   getSpecifiedBusinessBydDomain: `api/business/byDomin/${url}?lang=fa`,
+  verfy_phone: "api/auth/login",
+  verfy_code: "api/auth/confirm",
 };
 
 export const COMPETITOR_END_PONINTS = {

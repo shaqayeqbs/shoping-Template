@@ -3,12 +3,8 @@
    
     "defaultLocale": "fa",
     "pages": {
-      "*": ["common","landing","explore"],
-      "/locales": ["landing"],
-      "/explore": ["explore"],
-      "**": ["common"],
-      "/": ["home"],
-      "/cart": ["cart"]
+      "*": ["common","landing","explore"]
+
       
     
     }

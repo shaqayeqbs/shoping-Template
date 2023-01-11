@@ -3,6 +3,8 @@ import { ArrowLeft } from "iconsax-react";
 import phoneRegex from "../../constants/PhoneRegex";
 // import { verifyPhone } from "../../../../@core/api/authApi";
 import Link from "next/link";
+import { verifyPhone } from "../../api/authApi";
+import { digitsEnToFa } from "@persian-tools/persian-tools/";
 
 function VerifyPhoneModal({ onMobileVerified }) {
   const phoneInputRef = useRef();
@@ -18,10 +20,12 @@ function VerifyPhoneModal({ onMobileVerified }) {
       return;
     }
     setIsSubmitting(true);
-    // const response = await verifyPhone({ phone });
-    const response = 201;
+    const response = await verifyPhone({ phone });
+    // const response = 200;
+    console.log(response);
 
-    if (response === 201) {
+    if (response === 200) {
+      console.log("ok");
       onMobileVerified(phone);
     }
   };

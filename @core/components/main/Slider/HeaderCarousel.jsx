@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -6,32 +6,14 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { ArrowRight2, ArrowLeft2 } from "iconsax-react";
 import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper";
-import Image from "next/image";
-import { FastAverageColor } from "fast-average-color";
+
+import LandingCarouselSlide from "./SwipperSlides";
 
 function HeaderCarousel({ items }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [color, setColor] = useState("#ffffff");
+
   const [swiper, setSwiper] = useState(null);
-  const fac = new FastAverageColor();
 
-  // useEffect(() => {
-  //   const getColor = async () => {
-  //     const res = await fac.getColorAsync(
-  //       "http://core.behzi.net/storage/image/businessBanner/cover/1673343630.jpg"
-  //     );
-  //     return res;
-  //   };
-
-  //   const temp = getColor();
-  //   console.log(temp);
-  //   setColor(temp);
-  //   return () => {
-  //     console.log(
-  //       "Use this return as a 'clean up tool' (this runs before the actual code)"
-  //     );
-  //   };
-  // }, []);
   const nextSlide = () => {
     swiper.slideNext();
   };
@@ -60,44 +42,9 @@ function HeaderCarousel({ items }) {
         className="mySwiper2 "
         onSwiper={setSwiper}
       >
-        {items.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            style={{ backgroundColor: color }}
-            className="pb-28 "
-          >
-            <div className="container flex justify-between  cadr   ">
-              <div className="translate-y-[5%] p-9">
-                <h1 className=" text-[30px] leading-[54.5px] font-extrabold  my-8 ">
-                  {item.title}
-                </h1>
-                <p className="text-lg">{item.sub_title}</p>
-                <button
-                  className="border-2 rounded-xl p-2 px-8 my-8 "
-                  style={{ color: item.color, borderColor: item.color }}
-                >
-                  مشاهده
-                </button>
-              </div>
-              <div className="w-[800px]">
-                {" "}
-                <img
-                  // loader={() => {
-                  //   return item?.file[0]?.details.location;
-                  // }}
-
-                  src={
-                    item?.file[0]?.details.location
-                      ? item?.file[0]?.details.location
-                      : "/"
-                  }
-                  alt={item?.file[0]?.details.location}
-                  width={1000}
-                  height={500}
-                  className="object-cover rounded-xl"
-                />
-              </div>
-            </div>
+        {items?.map((item) => (
+          <SwiperSlide key={item.id} className="pb pt-3 ">
+            <LandingCarouselSlide itemData={item} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -118,7 +65,7 @@ function HeaderCarousel({ items }) {
           modules={[FreeMode, Navigation, Thumbs]}
           slideActiveClass="border-2 border-[red] w-[10rem]"
         >
-          {items.map((item) => (
+          {items?.map((item) => (
             <SwiperSlide
               key={item.id}
               className="container rounded-lg !w-[23%] !h-12s text-right !ml-[2%]  "

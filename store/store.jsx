@@ -1,14 +1,19 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { createWrapper } from "next-redux-wrapper";
+
+// import userSlice from "./UserSlice";
 import businessSlice from "./Slices/BussinessSlice";
 
-const combinedReducer = combineReducers({
-  businessSlice,
+const reducers = combineReducers({
+  // user: userSlice.reducer,
+  businessSlice: businessSlice.reducer,
 });
 
-export const makeStore = () =>
-  configureStore({
-    reducer: combinedReducer,
-  });
-
-export const wrapper = createWrapper(makeStore);
+const store = configureStore({
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      immutableCheck: false,
+      serializableCheck: false,
+    }),
+  reducer: reducers,
+});
+export default store;

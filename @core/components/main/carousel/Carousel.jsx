@@ -8,7 +8,7 @@ import Image from "next/image";
 import classes from "./Carousel.module.css";
 import useTimer from "../../../hooks/useTimer";
 import TimeHistory from "../../../icons/TimeHistory";
-
+import { digitsEnToFa } from "@persian-tools/persian-tools";
 const Carousel = ({ data, offcerPage }) => {
   const [hours, minutes, seconds, Faminutes, FaHours, Faseconds] = useTimer();
 
@@ -49,9 +49,9 @@ const Carousel = ({ data, offcerPage }) => {
                 <div className="flex">
                   <div>
                     <div className="text-2xl !containerfont-extrabold">
-                      <strong>{item.price}</strong>
+                      <strong>{digitsEnToFa(item.price)}</strong>
                     </div>
-                    <p>{item.lastPrice}</p>
+                    <p>{digitsEnToFa(item.lastPrice)}</p>
                   </div>
                   <div className="mt-[.3rem] text-base mr-2">تومان</div>
                 </div>

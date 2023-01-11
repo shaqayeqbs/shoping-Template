@@ -32,25 +32,25 @@ const businessSlice = createSlice({
   initialState,
   reducers: {
     fetchFirspageData: (state, action) => {
-      console.log(action.payload);
-      const data = action.payload.data.domin.business;
+      const data = action.payload?.data?.domin?.business;
 
       let logoImg = "";
-      data.files.forEach((item) => {
+      data?.files.forEach((item) => {
         if (item.type._ === "logo") {
-          console.log(item);
           logoImg = item.details.location;
         }
       });
 
-      state.id = data.id;
-      state.name = data.name;
-      state.logo = logoImg;
-      state.events = data.events;
-      state.addresses = data.addresses;
-      state.connections = data.connections;
-      state.description = data.description;
-      state.workTimes = data.workTimes;
+      if (data) {
+        state.id = data?.id;
+        state.name = data?.name;
+        state.logo = logoImg;
+        state.events = data?.events;
+        state.addresses = data?.addresses;
+        state.connections = data.connections;
+        state.description = data.description;
+        state.workTimes = data.workTimes;
+      }
     },
   },
   // extraReducers: (builder) => {
@@ -78,4 +78,4 @@ const businessSlice = createSlice({
 });
 
 export const businessAction = businessSlice.actions;
-export default businessSlice.reducer;
+export default businessSlice;

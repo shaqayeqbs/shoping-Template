@@ -42,7 +42,8 @@ function AmazingSection() {
       lastPrice: "300٬000٬000",
     },
   ];
-  const timerBtn = "bg-skin-opacity p-2 px-4 text-skin-primary rounded-md";
+  const timerBtn =
+    "bg-skin-opacity h-[2.5rem] w-[2.5rem]  p-2 px-5 text-skin-primary rounded-md";
   const timerDevider = "text-skin-primary mx-2";
 
   return (
@@ -70,11 +71,11 @@ function AmazingSection() {
             )}
           </div>
         </div>
-        <div className=" flex justify-center text-[white] m-4 pt-2 text-[28px]">
-          <Link href="/products" className="pt-4">
+        <div className=" flex justify-center text-[white] mx-4 pt-2 text-[28px]">
+          <Link href="/products" className="pt-0">
             مشاهده همه
           </Link>
-          <span className="mt-2">
+          <span className="mt-6">
             {" "}
             <AiOutlineLeft />
           </span>

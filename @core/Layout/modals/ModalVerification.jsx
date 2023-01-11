@@ -15,7 +15,10 @@ function ModalVerification({ isOpen, onClose }) {
     setVerifyPhone(false);
   };
   const codeVerifiedHandler = () => {
+    setIsOpen(false);
+    setVerifyPhone(true);
     setVerifyCode(null);
+    onClose();
   };
   const onCloseModalHandler = () => {
     setIsOpen(false);
