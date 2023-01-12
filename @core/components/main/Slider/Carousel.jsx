@@ -47,24 +47,21 @@ const Carousel = ({ data }) => {
               </h2>
               <p className="text-[#6F6F6F] py-2">{item.description}</p>
 
-              {item.price ||
-                (item.new && (
-                  <div className="lg:flex w-full text-center  mb-8 lg:max-w-[15rem] mx-0  p-0 justify-between">
-                    {item.new && (
-                      <div className=" max-w-[3.5rem] text-center  mx-auto lg:mx-0  my-4 lg:my-0   text-skin-primary  bg-[#E9F3EC] rounded-[3px] p-1 px-3 ">
-                        جدید
-                      </div>
-                    )}
-                    {item.price && (
-                      <div className=" flex gap-1 ">
-                        <div className="font-bold text-xl  mx-auto lg:mx-0">
-                          {digitsEnToFa(item.price)}
-                        </div>
-                        <div className="text-lg">تومان</div>
-                      </div>
-                    )}
+              <div className="lg:flex w-full text-center  mb-8 lg:max-w-[15rem] mx-0  p-0 justify-between">
+                {item.new && (
+                  <div className=" max-w-[3.5rem] text-center  mx-auto lg:mx-0  my-4 lg:my-0   text-skin-primary  bg-[#E9F3EC] rounded-[3px] p-1 px-3 ">
+                    جدید
                   </div>
-                ))}
+                )}
+                {item.price && (
+                  <div className=" flex gap-1 ">
+                    <div className="font-bold text-xl  mx-auto lg:mx-0">
+                      {digitsEnToFa(item.price)}
+                    </div>
+                    <div className="text-lg">تومان</div>
+                  </div>
+                )}
+              </div>
             </div>
           </SwiperSlide>
         ))}
