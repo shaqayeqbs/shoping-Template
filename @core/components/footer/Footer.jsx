@@ -9,8 +9,8 @@ import { useSelector } from "react-redux";
 function Footer() {
   const addresses = useSelector((state) => state.businessSlice?.addresses);
   const icons = [
-    { id: 6, icon: <Youtube size="32" /> },
-    { id: 2, icon: <Instagram size="32" /> },
+    { id: 6, icon: <Youtube size="32" variant="Bold" /> },
+    { id: 2, icon: <Instagram size="32" variant="Bold" /> },
     { id: 3, icon: <SiTelegram size="32" /> },
     { id: 4, icon: <GrTwitter size="32" /> },
   ];
@@ -24,7 +24,7 @@ function Footer() {
             <div className="my-8" key={index}>
               <div className="flex">
                 <Location
-                  size="32"
+                  size="24"
                   className="text-skin-primary ml-2"
                   variant="Bold"
                 />
@@ -34,7 +34,7 @@ function Footer() {
             </div>
           ))}
           <div className="flex">
-            <Call size="32" className="text-skin-primary ml-2" variant="Bold" />
+            <Call size="28" className="text-skin-primary ml-2" variant="Bold" />
             <div>{data.phone}</div>
           </div>
         </div>

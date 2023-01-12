@@ -41,10 +41,10 @@ const Carousel = ({ data, offcerPage }) => {
                 height={400}
                 className={classes.image}
               />
-              <h2 className="!text-md mb-[14%]">{item.title}</h2>
+              <h2 className="!text-md mb-[14%] text-right">{item.title}</h2>
               <div className={classes.flexBetween}>
-                <div className="flex justify-center align-middle bg-skin-opacity text-skin-primary rounded-lg p-[.3rem] px-6  w-[.1rem] h-[2rem] text-center">
-                  {item.precent}
+                <div className="flex justify-center align-middle bg-skin-opacity text-skin-primary rounded-lg p-[.3rem] px-6  w-[.1rem] h-[2rem] ml-[.3rem] text-center">
+                  {digitsEnToFa(item.precent)}
                 </div>
                 <div className="flex">
                   <div>

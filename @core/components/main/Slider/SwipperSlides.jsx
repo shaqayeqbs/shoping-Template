@@ -22,13 +22,13 @@ function LandingCarouselSlide({ itemData: item }) {
   return (
     <div className="py-10 pb-32" style={{ background: bkgColor }}>
       <div className="container flex justify-between  cadr">
-        <div className="translate-y-[10%] p-9">
+        <div className="translate-y-[10%] p-9  text-right">
           <h1 className=" text-[32px] leading-[54.5px] font-extrabold  my-8 text-right ">
             {item.title}
           </h1>
           <p className="text-lg">{item.sub_title}</p>
           <button
-            className="border-2 rounded-xl p-2 px-8 my-4"
+            className="border-2  rounded-lg p-2 px-8 my-8"
             style={{ color: item.color, borderColor: item.color }}
           >
             مشاهده

@@ -75,7 +75,7 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
           <span className="mt-[px] ml-1 inline-block">
             {" "}
             {minutes === 0 && seconds === 0 ? (
-              <h3 className="text-[12px]">۰:۰</h3>
+              <h3 className="text-[12px] !mt-1">۰:۰</h3>
             ) : (
               <h3 dir="rtl">
                 {seconds < 10 ? `۰${Faseconds}` : Faseconds} : {farsMin}
@@ -92,9 +92,12 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
         </p>
         <button
           onClick={returnToVerifyModal}
-          className="border-0 text-[12px] text-skin-primary"
+          className="border-0 text-[12px] text-skin-primary hover:bg-[transparent] hover:none hover:text-skin-primary  hover:underline"
         >
-          ویرایش شماره
+          <div className="hover:text-skin-primary  hover:underline">
+            {" "}
+            ویرایش شماره
+          </div>
         </button>
         <div>
           {minutes === 0 && seconds === 0 ? (

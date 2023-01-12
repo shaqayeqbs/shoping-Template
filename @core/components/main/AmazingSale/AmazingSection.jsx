@@ -50,11 +50,11 @@ function AmazingSection() {
     <section className="container flex px-0 text-center w-full  !py-12 !pt-16 overflow-x-hidden ">
       <div className="bg-black">
         <div className="bg-[white] rounded-2xl w-[200px] lg:w-[262px]  h-[368px]  py-6 text-[22px] ">
-          <div className="px-12 py-7">
+          <div className="px-14 py-10 pt-5">
             <Offer />
           </div>
 
-          <h1 className="text-xl text-center mb-5">تخفیفات شگفت انگیز</h1>
+          <h1 className="text-xl text-center mb-8">تخفیفات شگفت انگیز</h1>
           <div>
             {(hours === 0) & (minutes === 0) && seconds === 0 ? null : (
               <h3 className="text-center my-4" dir="ltr">
@@ -71,7 +71,7 @@ function AmazingSection() {
             )}
           </div>
         </div>
-        <div className=" flex justify-center text-[white] mx-4 pt-2 text-[28px]">
+        <div className=" flex justify-center text-[white] mx-4 text-[28px]">
           <Link href="/products" className="pt-0">
             مشاهده همه
           </Link>

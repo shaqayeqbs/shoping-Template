@@ -78,7 +78,7 @@
   }
 
   button {
-    @apply rounded-xl hover:!text-[white] hover:border-[#56C679] p-1  hover:bg-[#56C679] uppercase border-2 border-primary text-center active:bg-[#098330];
+    @apply rounded-xl hover:text-[white] hover:border-[#56C679] p-1  hover:bg-[#56C679] uppercase border-2 border-primary text-center active:bg-[#098330];
   }
   a {
     @apply hover:text-[#56C679] active:text-skin-primary  border-0  py-[1rem] w-[100%]  active:text-[#098330];

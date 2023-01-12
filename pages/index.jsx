@@ -15,7 +15,7 @@ import axios from "axios";
 
 export default function Home({ data = null }) {
   const banners = data?.data?.domin.business.banners;
-  console.log({ data });
+  // console.log({ data });
 
   const dispatch = useDispatch();
   useEffect(() => {
