@@ -1,11 +1,12 @@
 {
-  "name": "alibaba",
+  "name": "tenant",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next -p 3001",
     "build": "next build",
-    "start": "next start -p 3001"
+    "start": "next start -p 3001",
+    "lint": "next lint"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.7",

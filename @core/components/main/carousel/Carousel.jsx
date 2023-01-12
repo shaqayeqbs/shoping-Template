@@ -17,8 +17,8 @@ const Carousel = ({ data, offcerPage }) => {
       <Swiper
         breakpoints={{
           700: {
-            slidesPerView: 3,
-            slidesPerGroup: 3,
+            slidesPerView: offcerPage ? 4 : 3,
+            slidesPerGroup: offcerPage ? 4 : 3,
           },
         }}
         spaceBetween={0}

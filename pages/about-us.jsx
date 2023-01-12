@@ -10,6 +10,7 @@ function aboutUs() {
           src="/images/about.png"
           width={2000}
           height={1000}
+          alt="about us"
           className="object-cover w-full mx-auto rounded-lg "
         />
       </div>

@@ -4,6 +4,7 @@ import useTimer from "../../../hooks/useTimer";
 import classes from "../carousel/Carousel.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { digitsEnToFa } from "@persian-tools/persian-tools";
 
 function List({ data, offcerPage, articles }) {
   const [hours, minutes, seconds, Faminutes, FaHours, Faseconds] = useTimer();
@@ -11,7 +12,7 @@ function List({ data, offcerPage, articles }) {
     <ul className="grid grid-cols-1 md:grid-cols-4">
       {data?.map((item) => (
         <Link href={`/products/${item.id}`} key={item.id}>
-          <div className={classes.CarouselItem}>
+          <div className="cadr my-2">
             <Image
               alt="slider photo"
               src={item.image}
@@ -19,18 +20,20 @@ function List({ data, offcerPage, articles }) {
               height={400}
               className={classes.image}
             />
-            <h2>{item.title}</h2>
+            <h2 className="text-right">{item.title}</h2>
             {!articles && (
               <div className={classes.flexBetween}>
-                <div className="flex justify-center align-middle bg-skin-opacity text-skin-primary rounded-lg p-[.8rem] px-8 w-[2.5rem] h-[2.5rem] text-center">
-                  {item.precent}
+                <div className="flex justify-center align-middle bg-skin-opacity text-skin-primary rounded-lg p-[.3rem] px-6  w-[.1rem] h-[2rem] ml-[.3rem] text-center">
+                  {digitsEnToFa(item.precent)}
                 </div>
-                <div className={classes.flex}>
+                <div className="flex">
                   <div>
-                    <div className="text-[130%]">{item.lastPrice}</div>
-                    <p>{item.price}</p>
+                    <div className="text-2xl !containerfont-extrabold">
+                      <strong>{digitsEnToFa(item.price)}</strong>
+                    </div>
+                    <p>{digitsEnToFa(item.lastPrice)}</p>
                   </div>
-                  <div className="mt-[.3rem] mr-2">تومان</div>
+                  <div className="mt-[.3rem] text-base mr-2">تومان</div>
                 </div>
               </div>
             )}

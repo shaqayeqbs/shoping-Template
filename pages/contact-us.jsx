@@ -5,7 +5,7 @@ import WorkTIme from "../@core/components/main/ContactUs/WorkTIme";
 import Map from "../@core/utils/Map/Map";
 import { useSelector } from "react-redux";
 
-function contactUs() {
+function ContactUs() {
   const [lat, setLat] = useState(0);
   const [lng, setLng] = useState(0);
   const [defaultCenter, setDefaultCenter] = useState([0, 0]);
@@ -20,7 +20,7 @@ function contactUs() {
       setLng(+address[0]?.address?.lng);
     }
     setDefaultCenter([lat, lng]);
-  }, [address, lat]);
+  }, [address, lat, lng]);
 
   const dataList = [
     {
@@ -110,4 +110,4 @@ function contactUs() {
   );
 }
 
-export default contactUs;
+export default ContactUs;

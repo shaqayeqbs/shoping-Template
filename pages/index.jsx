@@ -21,8 +21,8 @@ export default function Home({ data = null }) {
   useEffect(() => {
     dispatch(businessAction.fetchFirspageData(data));
     return () => {};
-  }, []);
-
+  }, [dispatch, data]);
+  k;
   const { t } = useTranslation();
   const [description, events] = useSelector((state) => [
     state.businessSlice?.description,

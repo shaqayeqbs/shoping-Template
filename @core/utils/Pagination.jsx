@@ -25,7 +25,7 @@ export default function Pagination() {
             </a>
             <a
               href="#"
-              className="relative hidden bg-skin-fill rounded-full text-[white] items-center bg-white px-4 py-2 font-medium text-gray-500 hover:bg-gray-50 focus:z-20 md:inline-flex"
+              className="relative hidden bg-skin-fill rounded-full text-[white] items-center bg-white px-4 w-10  h-10 pt-6 text-center mt-2  font-medium text-gray-500 hover:bg-gray-50 focus:z-20 md:inline-flex"
             >
               7
             </a>

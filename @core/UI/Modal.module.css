@@ -15,7 +15,7 @@
 }
 .megaModal {
   position: absolute;
-  top: 22.2rem;
+  top: 21.9rem;
   left: 0rem;
   right: 0rem;
   transform: translate(-0%, -50%);
@@ -33,7 +33,7 @@
   bottom: 0;
   right: 0;
   left: 0px;
-  top: 13rem;
+  top: 12.6rem;
   background: rgba(132, 132, 132, 0.42);
   backdrop-filter: blur(2px);
   z-index: 1000;
