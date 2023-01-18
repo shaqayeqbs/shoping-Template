@@ -1,21 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { bussinessByDomainApi } from "../../@core/api/BussinessApi";
-
-// export const BussinessData = createAsyncThunk(
-//   "bussiness/data",
-//   async (thunkAPI) => {
-//     try {
-//       const response = await bussinessByDomainApi();
-//       console.log({ response });
-//       if (response) {
-//         return response;
-//       }
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   }
-// );
-
+import { createSlice } from "@reduxjs/toolkit";
 export const initialState = {
   id: "",
   name: "",
@@ -25,6 +8,7 @@ export const initialState = {
   addresses: [],
   connections: {},
   workTimes: [],
+  colors: {},
 };
 
 const businessSlice = createSlice({
@@ -41,40 +25,17 @@ const businessSlice = createSlice({
         }
       });
 
-      if (data) {
-        state.id = data?.id;
-        state.name = data?.name;
-        state.logo = logoImg;
-        state.events = data?.events;
-        state.addresses = data?.addresses;
-        state.connections = data.connections;
-        state.description = data.description;
-        state.workTimes = data.workTimes;
-      }
+      state.id = data?.id;
+      state.name = data?.name;
+      state.logo = logoImg;
+      state.events = data?.events;
+      state.addresses = data?.addresses;
+      state.connections = data?.connections;
+      state.description = data?.description;
+      state.workTimes = data?.workTimes;
+      state.colors = data?.template.colorPalette;
     },
   },
-  // extraReducers: (builder) => {
-  //   builder.addCase(BussinessData.fulfilled, (state, action) => {
-  //     const data = action.payload.domin.business;
-
-  //     let logoImg = "";
-  //     data.files.forEach((item) => {
-  //       if (item.type._ === "logo") {
-  //         console.log(item);
-  //         logoImg = item.details.location;
-  //       }
-  //     });
-
-  //     state.id = data.id;
-  //     state.name = data.name;
-  //     state.logo = logoImg;
-  //     state.events = data.events;
-  //     state.addresses = data.addresses;
-  //     state.connections = data.connections;
-  //     state.description = data.description;
-  //     state.workTimes = data.workTimes;
-  //   });
-  // },
 });
 
 export const businessAction = businessSlice.actions;

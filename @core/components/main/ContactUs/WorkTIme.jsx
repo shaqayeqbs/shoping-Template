@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import { useSelector } from "react-redux";
 
 function WorkTIme() {
-  const [workTimes] = useSelector((state) => [state.businessSlice.workTimes]);
+  const workTimes = useSelector((state) => state.businessSlice?.workTimes);
 
   const weekData = [];
 
@@ -93,4 +93,4 @@ function WorkTIme() {
   );
 }
 
-export default WorkTIme;
+export default memo(WorkTIme);

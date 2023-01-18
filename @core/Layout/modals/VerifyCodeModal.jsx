@@ -1,14 +1,16 @@
-import React, { useState, useRef } from "react";
-import Link from "next/link";
-import useTimer from "../../hooks/useTimer";
 import { ArrowLeft, ArrowRight } from "iconsax-react";
+import Link from "next/link";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { userData } from "../../../store/Slices/UserSlice";
+import { verifyPhone } from "../../api/authApi";
+import useTimer from "../../hooks/useTimer";
 import TimeHistory from "../../icons/TimeHistory";
-import { verifyCode, verifyPhone } from "../../api/authApi";
 import LoadingSpinner from "../../UI/LoadingSpinner";
-
 function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
   const [loading, setLoading] = useState(false);
   const [code, setCode] = useState("");
+  const dispatch = useDispatch();
 
   console.log(phone);
   const [hours, minutes, seconds, farsMin, FaHours, Faseconds, refreshTimer] =
@@ -26,17 +28,16 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
   };
 
   const onChangeCodeHandler = async (e) => {
-    console.log(e.target.value);
     setCode(e.target.value);
     const temp = e.target.value;
 
     if (temp.length === 5) {
       setLoading(true);
       const data = { phone, code: temp.toString() };
-      const response = await verifyCode(data);
+      const response = await dispatch(userData(data));
       console.log(response);
 
-      if (response?.data?.data.token) {
+      if (response?.payload?.status === 200) {
         console.log("loggedIn ");
         onCodeVerified();
       }
@@ -45,7 +46,7 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
     }
   };
   return (
-    <section className=" m-16 mx-auto w-[52%]">
+    <section className=" m-16 mx-auto w-[80%] md:w-[52%]">
       {loading && <LoadingSpinner />}
       <button
         onClick={returnToVerifyModal}
@@ -71,7 +72,7 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
             className=" border-2 w-full border-primary rounded-[6.3px] h-[40px] p-3"
           />
         </div>
-        <div className="absolute flex left-[27%] top-[38%] border-r-2 pr-4 border-primary">
+        <div className="absolute flex left-[13%] md:left-[27%] top-[38%] border-r-2 pr-4 border-primary">
           <span className="mt-[px] ml-1 inline-block">
             {" "}
             {minutes === 0 && seconds === 0 ? (

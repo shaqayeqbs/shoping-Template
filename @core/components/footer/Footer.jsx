@@ -1,10 +1,10 @@
-import React from "react";
-import data from "../../data/footerData.json";
-import { Youtube, Instagram, Location, Call } from "iconsax-react";
-import { SiTelegram } from "react-icons/si";
-import { GrTwitter } from "react-icons/gr";
+import { Call, Instagram, Location, Youtube } from "iconsax-react";
 import Image from "next/image";
+import React from "react";
+import { GrTwitter } from "react-icons/gr";
+import { SiTelegram } from "react-icons/si";
 import { useSelector } from "react-redux";
+import data from "../../data/footerData.json";
 
 function Footer() {
   const addresses = useSelector((state) => state.businessSlice?.addresses);

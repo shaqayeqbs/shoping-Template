@@ -1,10 +1,10 @@
-import React from "react";
-import TimeHistory from "../../../icons/TimeHistory";
-import useTimer from "../../../hooks/useTimer";
-import classes from "../carousel/Carousel.module.css";
+import { digitsEnToFa } from "@persian-tools/persian-tools";
 import Image from "next/image";
 import Link from "next/link";
-import { digitsEnToFa } from "@persian-tools/persian-tools";
+import React from "react";
+import useTimer from "../../../hooks/useTimer";
+import TimeHistory from "../../../icons/TimeHistory";
+import classes from "../carousel/Carousel.module.css";
 
 function List({ data, offcerPage, articles }) {
   const [hours, minutes, seconds, Faminutes, FaHours, Faseconds] = useTimer();
@@ -28,7 +28,7 @@ function List({ data, offcerPage, articles }) {
                 </div>
                 <div className="flex">
                   <div>
-                    <div className="text-2xl !containerfont-extrabold">
+                    <div className="text-xl !containerfont-extrabold">
                       <strong>{digitsEnToFa(item.price)}</strong>
                     </div>
                     <p>{digitsEnToFa(item.lastPrice)}</p>
@@ -37,7 +37,11 @@ function List({ data, offcerPage, articles }) {
                 </div>
               </div>
             )}
-            {articles && <div className="my-4">{item.description}</div>}
+            {articles && (
+              <div className="my-4  text-justify tracking-tight">
+                {item.description}
+              </div>
+            )}
             {offcerPage && (
               <div className="relative m-2 mb-6 flex ltr text-skin-primary text-left ">
                 <span className="flex text-skin -primary font-xl">

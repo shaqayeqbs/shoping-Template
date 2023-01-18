@@ -9,7 +9,7 @@ function Description() {
           className="block md:flex  relative my-16 text-center mx-auto "
           key={item.id}
         >
-          <div className="block md:absolute  top-1 mx-[22%] md:mx-0 text-skin-primary ">
+          <div className="inline-block md:absolute items-center  top-1 mx-[22%] md:mx-auto text-skin-primary ">
             {item.icon}
           </div>
           <div className="md:mr-12">

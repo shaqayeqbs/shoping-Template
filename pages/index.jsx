@@ -1,33 +1,28 @@
+import axios from "axios";
+import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
-import AmazingSection from "../@core/components/main/AmazingSale/AmazingSection";
-import Event from "../@core/components/main/Event";
-import Slider from "../@core/components/main/Slider/Slider";
+import { memo, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import AboutUsSection from "../@core/components/main/About/AboutUsSection";
 import Description from "../@core/components/main/About/Description";
+import AmazingSection from "../@core/components/main/AmazingSale/AmazingSection";
+import Event from "../@core/components/main/Event";
 import HeaderCarousel from "../@core/components/main/Slider/HeaderCarousel";
-import { useSelector } from "react-redux";
-import useTranslation from "next-translate/useTranslation";
-import { useDispatch } from "react-redux";
+import Slider from "../@core/components/main/Slider/Slider";
 import { businessAction } from "../store/Slices/BussinessSlice";
-import { bussinessByDomainApi } from "../@core/api/BussinessApi";
-import { useEffect } from "react";
-import axios from "axios";
 
-export default function Home({ data = null }) {
+function Home({ data = null }) {
   const banners = data?.data?.domin.business.banners;
-  // console.log({ data });
-
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(businessAction.fetchFirspageData(data));
-    return () => {};
-  }, [dispatch, data]);
 
   const { t } = useTranslation();
-  const [description, events] = useSelector((state) => [
-    state.businessSlice?.description,
-    state.businessSlice?.events,
-  ]);
+  const { description, events } = useSelector((state) => state.businessSlice);
+
+  useEffect(() => {
+    console.log("hereeeee");
+    dispatch(businessAction.fetchFirspageData(data));
+  }, [description, data, dispatch]);
+  console.log(data);
 
   const carousel = [
     {
@@ -102,6 +97,8 @@ export default function Home({ data = null }) {
     </>
   );
 }
+
+export default memo(Home);
 
 export const getServerSideProps = async () => {
   // let response = await bussinessByDomainApi();

@@ -1,10 +1,10 @@
 import React from "react";
-import Pagination from "../../@core/utils/Pagination";
-import OrderingList from "../../@core/Helper/OrderingList";
+import Categories from "../../@core/components/main/Categories";
 import FilterBar from "../../@core/components/main/shop/filter/filterBar";
 import List from "../../@core/components/main/Slider/List";
-import Categories from "../../@core/components/main/Categories";
 import { ProductsData } from "../../@core/data/products";
+import OrderingList from "../../@core/Helper/OrderingList";
+import Pagination from "../../@core/utils/Pagination";
 
 function AllProducts() {
   const SortList = [

@@ -1,14 +1,13 @@
 import React from "react";
-import dynamic from "next/dynamic";
-import Pagination from "../@core/utils/Pagination";
 import List from "../@core/components/main/Slider/List";
-import Gallery from "../@core/utils/Gallery";
 import OrderingList from "../@core/Helper/OrderingList";
-const Carousel = dynamic(
-  () => import("../@core/components/main/carousel/carousel"),
+import Gallery from "../@core/utils/Gallery";
+import Pagination from "../@core/utils/Pagination";
+// const Carousel = dynamic(
+//   () => import("../@core/components/main/carousel/carousel"),
 
-  { ssr: false }
-);
+//   { ssr: false }
+// );
 const data = [
   {
     id: "1",
@@ -53,7 +52,7 @@ const data = [
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.صنعت چاپ و با استفاده از طراحان گرافیک است.",
   },
   {
-    id: "15",
+    id: "1500",
     image: "/images/article.png",
     title: "نحوه نگهداری سانسوریا",
     description:
@@ -201,7 +200,10 @@ const SortList = [
 function Articles() {
   return (
     <section className="container">
-      <Gallery />
+      <div className="mt-12">
+        {" "}
+        <Gallery />
+      </div>
       <h1 className="mt-16 mb-8">همه مقاله ها</h1>
       <OrderingList data={SortList} />
       <List data={data} articles={true} />

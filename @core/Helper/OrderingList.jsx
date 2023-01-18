@@ -3,7 +3,7 @@ import SortIcon from "../icons/SortIcon";
 
 function OrderingList({ data }) {
   return (
-    <div className="flex mb-4">
+    <div className="md:flex mb-4">
       <div className="flex">
         <p>
           <SortIcon />{" "}

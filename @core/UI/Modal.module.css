@@ -14,8 +14,8 @@
   z-index: 1000;
 }
 .megaModal {
-  position: absolute;
-  top: 21.9rem;
+  position: fixed;
+  top: 21.6rem;
   left: 0rem;
   right: 0rem;
   transform: translate(-0%, -50%);
@@ -27,13 +27,13 @@
   overflow: hidden;
 }
 .megaOverLay {
-  position: absolute;
+  position: fixed;
   text-align: center;
   overflow: hidden !important;
   bottom: 0;
   right: 0;
   left: 0px;
-  top: 12.6rem;
+  top: 12rem;
   background: rgba(132, 132, 132, 0.42);
   backdrop-filter: blur(2px);
   z-index: 1000;
@@ -50,8 +50,12 @@
   min-height: 300px;
   background: #ffffff;
   border-radius: 15px;
-
-  width: 40%;
-
+  width: 40% !important;
   overflow: hidden;
+}
+
+@media only screen and (max-width: 1000px) {
+  .modal {
+    width: 80% !important;
+  }
 }

@@ -1,28 +1,33 @@
-import "../styles/globals.css";
-import Layout from "../@core/Layout/Layout";
+import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "swiper/css/thumbs";
-import { Provider } from "react-redux";
+import Layout from "../@core/Layout/Layout";
 import store from "../store/store";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
+import "../styles/globals.css";
 
 export default function App({ Component, pageProps }) {
+  let persistor = persistStore(store);
   return (
     <Provider store={store}>
-      <Layout>
-        <ToastContainer
-          position="top-right"
-          theme="colored"
-          autoClose={4000}
-          rtl={true}
-          limit={2}
-        />
-        <Component {...pageProps} />
-      </Layout>
+      <PersistGate loading={null} persistor={persistor}>
+        <Layout>
+          <ToastContainer
+            position="top-right"
+            theme="colored"
+            autoClose={4000}
+            rtl={true}
+            limit={2}
+          />
+          <Component {...pageProps} />
+        </Layout>
+      </PersistGate>
     </Provider>
   );
 }

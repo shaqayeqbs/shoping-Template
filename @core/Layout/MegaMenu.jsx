@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import Modal from "../UI/Modal";
 import items from "../data/data.json";
-import MegaMenuList from "./MegaMenuList";
+import Modal from "../UI/Modal";
 import classes from "./MegaMenu.module.css";
+import MegaMenuList from "./MegaMenuList";
 
 function MegaMenu({ isOpen, onCloseModalHandler }) {
   const [children, setChildren] = useState(items[0].children);
+
   const changeChildrenHandler = (item) => {
     setChildren(item.children);
   };

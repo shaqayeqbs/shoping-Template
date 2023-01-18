@@ -1,15 +1,15 @@
-import React from "react";
-import classes from "./Layout.module.css";
-import MegaMenu from "./MegaMenu";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import React from "react";
 import { Headerlinks } from "../data/headerLinks";
+import classes from "./Layout.module.css";
+import MegaMenu from "./MegaMenu";
 
-function MyLinks({ onAddClose, showMenu, openModal, mobile }) {
+function MyLinks({ onAddClose, showMenu, openModal, mobile, closeSidebar }) {
   const router = useRouter();
 
   return (
-    <>
+    <div className="border-t-2 border-primary">
       {showMenu && (
         <MegaMenu isOpen={showMenu} onCloseModalHandler={onAddClose} />
       )}
@@ -26,13 +26,13 @@ function MyLinks({ onAddClose, showMenu, openModal, mobile }) {
               router.pathname == item.href ? "text-skin-primary font-bold" : ""
             }
           >
-            <div className={!mobile ? "" : " my-4"}>
+            <div className={!mobile ? "" : " my-4"} onClick={closeSidebar}>
               <Link href={item.href}>{item.title}</Link>
             </div>
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 

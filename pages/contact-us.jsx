@@ -1,18 +1,15 @@
-import React, { useState, useEffect } from "react";
 import { Call, Location } from "iconsax-react";
-import HeartShine from "../@core/icons/HeartShine";
-import WorkTIme from "../@core/components/main/ContactUs/WorkTIme";
-import Map from "../@core/utils/Map/Map";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import WorkTIme from "../@core/components/main/ContactUs/WorkTIme";
+import HeartShine from "../@core/icons/HeartShine";
+import Map from "../@core/utils/Map/Map";
 
 function ContactUs() {
   const [lat, setLat] = useState(0);
   const [lng, setLng] = useState(0);
   const [defaultCenter, setDefaultCenter] = useState([0, 0]);
-  const [address, connections] = useSelector((state) => [
-    state.businessSlice.addresses,
-    state.businessSlice.connections,
-  ]);
+  const address = useSelector((state) => state.businessSlice?.addresses);
 
   useEffect(() => {
     if (address[0]?.address) {
@@ -43,12 +40,12 @@ function ContactUs() {
     },
   ];
 
-  const DEFAULT_CENTER = [lat, lng];
+  // const DEFAULT_CENTER = [lat, lng];
 
   return (
     <section className="container">
-      <h1>راه های ارتباطی</h1>
-      <div className="flex justify-between">
+      <h1 className="mt-14">راه های ارتباطی</h1>
+      <div className="md:flex justify-between w-full">
         {dataList.map((item) => (
           <div
             key={item.id}
@@ -82,7 +79,7 @@ function ContactUs() {
           </div>
         ))}
       </div>
-      <div className="mt-4">
+      <div className="mt-4 z-0">
         <Map
           readOnly
           zoomControl={false}
