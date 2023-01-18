@@ -1,9 +1,9 @@
-import Slider from "../Slider/Slider";
-import { FaStar } from "react-icons/fa";
-import useTimer from "../../../hooks/useTimer";
-import StaticSlider from "../../../Helper/StaticSlider";
 import { Message } from "iconsax-react";
+import { FaStar } from "react-icons/fa";
 import ColorPalet from "../../../Helper/ColorPalet";
+import StaticSlider from "../../../Helper/StaticSlider";
+import useTimer from "../../../hooks/useTimer";
+import Slider from "../Slider/Slider";
 const carousel = [
   {
     id: "9",
@@ -22,10 +22,11 @@ function ProductsDetail({ item }) {
   const timerDevider = "text-skin-pzaarimary mx-2";
   return (
     <>
-      <section className="cadr container   !p-8 text-skin-">
-        <div className="flex">
+      <section className="cadr container   !p-8 !pt-20 mt-40 bg-[red] text-skin-">
+        <div className="flex bg-[red]">
           {" "}
           <div className="w-[40%]">
+            eeeeeeeeeeeeeeee
             <StaticSlider items={item.carousel} />
           </div>
           <div className="flex">
@@ -34,7 +35,7 @@ function ProductsDetail({ item }) {
               <h2 className="text-right m-6 text-2xl">{item.title}</h2>
               <div className="flex justify-between">
                 <div>
-                  <span className="ml-4">برند:</span>
+                  <span className="ml-4">ffffبرند:</span>
                   <span className="text-skin-primary">{item.brand}</span>
                   <div className="flex ">
                     <div className="flex justify-center rounded-md bg-skin-gray bg-[#f6f6f6] p-1  m-3 text-center">
@@ -73,6 +74,7 @@ function ProductsDetail({ item }) {
               <div className="my-10 text-right">
                 {" "}
                 <ColorPalet />
+                <div>ehhhhhhhhh</div>
               </div>
             </div>
           </div>

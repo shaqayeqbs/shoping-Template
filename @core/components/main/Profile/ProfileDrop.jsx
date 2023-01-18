@@ -56,6 +56,7 @@ export default function ProfileDrop() {
             src="/images/plant.png"
             width={40}
             height={40}
+            unoptimized="true"
             className="object-cover rounded-full "
           />
         </Menu.Button>
@@ -89,6 +90,7 @@ export default function ProfileDrop() {
                           src="/images/plant.png"
                           width={40}
                           height={40}
+                          unoptimized="true"
                           className="object-cover rounded-full "
                         />
                       </div>

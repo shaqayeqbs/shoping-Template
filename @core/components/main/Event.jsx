@@ -1,6 +1,5 @@
-import React from "react";
 import Image from "next/image";
-import Link from "next/dist/client/link";
+import React from "react";
 import Tooltip from "../../Helper/Tooltip";
 
 function Event({ event }) {
@@ -19,7 +18,7 @@ function Event({ event }) {
         <Image
           alt={event.title}
           loader={myLoader}
-          unoptimized={true}
+          unoptimized="true"
           src={img}
           width={2000}
           height={1330}

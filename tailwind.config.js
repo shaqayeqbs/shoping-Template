@@ -31,15 +31,23 @@ module.exports = {
         fill: withOpacity("--color-primary"),
         secondary: withOpacity("--color-secondary"),
         opacity: "var(--color-fill-oppacity)",
-        "button-primary": withOpacity("--color-primary"),
+        gray: "#f6f6f6",
         "button-primary-hover": "var(--color-button-primary-hover)",
       },
+    },
+    bordercolor: {
+      background: withOpacity("--color-background"),
+      fill: withOpacity("--color-primary"),
+      secondary: withOpacity("--color-secondary"),
+      opacity: "var(--color-fill-oppacity)",
+      gray: "#f6f6f6",
+      "button-primary-hover": "var(--color-button-primary-hover)",
     },
 
     colors: {
       primary: withOpacity("--color-primary"),
       second: withOpacity("--color-secondary"),
-      bordercolor: "var(--color-border-melo)",
+      bordercolor: "#f6f6f6",
     },
     maxWidth: "initial",
     container: {

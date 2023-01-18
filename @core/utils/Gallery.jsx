@@ -24,6 +24,7 @@ export default function Gallery() {
             width={900}
             height={900}
             src={item.images}
+            unoptimized="true"
             className="w-full"
           />
           <div className="absolute blurr  text-[white] text-center bottom-0 rounded-ms py-4 w-full">

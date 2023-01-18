@@ -15,6 +15,7 @@ function List({ data, offcerPage, articles }) {
           <div className="cadr my-2">
             <Image
               alt="slider photo"
+              unoptimized="true"
               src={item.image}
               width={400}
               height={400}

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import Image from "next/image";
+import React, { useState } from "react";
 
 function Categories({ data }) {
   const [categories, setCategories] = useState(data.slice(0, 5));
@@ -21,7 +21,13 @@ function Categories({ data }) {
       </button>
       {categories.map((item) => (
         <div className=" w-full h-full">
-          <Image src={item.image} width="240" height="210" alt="categories" />
+          <Image
+            src={item.image}
+            width="240"
+            height="210"
+            unoptimized="true"
+            alt="categories"
+          />
         </div>
       ))}
     </div>

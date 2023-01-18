@@ -43,6 +43,7 @@ const Carousel = ({ data, offcerPage }) => {
                 src={item.image}
                 width={400}
                 height={400}
+                unoptimized="true"
                 className={classes.image}
               />
               <h2 className="!text-md mb-[14%] text-right">{item.title}</h2>

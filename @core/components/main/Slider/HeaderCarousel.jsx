@@ -76,6 +76,7 @@ function HeaderCarousel({ items }) {
                 <Image
                   width={200}
                   height={80}
+                  unoptimized="true"
                   src={item?.file[0]?.details.location}
                   className="object-cover h-[2.5rem] w-full rounded-lg mt-10"
                 />
