@@ -1,36 +1,26 @@
-// const withPWA = require("next-pwa");
+// const nextTranslate = require("next-translate");
 
-// module.exports = withPWA({
-//   pwa: {
-//     dest: "public",
-//     register: true,
-//     skipWaiting: true,
+// module.exports = nextTranslate({
+//   module: {
+//     rules: [
+//       {
+//         test: /\.(svg|png|jpe?g|gif)$/i,
+//         use: [
+//           {
+//             loader: "file-loader",
+//           },
+//         ],
+//       },
+//     ],
 //   },
 // });
 const nextTranslate = require("next-translate");
 
-module.exports = nextTranslate({
+const nextConfig = {
+  ...nextTranslate(),
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "core.behzi.net",
-        domains: ["core.behzi.net"],
-        port: "",
-        pathname: "/**/**",
-      },
-    ],
+    domains: ["core.behzi.net"],
   },
-  module: {
-    rules: [
-      {
-        test: /\.(svg|png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: "file-loader",
-          },
-        ],
-      },
-    ],
-  },
-});
+};
+
+module.exports = nextConfig;

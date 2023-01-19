@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import { digitsEnToFa } from "@persian-tools/persian-tools";
 
-export default function useTimer() {
-  const initialMinute = 10;
-  const initialSeconds = 0;
-  const initialHours = 2;
+export default function useTimer(sec, min, hour) {
+  const initialMinute = min;
+  const initialSeconds = sec;
+  const initialHours = hour;
   const [hours, setHours] = useState(initialHours);
   const [minutes, setMinutes] = useState(initialMinute);
   const [Faminutes, setFaMinutes] = useState("۲");
-  const [FaHours, setFaHours] = useState("۲");
+  const [FarsHours, setFaHours] = useState("۲");
   const [seconds, setSeconds] = useState(initialSeconds);
-  const [Faseconds, setFaSeconds] = useState("۰");
+  const [farsSec, setFaSeconds] = useState("۰");
 
   useEffect(() => {
     let myInterval = setInterval(() => {
@@ -43,6 +43,15 @@ export default function useTimer() {
     };
   });
   const farsMin = digitsEnToFa(Faminutes);
+  const Faseconds = digitsEnToFa(farsSec);
+  const FaHours = digitsEnToFa(FarsHours);
 
-  return [hours, minutes, seconds, farsMin, FaHours, Faseconds];
+  function refreshTimer(sec, min, hour) {
+    setMinutes(2);
+    setFaMinutes("۲");
+    setSeconds(0);
+    setFaSeconds("۰");
+  }
+
+  return [hours, minutes, seconds, farsMin, FaHours, Faseconds, refreshTimer];
 }

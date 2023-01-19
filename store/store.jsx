@@ -1,14 +1,27 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { createWrapper } from "next-redux-wrapper";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 import businessSlice from "./Slices/BussinessSlice";
+import userSlice from "./Slices/UserSlice";
 
-const combinedReducer = combineReducers({
-  businessSlice,
+const reducers = combineReducers({
+  user: userSlice.reducer,
+  businessSlice: businessSlice.reducer,
 });
 
-export const makeStore = () =>
-  configureStore({
-    reducer: combinedReducer,
-  });
-
-export const wrapper = createWrapper(makeStore);
+const persistConfig = {
+  key: "root",
+  storage,
+};
+const persistedReducer = persistReducer(persistConfig, reducers);
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+      // serializableCheck: {
+      //   ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      // },
+    }),
+});
+export default store;

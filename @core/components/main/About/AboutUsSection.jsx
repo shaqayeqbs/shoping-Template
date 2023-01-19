@@ -1,6 +1,6 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
 function AboutUs() {
   return (
@@ -26,7 +26,7 @@ function AboutUs() {
         </div>
         <div className=" border-primary text-skin-primary  border-2 rounded-md w-[10rem] text-center my-8 py-[1%] ">
           {" "}
-          <Link href="/">ادامه مطلب</Link>
+          <Link href="/about-us">ادامه مطلب</Link>
         </div>
       </div>
       <div className="relative hidden lg:block lg:w-[60%] mr-8 pt-[9px] ">

@@ -1,54 +1,53 @@
-import React, { useState, useRef } from "react";
-import Link from "next/link";
-import useTimer from "../../hooks/useTimer";
-// import { verifyCode, verifyPhone } from "../../../../@core/api/authApi";
-// import PinField from "react-pin-field";
 import { ArrowLeft, ArrowRight } from "iconsax-react";
+import Link from "next/link";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { userData } from "../../../store/Slices/UserSlice";
+import { verifyPhone } from "../../api/authApi";
+import useTimer from "../../hooks/useTimer";
 import TimeHistory from "../../icons/TimeHistory";
-import { digitsEnToFa } from "@persian-tools/persian-tools";
-
+import LoadingSpinner from "../../UI/LoadingSpinner";
 function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
   const [loading, setLoading] = useState(false);
   const [code, setCode] = useState("");
-  const codeInputRef = useRef("");
+  const dispatch = useDispatch();
 
-  const [minutes, seconds, farsMin, Faseconds, refreshTimer] = useTimer();
+  console.log(phone);
+  const [hours, minutes, seconds, farsMin, FaHours, Faseconds, refreshTimer] =
+    useTimer(0, 2, 0);
 
   const btnClass = "w-full bg-skin-fill rounded-[5px] text-[white] py-2 mt-4";
-
-  const submitHandler = async (event) => {
-    event.preventDefault();
-
-    const data = { phone, code };
-    if (code === "") {
-      emptyInput();
-      return;
-    }
-    setLoading(true);
-    const response = await verifyCode(data);
-
-    if (response === "OK") {
-      onCodeVerified();
-    } else {
-      wrongCode();
-    }
-    setLoading(false);
-  };
 
   const refreshHandler = async (event) => {
     if (event) {
       event.preventDefault();
     }
-    setLoading(true);
-    codeInputRef.current.forEach((input) => (input.value = ""));
     const data = { phone };
-    refreshTimer();
+    refreshTimer(0, 2, 0);
+    const response = await verifyPhone(phone);
+  };
 
-    const response = await verifyPhone(data);
-    setLoading(false);
+  const onChangeCodeHandler = async (e) => {
+    setCode(e.target.value);
+    const temp = e.target.value;
+
+    if (temp.length === 5) {
+      setLoading(true);
+      const data = { phone, code: temp.toString() };
+      const response = await dispatch(userData(data));
+      console.log(response);
+
+      if (response?.payload?.status === 200) {
+        console.log("loggedIn ");
+        onCodeVerified();
+      }
+
+      setLoading(false);
+    }
   };
   return (
-    <section className=" m-16 mx-auto w-[52%]">
+    <section className=" m-16 mx-auto w-[80%] md:w-[52%]">
+      {loading && <LoadingSpinner />}
       <button
         onClick={returnToVerifyModal}
         className="absolute top-[4%] right-4 border-0"
@@ -65,21 +64,22 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
         <div>سلام!</div>
         <p>لطفا شماره موبایل خود را وارد کنید</p>
       </div>
-      <form onSubmit={submitHandler}>
+      <form>
         <div dir="ltr">
           <input
-            ref={codeInputRef}
-            onChange={setCode}
+            onChange={onChangeCodeHandler}
             length={4}
             className=" border-2 w-full border-primary rounded-[6.3px] h-[40px] p-3"
           />
         </div>
-        <div className="absolute flex left-[27%] top-[38%] border-r-2 pr-4 border-primary">
-          <span className="mt-[2px] ml-1 inline-block">
+        <div className="absolute flex left-[13%] md:left-[27%] top-[38%] border-r-2 pr-4 border-primary">
+          <span className="mt-[px] ml-1 inline-block">
             {" "}
-            {minutes === 0 && seconds === 0 ? null : (
-              <h3 dir="ltr" className="text-[12px]">
-                {farsMin} :{seconds < 10 ? `۰${Faseconds}` : Faseconds}
+            {minutes === 0 && seconds === 0 ? (
+              <h3 className="text-[12px] !mt-1">۰:۰</h3>
+            ) : (
+              <h3 dir="rtl">
+                {seconds < 10 ? `۰${Faseconds}` : Faseconds} : {farsMin}
               </h3>
             )}
           </span>
@@ -93,9 +93,12 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
         </p>
         <button
           onClick={returnToVerifyModal}
-          className="border-0 text-[12px] text-skin-primary"
+          className="border-0 text-[12px] text-skin-primary hover:bg-[transparent] hover:none hover:text-skin-primary  hover:underline"
         >
-          ویرایش شماره
+          <div className="hover:text-skin-primary  hover:underline">
+            {" "}
+            ویرایش شماره
+          </div>
         </button>
         <div>
           {minutes === 0 && seconds === 0 ? (

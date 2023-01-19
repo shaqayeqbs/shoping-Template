@@ -93,8 +93,8 @@ export const ProductsData = [
     title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
     image: "/images/plant.png",
     precent: "   25%",
-    lastPrice: "285٬000",
-    price: "300٬000٬000",
+    lastPrice: "300٬000٬000",
+    price: "285٬000",
     brand: "پارس",
     carousel: [
       { image: "/images/plant.png" },
@@ -211,7 +211,7 @@ export const ProductsData = [
     image: "/images/plant.png",
     precent: "   25%",
     lastPrice: "285٬000",
-    price: "300٬000٬000",
+    price: "300٬000٬0",
     brand: "پارس",
     carousel: [
       { image: "/images/plant.png" },
@@ -327,7 +327,7 @@ export const ProductsData = [
     image: "/images/plant.png",
     precent: "   25%",
     lastPrice: "285٬000",
-    price: "300٬000٬000",
+    price: "300٬000",
     brand: "پارس",
     carousel: [
       { image: "/images/plant.png" },

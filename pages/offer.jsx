@@ -1,7 +1,8 @@
-import List from "../@core/components/main/Slider/List";
 import dynamic from "next/dynamic";
-import Pagination from "../@core/utils/Pagination";
+import { memo } from "react";
+import List from "../@core/components/main/Slider/List";
 import OrderingList from "../@core/Helper/OrderingList";
+import Pagination from "../@core/utils/Pagination";
 const Carousel = dynamic(
   () => import("../@core/components/main/carousel/carousel"),
   { ssr: false }
@@ -242,4 +243,4 @@ function Offer() {
   );
 }
 
-export default Offer;
+export default memo(Offer);

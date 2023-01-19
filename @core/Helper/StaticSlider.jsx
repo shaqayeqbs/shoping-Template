@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper";
 import Image from "next/image";
+import React, { useState } from "react";
+import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 function HeaderCarousel({ items }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-    <div className="flex flex-row-reverse  !justify-start gap-0 mb-8 !p-0   h-max relative">
-      <div className="mx-4 w-full my-0 ">
+    <div className="flex flex-row-reverse !justify-between gap-0    h-[17rem]  md:h-max relative">
+      <div className="mx-0 w-full my-0 ">
         <Swiper
           breakpoints={{
             700: {
@@ -21,19 +21,22 @@ function HeaderCarousel({ items }) {
           thumbs={{ swiper: thumbsSwiper }}
           loopFillGroupWithBlank={true}
           modules={[FreeMode, Navigation, Thumbs, Autoplay]}
-          className=" !w-[100%] !h-full border-1 border-borderColor  "
+          className="  border-1 border-borderColor  "
+          // slideActiveClass="!w-[10rem]"
+          style={{ width: "100%" }}
         >
-          {items.map((item) => (
+          {items.map((item, index) => (
             <SwiperSlide
-              key={item.id}
+              key={index}
               style={{ backgroundColor: item.color }}
-              className="!p-0 !w-[100%] !h-[100%] "
+              className="!p-0"
             >
-              <div className="container  !w-[100%] h-full   cadr p-0    ">
+              <div className="w-full">
                 <Image
+                  unoptimized="true"
                   src={item.image}
-                  width={500}
-                  height={600}
+                  width={360}
+                  height={360}
                   className="object-cover rounded-xl"
                 />
               </div>
@@ -52,15 +55,20 @@ function HeaderCarousel({ items }) {
         modules={[FreeMode, Navigation, Thumbs]}
         direction="vertical"
         height={2}
-        className="!w-[20%] !h-[20rem]"
+        className="!w-[60px] !h-[360px]"
       >
-        {items.map((item) => (
+        {items.map((item, index) => (
           <SwiperSlide
-            key={item.id}
+            key={index}
             className="
-            rounded-lg  my-1 !ml-[5%]   "
+            rounded-lg  "
           >
-            <img src={item.image} />
+            <Image
+              width={360}
+              height={360}
+              unoptimized="true"
+              src={item.image}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

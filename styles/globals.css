@@ -26,16 +26,8 @@
 
 @layer base {
   :root {
-    --color-text-base: #238b44;
+    --color-text-base: #b4b4b4;
     --color-text-muted: #b4b4b4;
-    --color-text-subtitle: #6f6f6f;
-    --color-bg-gray: "#f6f6f6";
-    --color-text-white: #ffffff;
-    --color-fill: #238b44;
-    --color-fill-oppacity: rgba(35, 139, 68, 0.1);
-    --color-button-primary: "primary";
-    --color-button-primary-hover: "#56C679";
-    --color-border-melo: #f8f8f8;
   }
   .ltr {
     direction: ltr;
@@ -43,6 +35,8 @@
   .cadr {
     display: block;
     width: 95%;
+    box-sizing: border-box;
+    object-fit: cover;
     padding: 9px !important;
     background-color: white;
     border-radius: 15px;
@@ -52,8 +46,26 @@
     background: rgba(92, 92, 92, 0.59);
     backdrop-filter: blur(11.5px);
   }
+  .filterBtn {
+    border: inherit;
+    display: inline-block;
+
+    margin: 1.5rem 2rem;
+    border-radius: 0;
+  }
+  .filterBtn:hover {
+    background: transparent;
+    color: black;
+  }
   body {
-    @apply bg-[#f6f6f6] text-[#424242]   text-[16px] text-justify;
+    @apply bg-skin-background text-skin-text  text-[16px] text-justify;
+  }
+  .rounded-default {
+    border-radius: 15px;
+  }
+  .filterBtnActive {
+    border-bottom: 4px solid #238b44;
+    font-weight: 600;
   }
 
   h1,
@@ -78,13 +90,13 @@
   }
 
   button {
-    @apply rounded-xl hover:!text-[white] hover:border-[#56C679] p-1  hover:bg-[#56C679] uppercase border-2 border-primary text-center active:bg-[#098330];
+    @apply rounded-xl  p-1  uppercase border-2 border-primary text-center;
   }
   a {
-    @apply hover:text-[#56C679] active:text-skin-primary  border-0  py-[1rem] w-[100%]  active:text-[#098330];
+    @apply border-0  py-[1rem] w-[100%];
   }
   p {
-    @apply text-justify tracking-tighter text-[#6f6f6f];
+    @apply text-justify tracking-tighter;
   }
 }
 *,
@@ -92,6 +104,7 @@ html,
 body {
   font-family: "IranSans", "IranSansXFaNum", Courier, monospace;
   direction: rtl;
+  box-sizing: border-box;
 }
 
 html {
@@ -122,12 +135,12 @@ body.overlays,
 .swiper-button-prev:after {
   color: black;
 
-  width: 3rem;
-  height: 3rem;
-  background-color: rgba(180, 180, 180, 0.7);
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--color-text-base);
   background: transparent\10;
   padding: 1rem;
-  padding-top: 1rem;
+  padding-top: 0.6rem;
   display: block;
   font-size: 16px !important;
   margin: 0 0rem;
@@ -172,3 +185,9 @@ input:focus-visible {
   height: 20% !important;
 }
 /*  */
+
+@media only screen and (max-width: 600px) {
+  .filterBtn {
+    margin: 1.5rem 0.5em;
+  }
+}

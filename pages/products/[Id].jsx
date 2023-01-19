@@ -1,6 +1,6 @@
-import ProductsDetail from "../../@core/components/main/shop/ProductsDetail";
-import { getProductsById } from "../../@core/data/products";
 import Head from "next/head";
+import ProductsDetail from "../../@core/components/main/shop/DetailPage/ProductsDetail";
+import { getProductsById } from "../../@core/data/products";
 
 const ProductsDetailPage = ({ item }) => {
   if (!item || item.lenght === 0) {

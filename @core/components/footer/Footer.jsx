@@ -1,16 +1,17 @@
-import React from "react";
-import data from "../../data/footerData.json";
-import { Youtube, Instagram, Location, Call } from "iconsax-react";
-import { SiTelegram } from "react-icons/si";
-import { GrTwitter } from "react-icons/gr";
+import { Call, Instagram, Location, Youtube } from "iconsax-react";
 import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { GrTwitter } from "react-icons/gr";
+import { SiTelegram } from "react-icons/si";
 import { useSelector } from "react-redux";
+import data from "../../data/footerData.json";
 
 function Footer() {
   const addresses = useSelector((state) => state.businessSlice?.addresses);
   const icons = [
-    { id: 6, icon: <Youtube size="32" /> },
-    { id: 2, icon: <Instagram size="32" /> },
+    { id: 6, icon: <Youtube size="32" variant="Bold" /> },
+    { id: 2, icon: <Instagram size="32" variant="Bold" /> },
     { id: 3, icon: <SiTelegram size="32" /> },
     { id: 4, icon: <GrTwitter size="32" /> },
   ];
@@ -24,7 +25,7 @@ function Footer() {
             <div className="my-8" key={index}>
               <div className="flex">
                 <Location
-                  size="32"
+                  size="24"
                   className="text-skin-primary ml-2"
                   variant="Bold"
                 />
@@ -34,7 +35,7 @@ function Footer() {
             </div>
           ))}
           <div className="flex">
-            <Call size="32" className="text-skin-primary ml-2" variant="Bold" />
+            <Call size="28" className="text-skin-primary ml-2" variant="Bold" />
             <div>{data.phone}</div>
           </div>
         </div>
@@ -49,7 +50,7 @@ function Footer() {
                   className="w-[70%] md:w-[100%] list-disc marker:text-skin-primary marker:text-center text-center md:text-right marker:text-2xl "
                   key={item.id}
                 >
-                  {item.title}
+                  <Link href={item.href}>{item.title}</Link>
                 </li>
               ))}
             </ul>

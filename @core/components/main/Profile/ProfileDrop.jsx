@@ -1,21 +1,27 @@
-import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import Link from "next/link";
-import Image from "next/image";
 import {
   ArrowLeft2,
-  Wallet,
   Heart,
-  Shop,
-  Message,
   LogoutCurve,
+  Message,
+  Shop,
+  Wallet,
 } from "iconsax-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Fragment } from "react";
+import { useDispatch } from "react-redux";
+import { userActions } from "../../../../store/Slices/UserSlice";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function ProfileDrop() {
+  const dispatch = useDispatch();
+  const logoutHandler = () => {
+    dispatch(userActions.logout());
+  };
   const DropDownData = [
     {
       id: 1,
@@ -45,11 +51,12 @@ export default function ProfileDrop() {
   return (
     <Menu as="div" className="relative inline-block text-left ">
       <div>
-        <Menu.Button className="inline-flex mt-[4px] w-full justify-center rounded-md border-0 border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700  hover:bg-[transparent]">
+        <Menu.Button className="inline-flex mt-[4px] w-full justify-center rounded-md border-0 border-gray-300 bg-white pr-4 py-2 text-sm font-medium text-gray-700  hover:bg-[transparent]">
           <Image
             src="/images/plant.png"
             width={40}
             height={40}
+            unoptimized="true"
             className="object-cover rounded-full "
           />
         </Menu.Button>
@@ -83,6 +90,7 @@ export default function ProfileDrop() {
                           src="/images/plant.png"
                           width={40}
                           height={40}
+                          unoptimized="true"
                           className="object-cover rounded-full "
                         />
                       </div>
@@ -129,11 +137,11 @@ export default function ProfileDrop() {
                     "block  py-2 text-sm text-right"
                   )}
                 >
-                  <div className="flex">
+                  <button className="flex border-0" onClick={logoutHandler}>
                     {" "}
                     <LogoutCurve size="24" variant="Outline" />
                     <div className="mx-2"> خروج</div>
-                  </div>
+                  </button>
                 </Link>
               </div>
             )}

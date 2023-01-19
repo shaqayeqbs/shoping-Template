@@ -1,5 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 const mainColor = "rgb(35, 139, 68)";
+function withOpacity(variableName) {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`;
+    }
+    return `rgb(var(${variableName}))`;
+  };
+}
 module.exports = {
   content: [
     "./pages/*.{html,js,jsx}",
@@ -10,25 +18,36 @@ module.exports = {
   theme: {
     textColor: {
       skin: {
-        primary: "var(--color-text-base)",
+        // primary: "var(--color-text-base)",
+        primary: withOpacity("--color-primary"),
         muted: "var(--color-text-muted)",
-        color: "var(--color-border-melo)",
+        text: withOpacity("--color-text"),
+        color: withOpacity("--color-primary"),
       },
     },
     backgroundColor: {
       skin: {
-        gray: "var(--color-bg-gray)",
-        fill: "var(--color-fill)",
+        background: withOpacity("--color-background"),
+        fill: withOpacity("--color-primary"),
+        secondary: withOpacity("--color-secondary"),
         opacity: "var(--color-fill-oppacity)",
-        "button-primary": "var(--color-button-primary)",
+        gray: "#f6f6f6",
         "button-primary-hover": "var(--color-button-primary-hover)",
       },
     },
+    bordercolor: {
+      background: withOpacity("--color-background"),
+      fill: withOpacity("--color-primary"),
+      secondary: withOpacity("--color-secondary"),
+      opacity: "var(--color-fill-oppacity)",
+      gray: "#f6f6f6",
+      "button-primary-hover": "var(--color-button-primary-hover)",
+    },
 
     colors: {
-      primary: "#238B44",
-      second: "#56C679",
-      bordercolor: "var(--color-border-melo)",
+      primary: withOpacity("--color-primary"),
+      second: withOpacity("--color-secondary"),
+      bordercolor: "#f6f6f6",
     },
     maxWidth: "initial",
     container: {

@@ -1,15 +1,4 @@
-import React from "react";
-import dynamic from "next/dynamic";
-import Pagination from "../@core/utils/Pagination";
-import List from "../@core/components/main/Slider/List";
-import Gallery from "../@core/utils/Gallery";
-import OrderingList from "../@core/Helper/OrderingList";
-const Carousel = dynamic(
-  () => import("../@core/components/main/carousel/carousel"),
-
-  { ssr: false }
-);
-const data = [
+export const ArticlesData = [
   {
     id: "1",
     image: "/images/article.png",
@@ -53,7 +42,7 @@ const data = [
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.صنعت چاپ و با استفاده از طراحان گرافیک است.",
   },
   {
-    id: "15",
+    id: "1500",
     image: "/images/article.png",
     title: "نحوه نگهداری سانسوریا",
     description:
@@ -179,35 +168,7 @@ const data = [
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.صنعت چاپ و با استفاده از طراحان گرافیک است.",
   },
 ];
-const SortList = [
-  {
-    id: 1,
-    title: "پربازدیدترین",
-  },
-  {
-    id: 2,
-    title: "محبوب ترین",
-  },
-  {
-    id: 3,
-    title: "جدیدترین",
-  },
-  {
-    id: 4,
-    title: "قدیمی ترین ",
-  },
-];
 
-function Articles() {
-  return (
-    <section className="container">
-      <Gallery />
-      <h1 className="mt-16 mb-8">همه مقاله ها</h1>
-      <OrderingList data={SortList} />
-      <List data={data} articles={true} />
-      <Pagination />
-    </section>
-  );
+export async function getArticlesById(id) {
+  return ArticlesData.find((item) => +item.id == +id);
 }
-
-export default Articles;

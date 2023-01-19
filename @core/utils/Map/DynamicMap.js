@@ -1,14 +1,14 @@
-import { useEffect } from "react";
 import Leaflet from "leaflet";
-import * as ReactLeaflet from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { useEffect } from "react";
+import * as ReactLeaflet from "react-leaflet";
 
 // import styles from './Map.module.scss';
 
 const { MapContainer } = ReactLeaflet;
 
 const Map = ({ children, className, width, height, center, zoom, ...rest }) => {
-  let mapClassName = "w-[100%] h-[80%] my-10 rounded-lg";
+  let mapClassName = "w-[100%] h-[100%] md:h-[80%] my-10 rounded-lg z-0";
   function ChangeView({ center, zoom }) {
     const map = ReactLeaflet.useMap();
     map.setView(center, zoom);
