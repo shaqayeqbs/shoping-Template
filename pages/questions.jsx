@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AccordionUI from "../@core/Helper/Accordion/AccordionUI";
 
-function questions() {
+function Questions() {
   const [Index, setIndex] = useState(false);
   const data = [
     {
@@ -39,7 +39,7 @@ function questions() {
           <AccordionUI
             title={item.title}
             Id={item.id}
-            children={item.description}
+            child={item.description}
             Index={Index}
             setIndex={setIndex}
           ></AccordionUI>
@@ -49,4 +49,4 @@ function questions() {
   );
 }
 
-export default questions;
+export default Questions;

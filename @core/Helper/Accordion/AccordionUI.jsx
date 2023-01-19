@@ -1,7 +1,7 @@
 import { ArrowDown2, ArrowUp2 } from "iconsax-react";
 import React from "react";
 
-const AccordionUI = ({ title, children, Id, Index, setIndex }) => {
+const AccordionUI = ({ title, child, Id, Index, setIndex }) => {
   const handleSetIndex = (Id) => Index !== Id && setIndex(Id);
 
   return (
@@ -31,7 +31,7 @@ const AccordionUI = ({ title, children, Id, Index, setIndex }) => {
       </div>
 
       {Index === Id && (
-        <div className=" w-full h-auto  rounded-md p-4  mb-2 ">{children}</div>
+        <div className=" w-full h-auto  rounded-md p-4  mb-2 ">{child}</div>
       )}
     </>
   );
