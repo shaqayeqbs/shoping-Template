@@ -26,40 +26,46 @@ function ProductsDetail({ item }) {
   const onSelectHandler = (data) => {
     setSize(data);
   };
-  const emojiStyle = "bg-skin-secondary rounded-lg mx-2 p-2 text-skin-primary";
+  const emojiStyle =
+    "bg-skin-secondary rounded-lg h-[3rem] w-[3rem] mx-2 p-2 text-skin-primary";
   return (
     <>
-      <section className="cadr container  !mt-16 !p-8 text-skin-">
-        <div className="flex justify-between space-x-0 !gap-0">
+      <section className="cadr container   !mt-16 !p-8 text-skin-">
+        <div className="xl:flex justify-between space-x-0 !gap-0">
           {" "}
-          <div className="w-[45%]">
+          <div className="w-full mx-auto xl:w-[45%]">
             <StaticSlider items={item.carousel} />
           </div>
-          <div className="w-full text-right">
-            <div className="w-full  border-b-2 pb-4  border-bordercolor ">
+          <div className=" text-right">
+            <div className=" border-b-2 pb-4  border-bordercolor ">
               <h2 className="text-right m-6 text-[24px] mr-0">{item.title}</h2>
-              <div className="flex justify-between">
-                <div className="text-right">
+              <div className="md:flex justify-between  w-[100%] break-all">
+                <div className="text-right w-[70%] ">
                   <span className="ml-4">برند:</span>
                   <span className="text-skin-primary">{item.brand}</span>
                   <Vote />
                 </div>
 
-                <div className=" mr-6 ">
+                <div className="w-full ">
                   <span className="mx-4 mr-0">دسته بندی:</span>
-                  <span className="text-skin-primary">{item.category}</span>
+                  <span className="text-skin-primary w-[60%]  ">
+                    {item.category}
+                  </span>
                   <div className="flex mt-5">
                     <Message size="16" variant="Outline" />
                     <div className="mr-2 text-[12px]"> 20 نظر</div>
                   </div>
                 </div>
-                <div className="mx-auto"></div>
-                <RemainTime />
+
+                <div className="">
+                  {" "}
+                  <RemainTime />
+                </div>
               </div>
             </div>
             <div className="text-right">
               {" "}
-              <div className="flex justify-between">
+              <div className="md:flex justify-between">
                 <ColorPalet />
                 <div>
                   <div className="my-4 font-bold">اندازه :{size}</div>
@@ -67,7 +73,7 @@ function ProductsDetail({ item }) {
                 </div>
               </div>
               <PropertiesOfProduct />
-              <div className="flex justify-between w-[55%] my-10 font-bold ">
+              <div className="flex justify-between w-full my-10 font-bold ">
                 {" "}
                 <div>
                   <div> قیمت کالا :</div>
@@ -81,15 +87,15 @@ function ProductsDetail({ item }) {
                     <span>تومان</span>
                   </div>
                 </div>
-                <div>
+                <div className="mr-10 w-full">
                   <div> وضعیت کالا :</div>
                   <div className="text-skin-primary my-4">موجود</div>
                 </div>
               </div>
             </div>
-            <div className="flex justify-between">
+            <div className=" lg:flex justify-between">
               {" "}
-              <button className="bg-skin-fill rounded-lg p-2 text-[white]">
+              <button className="bg-skin-fill mb-5 rounded-lg p-2 text-[white]">
                 افزودن به سبد خرید
               </button>
               <div className="flex">

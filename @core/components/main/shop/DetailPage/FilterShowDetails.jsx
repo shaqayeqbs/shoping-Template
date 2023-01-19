@@ -21,7 +21,9 @@ function FilterShowDetails() {
     <section className="container text-center">
       <div className="bg-[white] my-6 rounded-default text-[22px]">
         <button
-          className={`filterBtn ${activeIndex === 0 ? "filterBtnActive" : ""}`}
+          className={`filterBtn inline-block ${
+            activeIndex === 0 ? "filterBtnActive" : ""
+          }`}
           value={0}
           onClick={FilterHandler}
         >

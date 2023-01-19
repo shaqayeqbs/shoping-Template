@@ -7,7 +7,7 @@ function HeaderCarousel({ items }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-    <div className="flex flex-row-reverse  !justify-between gap-0     h-max relative">
+    <div className="flex flex-row-reverse !justify-between gap-0    h-[17rem]  md:h-max relative">
       <div className="mx-0 w-full my-0 ">
         <Swiper
           breakpoints={{
@@ -23,13 +23,13 @@ function HeaderCarousel({ items }) {
           modules={[FreeMode, Navigation, Thumbs, Autoplay]}
           className="  border-1 border-borderColor  "
           // slideActiveClass="!w-[10rem]"
-          style={{ width: "400px" }}
+          style={{ width: "100%" }}
         >
           {items.map((item, index) => (
             <SwiperSlide
               key={index}
               style={{ backgroundColor: item.color }}
-              className="!p-0 "
+              className="!p-0"
             >
               <div className="w-full">
                 <Image

@@ -22,11 +22,10 @@ function ProductsDetail({ item }) {
   const timerDevider = "text-skin-pzaarimary mx-2";
   return (
     <>
-      <section className="cadr container   !p-8 !pt-20 mt-40 bg-[red] text-skin-">
-        <div className="flex bg-[red]">
+      <section className="cadr container   !p-8 !pt-20 mt-40  text-skin-">
+        <div className="flex ">
           {" "}
           <div className="w-[40%]">
-            eeeeeeeeeeeeeeee
             <StaticSlider items={item.carousel} />
           </div>
           <div className="flex">
@@ -35,10 +34,10 @@ function ProductsDetail({ item }) {
               <h2 className="text-right m-6 text-2xl">{item.title}</h2>
               <div className="flex justify-between">
                 <div>
-                  <span className="ml-4">ffffبرند:</span>
+                  <span className="ml-4">برند:</span>
                   <span className="text-skin-primary">{item.brand}</span>
                   <div className="flex ">
-                    <div className="flex justify-center rounded-md bg-skin-gray bg-[#f6f6f6] p-1  m-3 text-center">
+                    <div className="flex justify-center rounded-md bg-[#f6f6f6] p-1  m-3 text-center">
                       <div> 4.3</div>
                       <div className="mx-1 text-[#ff8d14] p-1">
                         <FaStar />

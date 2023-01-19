@@ -8,7 +8,7 @@ function MegaMenuList({ item, color, onChangeChildren }) {
   return (
     <section className={classes.section}>
       <div className={color ? classes.items : classes.children}>
-        <button onClick={setBtnActive} value={item.title}>
+        <button onClick={setBtnActive} className="border-0" value={item.title}>
           {item.title}
         </button>
       </div>

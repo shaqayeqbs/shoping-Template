@@ -35,6 +35,8 @@
   .cadr {
     display: block;
     width: 95%;
+    box-sizing: border-box;
+    object-fit: cover;
     padding: 9px !important;
     background-color: white;
     border-radius: 15px;
@@ -46,6 +48,8 @@
   }
   .filterBtn {
     border: inherit;
+    display: inline-block;
+
     margin: 1.5rem 2rem;
     border-radius: 0;
   }
@@ -181,3 +185,9 @@ input:focus-visible {
   height: 20% !important;
 }
 /*  */
+
+@media only screen and (max-width: 600px) {
+  .filterBtn {
+    margin: 1.5rem 0.5em;
+  }
+}

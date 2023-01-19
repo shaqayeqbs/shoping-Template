@@ -1,5 +1,5 @@
-import React from "react";
 import { ArrowDown2, ArrowUp2 } from "iconsax-react";
+import React from "react";
 
 const AccordionUI = ({ title, children, Id, Index, setIndex }) => {
   const handleSetIndex = (Id) => Index !== Id && setIndex(Id);
@@ -8,7 +8,9 @@ const AccordionUI = ({ title, children, Id, Index, setIndex }) => {
     <>
       <div
         onClick={() => handleSetIndex(Id)}
-        className="flex group border-b-2 border-bordercolor cursor-pointer w-full mx-auto h-16 justify-between  items-center p-2 mt-2  bg-white  focus:bg-pink-500 "
+        className="flex group 
+        //border-b-2
+         border-bordercolor cursor-pointer w-full mx-auto h-16 justify-between  items-center p-2 mt-2  bg-white  focus:bg-pink-500 "
       >
         <div className="flex group cursor-pointer">
           <div className="text-pink-600 font-semibold pl-10 ">{title}</div>

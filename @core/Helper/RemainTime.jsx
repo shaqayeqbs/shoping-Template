@@ -7,12 +7,13 @@ function RemainTime() {
     6,
     40
   );
-  const timerBtn = "bg-skin-secondary p-2 px-4 text-skin-primary rounded-md";
-  const timerDevider = "text-skin-pzaarimary mx-2 rtl";
+  const timerBtn =
+    "bg-skin-secondary p-2 px-4 text-skin-primary w-full rounded-md";
+  const timerDevider = "text-skin-pzaarimary mx-2 rtl w-full";
   return (
-    <div className="" dir="ltr">
+    <div className="w-max" dir="ltr">
       {(hours === 0) & (minutes === 0) && seconds === 0 ? null : (
-        <h3 className="text-center my-2 ltr">
+        <h3 className="my-2 ltr text-center md:text-left">
           <span className={timerBtn}>{FaHours}</span>
           <span className={timerDevider}>:</span>
           <span className={timerBtn}>{Faminutes}</span>{" "}

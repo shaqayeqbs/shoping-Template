@@ -4,7 +4,7 @@ import ReactStars from "react-rating-stars-component";
 const firstExample = {
   size: 30,
   activeColor: "#ff8d14",
-  value: 4,
+
   count: 5,
   edit: false,
 };
@@ -32,20 +32,22 @@ const thirdExample = {
   value: 2.5,
   //   color: "blue",
   activeColor: "#ff8d14",
-  onChange: (newValue) => {
-    console.log(`Example 3: new value is ${newValue}`);
-  },
+  onChange: (newValue) => {},
 };
 
-export function ChangableStarRating() {
+export function ChangableStarRating({ onChangeStar }) {
+  const onChangeHandler = (newValue) => {
+    onChangeStar(newValue);
+    // console.log(`Example 3: new value is ${newValue}`);
+  };
   return (
     <div className="App">
       <ReactStars {...secondExample} />
 
-      <ReactStars {...thirdExample} />
+      <ReactStars {...thirdExample} onChange={onChangeHandler} />
     </div>
   );
 }
-export default function ReadOnlyStars() {
-  return <ReactStars {...firstExample} />;
+export default function ReadOnlyStars({ value = 4 }) {
+  return <ReactStars {...firstExample} value={value} />;
 }

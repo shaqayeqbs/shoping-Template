@@ -11,7 +11,10 @@ function List({ data, offcerPage, articles }) {
   return (
     <ul className="grid grid-cols-1 md:grid-cols-4">
       {data?.map((item) => (
-        <Link href={`/products/${item.id}`} key={item.id}>
+        <Link
+          href={offcerPage ? `/articles/${item.id}` : `/products/${item.id}`}
+          key={item.id}
+        >
           <div className="cadr my-2">
             <Image
               alt="slider photo"

@@ -1,5 +1,6 @@
 import { Call, Instagram, Location, Youtube } from "iconsax-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { GrTwitter } from "react-icons/gr";
 import { SiTelegram } from "react-icons/si";
@@ -49,7 +50,7 @@ function Footer() {
                   className="w-[70%] md:w-[100%] list-disc marker:text-skin-primary marker:text-center text-center md:text-right marker:text-2xl "
                   key={item.id}
                 >
-                  {item.title}
+                  <Link href={item.href}>{item.title}</Link>
                 </li>
               ))}
             </ul>
