@@ -12,7 +12,7 @@ function List({ data, offcerPage, articles }) {
     <ul className="grid grid-cols-1 md:grid-cols-4">
       {data?.map((item) => (
         <Link
-          href={offcerPage ? `/articles/${item.id}` : `/products/${item.id}`}
+          href={articles ? `/articles/${item.id}` : `/products/${item.id}`}
           key={item.id}
         >
           <div className="cadr my-2">
