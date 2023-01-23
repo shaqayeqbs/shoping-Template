@@ -18,7 +18,6 @@ function Event({ event }) {
         <Image
           alt={event.title}
           loader={myLoader}
-          unoptimized="true"
           src={img}
           width={2000}
           height={1330}
