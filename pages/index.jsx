@@ -80,19 +80,25 @@ function Home({ data = null }) {
             <Event event={item} key={item.id} />
           ))}
         </section>
+        <div className="container">
+          <Slider title="گلدان های جدید" data={carousel} />
+        </div>
 
-        <Slider title="گلدان های جدید" data={carousel} />
         <section className={classes}>
           {events?.slice(0, 2).map((item) => (
             <Event event={item} key={item.id} />
           ))}
         </section>
-        <Slider title="گیاهان آپارتمانی" data={carousel} />
+        <div className="container">
+          <Slider title="گیاهان آپارتمانی" data={carousel} />
+        </div>
+
         <section className="my-10">
           <AboutUsSection />
         </section>
-
-        <Slider title={t("landing:articles")} data={articles} />
+        <div className="container">
+          <Slider title={t("landing:articles")} data={articles} />
+        </div>
       </main>
     </>
   );

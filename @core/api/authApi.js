@@ -1,12 +1,12 @@
-import instance from "../utils/request.js";
 import END_POINTS from "../constants/endpoints";
+import instance from "../utils/request.js";
 
 export const register = async ({ phone, password }) => {
   try {
     const res = await instance.post(END_POINTS.register, { phone, password });
-    if (res?.status === 200) {
-      localStorage.setItem("token", res.data.access);
-    }
+    // if (res?.status === 200) {
+    //   localStorage.setItem("token", res.data.access);
+    // }
 
     return res?.data;
   } catch (err) {

@@ -72,7 +72,7 @@ function VerifyPhoneModal({ onMobileVerified }) {
         <input
           dir="ltr"
           type="tel"
-          maxLength="10"
+          maxLength="12"
           id="phone"
           name="phone"
           onChange={phoneChangeHandler}

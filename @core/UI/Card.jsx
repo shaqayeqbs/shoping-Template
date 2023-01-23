@@ -1,8 +1,9 @@
 import React from "react";
-import classes from "./Card.module.css";
 
 function Card({ children }) {
-  return <div className={classes.card}>{children}</div>;
+  return (
+    <div className="bg-[white] mb-8 rounded-xl lg:mr-8 p-6">{children}</div>
+  );
 }
 
 export default Card;

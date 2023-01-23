@@ -1,4 +1,5 @@
 import React from "react";
+import { GetArticles } from "../../@core/api/articlesApi";
 import List from "../../@core/components/main/Slider/List";
 import OrderingList from "../../@core/Helper/OrderingList";
 import Gallery from "../../@core/utils/Gallery";
@@ -197,7 +198,8 @@ const SortList = [
   },
 ];
 
-function Articles() {
+function Articles({ data = null }) {
+  console.log(data);
   return (
     <section className="container">
       <div className="mt-12">
@@ -213,3 +215,16 @@ function Articles() {
 }
 
 export default Articles;
+export const getServerSideProps = async () => {
+  let response = await GetArticles();
+  // let response = await axios(
+  //   "http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa"
+  // );
+  console.log(response);
+
+  return {
+    props: {
+      data: response?.data || null,
+    },
+  };
+};
