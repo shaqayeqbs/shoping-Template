@@ -2,28 +2,31 @@ import axios from "axios";
 import APP_CONFIG from "../constants/app-config";
 // import logout from "../../components/Hepler/logout";
 
-// export function getLocalAccessToken() {
-//   const accessToken = localStorage.getItem("token");
-//   return accessToken;
-// }
+export function getLocalAccessToken() {
+  const accessToken = localStorage.getItem("token");
+  return accessToken;
+}
 
 const instance = axios.create({
   baseURL: APP_CONFIG.apiBaseUrl,
 });
 
-// instance.interceptors.request.use(
-//   (config) => {
-//     // const token = getLocalAccessToken();
-//     // if (token) {
-//     //   config.headers["Authorization"] = `Bearer ${token}`;
-//     // }
-//     return config;
-//   },
-//   (error) => {
-//     console.log(error);
-//     return Promise.reject(error);
-//   }
-// );
+instance.interceptors.request.use(
+  (config) => {
+    if (typeof window != "undefined") {
+      const token = getLocalAccessToken();
+      if (token) {
+        config.headers["Authorization"] = `Bearer ${token}`;
+      }
+      console.log(token, "hereeeeeeeeee");
+    }
+    return config;
+  },
+  (error) => {
+    console.log(error);
+    return Promise.reject(error);
+  }
+);
 
 // instance.interceptors.response.use(
 //   (res) => {

@@ -116,7 +116,9 @@ function ProductsDetail({ item }) {
         </div>
       </section>
       <FilterShowDetails />
-      <Slider title="گلدان های جدید" data={carousel} />
+      <div className="container">
+        <Slider title="گلدان های جدید" data={carousel} />
+      </div>
     </>
   );
 }

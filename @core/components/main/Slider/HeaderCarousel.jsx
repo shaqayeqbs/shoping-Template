@@ -1,5 +1,4 @@
 import { ArrowLeft2, ArrowRight2 } from "iconsax-react";
-import Image from "next/image";
 import React, { useState } from "react";
 import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper";
 import "swiper/css";
@@ -50,7 +49,7 @@ function HeaderCarousel({ items }) {
         ))}
       </Swiper>
 
-      <div className="absolute bottom-11 cursor-pointer w-[25%] right-[25%] md:right-[18%] 2xl:right-[23%]  3xl:right-[33%]">
+      <div className="absolute bottom-11 cursor-pointer right-[25%]   w-[25%] md:right-[20%] xl:right-[21%]    2xl:right-[24%]   ">
         <Swiper
           onSwiper={setThumbsSwiper}
           loop={true}
@@ -69,16 +68,16 @@ function HeaderCarousel({ items }) {
           {items?.map((item, index) => (
             <SwiperSlide
               key={index}
-              className="container rounded-lg w-full !md:w-[23%] !h-12s text-right !ml-[2%]  "
+              className="container rounded-lg w-full !md:w-[23%]  !h-[4rem]  text-right !ml-[1%]  "
             >
               <div className="rounded-md p-0 ">
                 {" "}
-                <Image
+                <img
                   width={200}
                   height={80}
                   unoptimized="true"
                   src={item?.file[0]?.details.location}
-                  className="object-cover h-[2.5rem] w-full rounded-lg mt-10"
+                  className="object-cover rounded-lg h-[3rem]"
                 />
               </div>
             </SwiperSlide>
@@ -88,14 +87,14 @@ function HeaderCarousel({ items }) {
       <div className="container relative z-20">
         {" "}
         <button
-          className=" absolute bottom-[3.2rem] z-10 md:w-[8%] text-[white] border-2 border-[white] align-middle rounded-md p-1 "
+          className=" absolute bottom-[2.8rem] z-10 md:w-[8%] text-[white] border-2 border-[white] h-[3rem] align-middle rounded-md p-1 "
           onClick={nextSlide}
         >
           <ArrowRight2 className="inline-block" size="32" />
         </button>
         <button
           onClick={prevSlide}
-          className="absolute md:w-[8%] left-0 bottom-[3.2rem] text-[white] border-[white] border-2 p-1 rounded-md align-middle"
+          className="absolute md:w-[8%] left-0 bottom-[2.8rem] text-[white] border-[white] border-2 p-1 h-[3rem]  rounded-md align-middle"
         >
           <ArrowLeft2 className="inline-block" size="32" />
         </button>

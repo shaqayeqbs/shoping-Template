@@ -24,6 +24,10 @@ const Carousel = ({ data, offcerPage }) => {
             slidesPerView: offcerPage ? 4 : 3,
             slidesPerGroup: offcerPage ? 4 : 3,
           },
+          1400: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+          },
         }}
         spaceBetween={0}
         loop={true}

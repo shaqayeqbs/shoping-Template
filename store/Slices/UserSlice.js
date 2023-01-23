@@ -31,6 +31,9 @@ const userSlice = createSlice({
       state.name = "";
       state.token = "";
       state.isLoggedIn = false;
+      localStorage.removeItem("persist:root");
+      localStorage.removeItem("root");
+      localStorage.removeItem("token");
     },
   },
   extraReducers: (builder) => {
@@ -40,6 +43,8 @@ const userSlice = createSlice({
       if (action.payload) {
         state.name = data?.user?.name;
         state.token = data?.token;
+        localStorage.setItem("toekn", data?.token);
+
         state.isLoggedIn = true;
       }
     });

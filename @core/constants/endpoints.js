@@ -24,6 +24,7 @@ const END_POINTS = {
   getSpecifiedBusinessBydDomain: `api/business/byDomin/${url}?lang=fa`,
   verfy_phone: "api/auth/login",
   verfy_code: "api/auth/confirm",
+  getArticles: "api/article/eos",
 };
 
 export const COMPETITOR_END_PONINTS = {
