@@ -7,7 +7,6 @@ function Description() {
       <Image
         width={1300}
         height={511}
-        unoptimized="true"
         src="/images/description.png"
         className="object-cover rounded-default"
       />

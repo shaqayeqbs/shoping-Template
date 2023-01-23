@@ -37,7 +37,7 @@ function LandingCarouselSlide({ itemData: item }) {
         // style={{ background: bkgColor }}
       >
         <Image
-          className="blur-xl   w-full h-[20rem] z-0"
+          className="blur-xl   w-full !h-[10rem] z-0"
           src={item?.file[0]?.details.location}
           layout="fill"
         />
@@ -46,21 +46,20 @@ function LandingCarouselSlide({ itemData: item }) {
           style={{ zIndex: 100 }}
           className="container md:flex relative justify-between block md:flex-row-reverse z-50 cadr"
         >
-          <div className="md:w-[746px] md:h-full">
+          <div className="relative !w-[746px]  !h-[419px]">
             {" "}
-            <img
+            <Image
               src={
                 item?.file[0]?.details.location
                   ? item?.file[0]?.details.location
                   : "/"
               }
               alt={item?.file[0]?.details.location}
-              width={1000}
-              height={500}
-              className="object-cover block rounded-xl h-[419px] z-30"
+              layout="fill"
+              className="object-cover block rounded-xl  !h-[419px] z-30"
             />
           </div>
-          <div className="translate-y-[10%] p-4 pt-0 md:p-9  text-right">
+          <div className="translate-y-[10%] w-[10rem] p-4 pt-0 md:p-9  text-right">
             <h1 className=" text-[32px] leading-[54.5px] font-extrabold  my-8 text-right ">
               {item.title}
             </h1>

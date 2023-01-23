@@ -7,7 +7,6 @@ function ProfileAvator() {
         src="/images/plant.png"
         width={500}
         height={500}
-        unoptimized="true"
         className="object-cover rounded-full "
       />
     </div>

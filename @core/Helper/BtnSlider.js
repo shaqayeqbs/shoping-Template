@@ -1,7 +1,8 @@
+import Image from "next/image";
 import React from "react";
-import "./Slider.css";
 import leftArrow from "./icons/left-arrow.svg";
 import rightArrow from "./icons/right-arrow.svg";
+import "./Slider.css";
 
 export default function BtnSlider({ direction, moveSlide }) {
   return (
@@ -9,7 +10,13 @@ export default function BtnSlider({ direction, moveSlide }) {
       onClick={moveSlide}
       className={direction === "next" ? "btn-slide next" : "btn-slide prev"}
     >
-      <img src={direction === "next" ? rightArrow : leftArrow} />
+      <div className="relative">
+        {" "}
+        <Image
+          layout="fill"
+          src={direction === "next" ? rightArrow : leftArrow}
+        />
+      </div>
     </button>
   );
 }

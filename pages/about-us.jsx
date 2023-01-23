@@ -11,7 +11,6 @@ function aboutUs() {
           width={2000}
           height={1000}
           alt="about us"
-          unoptimized="true"
           className="object-cover w-full mx-auto rounded-lg "
         />
       </div>

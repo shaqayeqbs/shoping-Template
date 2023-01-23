@@ -34,7 +34,6 @@ function NavBar({ onCloseModalHandler }) {
                 src="http://core.behzi.net/storage/image/business/logo/1670323071.png"
                 width={60}
                 height={60}
-                unoptimized="true"
                 loader={myLoader}
                 alt="logo"
               />

@@ -21,6 +21,7 @@ export const initialState = {
   isLoggedIn: false,
   name: "",
   token: "",
+  balance: "",
 };
 
 const userSlice = createSlice({
@@ -43,8 +44,8 @@ const userSlice = createSlice({
       if (action.payload) {
         state.name = data?.user?.name;
         state.token = data?.token;
+        state.balance = data?.user.balance;
         localStorage.setItem("toekn", data?.token);
-
         state.isLoggedIn = true;
       }
     });

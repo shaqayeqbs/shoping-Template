@@ -25,7 +25,6 @@ function List({ data, offcerPage, articles, favorties }) {
           >
             <Image
               alt="slider photo"
-              unoptimized="true"
               src={item.image}
               width={400}
               height={400}

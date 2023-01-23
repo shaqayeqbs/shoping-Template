@@ -41,7 +41,6 @@ const Carousel = ({ data }) => {
                     src={item.image}
                     width={600}
                     height={600}
-                    unoptimized="true"
                     className="object-cover mx-auto"
                   />
                 </div>
