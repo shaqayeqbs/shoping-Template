@@ -87,7 +87,7 @@ function AmazingSection() {
         </div>
       </div>
 
-      <div className="w-full mr-3">
+      <div className="w-full  mr-3">
         {" "}
         <Carousel data={data} />
       </div>

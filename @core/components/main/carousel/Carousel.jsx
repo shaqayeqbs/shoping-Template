@@ -41,7 +41,7 @@ const Carousel = ({ data, offcerPage }) => {
       >
         {data?.map((item) => (
           <SwiperSlide key={item.id}>
-            <div className="cadr ml-3 !min-h-[430px] md:max-w-[262px]">
+            <div className="relative cadr ml-3 !min-h-[430px] md:max-w-[262px]">
               <Image
                 alt="slider photo"
                 src={item.image}

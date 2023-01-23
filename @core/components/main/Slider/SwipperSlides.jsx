@@ -1,35 +1,8 @@
-import { FastAverageColor } from "fast-average-color";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 function LandingCarouselSlide({ itemData: item }) {
-  const [bkgColor, setBkgColor] = useState("red");
-
-  const fac = new FastAverageColor();
-
-  useEffect(() => {
-    if (item.file) {
-      // const img = new Image();
-      // img.crossOrigin = "Anonymous";
-      // img.addEventListener("load", imageReceived, false);
-      // img.src = item?.file[0]?.details.location;
-      // const url = item?.file[0]?.details.location;
-      // const corsImageModified = new Image();
-      // corsImageModified.crossOrigin = "Anonymous";
-      // corsImageModified.src = url;
-      // getColor(corsImageModified);
-    }
-  }, [item]);
-
-  async function getColor(corsImageModified) {
-    console.log(corsImageModified);
-    // if (url) {
-    //   const res = await fac.getColorAsync(url);
-    //   setBkgColor(res.rgb);
-    // }
-  }
-
   return (
     <Link href={item.link}>
       <div
