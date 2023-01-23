@@ -198,8 +198,8 @@ const SortList = [
   },
 ];
 
-function Articles({ data = null }) {
-  console.log(data);
+function Articles() {
+  // console.log(data);
   return (
     <section className="container">
       <div className="mt-12">

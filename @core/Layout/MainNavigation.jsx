@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React, { memo, useEffect, useState } from "react";
 import ReactDom from "react-dom";
@@ -66,14 +67,17 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
             <div className="flex justify-start">
               <div className=" float-left text-left -mt-2 ">
                 {" "}
-                <img
-                  src="http://core.behzi.net/storage/image/business/logo/1670323071.png"
-                  width={60}
-                  height={60}
-                  unoptimized="true"
-                  // loader={myLoader}
-                  alt="logo"
-                />
+                <div className="relative">
+                  {" "}
+                  <Image
+                    src="http://core.behzi.net/storage/image/business/logo/1670323071.png"
+                    width={60}
+                    height={60}
+                    unoptimized="true"
+                    // loader={myLoader}
+                    alt="logo"
+                  />
+                </div>
               </div>
               <h2 className="ml-4 w-full"> {businessName} </h2>
             </div>

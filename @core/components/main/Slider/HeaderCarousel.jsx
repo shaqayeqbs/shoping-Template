@@ -1,4 +1,5 @@
 import { ArrowLeft2, ArrowRight2 } from "iconsax-react";
+import Image from "next/image";
 import React, { useState } from "react";
 import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper";
 import "swiper/css";
@@ -72,10 +73,9 @@ function HeaderCarousel({ items }) {
             >
               <div className="rounded-md p-0 ">
                 {" "}
-                <img
+                <Image
                   width={200}
                   height={80}
-                  unoptimized="true"
                   src={item?.file[0]?.details.location}
                   className="object-cover rounded-lg h-[3rem]"
                 />
