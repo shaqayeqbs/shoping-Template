@@ -44,10 +44,9 @@ const Carousel = ({ data, offcerPage }) => {
             <div className="relative cadr ml-3 !min-h-[430px] md:max-w-[262px]">
               <img
                 alt="slider photo"
-                src={item.image}
-                width={400}
-                height={400}
+                src="/images/plant.png"
                 className={classes.image}
+                loading="lazy"
               />
               <h2 className="!text-md mb-[14%] text-right">{item.title}</h2>
               <div className={classes.flexBetween}>

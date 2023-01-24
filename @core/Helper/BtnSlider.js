@@ -13,6 +13,7 @@ export default function BtnSlider({ direction, moveSlide }) {
       <div className="relative">
         {" "}
         <img
+          loading="lazy"
           layout="fill"
           src={direction === "next" ? rightArrow : leftArrow}
         />

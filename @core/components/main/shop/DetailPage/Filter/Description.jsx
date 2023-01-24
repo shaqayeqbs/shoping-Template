@@ -6,6 +6,7 @@ function Description() {
     <section>
       <img
         width={1300}
+        loading="lazy"
         height={511}
         src="/images/description.png"
         className="object-cover rounded-default"

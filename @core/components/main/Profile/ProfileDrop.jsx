@@ -53,6 +53,7 @@ export default function ProfileDrop() {
       <div>
         <Menu.Button className="inline-flex mt-[4px] w-full justify-center rounded-md border-0 border-gray-300 bg-white pr-4 py-2 text-sm font-medium text-gray-700  hover:bg-[transparent]">
           <img
+            loading="lazy"
             src="/images/plant.png"
             width={40}
             height={40}
@@ -87,6 +88,7 @@ export default function ProfileDrop() {
                       <div className="mt-[-.4rem]">
                         <img
                           src="/images/plant.png"
+                          loading="lazy"
                           width={40}
                           height={40}
                           className="object-cover rounded-full "

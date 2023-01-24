@@ -33,6 +33,7 @@ function HeaderCarousel({ items }) {
             >
               <div className="w-full">
                 <img
+                  loading="lazy"
                   src={item.image}
                   width={360}
                   height={360}
@@ -62,7 +63,7 @@ function HeaderCarousel({ items }) {
             className="
             rounded-lg  "
           >
-            <img width={360} height={360} src={item.image} />
+            <img width={360} loading="lazy" height={360} src={item.image} />
           </SwiperSlide>
         ))}
       </Swiper>

@@ -38,6 +38,7 @@ const Carousel = ({ data }) => {
                   {" "}
                   <img
                     alt="slider photo"
+                    loading="lazy"
                     src={item.image}
                     width={600}
                     height={600}

@@ -75,6 +75,7 @@ function HeaderCarousel({ items }) {
                 {" "}
                 <img
                   width={105}
+                  loading="lazy"
                   height={50}
                   src={item?.file[0]?.details.location}
                   className="object-cover inline-block h-[3rem] rounded-lg !z-50"

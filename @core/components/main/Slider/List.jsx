@@ -25,6 +25,7 @@ function List({ data, offcerPage, articles, favorties }) {
           >
             <img
               alt="slider photo"
+              loading="lazy"
               src={item.image}
               width={400}
               height={400}

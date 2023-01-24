@@ -6,6 +6,7 @@ function LandingCarouselSlide({ itemData: item }) {
     <Link href={item.link}>
       <div className="relative py-10  pb-32 cursor-pointer">
         <img
+          loading="lazy"
           className="absolute w-full top-0 blur-xl z-0"
           src={item?.file[0]?.details.location}
           layout="fill"
@@ -18,6 +19,7 @@ function LandingCarouselSlide({ itemData: item }) {
           <div className="relative !w-[746px]  !h-[419px]">
             {" "}
             <img
+              loading="lazy"
               src={
                 item?.file[0]?.details.location
                   ? item?.file[0]?.details.location
@@ -28,7 +30,7 @@ function LandingCarouselSlide({ itemData: item }) {
               className="object-cover block rounded-xl  !h-[419px] z-30"
             />
           </div>
-          <div className="translate-y-[10%] w-[10rem] p-4 pt-0 md:p-9  text-right">
+          <div className="translate-y-[10%] w-[30%] p-4 pt-0 md:p-9  text-right">
             <h1 className=" text-[32px] leading-[54.5px] font-extrabold  my-8 text-right ">
               {item.title}
             </h1>

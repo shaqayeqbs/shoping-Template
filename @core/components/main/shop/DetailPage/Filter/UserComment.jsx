@@ -13,6 +13,7 @@ function UserComment({ comment, ideas }) {
             width={500}
             height={500}
             alt="profile"
+            loading="lazy"
             className={
               ideas
                 ? "rounded-md object-cover w-full "
