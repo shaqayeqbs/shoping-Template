@@ -30,11 +30,10 @@ function AboutUs() {
         </div>
       </div>
       <div className="relative hidden lg:block lg:w-[60%] mr-8 pt-[9px] ">
-        <img
+        <Image
+          quality={50}
           src="/images/about.png"
           loading="lazy"
-          // width="fill"
-          // height={1650}
           layout="fill"
           className="object-cover rounded-[15px] p-0 m-0"
         />

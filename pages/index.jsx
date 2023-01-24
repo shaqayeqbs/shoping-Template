@@ -7,14 +7,14 @@ import { useDispatch, useSelector } from "react-redux";
 // import Description from "../@core/components/main/About/Description";
 // import AmazingSection from "../@core/components/main/AmazingSale/AmazingSection";
 // import Event from "../@core/components/main/Event";
-// import HeaderCarousel from "../@core/components/main/Slider/HeaderCarousel";
+import HeaderCarousel from "../@core/components/main/Slider/HeaderCarousel";
 // import Slider from "../@core/components/main/Slider/Slider";
 
 import { businessAction } from "../store/Slices/BussinessSlice";
 import dynamic from "next/dynamic";
-const HeaderCarousel = dynamic(() =>
-  import("../@core/components/main/Slider/HeaderCarousel")
-);
+// const HeaderCarousel = dynamic(() =>
+//   import("../@core/components/main/Slider/HeaderCarousel")
+// );
 const Slider = dynamic(() => import("../@core/components/main/Slider/Slider"));
 const AmazingSection = dynamic(() =>
   import("../@core/components/main/AmazingSale/AmazingSection")

@@ -15,7 +15,8 @@ function Event({ event }) {
     >
       <Tooltip text={event.title}>
         {" "}
-        <img
+        <Image
+          quality={50}
           alt={event.title}
           // loader={myLoader}
           loading="lazy"

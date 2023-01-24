@@ -9,6 +9,8 @@ function withOpacity(variableName) {
   };
 }
 module.exports = {
+  mode: "jit",
+
   content: [
     "./pages/*.{html,js,jsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",

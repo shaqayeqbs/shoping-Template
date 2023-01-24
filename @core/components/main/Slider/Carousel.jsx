@@ -1,10 +1,9 @@
 import { digitsEnToFa } from "@persian-tools/persian-tools";
-import Image from "next/image";
 import Link from "next/link";
 import React, { memo } from "react";
 import { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import Image from "next/image";
 const Carousel = ({ data }) => {
   return (
     <div>
@@ -36,7 +35,9 @@ const Carousel = ({ data }) => {
               <div className="cadr cursor-pointer">
                 <div>
                   {" "}
-                  <img
+                  <Image
+                    quality={50}
+                    decoding="async"
                     alt="slider photo"
                     loading="lazy"
                     src={item.image}

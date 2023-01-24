@@ -20,13 +20,16 @@ export default function Gallery() {
               : "relative w-full h-full rounded-xl overflow-hidden "
           }
         >
-          <img
-            loading="lazy"
-            width={900}
-            height={900}
-            src={item.images}
-            className="w-full"
-          />
+          <div className="relative">
+            {" "}
+            <Image
+              quality={50}
+              loading="lazy"
+              layout="fill"
+              src={item.images}
+              className="w-full"
+            />
+          </div>
           <div className="absolute blurr  text-[white] text-center bottom-0 rounded-ms py-4 w-full">
             {item.title}
           </div>
