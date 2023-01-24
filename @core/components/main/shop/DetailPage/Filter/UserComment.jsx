@@ -6,12 +6,13 @@ function UserComment({ comment, ideas }) {
   return (
     <div className="flex justify-between">
       <div className="flex justify-between text-right w-[60%] my-8">
-        <div className="h-[10rem]">
+        <div className="h-[10rem] mb-5">
           {" "}
-          <img
+          <Image
+            quality={50}
             src={comment.image}
-            width={500}
-            height={500}
+            width="500"
+            height="500"
             alt="profile"
             loading="lazy"
             className={

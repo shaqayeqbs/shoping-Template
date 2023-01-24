@@ -4,7 +4,8 @@ import React from "react";
 import { AiOutlineLeft } from "react-icons/ai";
 import useTimer from "../../../hooks/useTimer";
 import Offer from "../../../icons/Offer";
-const Carousel = dynamic(() => import("../carousel/carousel"), { ssr: false });
+// const Carousel = dynamic(() => import("../carousel/carousel"));
+import Carousel from "../carousel/carousel";
 
 function AmazingSection() {
   const [hours, minutes, seconds, farsMin, FaHours, Faseconds, refreshTimer] =

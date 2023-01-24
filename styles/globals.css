@@ -106,6 +106,7 @@ body {
     "Arial Narrow", Arial, sans-serif, Courier, monospace;
   direction: rtl;
   box-sizing: border-box;
+  image-resolution: from-image 200dpi;
 }
 
 html {

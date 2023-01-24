@@ -73,7 +73,9 @@ function HeaderCarousel({ items }) {
             >
               <div className="relative !z-40">
                 {" "}
-                <img
+                <Image
+                  quality={50}
+                  decoding="async"
                   width={105}
                   loading="lazy"
                   height={50}

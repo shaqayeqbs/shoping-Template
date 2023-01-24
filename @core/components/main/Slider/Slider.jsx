@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
 import { AiOutlineLeft } from "react-icons/ai";
-const Carousel = dynamic(() => import("./Carousel"), { ssr: false });
+const Carousel = dynamic(() => import("./Carousel"));
 
 function NewProducts({ data, title, regular, value, onIndexHandler }) {
   const content = (

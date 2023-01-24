@@ -15,10 +15,6 @@ function NavBar({ onCloseModalHandler }) {
   const logo = useSelector((state) => state?.businessSlice?.logo);
   const isLoggedIn = useSelector((state) => state?.user.isLoggedIn);
 
-  const myLoader = ({ src }) => {
-    return logo;
-  };
-
   return (
     <>
       {<ModalVerification isOpen={openAuthModal} onClose={authHandler} />}
@@ -30,7 +26,8 @@ function NavBar({ onCloseModalHandler }) {
           <div className="flex">
             <div className="relative w-[4rem] h-[4rem]">
               {" "}
-              <img
+              <Image
+                quality={50}
                 src="http://core.behzi.net/storage/image/business/logo/1670323071.png"
                 // src="/images/plant.png"
                 width={60}

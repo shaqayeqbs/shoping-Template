@@ -1,13 +1,14 @@
+import Image from "next/image";
 function aboutUs() {
   return (
     <section className="container">
       <h1 className="text-center my-4 mt-12">درباره هیوا گاردن 🌱</h1>
-      <div className=" my-12">
-        <img
+      <div className="relative my-12">
+        <Image
+          quality={50}
           loading="lazy"
           src="/images/about.png"
-          width={2000}
-          height={1000}
+          layout="fill"
           alt="about us"
           className="object-cover w-full mx-auto rounded-lg "
         />

@@ -71,7 +71,8 @@ function Footer() {
             <div className=" flex justify-center  md:justify-end mx-auto text-center">
               {" "}
               <div>
-                <img
+                <Image
+                  quality={40}
                   loading="lazy"
                   height="100"
                   width="100"
@@ -80,7 +81,8 @@ function Footer() {
                 />
               </div>
               <div>
-                <img
+                <Image
+                  quality={40}
                   loading="lazy"
                   height="100"
                   width="100"
@@ -89,7 +91,8 @@ function Footer() {
                 />
               </div>
               <div>
-                <img
+                <Image
+                  quality={40}
                   loading="lazy"
                   height="100"
                   width="100"

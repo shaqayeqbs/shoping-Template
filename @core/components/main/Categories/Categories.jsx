@@ -21,7 +21,8 @@ function Categories({ data }) {
       </button>
       {categories.map((item) => (
         <div className=" w-full h-full">
-          <img
+          <Image
+            quality={50}
             src={item.image}
             width="240"
             loading="lazy"

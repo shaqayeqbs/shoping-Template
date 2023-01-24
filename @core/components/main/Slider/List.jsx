@@ -23,7 +23,9 @@ function List({ data, offcerPage, articles, favorties }) {
                 : "cadr my-2 "
             }
           >
-            <img
+            <Image
+              quality={50}
+              decoding="async"
               alt="slider photo"
               loading="lazy"
               src={item.image}

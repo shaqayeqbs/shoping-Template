@@ -52,7 +52,8 @@ export default function ProfileDrop() {
     <Menu as="div" className="relative inline-block text-left ">
       <div>
         <Menu.Button className="inline-flex mt-[4px] w-full justify-center rounded-md border-0 border-gray-300 bg-white pr-4 py-2 text-sm font-medium text-gray-700  hover:bg-[transparent]">
-          <img
+          <Image
+            quality={50}
             loading="lazy"
             src="/images/plant.png"
             width={40}
@@ -86,7 +87,8 @@ export default function ProfileDrop() {
                   <div className="flex  justify-between py-1">
                     <div className="flex cursor-pointer">
                       <div className="mt-[-.4rem]">
-                        <img
+                        <Image
+                          quality={50}
                           src="/images/plant.png"
                           loading="lazy"
                           width={40}
