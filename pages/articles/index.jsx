@@ -1,9 +1,11 @@
 import React from "react";
 import { GetArticles } from "../../@core/api/articlesApi";
-import List from "../../@core/components/main/Slider/List";
+// import List from "../../@core/components/main/Slider/List";
 import OrderingList from "../../@core/Helper/OrderingList";
 import Gallery from "../../@core/utils/Gallery";
 import Pagination from "../../@core/utils/Pagination";
+import dynamic from "next/dynamic";
+const List = dynamic(() => import("../../@core/components/main/Slider/List"));
 // const Carousel = dynamic(
 //   () => import("../@core/components/main/carousel/carousel"),
 

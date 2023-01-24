@@ -23,7 +23,7 @@ function List({ data, offcerPage, articles, favorties }) {
                 : "cadr my-2 "
             }
           >
-            <Image
+            <img
               alt="slider photo"
               src={item.image}
               width={400}

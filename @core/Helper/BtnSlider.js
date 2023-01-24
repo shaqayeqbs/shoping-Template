@@ -12,7 +12,7 @@ export default function BtnSlider({ direction, moveSlide }) {
     >
       <div className="relative">
         {" "}
-        <Image
+        <img
           layout="fill"
           src={direction === "next" ? rightArrow : leftArrow}
         />

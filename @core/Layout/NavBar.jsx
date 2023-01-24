@@ -28,13 +28,14 @@ function NavBar({ onCloseModalHandler }) {
       >
         <Link href="/">
           <div className="flex">
-            <div className="w-[4rem] h-[4rem]">
+            <div className="relative w-[4rem] h-[4rem]">
               {" "}
-              <Image
+              <img
                 src="http://core.behzi.net/storage/image/business/logo/1670323071.png"
+                // src="/images/plant.png"
                 width={60}
                 height={60}
-                loader={myLoader}
+                // loader={myLoader}
                 alt="logo"
               />
             </div>

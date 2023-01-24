@@ -30,7 +30,7 @@ function AboutUs() {
         </div>
       </div>
       <div className="relative hidden lg:block lg:w-[60%] mr-8 pt-[9px] ">
-        <Image
+        <img
           src="/images/about.png"
           // width="fill"
           // height={1650}

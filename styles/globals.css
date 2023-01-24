@@ -102,7 +102,8 @@
 *,
 html,
 body {
-  font-family: "IranSans", "IranSansXFaNum", Courier, monospace;
+  font-family: "IranSans", "IranSansXFaNum", "Franklin Gothic Medium",
+    "Arial Narrow", Arial, sans-serif, Courier, monospace;
   direction: rtl;
   box-sizing: border-box;
 }

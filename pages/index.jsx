@@ -3,13 +3,29 @@ import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 import { memo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import AboutUsSection from "../@core/components/main/About/AboutUsSection";
-import Description from "../@core/components/main/About/Description";
-import AmazingSection from "../@core/components/main/AmazingSale/AmazingSection";
-import Event from "../@core/components/main/Event";
-import HeaderCarousel from "../@core/components/main/Slider/HeaderCarousel";
-import Slider from "../@core/components/main/Slider/Slider";
+// import AboutUsSection from "../@core/components/main/About/AboutUsSection";
+// import Description from "../@core/components/main/About/Description";
+// import AmazingSection from "../@core/components/main/AmazingSale/AmazingSection";
+// import Event from "../@core/components/main/Event";
+// import HeaderCarousel from "../@core/components/main/Slider/HeaderCarousel";
+// import Slider from "../@core/components/main/Slider/Slider";
+
 import { businessAction } from "../store/Slices/BussinessSlice";
+import dynamic from "next/dynamic";
+const HeaderCarousel = dynamic(() =>
+  import("../@core/components/main/Slider/HeaderCarousel")
+);
+const Slider = dynamic(() => import("../@core/components/main/Slider/Slider"));
+const AmazingSection = dynamic(() =>
+  import("../@core/components/main/AmazingSale/AmazingSection")
+);
+const Event = dynamic(() => import("../@core/components/main/Event"));
+const Description = dynamic(() =>
+  import("../@core/components/main/About/Description")
+);
+const AboutUsSection = dynamic(() =>
+  import("../@core/components/main/About/AboutUsSection")
+);
 
 function Home({ data = null }) {
   const banners = data?.data?.domin.business.banners;
