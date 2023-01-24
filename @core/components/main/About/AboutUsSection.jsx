@@ -32,6 +32,7 @@ function AboutUs() {
       <div className="relative hidden lg:block lg:w-[60%] mr-8 pt-[9px] ">
         <img
           src="/images/about.png"
+          loading="lazy"
           // width="fill"
           // height={1650}
           layout="fill"

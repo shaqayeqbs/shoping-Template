@@ -35,6 +35,7 @@ function NavBar({ onCloseModalHandler }) {
                 // src="/images/plant.png"
                 width={60}
                 height={60}
+                loading="lazy"
                 // loader={myLoader}
                 alt="logo"
               />

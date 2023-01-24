@@ -72,6 +72,7 @@ function Footer() {
               {" "}
               <div>
                 <img
+                  loading="lazy"
                   height="100"
                   width="100"
                   src="/images/footer/footer1.svg"
@@ -80,6 +81,7 @@ function Footer() {
               </div>
               <div>
                 <img
+                  loading="lazy"
                   height="100"
                   width="100"
                   src="/images/footer/footer2.svg"
@@ -88,6 +90,7 @@ function Footer() {
               </div>
               <div>
                 <img
+                  loading="lazy"
                   height="100"
                   width="100"
                   src="/images/footer/footer3.svg"

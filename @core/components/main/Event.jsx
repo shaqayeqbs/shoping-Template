@@ -18,6 +18,7 @@ function Event({ event }) {
         <img
           alt={event.title}
           // loader={myLoader}
+          loading="lazy"
           src={img}
           width={2000}
           height={1330}

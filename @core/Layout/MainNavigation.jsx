@@ -70,6 +70,7 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
                 <div className="relative">
                   {" "}
                   <img
+                    loading="lazy"
                     src="http://core.behzi.net/storage/image/business/logo/1670323071.png"
                     width={60}
                     height={60}
