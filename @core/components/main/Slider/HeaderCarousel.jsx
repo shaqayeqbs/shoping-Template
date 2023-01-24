@@ -69,15 +69,15 @@ function HeaderCarousel({ items }) {
           {items?.map((item, index) => (
             <SwiperSlide
               key={index}
-              className="container relative rounded-lg w-full !md:w-[23%]  !h-[5rem]  text-right !ml-[1%]  "
+              className="container relative rounded-lg w-full !md:w-[23%]  !h-[3rem]  text-right !ml-[1%]  "
             >
               <div className="relative !z-40">
                 {" "}
-                <Image
+                <img
                   width={105}
                   height={50}
                   src={item?.file[0]?.details.location}
-                  className="object-cover inline-block rounded-lg !z-50"
+                  className="object-cover inline-block h-[3rem] rounded-lg !z-50"
                 />
               </div>
             </SwiperSlide>
@@ -87,14 +87,14 @@ function HeaderCarousel({ items }) {
       <div className="container relative z-20">
         {" "}
         <button
-          className=" absolute bottom-[3.3rem] z-10 md:w-[8%] text-[white] border-2 border-[white] h-[3rem] align-middle rounded-md p-1 "
+          className=" absolute bottom-[2.8rem] z-10 md:w-[8%] text-[white] border-2 border-[white] h-[3rem] align-middle rounded-md p-1 "
           onClick={nextSlide}
         >
           <ArrowRight2 className="inline-block" size="32" />
         </button>
         <button
           onClick={prevSlide}
-          className="absolute md:w-[8%] left-0 bottom-[3.3rem] text-[white] border-[white] border-2 p-1 h-[3rem]  rounded-md align-middle"
+          className="absolute md:w-[8%] left-0 bottom-[2.8rem] text-[white] border-[white] border-2 p-1 h-[3rem]  rounded-md align-middle"
         >
           <ArrowLeft2 className="inline-block" size="32" />
         </button>

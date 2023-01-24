@@ -4,7 +4,7 @@ import React from "react";
 function Description() {
   return (
     <section>
-      <Image
+      <img
         width={1300}
         height={511}
         src="/images/description.png"

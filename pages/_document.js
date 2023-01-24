@@ -8,6 +8,8 @@ export default function Document() {
           rel="preconnect"
           href="/public//Fonts/iransansX family/IRANSansX-Regular.ttf"
         />
+
+        <link rel="icon" type="image/x-icon" href="/icon-256x256.png" />
       </Head>
 
       <body>

@@ -8,7 +8,7 @@ function UserComment({ comment, ideas }) {
       <div className="flex justify-between text-right w-[60%] my-8">
         <div className="h-[10rem]">
           {" "}
-          <Image
+          <img
             src={comment.image}
             width={500}
             height={500}

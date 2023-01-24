@@ -1,6 +1,10 @@
 import Head from "next/head";
-import ProductsDetail from "../../@core/components/main/shop/DetailPage/ProductsDetail";
+// import ProductsDetail from "../../@core/components/main/shop/DetailPage/ProductsDetail";
 import { getProductsById } from "../../@core/data/products";
+import dynamic from "next/dynamic";
+const ProductsDetail = dynamic(() =>
+  import("../../@core/components/main/shop/DetailPage/ProductsDetail")
+);
 
 const ProductsDetailPage = ({ item }) => {
   if (!item || item.lenght === 0) {
@@ -27,7 +31,6 @@ export async function getServerSideProps(context) {
   const Id = params.Id;
 
   const product = await getProductsById(Id);
-  console.log({ product });
   if (!product) {
     return { notFound: true };
   }

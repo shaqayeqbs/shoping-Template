@@ -15,9 +15,9 @@ function Event({ event }) {
     >
       <Tooltip text={event.title}>
         {" "}
-        <Image
+        <img
           alt={event.title}
-          loader={myLoader}
+          // loader={myLoader}
           src={img}
           width={2000}
           height={1330}

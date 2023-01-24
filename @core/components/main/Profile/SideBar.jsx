@@ -1,5 +1,4 @@
 import { Heart, Location, Message, Shop, Wallet } from "iconsax-react";
-import React from "react";
 import ProfileAvator from "./ProfileAvator";
 import SideBarItem from "./SideBarItem";
 function SideBar({ onChangeIndex, activeItem }) {

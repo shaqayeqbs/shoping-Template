@@ -1,12 +1,9 @@
-import Image from "next/image";
-import React from "react";
-
 function aboutUs() {
   return (
     <section className="container">
       <h1 className="text-center my-4 mt-12">درباره هیوا گاردن 🌱</h1>
       <div className=" my-12">
-        <Image
+        <img
           src="/images/about.png"
           width={2000}
           height={1000}

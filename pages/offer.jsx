@@ -1,13 +1,14 @@
 import dynamic from "next/dynamic";
 import { memo } from "react";
-import List from "../@core/components/main/Slider/List";
+// import List from "../@core/components/main/Slider/List";
 import OrderingList from "../@core/Helper/OrderingList";
-import Pagination from "../@core/utils/Pagination";
+// import Pagination from "../@core/utils/Pagination";
 const Carousel = dynamic(
   () => import("../@core/components/main/carousel/carousel"),
   { ssr: false }
 );
-
+const Pagination = dynamic(() => import("../@core/utils/Pagination"));
+const List = dynamic(() => import("../@core/components/main/Slider/List"));
 function Offer() {
   const data = [
     {

@@ -1,5 +1,3 @@
-import React from "react";
-
 function SideBarItem({ item, onChangeActiveIndex, activeItem }) {
   const setActiveBtnHandler = () => {
     onChangeActiveIndex(item.name);

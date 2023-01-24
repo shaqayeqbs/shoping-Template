@@ -71,7 +71,7 @@ function Footer() {
             <div className=" flex justify-center  md:justify-end mx-auto text-center">
               {" "}
               <div>
-                <Image
+                <img
                   height="100"
                   width="100"
                   src="/images/footer/footer1.svg"
@@ -79,7 +79,7 @@ function Footer() {
                 />
               </div>
               <div>
-                <Image
+                <img
                   height="100"
                   width="100"
                   src="/images/footer/footer2.svg"
@@ -87,7 +87,7 @@ function Footer() {
                 />
               </div>
               <div>
-                <Image
+                <img
                   height="100"
                   width="100"
                   src="/images/footer/footer3.svg"

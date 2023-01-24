@@ -1,26 +1,13 @@
-// const nextTranslate = require("next-translate");
-
-// module.exports = nextTranslate({
-//   module: {
-//     rules: [
-//       {
-//         test: /\.(svg|png|jpe?g|gif)$/i,
-//         use: [
-//           {
-//             loader: "file-loader",
-//           },
-//         ],
-//       },
-//     ],
-//   },
-// });
 const nextTranslate = require("next-translate");
 
 const nextConfig = {
   ...nextTranslate(),
-  images: {
-    domains: ["core.behzi.net"],
-  },
+
+  // images: {
+  //   domains: ["core.behzi.net"],
+  //   formats: ["image/avif", "image/webp"],
+  //   NEXT_SHARP_PATH: "/tmp/node_modules/sharp"
+  // },
 };
 
 module.exports = nextConfig;

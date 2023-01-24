@@ -36,7 +36,7 @@ const Carousel = ({ data }) => {
               <div className="cadr cursor-pointer">
                 <div>
                   {" "}
-                  <Image
+                  <img
                     alt="slider photo"
                     src={item.image}
                     width={600}

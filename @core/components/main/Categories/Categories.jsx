@@ -21,7 +21,7 @@ function Categories({ data }) {
       </button>
       {categories.map((item) => (
         <div className=" w-full h-full">
-          <Image src={item.image} width="240" height="210" alt="categories" />
+          <img src={item.image} width="240" height="210" alt="categories" />
         </div>
       ))}
     </div>
