@@ -3,14 +3,14 @@ function aboutUs() {
   return (
     <section className="container">
       <h1 className="text-center my-4 mt-12">درباره هیوا گاردن 🌱</h1>
-      <div className="relative my-12">
+      <div className="relative h-[511px] my-4">
         <Image
-          quality={50}
+          quality={75}
           loading="lazy"
           src="/images/about.png"
           layout="fill"
           alt="about us"
-          className="object-cover w-full mx-auto rounded-lg "
+          className="object-cover w-full h-full mx-auto rounded-lg "
         />
       </div>
       <p>

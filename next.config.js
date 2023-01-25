@@ -10,7 +10,13 @@ const nextConfig = {
   },
 
   images: {
-    domains: ["core.behzi.net"],
+    domains: [
+      "core.behzi.net",
+      "https://zaay.ir/",
+      "zaay.ir/",
+      "https://core.behzi.net/storage/image",
+      "core.behzi.net/storage/image",
+    ],
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {

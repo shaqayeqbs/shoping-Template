@@ -9,6 +9,7 @@ function Description() {
         quality={50}
         loading="lazy"
         height={511}
+        alt="description"
         src="/images/description.png"
         className="object-cover rounded-default"
       />

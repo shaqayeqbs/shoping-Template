@@ -8,20 +8,36 @@ import Slider from "../../Slider/Slider";
 import FilterShowDetails from "./FilterShowDetails";
 import PropertiesOfProduct from "./PropertiesOfProduct";
 import Vote from "./Vote";
+import ProductDetailForm from "./ProductDetailsForm";
+import { cartActions } from "../../../../../store/Slices/CartSlice";
+import { useDispatch } from "react-redux";
+import Link from "next/link";
 
 const carousel = [
   {
     id: "9",
     image: "/images/plant.png",
-    price: "285,000",
+    price: "285000",
     new: true,
   },
-  { id: "10", image: "/images/plant.png", price: "285,000", new: true },
-  { id: "11", image: "/images/plant.png", price: "285,000", new: true },
+  { id: "10", image: "/images/plant.png", price: "285000", new: true },
+  { id: "11", image: "/images/plant.png", price: "285000", new: true },
 ];
 
 function ProductsDetail({ item }) {
   const [size, setSize] = useState("بزرگ");
+
+  const dispatch = useDispatch();
+  const addToCartHandler = (amount) => {
+    const myItem = {
+      amount: amount,
+      id: item.id,
+      image: item.image,
+      title: item.title,
+      price: item.price,
+    };
+    dispatch(cartActions.addItem({ item: myItem }));
+  };
 
   const onSelectHandler = (data) => {
     setSize(data);
@@ -79,7 +95,7 @@ function ProductsDetail({ item }) {
                   <div> قیمت کالا :</div>
                   <div className="my-4">
                     <span className="text-skin-primary mx-2 text-2xl">
-                      285٬000
+                      285000
                     </span>
                     <span className="text-sm text-skin-muted line-through">
                       310٬000
@@ -95,9 +111,15 @@ function ProductsDetail({ item }) {
             </div>
             <div className=" lg:flex justify-between">
               {" "}
-              <button className="bg-skin-fill mb-5 rounded-lg p-2 text-[white]">
+              <ProductDetailForm
+                id={item.id}
+                onAddToCart={addToCartHandler}
+                title={item.title}
+              />
+              <Link href="/basket">basket</Link>
+              {/* <button className="bg-skin-fill mb-5 rounded-lg p-2 text-[white]">
                 افزودن به سبد خرید
-              </button>
+              </button> */}
               <div className="flex">
                 {" "}
                 <div className={emojiStyle}>

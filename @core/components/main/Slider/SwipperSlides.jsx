@@ -3,13 +3,13 @@ import Image from "next/image";
 function LandingCarouselSlide({ itemData: item }) {
   return (
     <Link href={item.link}>
-      <div className="relative py-10  pb-32 cursor-pointer">
+      <div className="relative py-20  pb-32 cursor-pointer">
         <Image
-          quality={40}
-          decoding="async"
+          quality={30}
           priority
           className="absolute w-full h-full top-0 blur-xl z-0"
           src={item?.file[0]?.details.location}
+          alt="cover"
           layout="fill"
         />
 

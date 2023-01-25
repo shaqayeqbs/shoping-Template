@@ -14,7 +14,7 @@ function NewProducts({ data, title, regular, value, onIndexHandler }) {
     </div>
   );
   const changeIndex = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     onIndexHandler(e?.target?.value);
   };
   return (
