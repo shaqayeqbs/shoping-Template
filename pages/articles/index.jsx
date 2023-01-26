@@ -204,7 +204,7 @@ function Articles() {
   // console.log(data);
   return (
     <section className="container">
-      <div className="mt-12">
+      <div className="mt-12 ">
         {" "}
         <Gallery />
       </div>

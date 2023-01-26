@@ -10,11 +10,11 @@ function Dashboard({ onChangeIndex }) {
     {
       id: "9",
       image: "/images/plant.png",
-      price: "285,000",
+      price: "285000",
       new: true,
     },
-    { id: "10", image: "/images/plant.png", price: "285,000", new: true },
-    { id: "11", image: "/images/plant.png", price: "285,000", new: true },
+    { id: "10", image: "/images/plant.png", price: "285000", new: true },
+    { id: "11", image: "/images/plant.png", price: "285000", new: true },
   ];
 
   const changeIndexHandler = (e) => {

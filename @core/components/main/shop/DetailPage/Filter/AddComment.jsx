@@ -3,7 +3,7 @@ import { ChangableStarRating } from "../../../../../Helper/StarRating";
 
 function AddComment() {
   const onChangeHandler = (data) => {
-    console.log(data);
+    // console.log(data);
   };
   return (
     <div className="w-full  text-center py-8 px-12">

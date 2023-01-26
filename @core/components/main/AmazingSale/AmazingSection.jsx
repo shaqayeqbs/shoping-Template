@@ -16,7 +16,7 @@ function AmazingSection() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "400٬000٬000",
     },
     {
@@ -24,7 +24,7 @@ function AmazingSection() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "400٬000٬000",
     },
     {
@@ -32,7 +32,7 @@ function AmazingSection() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "700٬000٬000",
     },
     {
@@ -40,7 +40,7 @@ function AmazingSection() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "300٬000٬000",
     },
   ];

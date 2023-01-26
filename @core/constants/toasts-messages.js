@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
 
 const myToast = (message, id, hasError) => {
-  console.log(toast);
   toast.dismiss();
   hasError
     ? toast.error(message, { toastId: id })
@@ -9,7 +8,7 @@ const myToast = (message, id, hasError) => {
 };
 
 export const removeToasts = () => {
-  console.log("removed");
+  // console.log("removed");
 
   toast.dismiss();
 };

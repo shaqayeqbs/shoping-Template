@@ -16,7 +16,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "400٬000٬000",
     },
     {
@@ -24,7 +24,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "400٬000٬000",
     },
     {
@@ -32,7 +32,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "700٬000٬000",
     },
     {
@@ -40,7 +40,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      lastPrice: "285٬000",
+      lastPrice: "285000",
       price: "300٬000٬000",
     },
     {
@@ -48,7 +48,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "400٬000٬000",
     },
     {
@@ -56,7 +56,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "400٬000٬000",
     },
     {
@@ -64,7 +64,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "700٬000٬000",
     },
     {
@@ -72,7 +72,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      lastPrice: "285٬000",
+      lastPrice: "285000",
       price: "300٬000٬000",
     },
     {
@@ -80,7 +80,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "400٬000٬000",
     },
     {
@@ -88,7 +88,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "400٬000٬000",
     },
     {
@@ -96,7 +96,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "700٬000٬000",
     },
     {
@@ -104,7 +104,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      lastPrice: "285٬000",
+      lastPrice: "285000",
       price: "300٬000٬000",
     },
     {
@@ -112,7 +112,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "400٬000٬000",
     },
     {
@@ -120,7 +120,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "400٬000٬000",
     },
     {
@@ -128,7 +128,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "700٬000٬000",
     },
     {
@@ -136,7 +136,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      lastPrice: "285٬000",
+      lastPrice: "285000",
       price: "300٬000٬000",
     },
     {
@@ -144,7 +144,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "400٬000٬000",
     },
     {
@@ -152,7 +152,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "400٬000٬000",
     },
     {
@@ -160,7 +160,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "700٬000٬000",
     },
     {
@@ -168,7 +168,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      lastPrice: "285٬000",
+      lastPrice: "285000",
       price: "300٬000٬000",
     },
 
@@ -177,7 +177,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "400٬000٬000",
     },
     {
@@ -185,7 +185,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "400٬000٬000",
     },
     {
@@ -193,7 +193,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      price: "285٬000",
+      price: "285000",
       lastPrice: "700٬000٬000",
     },
     {
@@ -201,7 +201,7 @@ function Offer() {
       title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
       image: "/images/plant.png",
       precent: "   25%",
-      lastPrice: "285٬000",
+      lastPrice: "285000",
       price: "300٬000٬000",
     },
   ];

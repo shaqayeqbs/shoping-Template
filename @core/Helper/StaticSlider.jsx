@@ -35,6 +35,7 @@ function HeaderCarousel({ items }) {
                 <Image
                   quality={50}
                   loading="lazy"
+                  alt="list of products"
                   src={item.image}
                   width={360}
                   height={360}
@@ -67,6 +68,7 @@ function HeaderCarousel({ items }) {
             <Image
               quality={50}
               width={360}
+              alt="list of products"
               loading="lazy"
               height={360}
               src={item.image}

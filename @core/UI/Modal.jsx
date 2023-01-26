@@ -2,24 +2,25 @@ import React, { useState, useEffect, memo } from "react";
 import classes from "./Modal.module.css";
 import ReactDom from "react-dom";
 
-const MyModal = ({ children, onClose, MegaMenu }) => {
+const MyModal = ({ children, onClose, MegaMenu, className }) => {
+  console.log(className);
   const overlayClass = MegaMenu ? classes.megaOverLay : classes.overlays;
   const modalClass = MegaMenu ? classes.megaModal : classes.modal;
 
   return (
-    <div className="container ">
+    <div className="container">
       <div
         className={overlayClass}
         onClick={onClose}
         onMouseEnter={MegaMenu ? onClose : () => console.log("")}
       ></div>
 
-      <div className={`${modalClass} container`}>{children}</div>
+      <div className={`${modalClass} container   ${className}`}>{children}</div>
     </div>
   );
 };
 
-function Modal({ open, children, selector, onClose, MegaMenu }) {
+function Modal({ open, children, selector, onClose, MegaMenu, className }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -33,7 +34,12 @@ function Modal({ open, children, selector, onClose, MegaMenu }) {
 
   return mounted
     ? ReactDom.createPortal(
-        <MyModal onClose={onClose} children={children} MegaMenu={MegaMenu} />,
+        <MyModal
+          onClose={onClose}
+          children={children}
+          MegaMenu={MegaMenu}
+          className={className}
+        />,
         document.querySelector(selector)
       )
     : null;

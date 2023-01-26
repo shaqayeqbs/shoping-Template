@@ -1,12 +1,13 @@
-import React from "react";
+import React, { memo } from "react";
 import Categories from "../../@core/components/main/Categories";
 import FilterBar from "../../@core/components/main/shop/filter/filterBar";
 // import List from "../../@core/components/main/Slider/List";
 import { ProductsData } from "../../@core/data/products";
-import OrderingList from "../../@core/Helper/OrderingList";
+// import OrderingList from "../../@core/Helper/OrderingList";
 import Pagination from "../../@core/utils/Pagination";
 import dynamic from "next/dynamic";
 const List = dynamic(() => import("../../@core/components/main/Slider/List"));
+const OrderingList = dynamic(() => import("../../@core/Helper/OrderingList"));
 
 function AllProducts() {
   const SortList = [
@@ -44,4 +45,4 @@ function AllProducts() {
   );
 }
 
-export default AllProducts;
+export default memo(AllProducts);

@@ -40,6 +40,8 @@ const Carousel = ({ data }) => {
                     decoding="async"
                     alt="slider photo"
                     loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={item?.image}
                     src={item.image}
                     width={600}
                     height={600}

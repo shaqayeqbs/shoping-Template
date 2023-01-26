@@ -10,7 +10,7 @@ export default function Gallery() {
     { id: 5, title: "ارتباط گیاهان و یوگا ", images: "/images/plant.png" },
   ];
   return (
-    <div className=" grid grid-cols-2 gap-4 lg:grid-cols-4 ltr mt-4">
+    <div className=" grid grid-cols-2 gap-4 lg:grid-cols-4 ltr h-[551px] mt-4">
       {data.map((item) => (
         <div
           key={item.id}
@@ -20,14 +20,15 @@ export default function Gallery() {
               : "relative w-full h-full rounded-xl overflow-hidden "
           }
         >
-          <div className="relative">
+          <div className="relative h-[100%]">
             {" "}
             <Image
+              alt="gallery"
               quality={50}
               loading="lazy"
               layout="fill"
               src={item.images}
-              className="w-full"
+              className=""
             />
           </div>
           <div className="absolute blurr  text-[white] text-center bottom-0 rounded-ms py-4 w-full">

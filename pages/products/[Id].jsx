@@ -1,4 +1,3 @@
-import Head from "next/head";
 // import ProductsDetail from "../../@core/components/main/shop/DetailPage/ProductsDetail";
 import { getProductsById } from "../../@core/data/products";
 import dynamic from "next/dynamic";
@@ -13,10 +12,6 @@ const ProductsDetailPage = ({ item }) => {
 
   return (
     <div>
-      <Head>
-        <title>Detail Page</title>
-        <meta name="description" content="Jewlery store for final project" />
-      </Head>
       <div>
         <ProductsDetail item={item} />
       </div>

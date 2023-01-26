@@ -16,6 +16,7 @@ export default function BtnSlider({ direction, moveSlide }) {
           quality={50}
           loading="lazy"
           layout="fill"
+          alt="btn slider"
           src={direction === "next" ? rightArrow : leftArrow}
         />
       </div>

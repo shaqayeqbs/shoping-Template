@@ -5,11 +5,17 @@ import React, { memo, useState } from "react";
 import { useSelector } from "react-redux";
 import ProfileDrop from "../components/main/Profile/ProfileDrop";
 import ModalVerification from "./modals/ModalVerification";
+import Cart from "../components/main/Cart/Cart";
+import CartBtn from "./CartBtn";
 
 function NavBar({ onCloseModalHandler }) {
   const [openAuthModal, setOpenAuthModal] = useState(false);
+  const [cartIsShown, setCartIsShown] = useState(false);
   const authHandler = () => {
     setOpenAuthModal((prevState) => !prevState);
+  };
+  const showCartHandler = () => {
+    setCartIsShown((prev) => !prev);
   };
   const businessName = useSelector((state) => state?.businessSlice?.name);
   const logo = useSelector((state) => state?.businessSlice?.logo);
@@ -19,7 +25,7 @@ function NavBar({ onCloseModalHandler }) {
     <>
       {<ModalVerification isOpen={openAuthModal} onClose={authHandler} />}
       <nav
-        className="container  mx-20 px-0 text-center w-full   !py-6 flex  justify-between "
+        className="container  mx-20 px-0 text-center w-full  flex  justify-between "
         onMouseEnter={onCloseModalHandler}
       >
         <Link href="/">
@@ -42,20 +48,17 @@ function NavBar({ onCloseModalHandler }) {
         </Link>
         <div className="flex">
           {" "}
-          <div className="flex text-skin-color ">
+          <div className="flex text-skin-color  w-full ">
             <button className=" border-0 ml-3">
               {" "}
               <SearchNormal1 size="28" />
             </button>
 
-            <button className=" border-0 ml-3">
-              <Bag2 size="28" />
-            </button>
-
+            <CartBtn onShow={showCartHandler} />
             {!isLoggedIn && (
               <button
                 onClick={authHandler}
-                className="bg-skin-fill text-[white] px-3 mt-3 h-[2.5rem] rounded-md"
+                className="bg-skin-fill  text-[white] w-full px-3 mt-7 h-[2.5rem] rounded-md"
               >
                 {" "}
                 ثبت نام | ورود
