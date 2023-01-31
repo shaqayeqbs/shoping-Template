@@ -1,16 +1,14 @@
-// import Profile from "../@core/components/main/Profile";
 import dynamic from "next/dynamic";
-const Profile = dynamic(() => import("../@core/components/main/Profile"));
 
-function ProfilePage() {
-  if (typeof window == undefined) {
-    return null;
-  }
+const ShopProfile = dynamic(() =>
+  import("../templates/shop/pages/ShopProfile")
+);
+function profile() {
   return (
-    <div className="container !mt-20">
-      <Profile />
-    </div>
+    <>
+      <ShopProfile />
+    </>
   );
 }
 
-export default ProfilePage;
+export default profile;

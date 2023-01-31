@@ -29,7 +29,7 @@ function NavBar({ onCloseModalHandler }) {
         onMouseEnter={onCloseModalHandler}
       >
         <Link href="/">
-          <div className="flex">
+          <div className="flex  py-[.6rem]">
             <div className="relative w-[4rem] h-[4rem]">
               {" "}
               <Image

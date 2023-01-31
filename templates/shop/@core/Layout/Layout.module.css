@@ -1,0 +1,42 @@
+.navbar {
+  /* padding-bottom: 1rem; */
+}
+.logo {
+  display: flex;
+  place-content: space-between;
+  cursor: pointer;
+}
+.logo h2 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 1rem;
+}
+
+.btn button {
+  height: 3rem;
+  margin: 0 0.1rem;
+  margin-top: 0.4rem;
+  border: 0;
+}
+.btn svg,
+.btn a {
+  margin: 0rem 0.5rem;
+}
+
+.links {
+  padding: 2rem 1rem;
+  padding-bottom: 1rem;
+}
+.links li {
+  display: inline-block;
+  margin: 0 3%;
+  margin-right: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+}
+.color {
+  color: #238b44 !important;
+}
