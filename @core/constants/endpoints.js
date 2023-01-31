@@ -24,17 +24,8 @@ const END_POINTS = {
   getSpecifiedBusinessBydDomain: `api/business/byDomin/${url}?lang=fa`,
   verfy_phone: "api/auth/login",
   verfy_code: "api/auth/confirm",
-  getArticles: "api/article/eos",
-};
-
-export const COMPETITOR_END_PONINTS = {
-  create_account: "instagram/competitor/create",
-  last_post: "instagram/post/competitor/last?username=",
-  delete: "instagram/competitor/remove/",
-  clone_post: "/instagram/post/clone/competitor",
-  analyze_accountL: "instagram/analyze/competitor?",
-  analyze_post_account: "instagram/analyze/post/competitor?",
-  search: "instagram/search/?username=",
+  getArticles: "api/article/",
+  get_bussiness_gallery: "api/business/gallery?business_id=",
 };
 
 export default END_POINTS;

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React from "react";
 function ProfileAvator() {
   return (
@@ -6,8 +6,9 @@ function ProfileAvator() {
       <Image
         quality={50}
         src="/images/plant.png"
-        width={500}
-        height={500}
+        alt="profile"
+        width={100}
+        height={100}
         loading="lazy"
         className="object-cover rounded-full "
       />

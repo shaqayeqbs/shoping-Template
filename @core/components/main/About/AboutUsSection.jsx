@@ -32,6 +32,7 @@ function AboutUs() {
       <div className="relative hidden lg:block lg:w-[60%] mr-8 pt-[9px] ">
         <Image
           quality={50}
+          alt="about"
           src="/images/about.png"
           loading="lazy"
           layout="fill"

@@ -1,5 +1,5 @@
 import { ArrowLeft2, ArrowRight2 } from "iconsax-react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React, { useState } from "react";
 import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper";
 import "swiper/css";
@@ -23,7 +23,7 @@ function HeaderCarousel({ items }) {
   };
 
   return (
-    <div className="mb-8  h-max relative">
+    <div className="  h-max relative ">
       <Swiper
         breakpoints={{
           700: {
@@ -44,63 +44,74 @@ function HeaderCarousel({ items }) {
         onSwiper={setSwiper}
       >
         {items?.map((item, index) => (
-          <SwiperSlide key={index} className="pb pt-3 ">
+          <SwiperSlide key={index} className="pt-3 ">
             <LandingCarouselSlide itemData={item} />
           </SwiperSlide>
         ))}
+        <div className="container flex justify-between  !mt-[-6rem] !mb-[6rem] relative z-20">
+          {" "}
+          <div className="flex">
+            <div>
+              {" "}
+              <button
+                onClick={nextSlide}
+                className="  z-10 md:w-[6rem] text-[white] border-2  border-[white] h-[3rem] align-middle rounded-md p-1 "
+              >
+                <ArrowRight2 className="inline-block" size="32" />
+              </button>
+            </div>
+          </div>
+          <div>
+            {" "}
+            <button
+              onClick={prevSlide}
+              className=" md:w-[6rem]  text-[white] border-[white] border-2 p-1 h-[3rem]  rounded-md align-middle"
+            >
+              <ArrowLeft2 className="inline-block" size="32" />
+            </button>
+          </div>
+        </div>
       </Swiper>
 
-      <div className="absolute bottom-11 cursor-pointer right-[25%]   w-[25%] md:right-[20%] xl:right-[21%]    2xl:right-[24%]   ">
-        <Swiper
-          onSwiper={setThumbsSwiper}
-          loop={true}
-          spaceBetween={0}
-          slidesPerView={4}
-          freeMode={true}
-          loopFillGroupWithBlank={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          watchSlidesProgress={true}
-          modules={[FreeMode, Navigation, Thumbs]}
-          // slideActiveClass="border-2  w-[10rem]"
-        >
-          {items?.map((item, index) => (
-            <SwiperSlide
-              key={index}
-              className="container relative rounded-lg w-full !md:w-[23%]  !h-[3rem]  text-right !ml-[1%]  "
-            >
-              <div className="relative !z-40">
-                {" "}
-                <Image
-                  quality={50}
-                  decoding="async"
-                  width={105}
-                  loading="lazy"
-                  height={50}
-                  src={item?.file[0]?.details.location}
-                  className="object-cover inline-block h-[3rem] rounded-lg !z-50"
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-      <div className="container relative z-20">
+      <div className="container relative">
         {" "}
-        <button
-          className=" absolute bottom-[2.8rem] z-10 md:w-[8%] text-[white] border-2 border-[white] h-[3rem] align-middle rounded-md p-1 "
-          onClick={nextSlide}
-        >
-          <ArrowRight2 className="inline-block" size="32" />
-        </button>
-        <button
-          onClick={prevSlide}
-          className="absolute md:w-[8%] left-0 bottom-[2.8rem] text-[white] border-[white] border-2 p-1 h-[3rem]  rounded-md align-middle"
-        >
-          <ArrowLeft2 className="inline-block" size="32" />
-        </button>
+        <div className="container  absolute !mt-[-9rem] ! cursor-pointer  right-[6.5rem] !max-w-[35%]   ">
+          <Swiper
+            onSwiper={setThumbsSwiper}
+            loop={true}
+            spaceBetween={0}
+            slidesPerView={4}
+            freeMode={true}
+            loopFillGroupWithBlank={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            watchSlidesProgress={true}
+            modules={[FreeMode, Navigation, Thumbs]}
+            // slideActiveClass="border-2  w-[10rem]"
+          >
+            {items?.map((item, index) => (
+              <SwiperSlide
+                key={index}
+                className=" relative rounded-lg w-full !md:w-[2rem]  !h-[3rem]  text-right !ml-[1%]  "
+              >
+                <div className="relative !z-40">
+                  {" "}
+                  <Image
+                    alt="slider"
+                    quality={50}
+                    width={90}
+                    loading="lazy"
+                    height={40}
+                    src={item?.file[0]?.details.location}
+                    className="object-cover inline-block h-[3rem] rounded-lg !z-50"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </div>
   );

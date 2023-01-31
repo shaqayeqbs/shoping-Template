@@ -1,14 +1,20 @@
 import { digitsEnToFa } from "@persian-tools/persian-tools";
 import { Trash } from "iconsax-react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import React from "react";
 import useTimer from "../../../hooks/useTimer";
 import TimeHistory from "../../../icons/TimeHistory";
 import classes from "../carousel/Carousel.module.css";
 
-function List({ data, offcerPage, articles, favorties }) {
+function List({
+  data = null,
+  offcerPage = null,
+  articles = null,
+  favorties = null,
+}) {
   const [hours, minutes, seconds, Faminutes, FaHours, Faseconds] = useTimer();
+  console.log({ data }, "lll");
   return (
     <ul className="grid grid-cols-1 md:grid-cols-4">
       {data?.map((item) => (
@@ -23,16 +29,19 @@ function List({ data, offcerPage, articles, favorties }) {
                 : "cadr my-2 "
             }
           >
-            <Image
-              quality={50}
-              decoding="async"
-              alt="slider photo"
-              loading="lazy"
-              src={item.image}
-              width={400}
-              height={400}
-              className={classes.image}
-            />
+            {item.image && (
+              <Image
+                quality={50}
+                decoding="async"
+                alt="slider photo"
+                loading="lazy"
+                src={item.image}
+                width={400}
+                height={400}
+                className={classes.image}
+              />
+            )}
+            {item.category && <div>{item.category.name}</div>}
             <h2 className="text-right">{item.title}</h2>
             {!articles && (
               <div className={classes.flexBetween}>
