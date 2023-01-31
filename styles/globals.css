@@ -93,7 +93,7 @@
     @apply rounded-xl  p-1  uppercase border-2 border-primary text-center;
   }
   a {
-    @apply border-0  py-[1rem];
+    @apply border-0  pb-[1rem];
   }
   p {
     @apply text-justify tracking-tighter;

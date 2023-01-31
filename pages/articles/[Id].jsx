@@ -1,6 +1,12 @@
 import Head from "next/head";
 import ArticleDetails from "../../@core/components/main/shop/DetailPage/ArticleDetails";
 import { getArticlesById } from "../../@core/data/articles";
+import dynamic from "next/dynamic";
+
+const ShopArticleDetailPage = dynamic(() =>
+  import("../../templates/shop/pages/articles/ShopArticleDetail")
+);
+
 const ProductsDetailPage = ({ item }) => {
   if (!item || item.lenght === 0) {
     return <p>No Products found!</p>;
@@ -12,9 +18,7 @@ const ProductsDetailPage = ({ item }) => {
         <title>Article Detail Page</title>
         <meta name="description" content="Jewlery store for final project" />
       </Head>
-      <div>
-        <ArticleDetails item={item} />
-      </div>
+      <ShopArticleDetailPage item={item} />
     </div>
   );
 };

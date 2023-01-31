@@ -1,11 +1,13 @@
 import React from "react";
-import Cart from "../@core/components/main/Cart/Cart";
+
+import dynamic from "next/dynamic";
+const ShopBasket = dynamic(() => import("../templates/shop/pages/ShopBasket"));
 
 function Basket() {
   return (
-    <div className="container">
-      <Cart />
-    </div>
+    <>
+      <ShopBasket />
+    </>
   );
 }
 

@@ -1,12 +1,13 @@
-// import Profile from "../@core/components/main/Profile";
 import dynamic from "next/dynamic";
-const Profile = dynamic(() => import("../@core/components/main/Profile"));
 
+const ShopProfile = dynamic(() =>
+  import("../templates/shop/pages/ShopProfile")
+);
 function profile() {
   return (
-    <div className="container !mt-20">
-      <Profile />
-    </div>
+    <>
+      <ShopProfile />
+    </>
   );
 }
 
