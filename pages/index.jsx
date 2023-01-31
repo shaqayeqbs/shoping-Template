@@ -5,6 +5,8 @@ import { memo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { businessAction } from "../store/Slices/BussinessSlice";
 import dynamic from "next/dynamic";
+import END_POINTS from "../@core/constants/endpoints";
+import APP_CONFIG from "../@core/constants/app-config";
 
 const ShopHome = dynamic(() => import("../templates/shop/pages/Home"));
 
@@ -31,9 +33,20 @@ function Home({ data = null }) {
 
 export default memo(Home);
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (ctx) => {
+  const { req, query, res, asPath, pathname } = ctx;
+  let url = req.headers.host;
+  if (
+    url === "localhost:3000" ||
+    url === "localhost:3001" ||
+    url === "localhost:3002"
+  ) {
+    url = "zaay.ir";
+  }
+
   let response = await axios(
-    "http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa"
+    // "http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa"
+    `http://core.behzi.net/api/business/byDomin/${url}?lang=fa`
   );
 
   return {

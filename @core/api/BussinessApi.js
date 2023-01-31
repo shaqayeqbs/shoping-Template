@@ -5,10 +5,9 @@ import APP_CONFIG from "../constants/app-config.js";
 
 export const bussinessByDomainApi = async () => {
   try {
-    //http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa
-
     const res = await axios(
-      "http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa"
+      APP_CONFIG.apiBaseUrl + END_POINTS.getSpecifiedBusinessBydDomain
+      // "http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa"
     );
 
     return res;

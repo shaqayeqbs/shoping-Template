@@ -8,7 +8,8 @@ export const bussinessByDomainApi = async () => {
     //http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa
 
     const res = await axios(
-      "http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa"
+      // "http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa"
+      APP_CONFIG.apiBaseUrl + END_POINTS.getSpecifiedBusinessBydDomain
     );
 
     return res;
