@@ -1,12 +1,7 @@
-import axios from "axios";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 import { memo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import AboutUsSection from "../@core/components/main/About/AboutUsSection";
-// import Description from "../@core/components/main/About/Description";
-// import AmazingSection from "../@core/components/main/AmazingSale/AmazingSection";
-// import Event from "../@core/components/main/Event";
 import HeaderCarousel from "../@core/components/main/Slider/HeaderCarousel";
 // import Slider from "../@core/components/main/Slider/Slider";
 
@@ -15,6 +10,7 @@ import dynamic from "next/dynamic";
 // const HeaderCarousel = dynamic(() =>
 //   import("../@core/components/main/Slider/HeaderCarousel")
 // );
+import mainData from "../@core/utils/serverProps";
 const Slider = dynamic(() => import("../@core/components/main/Slider/Slider"));
 const AmazingSection = dynamic(() =>
   import("../@core/components/main/AmazingSale/AmazingSection")
@@ -121,15 +117,12 @@ function Home({ data = null }) {
 
 export default memo(Home);
 
-export const getServerSideProps = async () => {
-  // let response = await bussinessByDomainApi();
-  let response = await axios(
-    "http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa"
-  );
+export const getServerSideProps = async (ctx) => {
+  let response = await mainData(ctx);
 
   return {
     props: {
-      data: response?.data || null,
+      data: response.data || null,
     },
   };
 };

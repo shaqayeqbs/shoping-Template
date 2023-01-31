@@ -4,8 +4,10 @@ import { useSelector } from "react-redux";
 import WorkTIme from "../@core/components/main/ContactUs/WorkTIme";
 import HeartShine from "../@core/icons/HeartShine";
 import Map from "../@core/utils/Map/Map";
+import nookies from "nookies";
+import useSetBussinessData from "../@core/hooks/useSetBussinessData";
 
-function ContactUs() {
+function ContactUs({ data }) {
   const [lat, setLat] = useState(0);
   const [lng, setLng] = useState(0);
   const [defaultCenter, setDefaultCenter] = useState([0, 0]);
@@ -41,12 +43,15 @@ function ContactUs() {
   ];
 
   // const DEFAULT_CENTER = [lat, lng];
-
+  useSetBussinessData(data);
+  if (typeof window == undefined) {
+    return null;
+  }
   return (
     <section className="container">
       <h1 className="mt-14">راه های ارتباطی</h1>
       <div className="md:flex justify-between w-full">
-        {dataList.map((item) => (
+        {dataList?.map((item) => (
           <div
             key={item.id}
             className="bg-[white] flex justify-between ml-4 w-full rounded-md  py-4 mt-10 px-4  pt-8 "
@@ -66,7 +71,7 @@ function ContactUs() {
                   : "my-2 text-center mx-3 "
               }
             >
-              {item.items.map((item, index) => (
+              {item?.items.map((item, index) => (
                 <div
                   dir="ltr"
                   key={index}
@@ -108,3 +113,15 @@ function ContactUs() {
 }
 
 export default ContactUs;
+export const getServerSideProps = async (ctx) => {
+  const cookies = nookies.get(ctx);
+  let bussinessData = {};
+  if (!cookies?.id) {
+    bussinessData = await mainData(ctx);
+  }
+  return {
+    props: {
+      data: bussinessData.data || null,
+    },
+  };
+};

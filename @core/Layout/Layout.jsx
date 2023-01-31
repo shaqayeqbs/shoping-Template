@@ -26,10 +26,10 @@ const Layout = ({ children }) => {
     }
   }, [showMenu]);
 
-  const primaryColor = getRGBColor(colors.primary_color, "primary");
-  const backgroundColor = getRGBColor(colors.background_color, "background");
-  const secondaryColor = getRGBColor(colors.secondary_color, "secondary");
-  const textColor = getRGBColor(colors.text_color, "text");
+  const primaryColor = getRGBColor(colors?.primary_color, "primary");
+  const backgroundColor = getRGBColor(colors?.background_color, "background");
+  const secondaryColor = getRGBColor(colors?.secondary_color, "secondary");
+  const textColor = getRGBColor(colors?.text_color, "text");
 
   return (
     <>

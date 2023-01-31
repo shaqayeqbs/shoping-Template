@@ -2,7 +2,10 @@
 import dynamic from "next/dynamic";
 const Profile = dynamic(() => import("../@core/components/main/Profile"));
 
-function profile() {
+function ProfilePage() {
+  if (typeof window == undefined) {
+    return null;
+  }
   return (
     <div className="container !mt-20">
       <Profile />
@@ -10,4 +13,4 @@ function profile() {
   );
 }
 
-export default profile;
+export default ProfilePage;
