@@ -1,9 +1,9 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Modal from "../../../../UI/Modal";
 import { Bag2 } from "iconsax-react";
 import { BsCheckCircle } from "react-icons/bs";
-import { cartActions } from "../../../../../store/Slices/CartSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { cartActions } from "../../../../../../../store/Slices/CartSlice";
+import { useDispatch } from "react-redux";
 import { Messages } from "../../../../constants/messages";
 import { Trash } from "iconsax-react";
 const ProductDetailForm = ({ onAddToCart, id, title }) => {

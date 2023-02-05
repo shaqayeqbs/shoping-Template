@@ -7,7 +7,7 @@ if (typeof window !== "undefined") {
     url === "http://localhost:3001/" ||
     url === "http://localhost:3002/"
   ) {
-    url = "zaay.ir";
+    url = "tivarja.ir";
   }
 }
 
@@ -26,6 +26,7 @@ const END_POINTS = {
   verfy_code: "api/auth/confirm",
   getArticles: "api/article/",
   get_bussiness_gallery: "api/business/gallery?business_id=",
+  get_FQ: "api/business/fq?business_id=",
 };
 
 export default END_POINTS;

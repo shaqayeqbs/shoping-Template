@@ -26,7 +26,11 @@ const ProductsDetailPage = ({ item }) => {
 export default ProductsDetailPage;
 
 export async function getServerSideProps(context) {
-  const { params } = context;
+  const { params, res } = context;
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=43200, stale-while-revalidate=60"
+  );
   const Id = params.Id;
 
   const article = await getArticlesById(Id);

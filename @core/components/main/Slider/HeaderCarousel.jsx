@@ -33,7 +33,9 @@ function HeaderCarousel({ items }) {
         }}
         loop={true}
         spaceBetween={0}
-        thumbs={{ swiper: thumbsSwiper }}
+        thumbs={{
+          swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+        }}
         loopFillGroupWithBlank={true}
         autoplay={{
           delay: 2500,

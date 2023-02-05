@@ -1,16 +1,12 @@
 import useTranslation from "next-translate/useTranslation";
-
 import { memo } from "react";
 import { useSelector } from "react-redux";
-
 import HeaderCarousel from "../@core/components/main/Slider/HeaderCarousel";
-
+import { Suspense } from "react";
 import dynamic from "next/dynamic";
 
+import AmazingSection from "../@core/components/main/AmazingSale/AmazingSection";
 const Slider = dynamic(() => import("../@core/components/main/Slider/Slider"));
-const AmazingSection = dynamic(() =>
-  import("../@core/components/main/AmazingSale/AmazingSection")
-);
 const Event = dynamic(() => import("../@core/components/main/Event"));
 const Description = dynamic(() =>
   import("../@core/components/main/About/Description")
@@ -65,11 +61,20 @@ function ShopHome({ data = null }) {
   return (
     <>
       <main>
-        <HeaderCarousel items={banners} />
-        <Description />
-        <div className=" bg-skin-fill">
-          <AmazingSection />
-        </div>
+        <Suspense fallback={<p>Loading feed...</p>}>
+          <HeaderCarousel items={banners} />
+        </Suspense>
+
+        <Suspense fallback={<p>Loading feed...</p>}>
+          <Description />
+        </Suspense>
+
+        <Suspense fallback={<p>Loading feed...</p>}>
+          <div className=" bg-skin-fill">
+            <AmazingSection />
+          </div>
+        </Suspense>
+
         <section className={classes}>
           {events?.slice(2, 4).map((item) => (
             <Event event={item} key={item.id} />
@@ -92,7 +97,7 @@ function ShopHome({ data = null }) {
           <AboutUsSection />
         </section>
         <div className="container">
-          <Slider title={t("landing:articles")} data={articles} />
+          <Slider title={t("landing:articles")} data={articles} articles />
         </div>
       </main>
     </>

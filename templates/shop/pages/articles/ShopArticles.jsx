@@ -210,7 +210,7 @@ function ShopArticles({ data, articles }) {
       </div>
       <h1 className="mt-16 mb-8">همه مقاله ها</h1>
       <OrderingList data={SortList} />
-      <List data={articles?.data.articles} articles={true} />
+      <List data={articles?.data?.articles} articles={true} />
       <Pagination />
     </section>
   );

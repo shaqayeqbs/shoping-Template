@@ -20,6 +20,21 @@ export const bussinessByDomainApi = async () => {
   }
 };
 
+export const FQ = async (id) => {
+  console.log(APP_CONFIG.apiBaseUrl + END_POINTS.get_FQ + id);
+  try {
+    const res = await axios(APP_CONFIG.apiBaseUrl + END_POINTS.get_FQ + id);
+
+    return res;
+  } catch (err) {
+    if (err.response) {
+      return err.response.data.code;
+    } else {
+      return `ERROR:${err}`;
+    }
+  }
+};
+
 export const lastpost = async ({ username }) => {
   try {
     const res = await instance.get(END_POINTS.account_last_post + username);
@@ -64,22 +79,6 @@ export const analyzeAccount = async ({ id, startDate, endDate }) => {
   } catch (err) {
     if (err.response) {
       console.log(err.response);
-      return err.response.data;
-    } else {
-      console.log(`ERROR:${err}`);
-    }
-  }
-};
-
-export const analyzePostAccount = async ({ id, startDate, endDate }) => {
-  try {
-    const res = await instance.get(
-      END_POINTS.analyze_post_account +
-        `start_date=${startDate}&end_date=${endDate}&instagram_account=${id}`
-    );
-    return res?.data;
-  } catch (err) {
-    if (err.response) {
       return err.response.data;
     } else {
       console.log(`ERROR:${err}`);

@@ -5,8 +5,6 @@ import APP_CONFIG from "../constants/app-config";
 
 export const GetArticles = async (id) => {
   try {
-    console.log(APP_CONFIG.apiBaseUrl + END_POINTS.getArticles + id);
-
     const res = await axios(
       APP_CONFIG.apiBaseUrl + END_POINTS.getArticles + id
     );

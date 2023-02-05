@@ -7,8 +7,8 @@ function HeaderCarousel({ items }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-    <div className="flex flex-row-reverse !justify-between gap-0    h-[17rem]  md:h-max relative">
-      <div className="mx-0 w-full my-0 ">
+    <div className="flex  w-full relative gap-0  text-right ltr h-[17rem]  md:h-max ">
+      <div className="md:absolute w-full md:w-[80%] !left-0 mx-0  my-0 ">
         <Swiper
           breakpoints={{
             700: {
@@ -18,20 +18,22 @@ function HeaderCarousel({ items }) {
           }}
           loop={true}
           spaceBetween={0}
-          thumbs={{ swiper: thumbsSwiper }}
+          thumbs={{
+            swiper:
+              thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+          }}
           loopFillGroupWithBlank={true}
           modules={[FreeMode, Navigation, Thumbs, Autoplay]}
-          className="  border-1 border-borderColor  "
-          // slideActiveClass="!w-[10rem]"
+          className="relative   border-1 border-borderColor   "
           style={{ width: "100%" }}
         >
           {items.map((item, index) => (
             <SwiperSlide
               key={index}
               style={{ backgroundColor: item.color }}
-              className="!p-0"
+              className="!p-0  top-0 left-0"
             >
-              <div className="w-full">
+              <div className="w-[80%] md:w-full   text-left ">
                 <Image
                   quality={50}
                   loading="lazy"
@@ -39,43 +41,42 @@ function HeaderCarousel({ items }) {
                   src={item.image}
                   width={360}
                   height={360}
-                  className="object-cover rounded-xl"
+                  className="object-cover rounded  "
                 />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-      <Swiper
-        onSwiper={setThumbsSwiper}
-        loop={true}
-        spaceBetween={0}
-        slidesPerView={4}
-        freeMode={true}
-        loopFillGroupWithBlank={true}
-        watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
-        direction="vertical"
-        height={2}
-        className="!w-[60px] !h-[360px]"
-      >
-        {items.map((item, index) => (
-          <SwiperSlide
-            key={index}
-            className="
-            rounded-lg  "
-          >
-            <Image
-              quality={50}
-              width={360}
-              alt="list of products"
-              loading="lazy"
-              height={360}
-              src={item.image}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className="absolute left-[-1rem] md:left-[0%] md:right-[2%] top-0">
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          loop={true}
+          spaceBetween={0}
+          slidesPerView={4}
+          freeMode={true}
+          loopFillGroupWithBlank={true}
+          watchSlidesProgress={true}
+          modules={[FreeMode, Navigation, Thumbs]}
+          direction="vertical"
+          height={4}
+          className="!w-[60px] flex justify-between   top-0 !h-[260px] md:!h-[360px] "
+        >
+          {items?.map((item, index) => (
+            <SwiperSlide key={index} className="w-[4rem] h-[4rem] ">
+              <div className=" relative  !w-[3rem]">
+                <Image
+                  quality={50}
+                  width={360}
+                  alt="list of products"
+                  height={360}
+                  src={item.image}
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 }

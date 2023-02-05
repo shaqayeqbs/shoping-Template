@@ -19,9 +19,6 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
   const closeNav = () => {
     setNav(false);
   };
-  const myLoader = ({ src }) => {
-    return "http://core.behzi.net/storage/image/business/logo/1670323071.png";
-  };
 
   useEffect(() => {
     window.onscroll = function (e) {

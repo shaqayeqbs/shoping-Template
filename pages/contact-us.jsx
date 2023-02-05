@@ -1,6 +1,7 @@
 import nookies from "nookies";
 import useSetBussinessData from "../@core/hooks/useSetBussinessData";
 import dynamic from "next/dynamic";
+import mainData from "../@core/utils/serverProps";
 
 const ShopContact = dynamic(() =>
   import("../templates/shop/pages/ShopContact")
@@ -21,6 +22,11 @@ function ContactUs({ data }) {
 export default ContactUs;
 export const getServerSideProps = async (ctx) => {
   const cookies = nookies.get(ctx);
+  const { res } = ctx;
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=43200, stale-while-revalidate=60"
+  );
   let bussinessData = {};
   if (!cookies?.id) {
     bussinessData = await mainData(ctx);
@@ -31,3 +37,18 @@ export const getServerSideProps = async (ctx) => {
     },
   };
 };
+
+// export async function getStaticProps(ctx) {
+//   const cookies = nookies.get(ctx);
+//   let bussinessData = {};
+//   if (!cookies?.id && ctx?.req?.headers) {
+//     bussinessData = await mainData(ctx);
+//   }
+
+//   return {
+//     props: {
+//       data: bussinessData.data || null,
+//     },
+//     revalidate: 1800,
+//   };
+// }

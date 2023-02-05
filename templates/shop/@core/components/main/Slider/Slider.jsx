@@ -4,7 +4,14 @@ import React from "react";
 import { AiOutlineLeft } from "react-icons/ai";
 const Carousel = dynamic(() => import("./Carousel"));
 
-function NewProducts({ data, title, regular, value, onIndexHandler }) {
+function NewProducts({
+  data,
+  title,
+  regular,
+  value,
+  onIndexHandler,
+  articles,
+}) {
   const content = (
     <div className="font-bold">
       <div className="mx-8"> مشاهده همه</div>
@@ -37,7 +44,10 @@ function NewProducts({ data, title, regular, value, onIndexHandler }) {
             </button>
           )}
           {!regular && (
-            <Link href="/products" className="cursor-pointer">
+            <Link
+              href={articles ? "/articles" : "/products"}
+              className="cursor-pointer"
+            >
               {content}
             </Link>
           )}

@@ -12,7 +12,6 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
   const [code, setCode] = useState("");
   const dispatch = useDispatch();
 
-  console.log(phone);
   const [hours, minutes, seconds, farsMin, FaHours, Faseconds, refreshTimer] =
     useTimer(0, 2, 0);
 
@@ -22,7 +21,7 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
     if (event) {
       event.preventDefault();
     }
-    const data = { phone };
+
     refreshTimer(0, 2, 0);
     const response = await verifyPhone(phone);
   };
@@ -35,10 +34,8 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
       setLoading(true);
       const data = { phone, code: temp.toString() };
       const response = await dispatch(userData(data));
-      console.log(response);
 
       if (response?.payload?.status === 200) {
-        console.log("loggedIn ");
         onCodeVerified();
       }
 

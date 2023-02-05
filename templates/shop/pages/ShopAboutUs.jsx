@@ -1,4 +1,5 @@
 import Image from "next/legacy/image";
+
 function ShopAbout() {
   return (
     <section className="container">

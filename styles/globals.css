@@ -32,6 +32,9 @@
   .ltr {
     direction: ltr;
   }
+  .rtl {
+    direction: rtl;
+  }
   .cadr {
     display: block;
     width: 95%;

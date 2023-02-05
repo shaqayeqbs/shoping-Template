@@ -1,6 +1,7 @@
 import { Heart, Location, Message, Shop, Wallet } from "iconsax-react";
 import ProfileAvator from "./ProfileAvator";
 import SideBarItem from "./SideBarItem";
+import { Edit2 } from "iconsax-react";
 function SideBar({ onChangeIndex, activeItem }) {
   const changeAxtiveIndexHandler = (item) => {
     onChangeIndex(item);
@@ -81,8 +82,11 @@ function SideBar({ onChangeIndex, activeItem }) {
           <ProfileAvator />
         </div>
         <h2 className="mt-10">مهسا توفیق</h2>
+        <button>
+          <Edit2 size="32" color="#FF8A65" />
+        </button>
       </div>
-      {sideBar.map((item) => (
+      {sideBar?.map((item) => (
         <div key={item.id} className="inline-block lg:block  ">
           <SideBarItem
             item={item}

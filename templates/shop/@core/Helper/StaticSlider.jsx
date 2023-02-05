@@ -18,14 +18,17 @@ function HeaderCarousel({ items }) {
           }}
           loop={true}
           spaceBetween={0}
-          thumbs={{ swiper: thumbsSwiper }}
+          thumbs={{
+            swiper:
+              thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+          }}
           loopFillGroupWithBlank={true}
           modules={[FreeMode, Navigation, Thumbs, Autoplay]}
           className="  border-1 border-borderColor  "
           // slideActiveClass="!w-[10rem]"
           style={{ width: "100%" }}
         >
-          {items.map((item, index) => (
+          {items?.map((item, index) => (
             <SwiperSlide
               key={index}
               style={{ backgroundColor: item.color }}
@@ -59,7 +62,7 @@ function HeaderCarousel({ items }) {
         height={2}
         className="!w-[60px] !h-[360px]"
       >
-        {items.map((item, index) => (
+        {items?.map((item, index) => (
           <SwiperSlide
             key={index}
             className="

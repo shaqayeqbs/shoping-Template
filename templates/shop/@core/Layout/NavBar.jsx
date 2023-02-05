@@ -7,15 +7,17 @@ import ProfileDrop from "../components/main/Profile/ProfileDrop";
 import ModalVerification from "./modals/ModalVerification";
 import Cart from "../components/main/Cart/Cart";
 import CartBtn from "./CartBtn";
+import SearchForm from "./Search/SearchForm";
 
 function NavBar({ onCloseModalHandler }) {
   const [openAuthModal, setOpenAuthModal] = useState(false);
-  const [cartIsShown, setCartIsShown] = useState(false);
+  const [showSearchForm, setShowSearchForm] = useState(false);
   const authHandler = () => {
     setOpenAuthModal((prevState) => !prevState);
   };
-  const showCartHandler = () => {
-    setCartIsShown((prev) => !prev);
+  const showSearchHandler = () => {
+    console.log(showSearchForm);
+    setShowSearchForm((prev) => !prev);
   };
   const businessName = useSelector((state) => state?.businessSlice?.name);
   const logo = useSelector((state) => state?.businessSlice?.logo);
@@ -24,6 +26,7 @@ function NavBar({ onCloseModalHandler }) {
   return (
     <>
       {<ModalVerification isOpen={openAuthModal} onClose={authHandler} />}
+      {showSearchForm && <SearchForm />}
       <nav
         className="container  mx-20 px-0 text-center w-full  flex  justify-between "
         onMouseEnter={onCloseModalHandler}
@@ -34,7 +37,7 @@ function NavBar({ onCloseModalHandler }) {
               {" "}
               <Image
                 quality={50}
-                src="http://core.behzi.net/storage/image/business/logo/1670323071.png"
+                src={logo}
                 // src="/images/plant.png"
                 width={60}
                 height={60}
@@ -46,21 +49,18 @@ function NavBar({ onCloseModalHandler }) {
             <h2 className="mt-5 mx-2"> {businessName} </h2>
           </div>
         </Link>
-        <div className="flex">
-          {" "}
-          <div className="flex text-skin-color  w-full ">
-            <button className=" border-0 ml-3">
-              {" "}
+        <div className="flex justify-end bg-[red]">
+          <div className="flex justify-end text-skin-color  w-full ">
+            <button className=" border-0 ml-3" onClick={showSearchHandler}>
               <SearchNormal1 size="28" />
             </button>
 
-            <CartBtn onShow={showCartHandler} />
+            <CartBtn />
             {!isLoggedIn && (
               <button
                 onClick={authHandler}
                 className="bg-skin-fill  text-[white] w-full px-3 mt-7 h-[2.5rem] rounded-md"
               >
-                {" "}
                 ثبت نام | ورود
               </button>
             )}

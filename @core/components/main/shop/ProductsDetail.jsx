@@ -25,7 +25,7 @@ function ProductsDetail({ item }) {
       <section className="cadr container   !p-8 !pt-20 mt-40  text-skin-">
         <div className="flex ">
           {" "}
-          <div className="w-[40%]">
+          <div className="w-[60%] bg-[pink]">
             <StaticSlider items={item.carousel} />
           </div>
           <div className="flex">
