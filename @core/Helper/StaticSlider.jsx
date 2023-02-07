@@ -22,7 +22,6 @@ function HeaderCarousel({ items }) {
             swiper:
               thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
           }}
-          loopFillGroupWithBlank={true}
           modules={[FreeMode, Navigation, Thumbs, Autoplay]}
           className="relative   border-1 border-borderColor   "
           style={{ width: "100%" }}
@@ -55,7 +54,6 @@ function HeaderCarousel({ items }) {
           spaceBetween={0}
           slidesPerView={4}
           freeMode={true}
-          loopFillGroupWithBlank={true}
           watchSlidesProgress={true}
           modules={[FreeMode, Navigation, Thumbs]}
           direction="vertical"

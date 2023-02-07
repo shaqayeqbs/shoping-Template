@@ -1,28 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "../../../../UI/Card";
-import { Gallery } from "iconsax-react";
 import { useSelector } from "react-redux";
-
-import { FiUpload } from "react-icons/fi";
+import UploadingImage from "./UploadingImage";
+import { Datepicker } from "@ijavad805/react-datepicker";
 function UserInformation(dirs = []) {
   const { name, surname, city, birthday, gender, mobile, id_card } =
     useSelector((state) => state.user);
 
-  const [compressedImage, setCompressedImage] = useState(null);
-
-  const [uploading, setUploading] = useState(false);
-  const [selectedImage, setSelectedImage] = useState("");
-  const [selectedFile, setSelectedFile] = useState();
-
-  const handleCompressedUpload = (files) => {
-    const image = files[0];
-    new Compressor(image, {
-      quality: 0.8,
-      success: (compressedResult) => {
-        setCompressedImage(compressedResult);
-      },
-    });
-  };
   const inputsWithUsage = [
     {
       name: "name",
@@ -67,14 +51,14 @@ function UserInformation(dirs = []) {
       maxLength: 11,
       readOnly: true,
       readOnly: true,
-      defaultValue: id_card,
+      // defaultValue: id_card,
       placeholder: id_card,
       // ref: cellphoneInputRef,
     },
     {
       name: "mobile",
       label: "موبایل",
-      defaultValue: mobile,
+      // defaultValue: mobile,
       type: "text",
       maxLength: 11,
       readOnly: true,
@@ -82,97 +66,55 @@ function UserInformation(dirs = []) {
       // ref: cellphoneInputRef,
     },
   ];
-  const handleUpload = async () => {
-    setUploading(true);
-    try {
-      if (!selectedFile) return;
-      const formData = new FormData();
-      formData.append("myImage", selectedFile);
-      const { data } = await axios.post("/api/image", formData);
-      console.log(data);
-    } catch (error) {
-      console.log(error.response?.data);
-    }
-    setUploading(false);
-  };
 
-  console.log(inputsWithUsage);
   return (
     <Card>
       <div className="p-16 py-10">
         <h2>نمایه شما</h2>
+        <UploadingImage />
         <form className="">
-          <label>
-            <input
-              type="file"
-              hidden
-              onChange={({ target }) => {
-                if (target.files) {
-                  const file = target.files[0];
-                  setSelectedImage(URL.createObjectURL(file));
-                  setSelectedFile(file);
-                }
-              }}
-            />
-            <div className=" aspect-video border-0 rounded flex items-center justify-center  border-dashed ">
-              {selectedImage ? (
-                <div
-                  class=" flex flex-col items-center justify-center overflow-hidden text-skin-primary w-[10rem] h-[10rem] rounded-full !bg-[#F8F8F8] cursor-pointer "
-                  style={{ background: "#F8F8F8" }}
-                >
-                  <img
-                    src={selectedImage}
-                    alt=""
-                    className="block object-cover h-full w-full"
+          <div className="grid grid-cols-2">
+            {inputsWithUsage.map((item, index) =>
+              item.type != "date" ? (
+                <div key={index}>
+                  <label htmlFor={item.name}>{item.label}</label>
+                  <input
+                    type={item.type}
+                    className={
+                      item.readOnly
+                        ? "input bg-skin-secondary border-0 "
+                        : "input "
+                    }
+                    name={item.name}
+                    id={item.name}
+                    value={item.value}
+                    defaultValue={!item.value ? item.defaultValue : undefined}
+                    placeholder={item.placeholder}
+                    readOnly={item.readOnly ? true : false}
                   />
                 </div>
               ) : (
-                <div
-                  class=" flex flex-col items-center justify-center text-skin-primary w-[10rem] h-[10rem] rounded-full !bg-[#F8F8F8] cursor-pointer "
-                  style={{ background: "#F8F8F8" }}
-                >
-                  <Gallery size="40" className="block  " />
-                  {compressedImage && <img src={compressedImage} />}
+                <div key={index}>
+                  <label htmlFor={item.name}>{item.label}</label>
+                  <div className="input p-0 py-3 ">
+                    <Datepicker
+                      input={
+                        <input
+                          value={item.value}
+                          defaultValue={
+                            !item.value ? item.defaultValue : undefined
+                          }
+                          placeholder={item.placeholder}
+                        />
+                      }
+                      onChange={(val) => {
+                        console.log(val.format());
+                      }}
+                    />
+                  </div>
                 </div>
-              )}
-            </div>
-          </label>
-          <button
-            onClick={handleUpload}
-            disabled={uploading}
-            style={{ opacity: uploading ? ".5" : "1" }}
-            className="bg-red-600 border-0 p-3 mb-8 text-center mx-auto w-full rounded text-white"
-          >
-            {uploading ? (
-              "Uploading.."
-            ) : (
-              <div className=" mt-3 w-max flex text-skin-primary items-center mx-auto">
-                <FiUpload size={15} variant="" className="ml-3" />
-                انتخاب تصویر &nbsp;
-              </div>
+              )
             )}
-          </button>
-          <div className="grid grid-cols-2">
-            {" "}
-            {inputsWithUsage.map((item, index) => (
-              <div>
-                <label htmlFor={item.name}>{item.label}</label>
-                <input
-                  type={item.type}
-                  className={
-                    item.readOnly
-                      ? "input bg-skin-secondary border-0 "
-                      : "input "
-                  }
-                  name={item.name}
-                  id={item.name}
-                  value={item.value}
-                  defaultValue={item.defaultValue}
-                  placeholder={item.placeholder}
-                  readOnly={item.readOnly ? true : false}
-                />
-              </div>
-            ))}
           </div>
           <div>جنسیت</div>
           <div className="flex my-6 ">
@@ -181,7 +123,7 @@ function UserInformation(dirs = []) {
               <input
                 type="radio"
                 name="gender"
-                defaultValue={gender}
+                checked={gender}
                 value="male"
                 style={{ accentColor: "green" }}
                 className="second"
@@ -193,7 +135,7 @@ function UserInformation(dirs = []) {
             <div>
               <input
                 type="radio"
-                defaultValue={gender}
+                checked={gender}
                 name="gender"
                 value="female"
                 className="accent-second "

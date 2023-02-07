@@ -17,7 +17,6 @@ const Carousel = ({ data = null }) => {
         }}
         spaceBetween={0}
         loop={true}
-        loopFillGroupWithBlank={true}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,

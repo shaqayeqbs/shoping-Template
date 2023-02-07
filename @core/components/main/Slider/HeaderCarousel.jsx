@@ -36,7 +36,6 @@ function HeaderCarousel({ items }) {
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
-        loopFillGroupWithBlank={true}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
@@ -84,7 +83,6 @@ function HeaderCarousel({ items }) {
             spaceBetween={0}
             slidesPerView={4}
             freeMode={true}
-            loopFillGroupWithBlank={true}
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
