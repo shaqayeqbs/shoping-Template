@@ -79,7 +79,7 @@ function HeaderCarousel({ items }) {
         {" "}
         <div className="container  absolute !mt-[-9rem] ! cursor-pointer  right-[6.5rem] !max-w-[35%]   ">
           <Swiper
-            onSwiper={setThumbsSwiper}
+            onSwiper={setSwiper}
             loop={true}
             spaceBetween={0}
             slidesPerView={4}

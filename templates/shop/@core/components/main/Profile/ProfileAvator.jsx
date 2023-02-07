@@ -7,8 +7,8 @@ function ProfileAvator() {
         quality={50}
         src="/images/plant.png"
         alt="profile"
-        width={100}
-        height={100}
+        width={82}
+        height={82}
         loading="lazy"
         className="object-cover rounded-full "
       />

@@ -13,21 +13,22 @@ import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import Layout from "../@core/Layout/Layout";
 import Loading from "../templates/shop/@core/components/Loading/Loading";
+import LoadingSpinner from "../@core/UI/LoadingSpinner";
 const ToastContainer = dynamic(() =>
   import("react-toastify").then((mod) => mod.ToastContainer)
 );
-
+// const Layout = dynamic(() => import("../@core/Layout/Layout"));
 export default function App({ Component, pageProps }) {
   let persistor = persistStore(store);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (pageProps && Component && Layout) {
+    if (pageProps && Component && Layout && Component) {
       setIsLoading(false);
     }
-  }, [pageProps, Component, Layout]);
+  }, [pageProps, Component, Layout, Component]);
   if (isLoading) {
-    return <div>Loading......</div>;
+    return <LoadingSpinner />;
   }
   return (
     <Suspense fallback={<Loading />}>

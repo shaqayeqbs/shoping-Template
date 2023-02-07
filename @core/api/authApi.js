@@ -18,6 +18,21 @@ export const register = async ({ phone, password }) => {
     }
   }
 };
+export const getCurrentUser = async () => {
+  try {
+    const res = await instance.get(END_POINTS.get_current_user);
+    console.log(res);
+
+    return res?.data;
+  } catch (err) {
+    if (err?.response) {
+      console.log(err.response.data, err.response.status, err);
+      return err.response.data;
+    } else {
+      console.log(`ERROR:${err}`);
+    }
+  }
+};
 
 export const verifyCode = async ({ phone, code }) => {
   const mobile = phone;
@@ -58,36 +73,6 @@ export const verifyPhone = async ({ phone }) => {
     if (err.response) {
       console.log(err.response.data, err.response.status);
       return err.response.data;
-    } else {
-      console.log(`ERROR:${err}`);
-    }
-  }
-};
-
-export const verifyInstagram = async ({ username }) => {
-  try {
-    const res = await instance.post(END_POINTS.verify_instagram, { username });
-    console.log({ res });
-    return res?.status;
-  } catch (err) {
-    console.log(err.status);
-    if (err.response) {
-      return err.response.status;
-    } else {
-      console.log(`ERROR:${err}`);
-    }
-  }
-};
-
-export const resetPassword = async ({ password }) => {
-  try {
-    console.log(password);
-    const res = await instance.post(END_POINTS.reset_password, { password });
-    console.log({ res });
-    return res?.status;
-  } catch (err) {
-    if (err.response) {
-      return err.response.status;
     } else {
       console.log(`ERROR:${err}`);
     }

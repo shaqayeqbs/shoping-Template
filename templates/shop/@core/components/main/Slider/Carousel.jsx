@@ -6,10 +6,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/legacy/image";
 const Carousel = ({ data = null }) => {
   return (
-    <div>
+    <div className="">
       {" "}
       <Swiper
         breakpoints={{
+          400: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
           700: {
             slidesPerView: 4,
             slidesPerGroup: 4,

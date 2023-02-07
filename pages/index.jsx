@@ -4,10 +4,10 @@ import { useState } from "react";
 import Head from "next/head";
 import { memo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { businessAction } from "../store/Slices/BussinessSlice";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
+import LoadingSpinner from "../@core/UI/LoadingSpinner";
 const ShopHome = dynamic(() => import("../templates/shop/pages/Home"));
 
 function Home({ data = null }) {
@@ -24,6 +24,10 @@ function Home({ data = null }) {
   useEffect(() => {
     dispatch(businessAction.fetchFirspageData(data));
   }, [description, data, dispatch]);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   if (isLoading) {
     return <div>Loading...</div>;

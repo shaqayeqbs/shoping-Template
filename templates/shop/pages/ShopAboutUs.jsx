@@ -6,7 +6,7 @@ function ShopAbout() {
       <h1 className="text-center my-4 mt-12">درباره هیوا گاردن 🌱</h1>
       <div className="relative !h-[511px] w-full  my-4">
         <Image
-          quality={75}
+          quality={50}
           loading="lazy"
           src="/images/about.png"
           alt="about us"

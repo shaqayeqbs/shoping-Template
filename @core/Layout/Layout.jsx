@@ -5,6 +5,13 @@ import Footer from "../components/footer/Footer";
 import { getRGBColor } from "../Helper/getColor";
 import classes from "./Layout.module.css";
 import MainNavigation from "./MainNavigation";
+// import dynamic from "next/dynamic";
+
+// import Banner from "components/Banner";
+
+// const MainNavigation = dynamic(() => import("./MainNavigation"));
+
+// const Footer = dynamic(() => import("../components/footer/Footer"));
 
 const Layout = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);

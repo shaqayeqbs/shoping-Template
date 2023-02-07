@@ -20,6 +20,13 @@ export const userData = createAsyncThunk(
 export const initialState = {
   isLoggedIn: false,
   name: "",
+  id_card: "",
+  surname: "",
+  city: "",
+  mobile: "",
+  gender: "",
+  birthday: null,
+  roles: [],
   token: "",
   balance: "",
 };
@@ -43,6 +50,12 @@ const userSlice = createSlice({
 
       if (action.payload) {
         state.name = data?.user?.name;
+        state.surname = data?.user?.surname;
+        state.gender = data?.user?.gender[0]?._;
+        state.mobile = data?.user?.mobile;
+        state.city = data?.user?.city;
+        state.id_card = data?.user?.id_card;
+        state.birthday = data?.user?.birthday;
         state.token = data?.token;
         state.balance = data?.user.balance;
         localStorage.setItem("toekn", data?.token);

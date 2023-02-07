@@ -27,6 +27,8 @@ const END_POINTS = {
   getArticles: "api/article/",
   get_bussiness_gallery: "api/business/gallery?business_id=",
   get_FQ: "api/business/fq?business_id=",
+  get_current_user: "api/user?lang=fa",
+  upload_current_user_profile_image: "api/user/upload-prfile-image",
 };
 
 export default END_POINTS;

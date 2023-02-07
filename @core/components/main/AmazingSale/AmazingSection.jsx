@@ -1,11 +1,11 @@
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
 import { AiOutlineLeft } from "react-icons/ai";
 import useTimer from "../../../hooks/useTimer";
 import Offer from "../../../icons/Offer";
 // const Carousel = dynamic(() => import("../carousel/carousel"));
-import Carousel from "../carousel/carousel";
+import Carousel from "../Carousel/carousel";
 
 function AmazingSection() {
   const [hours, minutes, seconds, farsMin, FaHours, Faseconds, refreshTimer] =

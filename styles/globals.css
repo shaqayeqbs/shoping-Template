@@ -35,6 +35,16 @@
   .rtl {
     direction: rtl;
   }
+  .input {
+    display: block;
+    border: 1px solid #999999;
+    border-radius: 8.57435px;
+    width: 90%;
+    padding: 0.8rem 1rem;
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+  }
+
   .cadr {
     display: block;
     width: 95%;
@@ -100,6 +110,9 @@
   }
   p {
     @apply text-justify tracking-tighter;
+  }
+  input {
+    @apply px-4;
   }
 }
 *,
@@ -190,6 +203,9 @@ input:focus-visible {
   height: 20% !important;
 }
 /*  */
+input[type="radio"] {
+  accent-color: red;
+}
 
 @media only screen and (max-width: 600px) {
   .filterBtn {
