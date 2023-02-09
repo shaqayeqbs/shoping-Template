@@ -3,6 +3,7 @@ import Card from "../../../../UI/Card";
 import { useSelector } from "react-redux";
 import UploadingImage from "./UploadingImage";
 import { Datepicker } from "@ijavad805/react-datepicker";
+
 function UserInformation(dirs = []) {
   const { name, surname, city, birthday, gender, mobile, id_card } =
     useSelector((state) => state.user);
@@ -69,9 +70,9 @@ function UserInformation(dirs = []) {
 
   return (
     <Card>
+      <h2>نمایه شما</h2>
+      <UploadingImage />
       <div className="p-16 py-10">
-        <h2>نمایه شما</h2>
-        <UploadingImage />
         <form className="">
           <div className="grid grid-cols-2">
             {inputsWithUsage.map((item, index) =>

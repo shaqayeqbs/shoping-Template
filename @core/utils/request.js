@@ -17,6 +17,7 @@ instance.interceptors.request.use(
       const token = getLocalAccessToken();
       if (token) {
         config.headers["Authorization"] = `Bearer ${token}`;
+        config.headers["Content-Type"] = "multipart/form-data";
       }
       console.log(token, "hereeeeeeeeee");
     }
