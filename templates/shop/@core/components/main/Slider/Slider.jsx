@@ -1,10 +1,18 @@
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
 import { AiOutlineLeft } from "react-icons/ai";
-const Carousel = dynamic(() => import("./Carousel"));
+import Carousel from "./Carousel";
+// const Carousel = dynamic(() => import("./Carousel"));
 
-function NewProducts({ data, title, regular, value, onIndexHandler }) {
+function NewProducts({
+  data,
+  title,
+  regular,
+  value,
+  onIndexHandler,
+  articles,
+}) {
   const content = (
     <div className="font-bold">
       <div className="mx-8"> مشاهده همه</div>
@@ -14,7 +22,6 @@ function NewProducts({ data, title, regular, value, onIndexHandler }) {
     </div>
   );
   const changeIndex = (e) => {
-    // console.log(e.target.value);
     onIndexHandler(e?.target?.value);
   };
   return (
@@ -37,7 +44,10 @@ function NewProducts({ data, title, regular, value, onIndexHandler }) {
             </button>
           )}
           {!regular && (
-            <Link href="/products" className="cursor-pointer">
+            <Link
+              href={articles ? "/articles" : "/products"}
+              className="cursor-pointer"
+            >
               {content}
             </Link>
           )}

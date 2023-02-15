@@ -14,7 +14,7 @@ function List({
   favorties = null,
 }) {
   const [hours, minutes, seconds, Faminutes, FaHours, Faseconds] = useTimer();
-  console.log({ data }, "lll");
+
   return (
     <ul className="grid grid-cols-1 md:grid-cols-4">
       {data?.map((item) => (

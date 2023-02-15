@@ -101,10 +101,10 @@ function VerifyPhoneModal({ onMobileVerified }) {
       </form>
 
       <Link href="/">
-        <a className=" inline-block mt-5 pb-0 text-skin-primary text-[12px] font-medium">
+        <div className=" inline-block mt-5 pb-0 text-skin-primary text-[12px] font-medium">
           ورود با حساب بهزی
           <ArrowLeft size="16" className="inline-block mx-2 " />
-        </a>
+        </div>
       </Link>
     </section>
   );

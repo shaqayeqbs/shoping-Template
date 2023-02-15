@@ -17,6 +17,7 @@ instance.interceptors.request.use(
       const token = getLocalAccessToken();
       if (token) {
         config.headers["Authorization"] = `Bearer ${token}`;
+        config.headers["Content-Type"] = "multipart/form-data";
       }
       console.log(token, "hereeeeeeeeee");
     }
@@ -28,37 +29,37 @@ instance.interceptors.request.use(
   }
 );
 
-// instance.interceptors.response.use(
-//   (res) => {
-//     console.log({ res });
-//     return res;
-//   },
-//   async (err) => {
-//     try {
-//       // console.clear();
-//       // const token = getLocalAccessToken();
-//       // if (err.code === "ERR_NETWORK" || err.code === "ECONNABORTED") {
-//       //   return err.code;
-//       // }
+instance.interceptors.response.use(
+  (res) => {
+    console.log({ res });
+    return res;
+  },
+  async (err) => {
+    try {
+      // console.clear();
+      // const token = getLocalAccessToken();
+      // if (err.code === "ERR_NETWORK" || err.code === "ECONNABORTED") {
+      //   return err.code;
+      // }
 
-//       if (err.response.status === 404) {
-//         console.log("checked user Auth", err.response.status);
-//         console.log("hooooooooooooooooooooooooooooo");
-//         if (!window.location.href.includes("NoTFound")) {
-//           window.location.href = "NoTFound";
-//           return;
-//         }
-//       }
-//       return;
-//     } catch (_error) {
-//       // return Promise.reject(_error);
-//     }
+      if (err.response.status === 404) {
+        console.log("checked user Auth", err.response.status);
+        console.log("hooooooooooooooooooooooooooooo");
+        if (!window.location.href.includes("NoTFound")) {
+          window.location.href = "NoTFound";
+          return;
+        }
+      }
+      return;
+    } catch (_error) {
+      // return Promise.reject(_error);
+    }
 
-//     // if (err.response.status === 403 && err.response.data) {
-//     //   return Promise.reject(err.response.data);
-//     // }
-//     // return Promise.reject(err);
-//   }
-// );
+    // if (err.response.status === 403 && err.response.data) {
+    //   return Promise.reject(err.response.data);
+    // }
+    // return Promise.reject(err);
+  }
+);
 
 export default instance;

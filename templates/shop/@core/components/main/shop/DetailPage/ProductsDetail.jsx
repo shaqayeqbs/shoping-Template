@@ -9,7 +9,7 @@ import FilterShowDetails from "./FilterShowDetails";
 import PropertiesOfProduct from "./PropertiesOfProduct";
 import Vote from "./Vote";
 import ProductDetailForm from "./ProductDetailsForm";
-import { cartActions } from "../../../../../store/Slices/CartSlice";
+import { cartActions } from "../../../../../../../store/Slices/CartSlice";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 

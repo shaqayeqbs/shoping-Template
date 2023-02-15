@@ -1,46 +1,41 @@
 import React, { memo } from "react";
-import Categories from "../../@core/components/main/Categories";
-import FilterBar from "../../@core/components/main/shop/filter/filterBar";
-import { ProductsData } from "../../@core/data/products";
-import Pagination from "../../@core/utils/Pagination";
 import dynamic from "next/dynamic";
-const List = dynamic(() => import("../../@core/components/main/Slider/List"));
-const OrderingList = dynamic(() => import("../../@core/Helper/OrderingList"));
+import nookies from "nookies";
+import useSetBussinessData from "../../@core/hooks/useSetBussinessData";
+import mainData from "../../@core/utils/serverProps";
+import { getListOfProducts } from "../../@core/api/productApi";
+const ShopAllProducts = dynamic(() =>
+  import("../../templates/shop/pages/products/ShopProducts")
+);
+// import ShopAllProducts from "../../templates/shop/pages/products/ShopProducts";
 
-function AllProducts() {
-  const SortList = [
-    {
-      id: 1,
-      title: "بیشترین تخفیف",
-    },
-    {
-      id: 2,
-      title: "محبوب ترین",
-    },
-    {
-      id: 3,
-      title: "جدیدترین",
-    },
-    {
-      id: 4,
-      title: "پرفروش ترین",
-    },
-  ];
+function AllProducts({ data }) {
+  useSetBussinessData(data);
   return (
-    <main className="container">
-      <Categories data={ProductsData} />
-      <div className=" flex justify-between">
-        <div className="w-[21%]">
-          <FilterBar />
-        </div>
-        <div className="w-[77%]">
-          <OrderingList data={SortList} />
-          <List data={ProductsData} offcerPage={true} />
-        </div>
-      </div>
-      <Pagination />
-    </main>
+    <>
+      <ShopAllProducts />
+    </>
   );
 }
 
 export default memo(AllProducts);
+
+export const getServerSideProps = async (ctx) => {
+  const cookies = nookies.get(ctx);
+  const { res } = ctx;
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=43200, stale-while-revalidate=60"
+  );
+  let bussinessData = {};
+  if (!cookies?.id) {
+    bussinessData = await mainData(ctx);
+  }
+  let result = await getListOfProducts(cookies?.id);
+  console.log(result);
+  return {
+    props: {
+      data: bussinessData.data || null,
+    },
+  };
+};

@@ -15,13 +15,14 @@ function Footer() {
     { id: 3, icon: <SiTelegram size="32" /> },
     { id: 4, icon: <GrTwitter size="32" /> },
   ];
+  console.log(addresses, "jjjjjjjjjj");
 
   return (
     <footer className="container block !pt-16 border-t-2 border-primary !mt-16 ">
       <section className="!text-center mx-auto block   md:flex justify-between ">
         <div className="p-6 md:p-0 text-center mx-auto  w-[100%] md:w-fit md:ml-16">
           <h2 className="text-xl text-center">{data.title}</h2>
-          {addresses?.map((item, index) => (
+          {addresses[(0, 1)]?.map((item, index) => (
             <div className="my-8" key={index}>
               <div className="flex">
                 <Location
@@ -109,6 +110,7 @@ function Footer() {
         <span className="text-skin-primary"> نگارگر اندیشه </span>
         می‌باشد.
       </div>
+      <div>hhhhhhhhhhh</div>
     </footer>
   );
 }

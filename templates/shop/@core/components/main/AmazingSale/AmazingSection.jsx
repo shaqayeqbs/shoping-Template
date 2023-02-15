@@ -4,7 +4,7 @@ import { AiOutlineLeft } from "react-icons/ai";
 import useTimer from "../../../hooks/useTimer";
 import Offer from "../../../icons/Offer";
 // const Carousel = dynamic(() => import("../carousel/carousel"));
-import Carousel from "../carousel/carousel";
+import Carousel from "../Carousel/carousel";
 
 function AmazingSection() {
   const [hours, minutes, seconds, farsMin, FaHours, Faseconds, refreshTimer] =
@@ -48,8 +48,8 @@ function AmazingSection() {
   const timerDevider = "text-skin-primary mx-2";
 
   return (
-    <section className="container md:flex px-0 text-center w-full  !py-12 !pt-16 overflow-x-hidden ">
-      <h1 className="block md:hidden  text-xl text-center mb-8 text-[white]">
+    <section className="container md:flex px-0 text-center w-full  !py-12 !pt-20 overflow-x-hidden ">
+      <h1 className="block md:hidden mt-10 text-xl text-center mb-8 text-[white] bg-[red]">
         تخفیفات شگفت انگیز
       </h1>
 

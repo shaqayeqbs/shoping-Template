@@ -1,24 +1,37 @@
 import axios from "axios";
-import useTranslation from "next-translate/useTranslation";
+import { useState } from "react";
+// import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 import { memo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { businessAction } from "../store/Slices/BussinessSlice";
 import dynamic from "next/dynamic";
-import END_POINTS from "../@core/constants/endpoints";
-import APP_CONFIG from "../@core/constants/app-config";
-
+import { Suspense } from "react";
+import LoadingSpinner from "../@core/UI/LoadingSpinner";
 const ShopHome = dynamic(() => import("../templates/shop/pages/Home"));
 
 function Home({ data = null }) {
+  const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
+  useEffect(() => {
+    if (data) {
+      setIsLoading(false);
+    }
+  }, [data]);
 
-  const { description, events } = useSelector((state) => state.businessSlice);
+  const { description } = useSelector((state) => state.businessSlice);
 
   useEffect(() => {
     dispatch(businessAction.fetchFirspageData(data));
   }, [description, data, dispatch]);
 
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       <Head>
@@ -26,7 +39,9 @@ function Home({ data = null }) {
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <ShopHome data={data} />
+      <Suspense fallback={<p>Loading feed...</p>}>
+        <ShopHome data={data} />
+      </Suspense>
     </>
   );
 }
@@ -35,6 +50,10 @@ export default memo(Home);
 
 export const getServerSideProps = async (ctx) => {
   const { req, query, res, asPath, pathname } = ctx;
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=43200, stale-while-revalidate=60"
+  );
   let url = req.headers.host;
   if (
     url === "localhost:3000" ||
@@ -45,9 +64,15 @@ export const getServerSideProps = async (ctx) => {
   }
 
   let response = await axios(
-    // "http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa"
     `http://core.behzi.net/api/business/byDomin/${url}?lang=fa`
-  );
+  ).catch(function (error) {
+    if (error.response) {
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+      return { notFound: true };
+    }
+  });
 
   return {
     props: {

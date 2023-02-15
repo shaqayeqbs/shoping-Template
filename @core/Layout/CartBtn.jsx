@@ -32,10 +32,10 @@ const CartBtn = ({ onShow }) => {
   return (
     <Link
       href="/basket"
-      className="border-0  py-[1rem] text-white mt-5 flex "
+      className="relative border-0 text-white mt-6 flex "
       onClick={onShow}
     >
-      <span className=" bg-skin-fill pt-[4px] text-[white] bg-white text-black rounded-full w-[1.7rem] h-[1.7rem]  text-center ">
+      <span className="absolute left-[2.3rem] top-[-.5rem]  bg-skin-fill text-[12px] pt-[3px] text-[white] bg-white text-black rounded-full w-[1.3rem] h-[1.3rem]  text-center ">
         {numberOfCartItems}
       </span>
       <span className="ml-4 ">

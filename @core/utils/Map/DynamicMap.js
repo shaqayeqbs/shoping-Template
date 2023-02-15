@@ -1,7 +1,10 @@
-import Leaflet from "leaflet";
+// import Leaflet from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect } from "react";
 import * as ReactLeaflet from "react-leaflet";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+const Leaflet = dynamic(() => import("leaflet"));
 
 // import styles from './Map.module.scss';
 

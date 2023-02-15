@@ -33,8 +33,9 @@ function HeaderCarousel({ items }) {
         }}
         loop={true}
         spaceBetween={0}
-        thumbs={{ swiper: thumbsSwiper }}
-        loopFillGroupWithBlank={true}
+        thumbs={{
+          swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+        }}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
@@ -77,12 +78,11 @@ function HeaderCarousel({ items }) {
         {" "}
         <div className="container  absolute !mt-[-9rem] ! cursor-pointer  right-[6.5rem] !max-w-[35%]   ">
           <Swiper
-            onSwiper={setThumbsSwiper}
+            onSwiper={setSwiper}
             loop={true}
             spaceBetween={0}
             slidesPerView={4}
             freeMode={true}
-            loopFillGroupWithBlank={true}
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,

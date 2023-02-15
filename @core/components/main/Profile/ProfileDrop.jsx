@@ -51,7 +51,7 @@ export default function ProfileDrop() {
   return (
     <Menu as="div" className="relative inline-block text-left ">
       <div>
-        <Menu.Button className="inline-flex mt-[20%] w-full justify-center rounded-md border-0 border-gray-300 bg-white pr-4 py-2 text-sm font-medium text-gray-700  hover:bg-[transparent]">
+        <Menu.Button className="inline-flex mt-[0%] w-full justify-center rounded-md border-0 border-gray-300 bg-white pr-4 py-2 text-sm font-medium text-gray-700  hover:bg-[transparent]">
           <Image
             alt="profile"
             quality={50}

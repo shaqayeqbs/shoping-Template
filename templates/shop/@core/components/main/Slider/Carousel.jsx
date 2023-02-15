@@ -6,10 +6,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/legacy/image";
 const Carousel = ({ data = null }) => {
   return (
-    <div>
+    <div className="">
       {" "}
       <Swiper
         breakpoints={{
+          400: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
           700: {
             slidesPerView: 4,
             slidesPerGroup: 4,
@@ -17,7 +21,6 @@ const Carousel = ({ data = null }) => {
         }}
         spaceBetween={0}
         loop={true}
-        loopFillGroupWithBlank={true}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,

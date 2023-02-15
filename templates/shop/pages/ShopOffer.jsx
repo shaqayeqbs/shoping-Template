@@ -1,14 +1,17 @@
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import { memo } from "react";
 // import List from "../@core/components/main/Slider/List";
 import OrderingList from "../@core/Helper/OrderingList";
 // import Pagination from "../@core/utils/Pagination";
-const Carousel = dynamic(
-  () => import("../@core/components/main/carousel/carousel"),
-  { ssr: false }
-);
-const Pagination = dynamic(() => import("../@core/utils/Pagination"));
-const List = dynamic(() => import("../@core/components/main/Slider/List"));
+import Carousel from "../@core/components/main/Carousel/carousel";
+import Pagination from "../@core/utils/Pagination";
+import List from "../@core/components/main/Slider/List";
+// const Carousel = dynamic(
+//   () => import("../@core/components/main/carousel/carousel"),
+//   { ssr: false }
+// );
+// const Pagination = dynamic(() => import("../@core/utils/Pagination"));
+// const List = dynamic(() => import("../@core/components/main/Slider/List"));
 function ShopOffer() {
   const data = [
     {
@@ -225,9 +228,9 @@ function ShopOffer() {
   ];
   return (
     <>
-      <section className="bg-skin-fill py-16 mt-4">
+      <section className="bg-skin-fill py-16 mt-">
         <div className="container">
-          <h1 className="text-center text-[white] mb-10  text-5xl">
+          <h1 className="text-center text-[white] p-10  text-5xl">
             تخفیفات شگفت انگیز
           </h1>
 

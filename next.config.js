@@ -1,6 +1,7 @@
-// const withBundleAnalyzer = require("@next/bundle-analyzer")({
-//   enabled: process.env.ANALYZE === "true",
-// });
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 
 ///////////////////////////////////////
 
@@ -26,7 +27,21 @@ const nextConfig = {
       },
     ],
   },
-  reactStrictMode: true,
+  compiler: {
+    reactRemoveProperties: true,
+
+    removeConsole: {
+      exclude: ["error"],
+    },
+  },
+
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    config.plugins.push(new DuplicatePackageCheckerPlugin());
+
+    return config;
+  },
+
+  reactStrictMode: false,
   i18n: {
     locales: ["fa"],
     defaultLocale: "fa",
@@ -38,11 +53,11 @@ const nextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx"],
 };
 
-const pwaConfig = {
-  dest: "public",
-  disable: process.env.NODE_ENV === "development",
-  register: true,
-};
+// const pwaConfig = {
+//   dest: "public",
+//   disable: process.env.NODE_ENV === "development",
+//   register: true,
+// };
 
 // const mdxConfig = {
 //   extension: /.mdx?$/,
@@ -55,7 +70,7 @@ const pwaConfig = {
 // };
 
 const nextTranslate = require("next-translate");
-const withPWA = require("next-pwa")(pwaConfig);
+// const withPWA = require("next-pwa")(pwaConfig);
 // const withMDX = require("@next/mdx")(mdxConfig);
 
-module.exports = nextTranslate(withPWA(nextConfig));
+module.exports = nextTranslate(withBundleAnalyzer(nextConfig));

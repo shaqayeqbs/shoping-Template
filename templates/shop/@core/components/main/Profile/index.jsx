@@ -5,6 +5,7 @@ import Dashboard from "./SideBarContent/Dashboard";
 import Favorties from "./SideBarContent/Favorties";
 import Ideas from "./SideBarContent/Ideas";
 import Orders from "./SideBarContent/Orders";
+import UserInformation from "./SideBarContent/UserInformation";
 import RecentlyViewed from "./SideBarContent/RecentlyViewed";
 
 function Profile() {
@@ -12,6 +13,7 @@ function Profile() {
   const changeAxtiveIndexHandler = (item) => {
     setActiveItem(item);
   };
+
   let content = "";
   switch (activeItem) {
     case "orders":
@@ -28,6 +30,9 @@ function Profile() {
       break;
     case "address":
       content = <Address onChangeIndex={changeAxtiveIndexHandler} />;
+      break;
+    case "profile":
+      content = <UserInformation onChangeIndex={changeAxtiveIndexHandler} />;
       break;
     default:
       content = <Dashboard onChangeIndex={changeAxtiveIndexHandler} />;

@@ -3,7 +3,6 @@ import classes from "./Modal.module.css";
 import ReactDom from "react-dom";
 
 const MyModal = ({ children, onClose, MegaMenu, className }) => {
-  console.log(className);
   const overlayClass = MegaMenu ? classes.megaOverLay : classes.overlays;
   const modalClass = MegaMenu ? classes.megaModal : classes.modal;
 

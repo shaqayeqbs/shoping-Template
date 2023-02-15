@@ -1,8 +1,8 @@
 // import ProductsDetail from "../../@core/components/main/shop/DetailPage/ProductsDetail";
 import { getProductsById } from "../../@core/data/products";
 import dynamic from "next/dynamic";
-const ProductsDetail = dynamic(() =>
-  import("../../@core/components/main/shop/DetailPage/ProductsDetail")
+const ShopProductsDetailPage = dynamic(() =>
+  import("../../templates/shop/pages/products/ShopDetail")
 );
 
 const ProductsDetailPage = ({ item }) => {
@@ -13,7 +13,7 @@ const ProductsDetailPage = ({ item }) => {
   return (
     <div>
       <div>
-        <ProductsDetail item={item} />
+        <ShopProductsDetailPage item={item} />
       </div>
     </div>
   );
@@ -22,7 +22,11 @@ const ProductsDetailPage = ({ item }) => {
 export default ProductsDetailPage;
 
 export async function getServerSideProps(context) {
-  const { params } = context;
+  const { params, res } = context;
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=43200, stale-while-revalidate=60"
+  );
   const Id = params.Id;
 
   const product = await getProductsById(Id);

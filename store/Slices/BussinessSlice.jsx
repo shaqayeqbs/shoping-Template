@@ -6,7 +6,8 @@ export const initialState = {
   description: "",
   events: [],
   addresses: [],
-  connections: {},
+  connections: [],
+  phone: [],
   workTimes: [],
   colors: {},
 };
@@ -19,7 +20,7 @@ const businessSlice = createSlice({
       const data = action.payload?.data?.domin?.business;
 
       let logoImg = "";
-      data?.files.forEach((item) => {
+      data?.files?.forEach((item) => {
         if (item.type._ === "logo") {
           logoImg = item.details.location;
         }
@@ -29,11 +30,12 @@ const businessSlice = createSlice({
       state.name = data?.name;
       state.logo = logoImg;
       state.events = data?.events;
+      state.phone = data?.connections?.phone;
       state.addresses = data?.addresses;
-      state.connections = data?.connections;
+      state.connections = data?.connections?.social;
       state.description = data?.description;
       state.workTimes = data?.workTimes;
-      state.colors = data?.template.colorPalette;
+      state.colors = data?.template?.colorPalette;
     },
   },
 });
