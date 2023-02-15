@@ -37,18 +37,3 @@ export const getServerSideProps = async (ctx) => {
     },
   };
 };
-
-// export async function getStaticProps(ctx) {
-//   const cookies = nookies.get(ctx);
-//   let bussinessData = {};
-//   if (!cookies?.id && ctx?.req?.headers) {
-//     bussinessData = await mainData(ctx);
-//   }
-
-//   return {
-//     props: {
-//       data: bussinessData.data || null,
-//     },
-//     revalidate: 1800,
-//   };
-// }

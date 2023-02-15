@@ -41,7 +41,7 @@ const nextConfig = {
     return config;
   },
 
-  reactStrictMode: true,
+  reactStrictMode: false,
   i18n: {
     locales: ["fa"],
     defaultLocale: "fa",

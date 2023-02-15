@@ -5,12 +5,11 @@ import { getCroppedImg } from "./canvasUtils";
 import { Gallery } from "iconsax-react";
 import Modal from "../../../../../../../../@core/UI/Modal";
 import { CloseCircle } from "iconsax-react";
-import { resizeFile } from "../../../../../Helper/ImageResizer";
 import { updateProfileImage } from "../../../../../../../../store/Slices/UserSlice";
 import { useDispatch } from "react-redux";
 
-const MyDemo = () => {
-  const [imageSrc, setImageSrc] = React.useState(null);
+const MyDemo = ({ UploadingImage }) => {
+  const [imageSrc, setImageSrc] = React.useState(UploadingImage);
   const [crop, setCrop] = useState({ x: 5, y: 5 });
   const [isOpen, setIsOpen] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -18,6 +17,7 @@ const MyDemo = () => {
   const [zoom, setZoom] = useState(1);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
   const [croppedImage, setCroppedImage] = useState(null);
+  const [blob, setBlob] = useState(null);
   const dispatch = useDispatch();
 
   const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
@@ -33,8 +33,10 @@ const MyDemo = () => {
         rotation
       );
       console.log("donee", { croppedImage });
-      console.log(typeof croppedImage);
-      setCroppedImage(croppedImage);
+
+      console.log(croppedImage, croppedImage.blobObj);
+      setBlob(croppedImage.blobObj);
+      setCroppedImage(croppedImage.blobStr);
     } catch (e) {
       console.error(e);
     }
@@ -49,6 +51,9 @@ const MyDemo = () => {
     setIsOpen(true);
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
+      const lob = new Blob([file], { type: "image/jpeg" });
+      console.log(lob);
+      // dispatch(updateProfileImage(lob));
       let imageDataUrl = await readFile(file);
 
       setImageSrc(imageDataUrl);
@@ -61,15 +66,10 @@ const MyDemo = () => {
   const handleUpload = async () => {
     setUploading(true);
 
-    // try {
     if (croppedImage) {
-      //   const image = await resizeFile(croppedImage);
-      //   console.log(image);
+      console.log(blob);
+      dispatch(updateProfileImage(blob));
 
-      dispatch(updateProfileImage(croppedImage));
-      // } catch (error) {
-      //   console.log(error);
-      // }
       setUploading(false);
     }
   };
@@ -133,6 +133,24 @@ const MyDemo = () => {
                   انتخاب تصویر
                 </button>
               </div>
+            </div>
+          )}
+          {imageSrc && !croppedImage && (
+            <div className="">
+              <form>
+                <label className="flex justify-center ">
+                  <input
+                    type="file"
+                    hidden
+                    accept="image/png, image/jpg, image/jpeg"
+                    onChange={onFileChange}
+                  />
+                  <img
+                    src={imageSrc}
+                    className="mx-auto  justify-center text-skin-primary w-[10rem] h-[10rem] rounded-full  cursor-pointer  "
+                  />
+                </label>
+              </form>
             </div>
           )}
         </React.Fragment>

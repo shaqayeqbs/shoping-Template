@@ -80,37 +80,3 @@ export const getServerSideProps = async (ctx) => {
     },
   };
 };
-
-// export async function getStaticProps(ctx) {
-//   console.log(
-//     ctx,
-//     "hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
-//   );
-//   const { req, query, res, asPath, pathname } = ctx;
-//   let url = req?.headers.host;
-//   if (
-//     url === "localhost:3000" ||
-//     url === "localhost:3001" ||
-//     url === "localhost:3002"
-//   ) {
-//     url = "zaay.ir";
-//   }
-
-//   let response = await axios(
-//     `http://core.behzi.net/api/business/byDomin/${url}?lang=fa`
-//   ).catch(function (error) {
-//     if (error.response) {
-//       console.log(error.response.data);
-//       console.log(error.response.status);
-//       console.log(error.response.headers);
-//       return { notFound: true };
-//     }
-//   });
-
-//   return {
-//     props: {
-//       data: response?.data || null,
-//     },
-//     revalidate: 1800,
-//   };
-// }

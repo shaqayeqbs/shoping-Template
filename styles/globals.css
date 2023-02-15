@@ -44,6 +44,10 @@
     margin-bottom: 1.5rem;
     margin-top: 0.5rem;
   }
+  .height {
+    max-height: 200px;
+    overflow-y: scroll;
+  }
 
   .cadr {
     display: block;
@@ -133,6 +137,7 @@ html {
 }
 .swiper {
   position: relative;
+
   overflow: hidden;
   width: 100%;
   height: 100%;

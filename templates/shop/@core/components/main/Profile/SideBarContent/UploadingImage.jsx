@@ -2,10 +2,10 @@ import React, { useState, useRef } from "react";
 
 import MyDemo from "./imageProfile/CroppedImg";
 
-function UploadingImage() {
+function UploadingImage({ UploadingImage }) {
   return (
     <>
-      <MyDemo />
+      <MyDemo UploadingImage={UploadingImage} />
     </>
   );
 }

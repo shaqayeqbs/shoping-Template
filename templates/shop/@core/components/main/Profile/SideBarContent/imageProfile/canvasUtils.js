@@ -80,16 +80,39 @@ export async function getCroppedImg(
   // paste generated rotate image at the top left corner
   ctx.putImageData(data, 0, 0);
 
-  // As Base64 string
+  // // As Base64 string
   // return canvas.toDataURL('image/jpeg');
+  const imgg = canvas.toDataURL("image/jpeg");
+
+  function dataURLtoFile(dataurl, filename) {
+    var arr = dataurl.split(","),
+      mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[1]),
+      n = bstr.length,
+      u8arr = new Uint8Array(n);
+
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+
+    return new File([u8arr], filename, { type: mime });
+  }
+
+  //Usage example:
+  var file = dataURLtoFile(imgg, "hello.txt");
+  console.log(file);
 
   // As a blob
-
-  return new Promise((resolve, reject) => {
-    canvas.toBlob((file) => {
-      resolve(URL.createObjectURL(file));
-    }, "image/jpeg");
+  const blob = new Blob([file], {
+    type: "image/jpeg",
   });
+  console.log(blob);
+
+  const blobData = {
+    blobObj: blob,
+    blobStr: imgg,
+  };
+  return blobData;
 }
 
 export async function getRotatedImage(imageSrc, rotation = 0) {

@@ -3,15 +3,11 @@ import instance from "../utils/request.js";
 import APP_CONFIG from "../constants/app-config";
 import axios from "axios";
 export const uploadCurrentUserPictureApi = async (imaged) => {
-  console.log("haya");
   console.log(typeof imaged);
   const accessToken = localStorage.getItem("token");
-  // try {
   const data = new FormData();
   data.append("lang", "fa");
   data.append("image", imaged);
-
-  console.log(`data:`, data.entries());
 
   // const res = await instance.post(
   //   END_POINTS.upload_current_user_profile_image,
@@ -27,13 +23,34 @@ export const uploadCurrentUserPictureApi = async (imaged) => {
     },
   });
   console.log(res);
-  // return res?.data;
-  // } catch (err) {
-  //   if (err?.response) {
-  //     console.log(err.response.data, err.response.status, err);
-  //     return err.response.data;
-  //   } else {
-  //     console.log(`ERROR:${err}`);
-  //   }
-  // }
+  return res;
+};
+export const updateUserProfile = async ({
+  birthday,
+  surname,
+  name,
+  city_id,
+  gender,
+  lang = "fa",
+}) => {
+  try {
+    console.log(birthday, surname, name, city_id, gender, (lang = "fa"));
+    const res = await instance.post(END_POINTS.upload_current_user_profile, {
+      birthday,
+      surname,
+      name,
+      city_id,
+      gender,
+      lang,
+    });
+    console.log({ res });
+    return res;
+  } catch (err) {
+    console.log(err.status);
+    if (err.response) {
+      return err.response.status;
+    } else {
+      console.log(`ERROR:${err}`);
+    }
+  }
 };

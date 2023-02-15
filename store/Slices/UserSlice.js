@@ -1,15 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { verifyCode } from "../../@core/api/authApi";
-import { uploadCurrentUserPictureApi } from "../../@core/api/userApi";
+import {
+  uploadCurrentUserPictureApi,
+  updateUserProfile,
+} from "../../@core/api/userApi";
 
 export const userData = createAsyncThunk(
   "user/data",
   async (data, thunkAPI) => {
     try {
-      console.log("here");
       const response = await verifyCode(data);
-      console.log(response);
-
       return response;
     } catch (err) {
       console.log(err);
@@ -20,11 +20,23 @@ export const updateProfileImage = createAsyncThunk(
   "user/update/image",
   async (image, thunkAPI) => {
     try {
-      console.log("here");
       const response = await uploadCurrentUserPictureApi(image);
-      console.log(response);
       if (response) {
         return image;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
+export const updateProfile = createAsyncThunk(
+  "user/update/profile",
+  async (birthday, city_id, gender, lang, thunkAPI) => {
+    try {
+      const response = await updateUserProfile(birthday, city_id, gender, lang);
+      console.log(response);
+      if (response) {
+        return response;
       }
     } catch (err) {
       console.log(err);
@@ -68,14 +80,14 @@ const userSlice = createSlice({
       if (action.payload) {
         state.name = data?.user?.name;
         state.surname = data?.user?.surname;
-        state.gender = data?.user?.gender[0]?._;
-        state.mobile = data?.user?.mobile;
-        state.city = data?.user?.city;
-        state.image = data?.user?.image;
+        state.gender = data?.user[0]?.gender?._;
+        state.mobile = data?.user[0]?.mobile;
+        state.city = data?.user[0]?.city;
+        state.image = data?.user?.files[0]?.details?.location;
         state.id_card = data?.user?.id_card;
-        state.birthday = data?.user?.birthday;
+        state.birthday = data?.user[0]?.birthday;
         state.token = data?.token;
-        state.balance = data?.user.balance;
+        state.balance = data?.user[0]?.balance;
         localStorage.removeItem("token");
         localStorage.setItem("token", data?.token);
         state.isLoggedIn = true;
@@ -86,6 +98,13 @@ const userSlice = createSlice({
 
       if (data) {
         state.image = data?.image;
+      }
+    });
+    builder.addCase(updateProfile.fulfilled, (state, action) => {
+      const data = action?.payload;
+
+      if (data) {
+        state.birthday = data?.birthday;
       }
     });
   },
