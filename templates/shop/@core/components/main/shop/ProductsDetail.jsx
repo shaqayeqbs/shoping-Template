@@ -22,7 +22,7 @@ function ProductsDetail({ item }) {
   const timerDevider = "text-skin-pzaarimary mx-2";
   return (
     <>
-      <section className="cadr container   !p-8 !pt-20 mt-40  text-skin-">
+      <section className="cadr container  !p-8 !pt-20 mt-40  text-skin-">
         <div className="flex ">
           {" "}
           <div className="w-[40%]">

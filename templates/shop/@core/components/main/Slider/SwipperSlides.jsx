@@ -28,7 +28,7 @@ function LandingCarouselSlide({ itemData: item }) {
               }
               alt={item?.file[0]?.details.location}
               layout="fill"
-              className="object-cover block rounded-xl  !h-[419px] z-30"
+              className="object-cover block  rounded-xl  !h-[419px] z-30"
             />
           </div>
           <div className="md:translate-y-[10%] w-[30%] p-4 pt-0 md:p-9  text-right">

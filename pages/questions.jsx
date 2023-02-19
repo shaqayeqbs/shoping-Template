@@ -21,7 +21,7 @@ export const getServerSideProps = async (ctx) => {
 
   res.setHeader(
     "Cache-Control",
-    "public, s-maxage=43200, stale-while-revalidate=60"
+    "public, s-maxage=43200, stale-while-revalidate=3600"
   );
 
   let result = await FQ(cookies?.id);

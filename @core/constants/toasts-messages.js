@@ -82,3 +82,7 @@ export const netError = () => {
 export const bioCodeErr = () => {
   myToast(" کد موجود در بایو با عدد زیر برار نمی باشد! ", 19, true);
 };
+
+export const storedFavortie = () => {
+  myToast("محصول با موفقیت به لیست علاقه مندی ها اضافه شد", 20, true);
+};

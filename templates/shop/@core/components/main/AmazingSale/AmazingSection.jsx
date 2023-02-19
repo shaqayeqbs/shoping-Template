@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { memo } from "react";
 import { AiOutlineLeft } from "react-icons/ai";
 import useTimer from "../../../hooks/useTimer";
 import Offer from "../../../icons/Offer";
@@ -49,7 +49,7 @@ function AmazingSection() {
 
   return (
     <section className="container md:flex px-0 text-center w-full  !py-12 !pt-20 overflow-x-hidden ">
-      <h1 className="block md:hidden mt-10 text-xl text-center mb-8 text-[white] bg-[red]">
+      <h1 className="block md:hidden mt-10 text-xl text-center mb-8 text-[white]">
         تخفیفات شگفت انگیز
       </h1>
 
@@ -95,4 +95,4 @@ function AmazingSection() {
   );
 }
 
-export default AmazingSection;
+export default memo(AmazingSection);

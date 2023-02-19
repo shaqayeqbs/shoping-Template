@@ -34,7 +34,6 @@ export const updateUserProfile = async ({
   lang = "fa",
 }) => {
   try {
-    console.log(birthday, surname, name, city_id, gender, (lang = "fa"));
     const res = await instance.post(END_POINTS.upload_current_user_profile, {
       birthday,
       surname,
@@ -43,6 +42,27 @@ export const updateUserProfile = async ({
       gender,
       lang,
     });
+    console.log({ res });
+    return res;
+  } catch (err) {
+    console.log(err.status);
+    if (err.response) {
+      return err.response.status;
+    } else {
+      console.log(`ERROR:${err}`);
+    }
+  }
+};
+
+export const storeNewFavoriteToUser = async ({ type, id }) => {
+  try {
+    const res = await instance.post(
+      END_POINTS.store_a_new_favorite_to_selected_user,
+      {
+        type,
+        id,
+      }
+    );
     console.log({ res });
     return res;
   } catch (err) {

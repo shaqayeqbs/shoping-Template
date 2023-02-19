@@ -65,7 +65,7 @@ function NavBar({ onCloseModalHandler }) {
             {!isLoggedIn && (
               <button
                 onClick={authHandler}
-                className="bg-skin-fill  text-[white] w-full px-3 mt-4 h-[2.5rem] rounded-md"
+                className="bg-skin-fill  text-[white]  w-full px-3 mt-4 h-[2.5rem] rounded-md"
               >
                 ثبت نام | ورود
               </button>

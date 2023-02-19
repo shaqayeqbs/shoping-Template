@@ -12,7 +12,7 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
   const [code, setCode] = useState("");
   const dispatch = useDispatch();
 
-  const [hours, minutes, seconds, farsMin, FaHours, Faseconds, refreshTimer] =
+  const [hours, minutes, seconds, farsMin, FaHours, Faseconds, FarsDays, days] =
     useTimer(0, 2, 0);
 
   const btnClass = "w-full bg-skin-fill rounded-[5px] text-[white] py-2 mt-4";

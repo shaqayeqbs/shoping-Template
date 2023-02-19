@@ -23,6 +23,8 @@ const END_POINTS = {
   upload_current_user_profile: "api/user/profile",
   get_list_of_cities: "api/city?search=",
   get_list_of_products: "api/products/inventory?lang=fa&business_id=",
+  get_specified_products: `api/products/inventory/`,
+  store_a_new_favorite_to_selected_user: "api/user/favorits",
 };
 
 export default END_POINTS;
