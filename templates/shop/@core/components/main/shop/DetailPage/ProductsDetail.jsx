@@ -12,7 +12,8 @@ import ProductDetailForm from "./ProductDetailsForm";
 import { cartActions } from "../../../../../../../store/Slices/CartSlice";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
-
+import { storeNewFavoriteToUser } from "../../../../../../../@core/api/userApi";
+import { storedFavortie } from "../../../../../../../@core/constants/toasts-messages";
 const carousel = [
   {
     id: "9",
@@ -41,6 +42,17 @@ function ProductsDetail({ item }) {
 
   const onSelectHandler = (data) => {
     setSize(data);
+  };
+  const onAddToFavoriteHandler = async () => {
+    const data = {
+      data: "product",
+      id: item.inventory.id,
+    };
+    const res = await storeNewFavoriteToUser(data);
+    console.log(res);
+    if (res === 200) {
+      storedFavortie();
+    }
   };
   console.log(item.inventory.business.files);
   const emojiStyle =
@@ -95,7 +107,7 @@ function ProductsDetail({ item }) {
                   <div className="my-4 font-bold">اندازه :{size}</div>
                   <SelectInput onSelect={onSelectHandler} />
                 </div> */}
-                {item.inventory.options.map((each) => (
+                {item?.inventory?.options?.map((each) => (
                   <div key={each.id} className="my-4">
                     <span>{each.data}:</span>
                     <span className="mx-4">
@@ -150,9 +162,9 @@ function ProductsDetail({ item }) {
                 <div className={emojiStyle}>
                   <Share size="32" />
                 </div>
-                <div className={emojiStyle}>
+                <button onClick={onAddToFavoriteHandler} className={emojiStyle}>
                   <Heart size="32" />
-                </div>
+                </button>
               </div>
             </div>
           </div>

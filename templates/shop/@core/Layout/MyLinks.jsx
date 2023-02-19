@@ -18,7 +18,7 @@ function MyLinks({ onAddClose, showMenu, openModal, mobile, closeSidebar }) {
           <div onMouseEnter={openModal}> دسته بندی</div>
         </li>
 
-        {Headerlinks.map((item) => (
+        {Headerlinks?.map((item) => (
           <li
             key={item.id}
             onMouseEnter={onAddClose}

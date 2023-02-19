@@ -137,7 +137,7 @@ function UserInformation() {
       <div className="p-16 py-10">
         <form className="">
           <div className="relative grid grid-cols-2">
-            {inputsWithUsage.map((item, index) =>
+            {inputsWithUsage?.map((item, index) =>
               item.type != "date" ? (
                 <div key={index} className="">
                   <label htmlFor={item.name}>{item.label}</label>

@@ -109,7 +109,7 @@ export default function ProfileDrop() {
               )}
             </Menu.Item>
           </div>
-          {DropDownData.map((item) => (
+          {DropDownData?.map((item) => (
             <div className="py-2 pt-4  text-right " dir="rlt" key={item.id}>
               <Menu.Item>
                 {({ active }) => (

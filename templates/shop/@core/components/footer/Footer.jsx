@@ -59,7 +59,7 @@ function Footer() {
         </div>
         <div className=" text-left">
           <div className="text-center mx-auto  flex justify-between  text-skin-primary mb-4 ">
-            {icons.map((item) => (
+            {icons?.map((item) => (
               <div
                 key={item.id}
                 className="bg-[white] h-[2.5rem] md:w-[2.5rem] p-1 rounded-md mx-2 "

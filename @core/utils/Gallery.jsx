@@ -11,7 +11,7 @@ export default function Gallery() {
   ];
   return (
     <div className=" grid grid-cols-2 gap-4 lg:grid-cols-4 ltr h-[551px] mt-4">
-      {data.map((item) => (
+      {data?.map((item) => (
         <div
           key={item.id}
           className={

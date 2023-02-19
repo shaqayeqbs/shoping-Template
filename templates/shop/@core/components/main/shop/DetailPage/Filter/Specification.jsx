@@ -37,7 +37,7 @@ function Specification({ dynamicOptions, options }) {
     <section className="bg-[white] rounded-default text-right p-8">
       <h3 className="mb-6">مشخصات کلی</h3>
       <ul>
-        {options.map((item) => (
+        {options?.map((item) => (
           <li>
             <div className="bg-skin-background w-[20%] ml-6 mb-6 inline-block p-3 rounded-md">
               {item.data}
@@ -47,7 +47,7 @@ function Specification({ dynamicOptions, options }) {
             </div>
           </li>
         ))}
-        {dynamicOptions.map((item) => (
+        {dynamicOptions?.map((item) => (
           <li>
             <div className="bg-skin-background w-[20%] ml-6 mb-6 inline-block p-3 rounded-md">
               {item.data}

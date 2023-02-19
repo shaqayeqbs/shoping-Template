@@ -82,7 +82,7 @@ function SideBar({ onChangeIndex, activeItem }) {
         </div>
         <h2 className="mt-10">مهسا توفیق</h2>
       </div>
-      {sideBar.map((item) => (
+      {sideBar?.map((item) => (
         <div key={item.id} className="inline-block lg:block  ">
           <SideBarItem
             item={item}

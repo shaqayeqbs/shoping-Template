@@ -65,7 +65,7 @@ function ShopContact() {
                   : "my-2 text-center mx-3 "
               }
             >
-              {item?.items.map((item, index) => (
+              {item?.items?.map((item, index) => (
                 <div
                   dir="ltr"
                   key={index}

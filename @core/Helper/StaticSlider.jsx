@@ -27,7 +27,7 @@ function HeaderCarousel({ items }) {
           className="relative   border-1 border-borderColor   "
           style={{ width: "100%" }}
         >
-          {items.map((item, index) => (
+          {items?.map((item, index) => (
             <SwiperSlide
               key={index}
               style={{ backgroundColor: item.color }}
