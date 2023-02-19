@@ -23,7 +23,7 @@ function ColorPalet() {
         <span>{active.title}</span>
       </h2>
       <div className="flex ">
-        {data.map((item) => (
+        {data?.map((item) => (
           <button
             key={item.id}
             value={item.color}

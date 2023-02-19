@@ -49,7 +49,7 @@ function Ideas() {
   ];
   return (
     <Card>
-      {ideas.map((item) => (
+      {ideas?.map((item) => (
         <div key={item.key} className="border-b-2 border-bordercolor">
           {" "}
           <UserComment comment={item} ideas />

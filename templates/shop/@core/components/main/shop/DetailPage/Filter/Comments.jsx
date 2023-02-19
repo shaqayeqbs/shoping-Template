@@ -111,7 +111,7 @@ function Comments() {
           <ProgressBar progressPercentage="80" />
         </div>
       </div>
-      {comments.map((item) => (
+      {comments?.map((item) => (
         <UserComment key={item.id} comment={item} />
       ))}
       <StarRating />

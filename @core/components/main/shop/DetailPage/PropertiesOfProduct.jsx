@@ -37,7 +37,7 @@ function PropertiesOfProduct() {
     <>
       <h2 className="my-4 mt-10">ویژگی های محصول :</h2>
       <ul>
-        {properties.map((item) => (
+        {properties?.map((item) => (
           <li key={item.id}>
             <span className="ml-2 text-skin-muted">{item.title}</span>
             <span>{item.description}</span>

@@ -29,7 +29,7 @@ function UserComment({ comment, ideas }) {
         </div>
       </div>
       <div className="my-6">
-        {comment.stars.map((item) => (
+        {comment?.stars?.map((item) => (
           <div className="flex w-full justify-between">
             <div className="text-skin-muted mt-2 ml-10 ">{item.title}</div>
             <div>

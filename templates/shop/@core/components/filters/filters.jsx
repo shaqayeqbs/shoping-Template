@@ -24,7 +24,7 @@ const ProductFilters = ({ onChangeFilter }) => {
 
   return (
     <section className="text-center mt-32 bg-[black]/80 text-white w-[50%] md:w-[90%] p-2 rounded-md mx-auto">
-      {tabsList.map((tab) => (
+      {tabsList?.map((tab) => (
         <button
           key={tab.id}
           onClick={() => {

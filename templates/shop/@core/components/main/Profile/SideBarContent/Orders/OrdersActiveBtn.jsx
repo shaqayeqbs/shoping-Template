@@ -29,7 +29,7 @@ function OrdersActiveBrn({ activeState, onChangeState }) {
   };
   return (
     <section className="border-b-2 border-bordercolor">
-      {btns.map((item) => (
+      {btns?.map((item) => (
         <button
           key={item.id}
           onClick={onChangeAvtiveState}

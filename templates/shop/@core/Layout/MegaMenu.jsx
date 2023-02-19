@@ -20,7 +20,7 @@ function MegaMenu({ isOpen, onCloseModalHandler }) {
       >
         <ul className={classes.section}>
           <div>
-            {items.map((item) => (
+            {items?.map((item) => (
               <MegaMenuList
                 key={item.id}
                 item={item}
@@ -30,7 +30,7 @@ function MegaMenu({ isOpen, onCloseModalHandler }) {
             ))}
           </div>
           <div>
-            {children.map((item) => (
+            {children?.map((item) => (
               <MegaMenuList key={item.id} item={item} />
             ))}
           </div>

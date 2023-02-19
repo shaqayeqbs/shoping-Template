@@ -21,7 +21,7 @@ function WorkTIme() {
       weekData.push({ index, day, times });
     }
   };
-  workTimes.map((item) => {
+  workTimes?.map((item) => {
     const startTime = item.start_time.slice(0, 5);
     const endTime = item.end_time.slice(0, 5);
     const times = [{ startTime, endTime }];
@@ -64,7 +64,7 @@ function WorkTIme() {
     <section className="mb-4">
       <h1>ساعات کاری</h1>
       <ul className="flex w-full my-8">
-        {weekData.map((item) => (
+        {weekData?.map((item) => (
           <li
             key={item.index}
             className={
@@ -74,7 +74,7 @@ function WorkTIme() {
             }
           >
             <div>{item.day}</div>
-            {item?.times.map((elemnt, index) => (
+            {item?.times?.map((elemnt, index) => (
               <div
                 key={index}
                 className={

@@ -19,7 +19,7 @@ function Categories({ data }) {
           <div>دسته بندی دیگر</div>
         </div>
       </button>
-      {categories.map((item, index) => (
+      {categories?.map((item, index) => (
         <div className=" w-full h-full" key={index}>
           <Image
             quality={50}

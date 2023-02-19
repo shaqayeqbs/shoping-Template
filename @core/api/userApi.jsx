@@ -54,8 +54,9 @@ export const updateUserProfile = async ({
   }
 };
 
-export const storeNewFavoriteToUser = async ({ type, id }) => {
+export const storeNewFavoriteToUser = async ({ type = "product", id }) => {
   try {
+    console.log(type, id);
     const res = await instance.post(
       END_POINTS.store_a_new_favorite_to_selected_user,
       {
@@ -63,8 +64,8 @@ export const storeNewFavoriteToUser = async ({ type, id }) => {
         id,
       }
     );
-    console.log({ res });
-    return res;
+
+    return res.status;
   } catch (err) {
     console.log(err.status);
     if (err.response) {

@@ -109,7 +109,7 @@ function ShopHome({ data = null }) {
         </Suspense>
 
         <section className={classes}>
-          {events?.slice(2, 4).map((item) => (
+          {events?.slice(2, 4)?.map((item) => (
             <Event event={item} key={item.id} />
           ))}
         </section>
@@ -118,7 +118,7 @@ function ShopHome({ data = null }) {
         </div>
 
         <section className={classes}>
-          {events?.slice(0, 2).map((item) => (
+          {events?.slice(0, 2)?.map((item) => (
             <Event event={item} key={item.id} />
           ))}
         </section>

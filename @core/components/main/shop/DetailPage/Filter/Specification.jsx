@@ -37,7 +37,7 @@ function Specification() {
     <section className="bg-[white] rounded-default text-right p-8">
       <h3 className="mb-6">مشخصات کلی</h3>
       <ul>
-        {properties.map((item) => (
+        {properties?.map((item) => (
           <li>
             <div className="bg-skin-background w-[20%] ml-6 mb-6 inline-block p-3 rounded-md">
               {item.title}
