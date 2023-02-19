@@ -8,8 +8,11 @@ import OrderingList from "../../@core/Helper/OrderingList";
 // import dynamic from "next/dynamic";
 // const List = dynamic(() => import("../../@core/components/main/Slider/List"));
 // const OrderingList = dynamic(() => import("../../@core/Helper/OrderingList"));
-
-function ShopAllProducts() {
+import useCalculateRemainingTime from "../../../../@core/hooks/useCalculateRemainingTime";
+function ShopAllProducts({ products }) {
+  const [nowseconds, nowminutes, nowhours, nowdays] =
+    useCalculateRemainingTime(0);
+  // console.log(nowseconds, nowminutes, nowhours, nowdays);
   const SortList = [
     {
       id: 1,
@@ -32,12 +35,12 @@ function ShopAllProducts() {
     <main className="container !mt-20">
       <Categories data={ProductsData} />
       <div className=" flex justify-between">
-        <div className="w-[21%]">
+        <div className="w-[30%]">
           <FilterBar />
         </div>
-        <div className="w-[77%]">
+        <div className="w-[100%] mr-10">
           <OrderingList data={SortList} />
-          <List data={ProductsData} offcerPage={true} />
+          <List data={products} offcerPage={true} />
         </div>
       </div>
       <Pagination />

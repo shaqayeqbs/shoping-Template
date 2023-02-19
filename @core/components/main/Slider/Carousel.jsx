@@ -5,14 +5,15 @@ import { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/legacy/image";
 const Carousel = ({ data = null }) => {
+  console.log({ data });
   return (
     <div>
       {" "}
       <Swiper
         breakpoints={{
           700: {
-            slidesPerView: 4,
-            slidesPerGroup: 4,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
           },
         }}
         spaceBetween={0}

@@ -29,7 +29,7 @@ export async function getServerSideProps(context) {
   const { params, res } = context;
   res.setHeader(
     "Cache-Control",
-    "public, s-maxage=43200, stale-while-revalidate=60"
+    "public, s-maxage=43200, stale-while-revalidate=3600"
   );
   const Id = params.Id;
 

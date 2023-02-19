@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 import { digitsEnToFa } from "@persian-tools/persian-tools";
 
-export default function useTimer(sec, min, hour) {
+export default function useTimer(sec, min, hour, day = 0) {
   const initialMinute = min;
   const initialSeconds = sec;
   const initialHours = hour;
+  const initialDay = day;
+  const [days, setDays] = useState(initialDay);
   const [hours, setHours] = useState(initialHours);
   const [minutes, setMinutes] = useState(initialMinute);
-  const [Faminutes, setFaMinutes] = useState("۲");
-  const [FarsHours, setFaHours] = useState("۲");
   const [seconds, setSeconds] = useState(initialSeconds);
-  const [farsSec, setFaSeconds] = useState("۰");
+  const [Faminutes, setFaMinutes] = useState(digitsEnToFa(minutes));
+  const [FarsHours, setFaHours] = useState(digitsEnToFa(hours));
+  const [FarsDays, setFaDays] = useState(digitsEnToFa(days));
+  const [farsSec, setFaSeconds] = useState(digitsEnToFa(seconds));
 
   useEffect(() => {
     let myInterval = setInterval(() => {
@@ -30,6 +33,13 @@ export default function useTimer(sec, min, hour) {
             setMinutes(59);
             setFaHours(digitsEnToFa((hours - 1).toString()));
             setFaMinutes(digitsEnToFa("59"));
+          } else if (hours === 0) {
+            if (days > 0) {
+              setDays(days - 1);
+              setHours(24);
+              setFaDays(digitsEnToFa((days - 1).toString()));
+              setFaHours(digitsEnToFa(24));
+            }
           }
           if (minutes === 0 && hours === 0 && seconds === 0) {
             clearInterval(myInterval);
@@ -46,12 +56,5 @@ export default function useTimer(sec, min, hour) {
   const Faseconds = digitsEnToFa(farsSec);
   const FaHours = digitsEnToFa(FarsHours);
 
-  function refreshTimer(sec, min, hour) {
-    setMinutes(2);
-    setFaMinutes("۲");
-    setSeconds(0);
-    setFaSeconds("۰");
-  }
-
-  return [hours, minutes, seconds, farsMin, FaHours, Faseconds, refreshTimer];
+  return [hours, minutes, seconds, farsMin, FaHours, Faseconds, FarsDays, days];
 }

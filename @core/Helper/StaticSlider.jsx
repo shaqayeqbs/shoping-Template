@@ -5,7 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 function HeaderCarousel({ items }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
+  console.log(items, ":(ooooooooooooooooooo");
+  return null;
   return (
     <div className="flex  w-full relative gap-0  text-right ltr h-[17rem]  md:h-max ">
       <div className="md:absolute w-full md:w-[80%] !left-0 mx-0  my-0 ">
@@ -37,7 +38,7 @@ function HeaderCarousel({ items }) {
                   quality={50}
                   loading="lazy"
                   alt="list of products"
-                  src={item.image}
+                  src={item.details?.location}
                   width={360}
                   height={360}
                   className="object-cover rounded  "

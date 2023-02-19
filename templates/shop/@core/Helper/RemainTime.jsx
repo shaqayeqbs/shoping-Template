@@ -1,11 +1,15 @@
 import React from "react";
 import useTimer from "../hooks/useTimer";
-
-function RemainTime() {
+import useCalculateRemainingTime from "../../../../@core/hooks/useCalculateRemainingTime";
+function RemainTime({ remainTime }) {
+  const [nowseconds, nowminutes, nowhours, nowdays] = useCalculateRemainingTime(
+    remainTime.end
+  );
   const [hours, minutes, seconds, Faminutes, FaHours, Faseconds] = useTimer(
-    5,
-    6,
-    40
+    nowseconds,
+    nowminutes,
+    nowhours,
+    nowdays
   );
   const timerBtn =
     "bg-skin-secondary p-2 px-4 text-skin-primary w-full rounded-md";

@@ -26,17 +26,16 @@ const Accordion = () => {
 
   return (
     <div className="flex w-full flex-col justify-center items-center    rounded-xl h-auto py-4 bg-gray-50">
-      {data.map((data) => {
-        return (
-          <AccordionUI
-            title={data.question}
-            Id={data.id}
-            children={data.answer}
-            Index={Index}
-            setIndex={setIndex}
-          ></AccordionUI>
-        );
-      })}
+      {data.map((data, index) => (
+        <AccordionUI
+          key={index}
+          title={data.question}
+          Id={data.id}
+          children={data.answer}
+          Index={Index}
+          setIndex={setIndex}
+        ></AccordionUI>
+      ))}
     </div>
   );
 };

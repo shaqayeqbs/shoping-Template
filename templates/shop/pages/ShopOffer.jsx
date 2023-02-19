@@ -240,7 +240,7 @@ function ShopOffer() {
       <section className="container">
         <h1 className="my-12 mb-8">همه شگفت انگیزها</h1>
         <OrderingList data={SortList} />
-        <List data={data} offcerPage={true} />
+        {/* <List data={data} offcerPage={true} /> */}
         <Pagination />
       </section>
     </>

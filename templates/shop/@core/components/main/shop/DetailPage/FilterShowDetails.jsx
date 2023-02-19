@@ -3,7 +3,7 @@ import Comments from "./Filter/Comments";
 import Description from "./Filter/Description";
 import Specification from "./Filter/Specification";
 
-function FilterShowDetails() {
+function FilterShowDetails({ dynamicOptions, options }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const FilterHandler = (e) => {
     let value = e.target.value;
@@ -36,18 +36,20 @@ function FilterShowDetails() {
         >
           مشخصات
         </button>
-        <button
+        {/* <button
           className={`filterBtn ${activeIndex === 1 ? "filterBtnActive" : ""}`}
           value={2}
           onClick={FilterHandler}
         >
           نظرات
-        </button>
+        </button> */}
       </div>
 
       {activeIndex === 0 && <Description />}
       {activeIndex === 1 && <Comments />}
-      {activeIndex === 2 && <Specification />}
+      {activeIndex === 2 && (
+        <Specification options={options} dynamicOptions={dynamicOptions} />
+      )}
     </section>
   );
 }

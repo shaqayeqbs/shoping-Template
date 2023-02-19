@@ -11,8 +11,8 @@ const Carousel = ({ data = null }) => {
       <Swiper
         breakpoints={{
           700: {
-            slidesPerView: 4,
-            slidesPerGroup: 4,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
           },
         }}
         spaceBetween={0}
@@ -27,11 +27,11 @@ const Carousel = ({ data = null }) => {
       >
         {data?.map((item) => (
           <SwiperSlide
-            className="flex w-full  justify-center lg:text-right "
+            className="flex w-full mx-2  justify-center lg:text-right "
             key={item.id}
           >
             <Link href={`/products/${item.id}`} key={item.id} className="!py-0">
-              <div className="cadr cursor-pointer">
+              <div className="cadr mx-4 cursor-pointer w-full ">
                 <div className="reltive py-0">
                   {" "}
                   <Image
@@ -42,8 +42,8 @@ const Carousel = ({ data = null }) => {
                     placeholder="blur"
                     blurDataURL={item?.image}
                     src={item.image}
-                    width={500}
-                    height={500}
+                    width={400}
+                    height={400}
                     className="object-cover mx-auto"
                   />
                 </div>

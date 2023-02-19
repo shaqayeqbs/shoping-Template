@@ -25,7 +25,7 @@ export const getServerSideProps = async (ctx) => {
   const { res } = ctx;
   res.setHeader(
     "Cache-Control",
-    "public, s-maxage=43200, stale-while-revalidate=60"
+    "public, s-maxage=43200, stale-while-revalidate=3600"
   );
 
   let bussinessData = {};
