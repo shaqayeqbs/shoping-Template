@@ -49,19 +49,6 @@ module.exports = {
       second: withOpacity("--color-secondary"),
       bordercolor: "#f6f6f6",
     },
-    maxWidth: "initial",
-    container: {
-      padding: {
-        DEFAULT: "1rem",
-        sm: "2rem",
-        lg: "4rem",
-        xl: "5rem",
-        "2xl": "0rem",
-      },
-      margin: {
-        DEFAULT: "10rem",
-      },
-    },
   },
   plugins: [],
 };

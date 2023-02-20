@@ -1,7 +1,7 @@
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
-const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
+// const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 
 ///////////////////////////////////////
 
@@ -35,13 +35,12 @@ const nextConfig = {
     },
   },
 
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    config.plugins.push(new DuplicatePackageCheckerPlugin());
+  // webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+  //   config.plugins.push(new DuplicatePackageCheckerPlugin());
 
-    return config;
-  },
+  //   return config;
+  // },
 
-  reactStrictMode: false,
   i18n: {
     locales: ["fa"],
     defaultLocale: "fa",
