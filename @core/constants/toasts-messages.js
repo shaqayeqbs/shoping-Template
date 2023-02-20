@@ -86,3 +86,7 @@ export const bioCodeErr = () => {
 export const storedFavortie = () => {
   myToast("محصول با موفقیت به لیست علاقه مندی ها اضافه شد", 20, false);
 };
+
+export const unAuthorized = () => {
+  myToast("لطفا ابتدا وارد شوید.", 20, true);
+};
