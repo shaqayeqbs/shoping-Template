@@ -12,14 +12,11 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@headlessui/react": "^1.7.7",
-    "@mui/material": "^5.11.8",
     "@next/bundle-analyzer": "^13.1.5",
     "@persian-tools/persian-tools": "^3.4.1",
     "@reduxjs/toolkit": "^1.9.1",
     "axios": "^1.2.2",
     "compressorjs": "^1.1.1",
-    "duplicate-package-checker-webpack-plugin": "^3.0.0",
-    "get-orientation": "^1.1.2",
     "iconsax-react": "^0.0.8",
     "jalali-moment": "^3.3.11",
     "leaflet": "^1.9.3",
@@ -42,9 +39,7 @@
     "react-redux": "^8.0.5",
     "react-toastify": "^9.1.1",
     "redux-persist": "^6.0.0",
-    "sharp": "^0.31.3",
-    "swiper": "^9.0.3",
-    "tailwind": "^4.0.0"
+    "swiper": "^9.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

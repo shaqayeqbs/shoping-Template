@@ -13,7 +13,7 @@ import { cartActions } from "../../../../../../../store/Slices/CartSlice";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 import { storeNewFavoriteToUser } from "../../../../../../../@core/api/userApi";
-import ShareModal from "./share/shareModal";
+// import ShareModal from "./Share/ShareModal";
 import {
   storedFavortie,
   unAuthorized,
