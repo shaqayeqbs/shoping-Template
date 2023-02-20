@@ -63,21 +63,26 @@ function Footer() {
           </div>
         </div>
         <div className="   relative">
-          <div className=" ltr  w-[80%] absolute left-0 flex justify-between   text-skin-primary mb-4 ">
-            {socials?.map((item, index) => (
-              <Link href={`${item.connection.prefix}${item.data}`} key={index}>
-                <Image
-                  quality={50}
-                  loading="lazy"
-                  height="80"
-                  width="80"
-                  src={item?.connection?.files[0]?.details?.location}
-                  alt="Your SVG"
-                  className="w-[3rem]"
-                />
-              </Link>
-            ))}
-          </div>
+          {socials?.length && (
+            <div className=" ltr  w-[80%] absolute left-0 flex justify-between   text-skin-primary mb-4 ">
+              {socials?.map((item, index) => (
+                <Link
+                  href={`${item.connection.prefix}${item.data}`}
+                  key={index}
+                >
+                  <Image
+                    quality={50}
+                    loading="lazy"
+                    height="80"
+                    width="80"
+                    src={item?.connection?.files[0]?.details?.location}
+                    alt="Your SVG"
+                    className="w-[3rem]"
+                  />
+                </Link>
+              ))}
+            </div>
+          )}
           <div className="mx-auto !text-center  my-12 mt-24 md:text-left">
             <div className=" flex justify-center  md:justify-end mx-auto text-center">
               {" "}

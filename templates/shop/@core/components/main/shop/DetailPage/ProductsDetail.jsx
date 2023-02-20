@@ -13,7 +13,11 @@ import { cartActions } from "../../../../../../../store/Slices/CartSlice";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 import { storeNewFavoriteToUser } from "../../../../../../../@core/api/userApi";
-import { storedFavortie } from "../../../../../../../@core/constants/toasts-messages";
+import ShareModal from "./share/shareModal";
+import {
+  storedFavortie,
+  unAuthorized,
+} from "../../../../../../../@core/constants/toasts-messages";
 const carousel = [
   {
     id: "9",
@@ -26,8 +30,7 @@ const carousel = [
 ];
 
 function ProductsDetail({ item }) {
-  const [size, setSize] = useState("بزرگ");
-
+  const [showSharedModal, setShowSharedModal] = useState(false);
   const dispatch = useDispatch();
   const addToCartHandler = (amount) => {
     const myItem = {
@@ -40,8 +43,8 @@ function ProductsDetail({ item }) {
     dispatch(cartActions.addItem({ item: myItem }));
   };
 
-  const onSelectHandler = (data) => {
-    setSize(data);
+  const toggleShowSharedModal = () => {
+    setShowSharedModal((prev) => !prev);
   };
   const onAddToFavoriteHandler = async () => {
     const data = {
@@ -52,6 +55,8 @@ function ProductsDetail({ item }) {
     console.log(res);
     if (res === 200) {
       storedFavortie();
+    } else {
+      unAuthorized();
     }
   };
   console.log(item.inventory.business.files);
@@ -61,7 +66,6 @@ function ProductsDetail({ item }) {
     <>
       <section className="cadr container   !mt-16 !p-8 text-skin-">
         <div className="xl:flex justify-between space-x-0 !gap-0">
-          {" "}
           <div className="w-full mx-auto ">
             <StaticSlider items={item.inventory.business.files} />
           </div>
@@ -159,9 +163,9 @@ function ProductsDetail({ item }) {
                   {" "}
                   <Check size="32" />
                 </div>
-                <div className={emojiStyle}>
+                <button onClick={toggleShowSharedModal} className={emojiStyle}>
                   <Share size="32" />
-                </div>
+                </button>
                 <button onClick={onAddToFavoriteHandler} className={emojiStyle}>
                   <Heart size="32" />
                 </button>
