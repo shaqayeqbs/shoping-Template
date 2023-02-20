@@ -3,7 +3,7 @@ import { memo } from "react";
 // import List from "../@core/components/main/Slider/List";
 import OrderingList from "../@core/Helper/OrderingList";
 // import Pagination from "../@core/utils/Pagination";
-import Carousel from "../@core/components/main/Carousel/carousel";
+import Carousel from "../@core/components/main/Carousel/Carousel";
 import Pagination from "../@core/utils/Pagination";
 import List from "../@core/components/main/Slider/List";
 // const Carousel = dynamic(
