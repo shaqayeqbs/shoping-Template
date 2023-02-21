@@ -5,7 +5,7 @@ import { Fragment } from "react";
 import { Calendar } from "iconsax-react";
 
 
-const EventHeader = (props) => {
+const EditorHeader = (props) => {
     console.log(props);
     const startAt = digitsEnToFa(
       moment(props.data.timing.start_at, "YYYY-MM-DD").locale("fa").format("YYYY/MM/DD")
@@ -17,7 +17,7 @@ const EventHeader = (props) => {
   return (
     <Fragment>
       <div className="flex items-center justify-between">
-        <h3 className="font-bold">{props.data.title}</h3>
+        <h3 className="font-bold text-3xl">{props.data.title}</h3>
         <div className="text-sm flex items-center justify-center">
           <Calendar className="text-skin-primary ml-3"/><p className="mt-1"><span className="text-skin-primary">از</span> {startAt} <span className="mx-3 text-[skin-color]"> <span className="text-skin-primary">تا</span></span> {endAt}</p>
         </div>
@@ -33,4 +33,4 @@ const EventHeader = (props) => {
   );
 };
 
-export default EventHeader;
+export default EditorHeader;

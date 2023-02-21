@@ -1,6 +1,6 @@
 import { digitsEnToFa } from "@persian-tools/persian-tools";
 
-const EventList = ({data}) => {
+const EditorList = ({data}) => {
     return (
         <ol>
           {data.value.split("$@|%").map((value, index) => (
@@ -10,4 +10,4 @@ const EventList = ({data}) => {
     )
 }
 
-export default EventList;
+export default EditorList;

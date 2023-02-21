@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { getEventGallery } from "../../../api/BussinessApi";
 import LoadingSpinner from "../../../UI/LoadingSpinner";
 
-const EventGalery = ({ data }) => {
+const EditorGalery = ({ data }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [galleryData, setGalleryData] = useState();
   useEffect(() => {
@@ -39,4 +39,4 @@ const EventGalery = ({ data }) => {
   );
 };
 
-export default EventGalery;
+export default EditorGalery;

@@ -1,4 +1,4 @@
-const EventTitle = ({data}) => {
+const EditorTitle = ({data}) => {
     return (
         <h2 className="font-bold text-3xl">
             {data.value}
@@ -6,4 +6,4 @@ const EventTitle = ({data}) => {
     )
 }
 
-export default EventTitle;
+export default EditorTitle;

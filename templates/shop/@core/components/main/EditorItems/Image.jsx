@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const EventImage = ({data}) => {
+const EditorImage = ({data}) => {
     return (
         <Image
           width={400}
@@ -12,4 +12,4 @@ const EventImage = ({data}) => {
     )
 }
 
-export default EventImage;
+export default EditorImage;

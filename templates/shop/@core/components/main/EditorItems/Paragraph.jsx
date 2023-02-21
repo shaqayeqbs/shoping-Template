@@ -1,4 +1,4 @@
-const EventParagraph = ({data}) => {
+const EditorParagraph = ({data}) => {
     return (
         <p>
             {data.value}
@@ -6,4 +6,4 @@ const EventParagraph = ({data}) => {
     )
 }
 
-export default EventParagraph;
+export default EditorParagraph;
