@@ -33,7 +33,7 @@ function NavBar({ onCloseModalHandler }) {
         />
       )}
       <nav
-        className="container !pt-[1rem] mx-20 px-0 text-center w-full  flex  justify-between "
+        className="container !pt-[1rem] px-0 text-center w-full  flex  justify-between "
         onMouseEnter={onCloseModalHandler}
       >
         <Link href="/">

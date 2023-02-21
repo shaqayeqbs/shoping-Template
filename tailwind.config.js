@@ -9,6 +9,14 @@ function withOpacity(variableName) {
   };
 }
 module.exports = {
+  mode: 'jit',
+  purge:[
+    "./pages/*.{html,js,jsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./templates/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./@core/**/*.{js,ts,jsx,tsx}",
+  ],
   content: [
     "./pages/*.{html,js,jsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",

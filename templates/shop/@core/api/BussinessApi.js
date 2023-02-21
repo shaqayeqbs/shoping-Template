@@ -88,3 +88,18 @@ export const analyzePostAccount = async ({ id, startDate, endDate }) => {
     }
   }
 };
+
+export const getEventGallery = async (id) => {
+  try {
+    const res = await axios(
+      APP_CONFIG.apiBaseUrl + END_POINTS.get_event_gallery + id
+    );
+    return res;
+  } catch (err) {
+    if (err.response) {
+      return err.response.data.code;
+    } else {
+      return `ERROR:${err}`;
+    }
+  }
+};
