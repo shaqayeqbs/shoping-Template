@@ -6,12 +6,20 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import MyLinks from "./MyLinks";
 import NavBar from "./NavBar";
+import { SearchNormal1 } from "iconsax-react";
+import CartBtn from "./CartBtn";
+import ProfileDrop from "../Profile/ProfileDrop";
+import ModalVerification from "./modals/ModalVerification";
 
 function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
   const [nav, setNav] = useState(false);
-
+  const [openAuthModal, setOpenAuthModal] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const businessName = useSelector((state) => state?.businessSlice?.name);
+  const isLoggedIn = useSelector((state) => state?.user.isLoggedIn);
+  const authHandler = () => {
+    setOpenAuthModal((prevState) => !prevState);
+  };
 
   const handleNav = () => {
     setNav((prev) => !prev);
@@ -34,10 +42,13 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
   return (
     <div
       className={
-        nav ? " w-full bg-[white] fixed z-50" : " w-full bg-[white] fixed z-50"
+        nav
+          ? "!w-full bg-[white] fixed z-50"
+          : " w-full bg-[white]  !right-0 fixed z-50"
       }
     >
-      <div className=" hidden md:block   w-full h-full px-2 mb-2 2xl:px-16">
+      {<ModalVerification isOpen={openAuthModal} onClose={authHandler} />}
+      <div className=" hidden md:block   w-full h-full px-2 mb-2 md:px-16">
         <NavBar />
         <div className="container my-5 ">
           {" "}
@@ -53,31 +64,56 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
       </div>
 
       {/* Hamburger Icon */}
-      <div className=" md:hidden w-full p-4 pt-8 flex justify-between">
+      <div className=" md:hidden w-full p-4 pt-8 flex gap-0 justify-between">
         {" "}
-        <div onClick={handleNav} className="">
-          <AiOutlineMenu size={25} />
+        <div className="flex">
+          {" "}
+          <div onClick={handleNav} className="ml-1">
+            <AiOutlineMenu size={25} />
+          </div>
+          <div className=" float-left text-left -mt-2 ">
+            {" "}
+            <div className="relative flex w-full">
+              {" "}
+              <Image
+                quality={50}
+                loading="lazy"
+                src="http://core.behzi.net/storage/image/business/logo/1670323071.png"
+                width={60}
+                height={60}
+                // loader={myLoader}
+                alt="logo"
+                className="w-[2.5rem] h-[2.5rem] md:w-full md:h-full"
+              />
+              <h2 className="ml-4 mt-2 md:mt-0 w-full"> {businessName} </h2>
+            </div>
+          </div>
         </div>
         <div className="text-left ">
           {" "}
           <Link href="/">
-            <div className="flex justify-start">
-              <div className=" float-left text-left -mt-2 ">
-                {" "}
-                <div className="relative">
-                  {" "}
-                  <Image
-                    quality={50}
-                    loading="lazy"
-                    src="http://core.behzi.net/storage/image/business/logo/1670323071.png"
-                    width={60}
-                    height={60}
-                    // loader={myLoader}
-                    alt="logo"
-                  />
+            <div className="flex justify-start mt-[-1rem] md:mt-0  text-sm md:text-xl">
+              <div className="flex">
+                <div className="flex justify-end text-skin-color  w-full ">
+                  {/* <button
+                    className=" border-0 mt-[-4px] ml-3"
+                    // onClick={showSearchHandler}
+                  >
+                    <SearchNormal1 size="28" />
+                  </button> */}
+
+                  {!isLoggedIn && (
+                    <button
+                      onClick={authHandler}
+                      className="bg-skin-fill  text-[white]  w-full px-3 md:mt-4 h-[2.5rem] rounded-md"
+                    >
+                      ثبت نام | ورود
+                    </button>
+                  )}
                 </div>
+                {isLoggedIn && <CartBtn />}
+                {isLoggedIn && <ProfileDrop />}
               </div>
-              <h2 className="ml-4 w-full"> {businessName} </h2>
             </div>
           </Link>
         </div>
@@ -90,6 +126,7 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
 }
 
 function Nav({ nav, closeNav }) {
+  const isLoggedIn = useSelector((state) => state?.user.isLoggedIn);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -114,16 +151,7 @@ function Nav({ nav, closeNav }) {
             <div>
               <div className="flex w-full items-center justify-between"></div>
             </div>
-            {/* <Link href="/">
-              <div
-                className="md:flex border-b-2 pb-4 border-primary"
-                onClick={closeNav}
-              >
-                <Logo />
 
-                <h2 className="m-4">باغ هیوا</h2>
-              </div>
-            </Link> */}
             <MyLinks mobile closeSidebar={closeNav} />
           </div>
         </div>,

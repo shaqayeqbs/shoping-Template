@@ -31,7 +31,7 @@ function ProductsDetail({ item }) {
           <div className="flex">
             {" "}
             <div className="w-full  border-b-2 h-[11rem] border-bordercolor">
-              <h2 className="text-right m-6 text-2xl">{item.title}</h2>
+              <h2 className="text-right m-6 md:text-2xl">{item.title}</h2>
               <div className="flex justify-between">
                 <div>
                   <span className="ml-4">برند:</span>

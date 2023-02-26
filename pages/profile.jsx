@@ -1,4 +1,4 @@
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import ShopProfile from "../templates/shop/pages/ShopProfile";
 // const ShopProfile = dynamic(() =>
 //   import("../templates/shop/pages/ShopProfile")

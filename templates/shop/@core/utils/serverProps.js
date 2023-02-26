@@ -10,18 +10,13 @@ export default async function mainData(ctx) {
     url === "localhost:3001" ||
     url === "localhost:3002"
   ) {
-    url = "zaay.ir";
+    url = "tivarja.ir/";
   }
 
   let response = await axios(
-    // "http://core.behzi.net/api/business/byDomin/zaay.ir?lang=fa"
     `http://core.behzi.net/api/business/byDomin/${url}?lang=fa`
   ).catch(function (error) {
     if (error.response) {
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
-
       return { notFound: true };
 
       // return {

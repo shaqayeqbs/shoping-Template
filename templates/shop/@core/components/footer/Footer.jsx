@@ -15,7 +15,6 @@ function Footer() {
     { id: 3, icon: <SiTelegram size="32" /> },
     { id: 4, icon: <GrTwitter size="32" /> },
   ];
-  console.log(addresses, "jjjjjjjjjj");
 
   return (
     <footer className="container block !pt-16 border-t-2 border-primary !mt-16 ">
@@ -110,7 +109,6 @@ function Footer() {
         <span className="text-skin-primary"> نگارگر اندیشه </span>
         می‌باشد.
       </div>
-      <div>hhhhhhhhhhh</div>
     </footer>
   );
 }

@@ -46,6 +46,7 @@ export const updateProfile = createAsyncThunk(
 
 export const initialState = {
   isLoggedIn: false,
+  id: "",
   name: "",
   id_card: "",
   surname: "",
@@ -74,14 +75,13 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(userData.fulfilled, (state, action) => {
-      console.log("object", action);
       const data = action.payload?.data?.data;
-      console.log(data?.token);
       if (action.payload) {
+        state.id = data.user?.id;
         state.name = data?.user?.name;
         state.surname = data?.user?.surname;
         state.gender = data?.user[0]?.gender?._;
-        state.mobile = data?.user[0]?.mobile;
+        state.mobile = data?.user?.mobile;
         state.city = data?.user[0]?.city;
         state.image = data?.user?.files[0]?.details?.location;
         state.id_card = data?.user?.id_card;

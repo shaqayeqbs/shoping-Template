@@ -1,9 +1,8 @@
-import END_POINTS from "../constants/endpoints";
+import END_POINTS, { USER_ADDRESS_END_POINTS } from "../constants/endpoints";
 import instance from "../utils/request.js";
 import APP_CONFIG from "../constants/app-config";
 import axios from "axios";
 export const uploadCurrentUserPictureApi = async (imaged) => {
-  console.log(typeof imaged);
   const accessToken = localStorage.getItem("token");
   const data = new FormData();
   data.append("lang", "fa");
@@ -56,7 +55,6 @@ export const updateUserProfile = async ({
 
 export const storeNewFavoriteToUser = async ({ type = "product", id }) => {
   try {
-    console.log(type, id);
     const res = await instance.post(
       END_POINTS.store_a_new_favorite_to_selected_user,
       {
@@ -66,6 +64,152 @@ export const storeNewFavoriteToUser = async ({ type = "product", id }) => {
     );
 
     return res.status;
+  } catch (err) {
+    console.log(err.status);
+    if (err.response) {
+      return err.response.status;
+    } else {
+      console.log(`ERROR:${err}`);
+    }
+  }
+};
+
+export const getUserAddressApi = async (userId) => {
+  try {
+    const res = await instance.get(
+      USER_ADDRESS_END_POINTS.get_user_address + userId + "/addresses"
+    );
+
+    return res?.data;
+  } catch (err) {
+    console.log(err.status);
+    if (err.response) {
+      return err.response.status;
+    } else {
+      console.log(`ERROR:${err}`);
+    }
+  }
+};
+export const storeNewAddressToUserApi = async ({
+  userId,
+  name,
+  zipcode,
+  address,
+  lat,
+  lng,
+  status = 1,
+  plague,
+  unit,
+  is_primary,
+  ami_reciver,
+  reciver_name,
+  reciver_surname,
+  reciver_phone,
+}) => {
+  try {
+    const res = await instance.post(
+      USER_ADDRESS_END_POINTS.get_user_address + userId + "/addresses",
+      {
+        name,
+        zip_code: zipcode,
+        address,
+        lat,
+        lng,
+        plague,
+        unit,
+        is_primary: is_primary ? 1 : 0,
+        ami_reciver: ami_reciver ? 1 : 0,
+        reciver_name,
+        reciver_surname,
+        reciver_phone,
+      }
+    );
+
+    return res?.data;
+  } catch (err) {
+    console.log(err.status);
+    if (err.response) {
+      return err.response.status;
+    } else {
+      console.log(`ERROR:${err}`);
+    }
+  }
+};
+
+export const updateTheUserAddressApi = async ({
+  id,
+  addressId,
+  name,
+  zipcode,
+  address,
+  lat,
+  lng,
+  status = 1,
+  plague,
+  unit,
+  is_primary,
+  ami_reciver,
+  reciver_name,
+  reciver_surname,
+  reciver_phone,
+}) => {
+  try {
+    console.log(
+      name,
+      zipcode,
+      address,
+      lat,
+      lng,
+      (status = 1),
+      plague,
+      unit,
+      is_primary ? 1 : 0,
+      ami_reciver ? 1 : 0,
+      reciver_name,
+      reciver_surname,
+      reciver_phone
+    );
+    const res = await instance.put(
+      USER_ADDRESS_END_POINTS.get_user_address + id + "/addresses/" + addressId,
+      {
+        name,
+        zip_code: zipcode,
+        address,
+        lat,
+        lng,
+        status: 1,
+        plague,
+        unit,
+        is_primary: is_primary ? 1 : 0,
+        ami_reciver: ami_reciver ? 1 : 0,
+        reciver_name,
+        reciver_surname,
+        reciver_phone,
+      }
+    );
+
+    return res;
+  } catch (err) {
+    console.log(err.status);
+    if (err.response) {
+      return err.response.status;
+    } else {
+      console.log(`ERROR:${err}`);
+    }
+  }
+};
+
+export const removeTheUserAddressApi = async (userId, addressId) => {
+  try {
+    const id = +userId;
+    const res = await instance.delete(
+      USER_ADDRESS_END_POINTS.get_user_address +
+        userId +
+        "/addresses/" +
+        addressId
+    );
+
+    return res?.status;
   } catch (err) {
     console.log(err.status);
     if (err.response) {

@@ -1,11 +1,12 @@
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import nookies from "nookies";
 import { FQ } from "../@core/api/BussinessApi";
 
-const ShopQuestions = dynamic(() =>
-  import("../templates/shop/pages/ShopQuestions")
-);
+// const ShopQuestions = dynamic(() =>
+//   import("../templates/shop/pages/ShopQuestions")
+// );
 
+import ShopQuestions from "../templates/shop/pages/ShopQuestions";
 function Questions({ questions }) {
   return (
     <>

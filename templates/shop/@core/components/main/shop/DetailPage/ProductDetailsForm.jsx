@@ -6,21 +6,41 @@ import { cartActions } from "../../../../../../../store/Slices/CartSlice";
 import { useDispatch } from "react-redux";
 import { Messages } from "../../../../constants/messages";
 import { Trash } from "iconsax-react";
+import { useSelector } from "react-redux";
+import { serverError } from "../../../../../../../@core/constants/toasts-messages";
+import {
+  deleteProductOrder,
+  removeWholeItems,
+} from "../../../../../../../store/Slices/CartSlice";
 const ProductDetailForm = ({ onAddToCart, id, title }) => {
   const [productAddedModal, setProductAddedModal] = useState(false);
   const [message, setMessage] = useState(Messages.ADDED_TO_CART);
-  const [counter, setCounter] = useState(0);
+  const cartData = useSelector((state) => state.cart?.items);
+
+  let numOfCartItems = 0;
+
+  for (const each in cartData) {
+    numOfCartItems = numOfCartItems + cartData[each].qty;
+  }
+  const [counter, setCounter] = useState(numOfCartItems);
+
   const dispatch = useDispatch();
 
-  const AddToCartHanlder = () => {
-    onAddToCart(1);
-    setCounter((prev) => prev + 1);
-    setMessage(Messages.ADDED_TO_CART);
-    setProductAddedModal((prev) => !prev);
+  const AddToCartHanlder = async () => {
+    const res = await onAddToCart();
+    console.log(res.payload);
+    if (res?.payload) {
+      setCounter((prev) => prev + 1);
+      setMessage(Messages.ADDED_TO_CART);
+      setProductAddedModal((prev) => !prev);
+    } else {
+      serverError();
+    }
   };
   const removefromCartHanlder = () => {
     setCounter((prev) => prev - 1);
-    dispatch(cartActions.removeItem(id));
+    console.log(id);
+    dispatch(deleteProductOrder(id));
   };
   const showModalHandler = () => {
     setProductAddedModal((prev) => !prev);
@@ -28,7 +48,7 @@ const ProductDetailForm = ({ onAddToCart, id, title }) => {
   const removeWholeItemHandler = () => {
     setCounter(0);
     setMessage(Messages.REMOVED_FROM_CART);
-    dispatch(cartActions.removeWholeItem(id));
+    dispatch(removeWholeItems(id));
 
     setProductAddedModal((prev) => !prev);
   };

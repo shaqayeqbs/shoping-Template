@@ -1,23 +1,12 @@
 import Image from "next/image";
 import React, { memo } from "react";
-import { useRouter } from "next/router";
-import Tooltip from "../../Helper/Tooltip";
 
 function Event({ event }) {
   const img = event?.files[0]?.details?.location;
 
-  const router = useRouter()
-  // console.log(event);
-  const selectEventHandler = () => {
-    router.push(`/event/${event.id}`)
-  }
-
   return (
-    <div
-      className={`ltr relative  w-full h-full   ml-2 rounded-[15px]  my-8 flex mt-14 items-center justify-center`}
-      // style={{ backgroundColor: event.color }}
-    >
-      <Tooltip text={event.title}>
+    <div className="ltr relative  w-full h-full   ml-2 rounded-[15px]  my-8 flex mt-14 items-center justify-center">
+      <div>
         {" "}
         <Image
           quality={50}
@@ -27,10 +16,12 @@ function Event({ event }) {
           src={img}
           width={2000}
           height={1330}
-          className={` object-cover   !rounded-[15px] cursor-pointer`}
-          onClick = {selectEventHandler}
+          className={` object-cover   !rounded-[15px] `}
         />
-      </Tooltip>
+      </div>
+      <div className="bg-gradient-to-t from-[#161616]  to-transparent text-[white] h-[3.5rem] w-full p-4 pt-5  absolute bottom-0 !rounded-[15px]">
+        {event.title}
+      </div>
     </div>
   );
 }

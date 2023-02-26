@@ -1,7 +1,8 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper";
+import { Autoplay, FreeMode, Navigation, Thumbs, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css/scrollbar";
 
 function HeaderCarousel({ items }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -17,13 +18,13 @@ function HeaderCarousel({ items }) {
               slidesPerGroup: 1,
             },
           }}
-          loop={true}
-          spaceBetween={0}
+          spaceBetween={20}
           thumbs={{
             swiper:
               thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
           }}
-          modules={[FreeMode, Navigation, Thumbs, Autoplay]}
+          scrollbar={{ draggable: true, hide: true }}
+          modules={[FreeMode, Navigation, Thumbs, Scrollbar, Autoplay]}
           className="relative   border-1 border-borderColor   "
           style={{ width: "100%" }}
         >
@@ -52,7 +53,7 @@ function HeaderCarousel({ items }) {
         <Swiper
           onSwiper={setThumbsSwiper}
           loop={true}
-          spaceBetween={0}
+          spaceBetween={20}
           slidesPerView={4}
           freeMode={true}
           watchSlidesProgress={true}

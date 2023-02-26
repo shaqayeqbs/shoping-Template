@@ -44,11 +44,11 @@ function AmazingSection() {
     },
   ];
   const timerBtn =
-    "bg-skin-secondary h-[2.5rem] w-[2.5rem]  p-2 px-5 text-skin-primary rounded-md";
+    "bg-skin-secondary md:h-[2.5rem] w-[2.5rem]  p-2 px-5 text-skin-primary rounded-md";
   const timerDevider = "text-skin-primary mx-2";
 
   return (
-    <section className="container md:flex px-0 text-center w-full  !py-12 !pt-20 overflow-x-hidden ">
+    <section className="container md:flex px-0 text-center w-full  !pb-10 !md:py-12 md:pt-20 overflow-x-hidden ">
       <h1 className="block md:hidden mt-10 text-xl text-center mb-8 text-[white]">
         تخفیفات شگفت انگیز
       </h1>
@@ -76,18 +76,18 @@ function AmazingSection() {
             )}
           </div>
         </div>
-        <div className=" flex justify-center text-[white] mt-2 mx-4 md:text-[28px]">
+        <div className=" flex justify-center text-[white] mt-6 mx-4 md:text-[20px]">
           <Link href="/products" className="pt-0">
             مشاهده همه
           </Link>
-          <span className="mt-2 mx-2 md:mt-0">
+          <span className="mt-[6px] mx-2 ">
             {" "}
             <AiOutlineLeft />
           </span>
         </div>
       </div>
 
-      <div className="w-full   mr-3">
+      <div className="w-full   m-0 md:mr-3">
         {" "}
         <Carousel data={data} />
       </div>

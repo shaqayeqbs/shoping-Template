@@ -1,14 +1,15 @@
 // import ProductsDetail from "../../@core/components/main/shop/DetailPage/ProductsDetail";
 
 import { getSpecifiedProducts } from "../../@core/api/productApi";
-import dynamic from "next/dynamic";
-const ShopProductsDetailPage = dynamic(() =>
-  import("../../templates/shop/pages/products/ShopDetail")
-);
+// import dynamic from "next/dynamic";
+// const ShopProductsDetailPage = dynamic(() =>
+//   import("../../templates/shop/pages/products/ShopDetail")
+// );
+import ShopProductsDetailPage from "../../templates/shop/pages/products/ShopDetail";
 
-const ProductsDetailPage = ({ item }) => {
+const ProductsDetailPage = ({ item = null }) => {
   console.log({ item });
-  if (!item || item.lenght === 0) {
+  if (!item || item?.lenght === 0) {
     return <p>No Products found!</p>;
   }
 
@@ -29,17 +30,17 @@ export async function getServerSideProps(context) {
     "Cache-Control",
     "public, s-maxage=43200, stale-while-revalidate=3600"
   );
-  const Id = params.Id;
+  const Id = params?.Id;
 
   const product = await getSpecifiedProducts(Id);
   console.log(product, "kkkkkkkkkkkkkkkkk");
-  if (!product) {
+  if (!product.data.data) {
     return { notFound: true };
   }
 
   return {
     props: {
-      item: product?.data.data,
+      item: product?.data?.data,
     },
   };
 }

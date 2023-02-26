@@ -7,7 +7,16 @@ import * as ReactLeaflet from "react-leaflet";
 
 const { MapContainer } = ReactLeaflet;
 
-const Map = ({ children, className, width, height, center, zoom, ...rest }) => {
+const Map = ({
+  onClick,
+  children,
+  className,
+  width,
+  height,
+  center,
+  zoom,
+  ...rest
+}) => {
   let mapClassName = "w-[100%] h-[100%] md:h-[80%] my-10 rounded-lg z-0";
   function ChangeView({ center, zoom }) {
     const map = ReactLeaflet?.useMap();

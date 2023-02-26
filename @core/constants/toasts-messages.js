@@ -90,3 +90,6 @@ export const storedFavortie = () => {
 export const unAuthorized = () => {
   myToast("لطفا ابتدا وارد شوید.", 20, true);
 };
+export const copiedSuccessfully = () => {
+  myToast("لینک با موفقیت کپی شد!", 21, false);
+};

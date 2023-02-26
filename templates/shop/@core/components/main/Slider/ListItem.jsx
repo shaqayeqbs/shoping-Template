@@ -26,13 +26,13 @@ function ListItem({
   return (
     <Link
       href={articles ? `/articles/${item.id}` : `/products/${item.id}`}
-      className=" mx-2 w-1/2"
+      className=" mx-2 w-1/2 relative"
     >
       <div
         className={
           favorties
-            ? "cadr my-2 w-full  border-r-2 rounded-none border-bordercolor "
-            : "cadr my-2  w-full mx-1"
+            ? "cadr my-2 w-full  border-r-2 relative rounded-none border-bordercolor "
+            : "cadr my-2  w-full mx-1 relative"
         }
       >
         {item.business?.files[0] && (
@@ -44,9 +44,27 @@ function ListItem({
             src={item.business?.files[0]?.details?.location}
             width={200}
             height={200}
-            className="h-[5rem] w-[] mx-auto"
+            className="h-[10rem] rounded-lg w-full mx-auto"
           />
         )}
+        <div className="relative w-full h-[2rem]">
+          {" "}
+          {item.files && (
+            <img
+              quality={50}
+              decoding="async"
+              alt="slider photo"
+              loading="lazy"
+              src={
+                item?.files.length > 0
+                  ? item?.files[0]?.details?.location
+                  : "https://via.placeholder.com/300/ccc/fff.png"
+              }
+              className="object-cover rounded-md mb-5"
+              style={{ width: "15rem", height: "15rem" }}
+            />
+          )}
+        </div>
         {item.category && <div>{item.category.name}</div>}
         <h2 className="text-right">{item?.product?.translate[0]?.data}</h2>
         {!articles && (
@@ -66,9 +84,11 @@ function ListItem({
                   )}
                 </div>
 
-                <p className="text-skin-muted line-through">
-                  {digitsEnToFa(item.price.price.toLocaleString())}
-                </p>
+                {item.price?.price && (
+                  <p className="text-skin-muted line-through">
+                    {digitsEnToFa(item?.price?.price?.toLocaleString() || 0)}
+                  </p>
+                )}
               </div>
               <div className="mt-[.3rem] text-base mr-2">تومان</div>
             </div>

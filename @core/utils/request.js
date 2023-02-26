@@ -45,10 +45,10 @@ instance.interceptors.response.use(
       if (err.response.status === 404) {
         console.log("checked user Auth", err.response.status);
         console.log("hooooooooooooooooooooooooooooo");
-        if (!window.location.href.includes("NoTFound")) {
-          window.location.href = "NoTFound";
-          return;
-        }
+        // if (!window.location.href.includes("NoTFound")) {
+        //   window.location.href = "NoTFound";
+        //   return;
+        // }
       }
       return;
     } catch (_error) {

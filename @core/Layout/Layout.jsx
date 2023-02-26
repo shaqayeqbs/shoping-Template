@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React, { memo, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import Footer from "../components/footer/Footer";
+import Footer from "../footer/Footer";
 import { getRGBColor } from "../Helper/getColor";
 import classes from "./Layout.module.css";
 import MainNavigation from "./MainNavigation";
@@ -48,7 +48,7 @@ const Layout = ({ children }) => {
           {`{${primaryColor} ${backgroundColor} ${secondaryColor} ${textColor} }`}
         </style>
       </Head>
-      <main>
+      <main className="w-full h-full p-0 overflow-x-hidden">
         <div className={classes.navbar}>
           <MainNavigation
             open={showMenu}
