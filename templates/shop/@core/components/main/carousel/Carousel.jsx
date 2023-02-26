@@ -20,8 +20,8 @@ const Carousel = ({ data = null }) => {
           },
 
           800: {
-            slidesPerView: 4,
-            slidesPerGroup: 4,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
           },
         }}
         spaceBetween={40}

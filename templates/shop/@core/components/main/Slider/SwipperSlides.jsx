@@ -7,7 +7,7 @@ function LandingCarouselSlide({ itemData: item }) {
         <Image
           quality={30}
           priority
-          className="absolute w-full  top-0 blur-xl z-0"
+          className="absolute w-full h-full top-0 blur-xl z-0"
           src={item?.file[0]?.details.location}
           alt="cover"
           layout="fill"
@@ -17,7 +17,7 @@ function LandingCarouselSlide({ itemData: item }) {
           style={{ zIndex: 100 }}
           className="container w-full overflow-hidden gap-5 md:flex relative justify-between block md:flex-row-reverse z-50 cadr"
         >
-          <div className="relative w-full h-[12rem] md:h-[419px]">
+          <div className="relative w-full h-[12rem] !md:h-[419px]">
             <Image
               quality={30}
               priority
@@ -28,7 +28,7 @@ function LandingCarouselSlide({ itemData: item }) {
               }
               alt={item?.file[0]?.details.location}
               layout="fill"
-              className="object-cover h-[14rem] block  rounded-xl  md:h-[419px] z-30"
+              className="object-cover !h-[14rem] block  rounded-xl  !md:h-[419px] z-30"
             />
           </div>
           <div className="w-full md:translate-y-[10%] md:w-[30%] p-4 pt-0 md:p-9  text-right">
