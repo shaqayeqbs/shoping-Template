@@ -74,7 +74,7 @@ function SideBar({ onChangeIndex, activeItem }) {
     },
   ];
   return (
-    <aside className="bg-[white] mb-10 lg:w-[285px] lg:min-h-[20rem] p-4 rounded-xl">
+    <aside className="bg-[white] mb-10 lg:w-[285px]  ml-[2rem] lg:min-h-[20rem] p-4 rounded-xl">
       <div className="w-full  flex justify-between">
         {" "}
         <div className="">

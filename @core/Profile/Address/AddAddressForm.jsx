@@ -152,7 +152,7 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
   };
 
   return (
-    <form className="p-6">
+    <form className="p-6 ">
       <h2 className="text-center text-[24px] mt-4">آدرس گیرنده سفارش</h2>
 
       <div className="grid grid-cols-2 pt-8 gap-[1rem]">

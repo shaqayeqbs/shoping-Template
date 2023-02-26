@@ -15,6 +15,10 @@ const nextConfig = {
       "core.behzi.net",
 
       "https://core.behzi.net/storage/image",
+      "https://via.placeholder.com/",
+      "https://via.placeholder.com/300/ccc/fff.png",
+      "via.placeholder.com",
+
       "core.behzi.net/storage/image",
     ],
     formats: ["image/avif", "image/webp"],

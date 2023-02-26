@@ -48,14 +48,14 @@ function AmazingSection() {
   const timerDevider = "text-skin-primary mx-2";
 
   return (
-    <section className="container md:flex px-0 text-center w-full  !pb-10 !md:py-12 md:pt-20 overflow-x-hidden ">
+    <section className="container md:flex px-0 text-center w-full  pb-10 !py-12 pt-20 overflow-x-hidden ">
       <h1 className="block md:hidden mt-10 text-xl text-center mb-8 text-[white]">
         تخفیفات شگفت انگیز
       </h1>
 
       <div className="hidden md:block bg-black">
-        <div className="bg-[white] rounded-2xl w-[200px] lg:w-[262px]  h-[368px]  py-6 text-[22px] ">
-          <div className="px-14 py-10 pt-5">
+        <div className="bg-[white]  ml-6  rounded-2xl w-[200px] lg:w-[262px]  h-[368px]  py-6 text-[22px] ">
+          <div className=" px-14 py-10 pt-5">
             <Offer />
           </div>
 
@@ -87,7 +87,7 @@ function AmazingSection() {
         </div>
       </div>
 
-      <div className="w-full   m-0 md:mr-3">
+      <div className="w-full   m-0 !md:mr-5">
         {" "}
         <Carousel data={data} />
       </div>
