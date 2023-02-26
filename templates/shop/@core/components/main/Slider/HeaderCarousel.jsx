@@ -48,7 +48,7 @@ function HeaderCarousel({ items }) {
             <LandingCarouselSlide itemData={item} />
           </SwiperSlide>
         ))}
-        <div className="container flex justify-between  !mt-[-6rem] !mb-[6rem] relative z-20">
+        <div className="container flex justify-between   !mt-[-6rem] !mb-[6rem] relative z-20 max-w-[60%] ">
           {" "}
           <div className="flex">
             <div>
@@ -73,9 +73,9 @@ function HeaderCarousel({ items }) {
         </div>
       </Swiper>
 
-      <div className="container relative">
+      <div className=" relative">
         {" "}
-        <div className="container  absolute !mt-[-9rem] ! cursor-pointer  right-[5rem] md:right-[6.5rem]   md:!max-w-[35%]   ">
+        <div className="container  absolute !mt-[-9rem] ! cursor-pointer  right-[5rem] md:right-[6.5rem]  w-[35%]   ">
           {
             <Swiper
               onSwiper={setThumbsSwiper}
