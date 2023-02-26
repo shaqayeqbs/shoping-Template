@@ -4,9 +4,12 @@ import { CART_END_POINTS } from "../constants/endpoints";
 
 export const getListOfOrderApi = async (id) => {
   try {
+    const accessToken = localStorage.getItem("token");
     console.log(CART_END_POINTS.get_list_of_order + id, "llllllllllllll");
-    const res = await instance.get(CART_END_POINTS.get_list_of_order + id);
-
+    let res = null;
+    if (accessToken) {
+      res = await instance.get(CART_END_POINTS.get_list_of_order + id);
+    }
     return res;
   } catch (err) {
     if (err?.response) {
