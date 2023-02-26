@@ -1,11 +1,12 @@
 import nookies from "nookies";
 import useSetBussinessData from "../@core/hooks/useSetBussinessData";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import mainData from "../@core/utils/serverProps";
 
-const ShopContact = dynamic(() =>
-  import("../templates/shop/pages/ShopContact")
-);
+// const ShopContact = dynamic(() =>
+//   import("../templates/shop/pages/ShopContact")
+// );
+import ShopContact from "../templates/shop/pages/ShopContact";
 
 function ContactUs({ data }) {
   useSetBussinessData(data);

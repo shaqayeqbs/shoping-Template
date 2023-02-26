@@ -90,7 +90,7 @@ function Comments() {
       </Modal>
       <div className="flex justify-between">
         <div className="w-[50%] text-right">
-          <h2 className="text-right mb-8 text-2xl">
+          <h2 className="text-right mb-8 md:text-2xl">
             در مورد این کالا نظر بدهید یا سوالتتان را بپرسید.
           </h2>
           <p>

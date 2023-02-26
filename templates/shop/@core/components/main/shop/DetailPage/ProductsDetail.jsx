@@ -9,11 +9,12 @@ import FilterShowDetails from "./FilterShowDetails";
 import PropertiesOfProduct from "./PropertiesOfProduct";
 import Vote from "./Vote";
 import ProductDetailForm from "./ProductDetailsForm";
-import { cartActions } from "../../../../../../../store/Slices/CartSlice";
+
 import { useDispatch } from "react-redux";
-import Link from "next/link";
+
+import { storeNewProductOrder } from "../../../../../../../store/Slices/CartSlice";
 import { storeNewFavoriteToUser } from "../../../../../../../@core/api/userApi";
-// import ShareModal from "./Share/ShareModal";
+import ShareModal from "./Share/ShareModal";
 import {
   storedFavortie,
   unAuthorized,
@@ -32,15 +33,11 @@ const carousel = [
 function ProductsDetail({ item }) {
   const [showSharedModal, setShowSharedModal] = useState(false);
   const dispatch = useDispatch();
-  const addToCartHandler = (amount) => {
-    const myItem = {
-      amount: amount,
-      id: item.id,
-      image: item.image,
-      title: item.title,
-      price: item.price,
-    };
-    dispatch(cartActions.addItem({ item: myItem }));
+
+  const addToCartHandler = async () => {
+    const res = await dispatch(storeNewProductOrder(item.inventory.id));
+
+    return res;
   };
 
   const toggleShowSharedModal = () => {
@@ -51,19 +48,22 @@ function ProductsDetail({ item }) {
       data: "product",
       id: item.inventory.id,
     };
-    const res = await storeNewFavoriteToUser(data);
-    console.log(res);
+    const res = await storeNewFavoriteToUser(item.inventory.id);
+
     if (res === 200) {
       storedFavortie();
     } else {
       unAuthorized();
     }
   };
-  console.log(item.inventory.business.files);
+
   const emojiStyle =
     "bg-skin-secondary rounded-lg h-[3rem] w-[3rem] mx-2 p-2 text-skin-primary";
   return (
     <>
+      {showSharedModal && (
+        <ShareModal isOpen={showSharedModal} onClose={toggleShowSharedModal} />
+      )}
       <section className="cadr container   !mt-16 !p-8 text-skin-">
         <div className="xl:flex justify-between space-x-0 !gap-0">
           <div className="w-full mx-auto ">
@@ -128,7 +128,7 @@ function ProductsDetail({ item }) {
                 <div>
                   <div> قیمت کالا :</div>
                   <div className="my-4">
-                    <span className="text-skin-primary mx-2 text-2xl">
+                    <span className="text-skin-primary mx-2 md:text-2xl">
                       {item.inventory.price.off.price
                         ? item.inventory.price.off.price.toLocaleString()
                         : item.inventory.price.price.toLocaleString()}
@@ -150,7 +150,7 @@ function ProductsDetail({ item }) {
             </div>
             <div className=" lg:flex justify-between">
               <ProductDetailForm
-                id={item.id}
+                id={item.inventory.id}
                 onAddToCart={addToCartHandler}
                 title={item.title}
               />

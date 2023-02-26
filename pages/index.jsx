@@ -5,10 +5,13 @@ import Head from "next/head";
 import { memo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { businessAction } from "../store/Slices/BussinessSlice";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import LoadingSpinner from "../@core/UI/LoadingSpinner";
-const ShopHome = dynamic(() => import("../templates/shop/pages/Home"));
+import { listOfOrder } from "../store/Slices/CartSlice";
+// const ShopHome = dynamic(() => import("../templates/shop/pages/Home"));
+
+import ShopHome from "../templates/shop/pages/Home";
 
 function Home({ data = null }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,6 +21,15 @@ function Home({ data = null }) {
       setIsLoading(false);
     }
   }, [data]);
+
+  const id = useSelector((state) => state?.businessSlice.id);
+  useEffect(() => {
+    async function fetchData() {
+      const response = await dispatch(listOfOrder(id));
+      const orders = response.payload?.data?.data?.orders;
+    }
+    fetchData();
+  }, []);
 
   const { description } = useSelector((state) => state.businessSlice);
 
@@ -60,7 +72,7 @@ export const getServerSideProps = async (ctx) => {
     url === "localhost:3001" ||
     url === "localhost:3002"
   ) {
-    url = "zaay.ir";
+    url = "tivarja.ir/";
   }
 
   let response = await axios(

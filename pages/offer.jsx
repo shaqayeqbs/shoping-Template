@@ -1,7 +1,8 @@
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import { memo } from "react";
 
-const ShopOffer = dynamic(() => import("../templates/shop/pages/ShopOffer"));
+// const ShopOffer = dynamic(() => import("../templates/shop/pages/ShopOffer"));
+import ShopOffer from "../templates/shop/pages/ShopOffer";
 
 function Offer() {
   return (

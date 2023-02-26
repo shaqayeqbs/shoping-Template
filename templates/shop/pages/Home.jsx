@@ -93,21 +93,18 @@ function ShopHome({ data = null }) {
 
   return (
     <>
-      <main>
+      <main className="overflow-x-hidden">
         <Suspense fallback={<p>Loading feed...</p>}>
           <HeaderCarousel items={banners} />
         </Suspense>
-
         <Suspense fallback={<p>Loading feed...</p>}>
           <Description />
         </Suspense>
-
         <Suspense fallback={<p>Loading feed...</p>}>
           <div className=" bg-skin-fill">
             <AmazingSection />
           </div>
         </Suspense>
-
         <section className={classes}>
           {events?.slice(2, 4)?.map((item) => (
             <Event event={item} key={item.id} />
@@ -122,10 +119,9 @@ function ShopHome({ data = null }) {
             <Event event={item} key={item.id} />
           ))}
         </section>
-        {/* <div className="container">
+        <div className="container">
           <Slider title="گیاهان آپارتمانی" data={carousel} />
-        </div> */}
-
+        </div>
         <section className="my-10">
           <AboutUsSection />
         </section>

@@ -1,14 +1,16 @@
 import React, { memo } from "react";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import nookies from "nookies";
 import useSetBussinessData from "../../@core/hooks/useSetBussinessData";
 import mainData from "../../@core/utils/serverProps";
 import { getListOfProducts } from "../../@core/api/productApi";
-const ShopAllProducts = dynamic(() =>
-  import("../../templates/shop/pages/products/ShopProducts")
-);
+// const ShopAllProducts = dynamic(() =>
+//   import("../../templates/shop/pages/products/ShopProducts")
+// );
+import ShopAllProducts from "../../templates/shop/pages/products/ShopProducts";
 
 function AllProducts({ data, products }) {
+  console.log({ products }, "llllllllllllll");
   useSetBussinessData(data);
 
   return (

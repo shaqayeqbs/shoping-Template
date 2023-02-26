@@ -3,12 +3,13 @@ import { GetArticles, getBussinessGallery } from "../../@core/api/articlesApi";
 import mainData from "../../@core/utils/serverProps";
 import nookies from "nookies";
 import useSetBussinessData from "../../@core/hooks/useSetBussinessData";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
-const ShopArticles = dynamic(() =>
-  import("../../templates/shop/pages/articles/ShopArticles")
-);
+// const ShopArticles = dynamic(() =>
+//   import("../../templates/shop/pages/articles/ShopArticles")
+// );
 
+import ShopArticles from "../../templates/shop/pages/articles/ShopArticles";
 function Articles({ data, articles }) {
   useSetBussinessData(data);
 

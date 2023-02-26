@@ -230,7 +230,7 @@ function ShopOffer() {
     <>
       <section className="bg-skin-fill py-16 mt-">
         <div className="container">
-          <h1 className="text-center text-[white] p-10  text-5xl">
+          <h1 className="text-center text-[white] p-10 w-full text-[32px]  md:text-5xl">
             تخفیفات شگفت انگیز
           </h1>
 

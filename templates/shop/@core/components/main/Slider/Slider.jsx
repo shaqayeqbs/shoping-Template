@@ -27,7 +27,7 @@ function NewProducts({
   return (
     <section className=" block  text-center">
       <div className=" flex justify-between my-8">
-        <h2 className={regular ? "pr-6" : "font-bold text-2xl mx-3"}>
+        <h2 className={regular ? "pr-6" : "font-bold md:text-2xl mx-3"}>
           {title}
         </h2>
         <div className=" relative flex text-skin-primary text-md">
@@ -53,7 +53,7 @@ function NewProducts({
           )}
         </div>
       </div>
-      <Carousel data={data} />
+      <Carousel data={data} articles />
     </section>
   );
 }

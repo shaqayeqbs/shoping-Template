@@ -21,12 +21,6 @@ export const getListOfProducts = async (businessId) => {
 
 export const getSpecifiedProducts = async (productId) => {
   try {
-    console.log(
-      APP_CONFIG.apiBaseUrl +
-        END_POINTS.get_specified_products +
-        productId +
-        "?lang=fa"
-    );
     const res = await axios.get(
       APP_CONFIG.apiBaseUrl +
         END_POINTS.get_specified_products +

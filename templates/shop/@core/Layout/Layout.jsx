@@ -42,7 +42,7 @@ const Layout = ({ children }) => {
         </style>
       </Head>
       <main>
-        <div className={classes.navbar}>
+        {/* <div className={classes.navbar}>
           <MainNavigation
             open={showMenu}
             selector="#portal"
@@ -51,7 +51,7 @@ const Layout = ({ children }) => {
             openModalHandler={openModalHandler}
             showMenu={showMenu}
           />
-        </div>
+        </div> */}
         <div className="pt-[4.5rem] md:pt-[11rem]"> {children}</div>
       </main>
       <Footer />

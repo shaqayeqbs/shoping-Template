@@ -1,11 +1,12 @@
 import Head from "next/head";
-import ArticleDetails from "../../@core/components/main/shop/DetailPage/ArticleDetails";
-import { getArticlesById } from "../../@core/data/articles";
-import dynamic from "next/dynamic";
 
-const ShopArticleDetailPage = dynamic(() =>
-  import("../../templates/shop/pages/articles/ShopArticleDetail")
-);
+import { getArticlesById } from "../../@core/data/articles";
+// import dynamic from "next/dynamic";
+
+// const ShopArticleDetailPage = dynamic(() =>
+//   import("../../templates/shop/pages/articles/ShopArticleDetail")
+// );
+import ShopArticleDetailPage from "../../templates/shop/pages/articles/ShopArticleDetail";
 
 const ProductsDetailPage = ({ item }) => {
   if (!item || item.lenght === 0) {

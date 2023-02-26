@@ -3,9 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { memo, useState } from "react";
 import { useSelector } from "react-redux";
-import ProfileDrop from "../components/main/Profile/ProfileDrop";
+// import ProfileDrop from "../components/main/Profile/ProfileDrop";
 import ModalVerification from "./modals/ModalVerification";
-import Cart from "../components/main/Cart/Cart";
+import ProfileDrop from "../Profile/ProfileDrop";
+
 import CartBtn from "./CartBtn";
 import SearchForm from "./Search/SearchForm";
 
@@ -22,7 +23,7 @@ function NavBar({ onCloseModalHandler }) {
   const businessName = useSelector((state) => state?.businessSlice?.name);
   const logo = useSelector((state) => state?.businessSlice?.logo);
   const isLoggedIn = useSelector((state) => state?.user.isLoggedIn);
-  console.log("firstttt");
+
   return (
     <>
       {<ModalVerification isOpen={openAuthModal} onClose={authHandler} />}
@@ -33,7 +34,7 @@ function NavBar({ onCloseModalHandler }) {
         />
       )}
       <nav
-        className="container !pt-[1rem] px-0 text-center w-full  flex  justify-between "
+        className="container !pt-[1rem] mx-20 px-0 text-center w-full  flex  justify-between "
         onMouseEnter={onCloseModalHandler}
       >
         <Link href="/">
@@ -61,7 +62,6 @@ function NavBar({ onCloseModalHandler }) {
               <SearchNormal1 size="28" />
             </button>
 
-            <CartBtn />
             {!isLoggedIn && (
               <button
                 onClick={authHandler}
@@ -71,11 +71,8 @@ function NavBar({ onCloseModalHandler }) {
               </button>
             )}
           </div>
-          {isLoggedIn && (
-            <div className="">
-              <ProfileDrop />
-            </div>
-          )}
+          {isLoggedIn && <CartBtn />}
+          {isLoggedIn && <ProfileDrop />}
         </div>
       </nav>
     </>

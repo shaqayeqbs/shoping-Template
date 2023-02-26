@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/thumbs";
+import "swiper/css/scrollbar";
 import { useState, useEffect } from "react";
 import store from "../store/store";
 import "../styles/globals.css";

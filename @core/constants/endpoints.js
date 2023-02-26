@@ -25,7 +25,18 @@ const END_POINTS = {
   get_list_of_products: "api/products/inventory?lang=fa&business_id=",
   get_specified_products: `api/products/inventory/`,
   store_a_new_favorite_to_selected_user: "api/user/favorits",
-  get_event_gallery: "api/user/gallery/",
+};
+export const CART_END_POINTS = {
+  get_list_of_order: "api/orders?lang=fa&business_id=",
+  store_a_new_product: "api/orders/add-product",
+  delete_product: "api/orders/delete-product",
+  delete_all_products: "api/orders/force-remove-product",
 };
 
+export const USER_ADDRESS_END_POINTS = {
+  get_user_address: "api/user/",
+  //   store_user_address: "api/user/",
+  // update_user_address: "api/user/",
+  // delete_user_address: "api/user/",
+};
 export default END_POINTS;

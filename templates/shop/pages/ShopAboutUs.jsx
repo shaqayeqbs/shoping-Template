@@ -4,7 +4,7 @@ function ShopAbout() {
   return (
     <section className="container">
       <h1 className="text-center my-4 mt-12">درباره هیوا گاردن 🌱</h1>
-      <div className="relative !h-[511px] w-full  my-4">
+      <div className="relative !h-[470px] w-full  ">
         <Image
           quality={50}
           loading="lazy"
@@ -15,7 +15,7 @@ function ShopAbout() {
           className="object-cover  rounded-lg "
         />
       </div>
-      <p>
+      <p className="">
         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
         از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و
         سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای
