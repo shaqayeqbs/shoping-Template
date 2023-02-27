@@ -45,7 +45,7 @@ const ShopEvent = (props) => {
           className="rounded-xl w-full"
         />
         <MainEditor {...props} />
-        <Comments />
+        {/* <Comments /> */}
         <section className="md:flex">
           {events?.slice(0, 2)?.map((item) => (
             <Event event={item} key={item.id} />
