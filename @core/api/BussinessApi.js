@@ -34,3 +34,19 @@ export const FQ = async (id) => {
     }
   }
 };
+
+export const Get_Business_Editors_By_Type = async (id, type) => {
+  console.log(`${APP_CONFIG.apiBaseUrl}${END_POINTS.getBusinessEditors}/${id}/${type}`);
+  try {
+    const res = await axios(`${APP_CONFIG.apiBaseUrl}${END_POINTS.getBusinessEditors}/${id}/${type}`);
+
+    return res;
+  } catch (err) {
+    if (err.response) {
+      return err.response.data.code;
+    } else {
+      return `ERROR:${err}`;
+    }
+  }
+};
+

@@ -8,10 +8,10 @@ import {
   EditorGalery,
 } from "./index.js";
 
-const MainEditor = (props) => {
+const MainEditor = ({details = []}) => {
   return (
     <>
-      {props.details.map((data) => (
+      {details.map((data) => (
         <div key={data.id}>
           {data.type === 1 && <EditorTitle data={data} />}
           {data.type === 2 && <EditorParagraph data={data} />}
