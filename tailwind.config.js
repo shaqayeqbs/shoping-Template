@@ -13,7 +13,7 @@ module.exports = {
 
   content: [
     "./pages/*.{html,js,jsx}",
-    "./templates/*.{html,js,jsx}",
+    "./templates/**/*.{html,js,jsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./@core/**/*.{js,ts,jsx,tsx}",

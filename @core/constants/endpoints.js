@@ -26,6 +26,7 @@ const END_POINTS = {
   get_list_of_products: "api/products/inventory?lang=fa&business_id=",
   get_specified_products: `api/products/inventory/`,
   store_a_new_favorite_to_selected_user: "api/user/favorits",
+  getBusinessEditors: 'api/business/details',
 };
 export const CART_END_POINTS = {
   get_list_of_order: "api/orders?lang=fa&business_id=",

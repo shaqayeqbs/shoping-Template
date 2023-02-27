@@ -40,12 +40,12 @@
     {
       "id": 5,
       "title": "روش های ارسال",
-      "href": "/offer"
+      "href": "/product-send"
     },
     {
       "id": 6,
       "title": "قوانین و شرایط",
-      "href": "/rules"
+      "href": "/privacy-policy"
     },
     {
       "id": 7,
@@ -55,12 +55,12 @@
     {
       "id": 8,
       "title": "راهنمای خرید",
-      "href": "/offer"
+      "href": "/buy-rules"
     },
     {
       "id": 9,
       "title": "استرداد محصول",
-      "href": "/offer"
+      "href": "/return-product"
     }
   ]
 }

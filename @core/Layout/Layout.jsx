@@ -59,7 +59,7 @@ const Layout = ({ children }) => {
             showMenu={showMenu}
           />
         </div>
-        <div className="pt-[4.5rem] md:pt-[11rem]"> {children}</div>
+        <div className="pt-[4.5rem] md:pt-[11rem] px-4"> {children}</div>
       </main>
       <Footer />
     </>

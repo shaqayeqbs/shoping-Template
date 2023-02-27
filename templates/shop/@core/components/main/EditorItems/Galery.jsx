@@ -12,8 +12,8 @@ const EditorGalery = ({ data }) => {
       const recievedData = await getEventGallery(data.value);
       setIsLoading(false);
       const mappedData = {
-        title: recievedData.data.data.gallery.name,
-        data: recievedData.data.data.gallery.files.map((data) => (
+        title: recievedData?.data?.data?.gallery?.name,
+        data: recievedData?.data?.data?.gallery?.files?.map((data) => (
           <Image
             src={data.details.location}
             width={300}
