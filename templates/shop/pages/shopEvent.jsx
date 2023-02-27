@@ -22,7 +22,7 @@ const ShopEvent = (props) => {
 
   return (
     <div className="container mt-16 px-4">
-      <div className="container max-w-[900px] flex flex-col gap-8">
+      <div className="container max-w-[900px] flex flex-col gap-5">
         <div className="flex items-center justify-between">
           <h3 className="font-bold text-3xl">{props.title}</h3>
           <div className="text-sm flex items-center justify-center">
@@ -45,7 +45,7 @@ const ShopEvent = (props) => {
           className="rounded-xl w-full"
         />
         <MainEditor {...props} />
-        <Comments />
+        {/* <Comments /> */}
         <section className="md:flex">
           {events?.slice(0, 2)?.map((item) => (
             <Event event={item} key={item.id} />
