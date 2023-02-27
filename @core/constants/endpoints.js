@@ -13,6 +13,7 @@ if (typeof window !== "undefined") {
 
 const END_POINTS = {
   getSpecifiedBusinessBydDomain: `api/business/byDomin/${url}?lang=fa`,
+  Get_Specified_Business_Event: 'api/business/event/',
   verfy_phone: "api/auth/login",
   verfy_code: "api/auth/confirm",
   getArticles: "api/article/",
