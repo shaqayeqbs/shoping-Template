@@ -1,16 +1,13 @@
-import ArticleDetails from "../../@core/components/main/shop/DetailPage/ArticleDetails";
+import MainEditor from "../../@core/components/main/EditorItems/MainEditor";
 
-const ShopArticleDetailPage = ({ item }) => {
+const ShopArticleDetailPage = ({ item=[] }) => {
   if (!item || item.lenght === 0) {
     return <p>No Products found!</p>;
   }
-
   return (
-    <div>
-      <div>
-        <ArticleDetails item={item} />
+      <div className="container max-w-[900px] flex flex-col gap-5">
+        <MainEditor details={item}/>
       </div>
-    </div>
   );
 };
 

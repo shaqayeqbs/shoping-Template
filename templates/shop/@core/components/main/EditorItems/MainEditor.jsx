@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   EditorImage,
   EditorTitle,
@@ -12,7 +13,7 @@ const MainEditor = ({details = []}) => {
   return (
     <>
       {details.map((data) => (
-        <div key={data.id}>
+        <Fragment key={data.id}>
           {data.type === 1 && <EditorTitle data={data} />}
           {data.type === 2 && <EditorParagraph data={data} />}
           {data.type === 3 && <EditorImage data={data} />}
@@ -20,7 +21,7 @@ const MainEditor = ({details = []}) => {
           {data.type === 5 && <EditorList data={data} />}
           {data.type === 6 && <EditorMultiMedia data={data} />}
           {data.type === 7 && <EditorGalery data={data} />}
-        </div>
+        </Fragment>
       ))}
     </>
   );

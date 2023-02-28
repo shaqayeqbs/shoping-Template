@@ -17,6 +17,7 @@ const END_POINTS = {
   verfy_phone: "api/auth/login",
   verfy_code: "api/auth/confirm",
   getArticles: "api/article?business_id=",
+  getSpecifiedCurrentBusinessArticle: 'api/article',
   get_bussiness_gallery: "api/business/gallery?business_id=",
   get_FQ: "api/business/fq?business_id=",
   get_current_user: "api/user?lang=fa",
