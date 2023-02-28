@@ -1,6 +1,6 @@
 import CommentsForm from "./CommentsForm";
 import CommentsList from "./CommentsList";
-import b from '../../../../../../public/images/plant.png'
+// import b from '../../../../../../public/images/plant.png'
 
 const commentList = [
   {
@@ -29,7 +29,9 @@ const commentList = [
 const Comments = () => {
   return (
     <div className="bg-[white] px-8 py-4 rounded-xl">
-      <p className="border-b border-bordercolor w-full py-4 font-bold">سوال یا نظرت رو ثبت کن</p>
+      <p className="border-b border-bordercolor w-full py-4 font-bold">
+        سوال یا نظرت رو ثبت کن
+      </p>
       <CommentsForm />
       <CommentsList comments={commentList} />
     </div>
