@@ -26,6 +26,7 @@ const END_POINTS = {
   verfy_code: "api/auth/confirm",
   getArticles: "api/article/",
   get_bussiness_gallery: "api/business/gallery?business_id=",
+  get_event_gallery:'api/user/gallery/'
 };
 
 export default END_POINTS;
