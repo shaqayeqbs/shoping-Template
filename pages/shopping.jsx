@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
 // import ShoppingComponent from "../@core/Shopping/index";
 
-function shopping() {
+function Shopping() {
   if (typeof window == "undefined") {
     return;
   } else {
@@ -14,4 +13,4 @@ function shopping() {
   }
 }
 
-export default shopping;
+export default Shopping;

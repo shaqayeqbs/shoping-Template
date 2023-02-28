@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { AiOutlineLeft } from "react-icons/ai";
 import Carousel from "./Carousel";
+import ProductCarousel from "./ProductCarousel";
 // const Carousel = dynamic(() => import("./Carousel"));
 
 function NewProducts({
@@ -24,6 +25,7 @@ function NewProducts({
   const changeIndex = (e) => {
     onIndexHandler(e?.target?.value);
   };
+  console.log(data, "products");
   return (
     <section className=" block  text-center">
       <div className=" flex justify-between my-8">
@@ -53,7 +55,8 @@ function NewProducts({
           )}
         </div>
       </div>
-      <Carousel data={data} articles />
+      {articles && <Carousel data={data} articles />}
+      {!articles && <ProductCarousel data={data} articles />}
     </section>
   );
 }

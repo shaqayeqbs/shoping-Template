@@ -4,7 +4,8 @@ import React, { memo } from "react";
 import { Autoplay, Navigation, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/legacy/image";
-const Carousel = ({ data = null, articles }) => {
+const Carousel = ({ data, articles }) => {
+  console.log({ data });
   return (
     <div className="">
       {" "}
@@ -40,15 +41,29 @@ const Carousel = ({ data = null, articles }) => {
               <div className="cadr cursor-pointer w-full">
                 <div className="reltive">
                   {" "}
-                  {item.files && (
+                  {item?.product?.files[0]?.details && (
                     <Image
                       quality={50}
                       decoding="async"
                       alt="slider photo"
                       loading="lazy"
                       placeholder="blur"
-                      blurDataURL={item?.files[0].details?.location}
-                      src={item?.files[0].details?.location}
+                      blurDataURL={item?.product.files[0]?.details?.location}
+                      src={item?.product?.files[0]?.details?.location}
+                      width={500}
+                      height={500}
+                      className="object-cover md:mx-auto"
+                    />
+                  )}
+                  {!item?.product?.files[0] && (
+                    <Image
+                      quality={50}
+                      decoding="async"
+                      alt="slider photo"
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL="https://via.placeholder.com/300/ccc/fff.png"
+                      src="https://via.placeholder.com/300/ccc/fff.png"
                       width={500}
                       height={500}
                       className="object-cover md:mx-auto"
@@ -66,14 +81,14 @@ const Carousel = ({ data = null, articles }) => {
                       جدید
                     </div>
                   )}
-                  {/* {item?.price && (
+                  {item?.price && (
                     <div className=" flex justify-between w-full gap-1 ">
                       <div className="font-bold text-xl   md:mx-auto lg:mx-0">
-                        {digitsEnToFa(item?.price)}
+                        {digitsEnToFa(item?.price.price)}
                       </div>
                       <div className="text-lg">تومان</div>
                     </div>
-                  )} */}
+                  )}
                 </div>
               </div>
             </Link>

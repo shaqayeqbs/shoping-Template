@@ -5,12 +5,16 @@ import HeaderCarousel from "../@core/components/main/Slider/HeaderCarousel";
 import { Suspense } from "react";
 import LoadingSpinner from "../../../@core/UI/LoadingSpinner";
 import AmazingSection from "../@core/components/main/AmazingSale/AmazingSection";
-import Slider from "../@core/components/main/Slider/Slider";
-import Event from "../@core/components/main/Event";
+// import Slider from "../@core/components/main/Slider/Slider";
+// import Event from "../@core/components/main/Event";
 import Description from "../@core/components/main/About/Description";
 import AboutUsSection from "../@core/components/main/About/AboutUsSection";
 
-function ShopHome({ data = null }) {
+import dynamic from "next/dynamic";
+const Slider = dynamic(() => import("../@core/components/main/Slider/Slider"));
+const Event = dynamic(() => import("../@core/components/main/Event"));
+
+function ShopHome({ data = null, articles, products }) {
   const [isLoading, setIsLoading] = useState(true);
   const banners = data?.data?.domin.business.banners;
 
@@ -40,44 +44,6 @@ function ShopHome({ data = null }) {
     },
   ];
 
-  const articles = [
-    {
-      id: "12",
-      image: "/images/article.png",
-      title: "نحوه نگهداری سانسوریا",
-      description:
-        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.صنعت چاپ و با استفاده از طراحان گرافیک است.",
-    },
-    {
-      id: "13",
-      image: "/images/article.png",
-      title: "نحوه نگهداری سانسوریا",
-      description:
-        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.صنعت چاپ و با استفاده از طراحان گرافیک است.",
-    },
-    {
-      id: "14",
-      image: "/images/article.png",
-      title: "نحوه نگهداری سانسوریا",
-      description:
-        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.صنعت چاپ و با استفاده از طراحان گرافیک است.",
-    },
-    {
-      id: "15",
-      image: "/images/article.png",
-      title: "نحوه نگهداری سانسوریا",
-      description:
-        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.صنعت چاپ و با استفاده از طراحان گرافیک است.",
-    },
-    {
-      id: "16",
-      image: "/images/article.png",
-      title: "نحوه نگهداری سانسوریا",
-      description:
-        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.صنعت چاپ و با استفاده از طراحان گرافیک است.",
-    },
-  ];
-
   const classes = "container  md:flex  ";
   useEffect(() => {
     if (data) {
@@ -102,7 +68,7 @@ function ShopHome({ data = null }) {
         </Suspense>
         <Suspense fallback={<p>Loading feed...</p>}>
           <div className=" bg-skin-fill">
-            <AmazingSection />
+            <AmazingSection products={products} />
           </div>
         </Suspense>
         <section className={classes}>
@@ -111,7 +77,7 @@ function ShopHome({ data = null }) {
           ))}
         </section>
         <div className="container">
-          <Slider title="آخرین محصولات" data={carousel} />
+          <Slider title="آخرین محصولات" data={products} />
         </div>
 
         <section className={classes}>
@@ -122,11 +88,15 @@ function ShopHome({ data = null }) {
         {/* <div className="container">
           <Slider title="گیاهان آپارتمانی" data={carousel} />
         </div> */}
-        <section className="my-10">
+        {/* <section className="my-10">
           <AboutUsSection />
-        </section>
+        </section> */}
         <div className="container">
-          <Slider title={t("landing:articles")} data={articles} articles />
+          <Slider
+            title={t("landing:articles")}
+            data={articles?.articles}
+            articles
+          />
         </div>
       </main>
     </>
