@@ -50,7 +50,7 @@ const MyDemo = ({ UploadingImage }) => {
     setCroppedImage(null);
     setIsOpen(true);
     if (e.target.files && e.target.files.length > 0) {
-      const file = e.target.files[0];
+      const file = e.target?.files[0];
       const lob = new Blob([file], { type: "image/jpeg" });
       console.log(lob);
       // dispatch(updateProfileImage(lob));

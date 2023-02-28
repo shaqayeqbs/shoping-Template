@@ -40,15 +40,15 @@ const ShopEvent = (props) => {
         <Image
           width={500}
           height={50}
-          src={props.files[0]?.details.location}
-          alt={props.title}
+          src={props?.files[0]?.details.location}
+          alt={props?.title}
           className="rounded-xl w-full"
         />
         <MainEditor {...props} />
         {/* <Comments /> */}
         <section className="md:flex">
           {events?.slice(0, 2)?.map((item) => (
-            <Event event={item} key={item.id} />
+            <Event event={item} key={item?.id} />
           ))}
         </section>
       </div>

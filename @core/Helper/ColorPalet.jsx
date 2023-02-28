@@ -11,7 +11,7 @@ function ColorPalet() {
     { id: 7, color: "red", title: "قرمز" },
     { id: 8, color: "green", title: "سبز" },
   ];
-  const [active, setActive] = useState(data[0].color);
+  const [active, setActive] = useState(data[0]?.color);
   const colorChangeHandler = (e) => {
     setActive(e.target.value);
   };
