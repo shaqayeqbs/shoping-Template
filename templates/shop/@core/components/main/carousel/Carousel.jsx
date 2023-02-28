@@ -46,7 +46,7 @@ const Carousel = ({ products = null }) => {
                       alt="slider photo"
                       loading="lazy"
                       placeholder="blur"
-                      blurDataURL={item?.product.files[0]?.details?.location}
+                      blurDataURL={item?.product?.files[0]?.details?.location}
                       src={item?.product?.files[0]?.details?.location}
                       width={500}
                       height={500}
