@@ -14,7 +14,7 @@ function ShopQuestions({ data }) {
           <AccordionUI
             title={item.name}
             Id={item.id}
-            child={item.details}
+            child={item?.details}
             Index={Index}
             setIndex={setIndex}
           ></AccordionUI>

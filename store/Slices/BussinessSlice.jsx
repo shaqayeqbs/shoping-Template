@@ -22,7 +22,7 @@ const businessSlice = createSlice({
       let logoImg = "";
       data?.files?.forEach((item) => {
         if (item.type._ === "logo") {
-          logoImg = item.details.location;
+          logoImg = item?.details.location;
         }
       });
 

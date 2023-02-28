@@ -48,7 +48,7 @@ const Carousel = ({ data = null, articles }) => {
                       loading="lazy"
                       placeholder="blur"
                       blurDataURL={item?.files[0].details?.location}
-                      src={item?.files[0].details?.location}
+                      src={item?.files[0]?.details?.location}
                       width={500}
                       height={500}
                       className="object-cover md:mx-auto"
