@@ -5,7 +5,7 @@ import OrderingList from "../@core/Helper/OrderingList";
 // import Pagination from "../@core/utils/Pagination";
 import Carousel from "../@core/components/main/Carousel/Carousel";
 import Pagination from "../@core/utils/Pagination";
-import List from "../@core/components/main/Slider/List";
+// import List from "../@core/components/main/Slider/List";
 // const Carousel = dynamic(
 //   () => import("../@core/components/main/carousel/carousel"),
 //   { ssr: false }

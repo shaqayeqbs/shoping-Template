@@ -1,6 +1,6 @@
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
-});
+// const withBundleAnalyzer = require("@next/bundle-analyzer")({
+//   enabled: process.env.ANALYZE === "true",
+// });
 // const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 
 ///////////////////////////////////////
@@ -76,4 +76,4 @@ const nextTranslate = require("next-translate");
 // const withPWA = require("next-pwa")(pwaConfig);
 // const withMDX = require("@next/mdx")(mdxConfig);
 
-module.exports = nextTranslate(withBundleAnalyzer(nextConfig));
+module.exports = nextTranslate(nextConfig);

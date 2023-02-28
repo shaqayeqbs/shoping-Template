@@ -4,45 +4,12 @@ import { AiOutlineLeft } from "react-icons/ai";
 import useTimer from "../../../hooks/useTimer";
 import Offer from "../../../icons/Offer";
 // const Carousel = dynamic(() => import("../carousel/carousel"));
-import Carousel from "../Carousel/Carousel";
+import Carousel from "../Carousel/carousel";
 
-function AmazingSection() {
+function AmazingSection(products) {
   const [hours, minutes, seconds, farsMin, FaHours, Faseconds, refreshTimer] =
     useTimer(0, 2, 0);
-  const data = [
-    {
-      id: 1,
-      title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
-      image: "/images/plant.png",
-      precent: "   25%",
-      price: "285000",
-      lastPrice: "400٬000٬000",
-    },
-    {
-      id: 2,
-      title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
-      image: "/images/plant.png",
-      precent: "   25%",
-      price: "285000",
-      lastPrice: "400٬000٬000",
-    },
-    {
-      id: 3,
-      title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
-      image: "/images/plant.png",
-      precent: "   25%",
-      price: "285000",
-      lastPrice: "700٬000٬000",
-    },
-    {
-      id: 4,
-      title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
-      image: "/images/plant.png",
-      precent: "   25%",
-      price: "285000",
-      lastPrice: "300٬000٬000",
-    },
-  ];
+
   const timerBtn =
     "bg-skin-secondary md:h-[2.5rem] w-[2.5rem]  p-2 px-5 text-skin-primary rounded-md";
   const timerDevider = "text-skin-primary mx-2";
@@ -89,7 +56,7 @@ function AmazingSection() {
 
       <div className="w-full   m-0 !md:mr-5">
         {" "}
-        <Carousel data={data} />
+        <Carousel products={products} />
       </div>
     </section>
   );

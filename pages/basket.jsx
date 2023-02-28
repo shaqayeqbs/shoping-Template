@@ -1,8 +1,8 @@
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 
-// const ShopBasket = dynamic(() => import("../templates/shop/pages/ShopBasket"));
+const ShopBasket = dynamic(() => import("../templates/shop/pages/ShopBasket"));
 
-import ShopBasket from "../templates/shop/pages/ShopBasket";
+// import ShopBasket from "../templates/shop/pages/ShopBasket";
 
 function Basket() {
   return (

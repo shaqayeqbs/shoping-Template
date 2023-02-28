@@ -10,10 +10,14 @@ import { Suspense } from "react";
 import LoadingSpinner from "../@core/UI/LoadingSpinner";
 import { listOfOrder } from "../store/Slices/CartSlice";
 // const ShopHome = dynamic(() => import("../templates/shop/pages/Home"));
-
+import { GetArticles } from "../@core/api/articlesApi";
 import ShopHome from "../templates/shop/pages/Home";
+import nookies from "nookies";
+import mainData from "../@core/utils/serverProps";
+import { getListOfProducts } from "../@core/api/productApi";
 
-function Home({ data = null }) {
+function Home({ data, articles, products }) {
+  console.log(articles, "dataaaaaaaaaa", products);
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -52,7 +56,7 @@ function Home({ data = null }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Suspense fallback={<p>Loading feed...</p>}>
-        <ShopHome data={data} />
+        <ShopHome data={data} articles={articles} products={products} />
       </Suspense>
     </>
   );
@@ -61,6 +65,7 @@ function Home({ data = null }) {
 export default memo(Home);
 
 export const getServerSideProps = async (ctx) => {
+  const cookies = nookies.get(ctx);
   const { req, query, res, asPath, pathname } = ctx;
   res.setHeader(
     "Cache-Control",
@@ -75,20 +80,16 @@ export const getServerSideProps = async (ctx) => {
     url = "tivarja.ir/";
   }
 
-  let response = await axios(
-    `http://core.behzi.net/api/business/byDomin/${url}?lang=fa`
-  ).catch(function (error) {
-    if (error.response) {
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
-      return { notFound: true };
-    }
-  });
+  let bussinessData = await mainData(ctx);
+
+  let articles = await GetArticles(cookies?.id);
+  let products = await getListOfProducts(cookies?.id);
 
   return {
     props: {
-      data: response?.data || null,
+      data: bussinessData?.data || null,
+      articles: articles?.data?.data || null,
+      products: products?.data?.data?.inventorys,
     },
   };
 };

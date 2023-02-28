@@ -3,13 +3,13 @@ import { GetArticles, getBussinessGallery } from "../../@core/api/articlesApi";
 import mainData from "../../@core/utils/serverProps";
 import nookies from "nookies";
 import useSetBussinessData from "../../@core/hooks/useSetBussinessData";
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 
-// const ShopArticles = dynamic(() =>
-//   import("../../templates/shop/pages/articles/ShopArticles")
-// );
+const ShopArticles = dynamic(() =>
+  import("../../templates/shop/pages/articles/ShopArticles")
+);
 
-import ShopArticles from "../../templates/shop/pages/articles/ShopArticles";
+// import ShopArticles from "../../templates/shop/pages/articles/ShopArticles";
 function Articles({ data, articles }) {
   console.log(data, articles, "art");
   useSetBussinessData(data);
@@ -36,7 +36,7 @@ export const getServerSideProps = async (ctx) => {
   }
 
   let result = await GetArticles(cookies?.id);
-  console.log(result);
+
   let gallery = await getBussinessGallery(cookies?.id);
 
   return {

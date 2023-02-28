@@ -1,8 +1,8 @@
 import Link from "next/link";
 // import FourOFor from "../@core/icons/FourOFor";
-// import dynamic from "next/dynamic";
-import FourOFor from "../@core/icons/FourOFor";
-// const FourOFor = dynamic(() => import("../@core/icons/FourOFor"));
+import dynamic from "next/dynamic";
+// import FourOFor from "../@core/icons/FourOFor";
+const FourOFor = dynamic(() => import("../@core/icons/FourOFor"));
 
 export default function FourOhFour() {
   return (

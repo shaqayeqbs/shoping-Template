@@ -1,14 +1,10 @@
 // import dynamic from "next/dynamic";
-import ShopProfile from "../templates/shop/pages/ShopProfile";
+// import ShopProfile from "../templates/shop/pages/ShopProfile";
 // const ShopProfile = dynamic(() =>
 //   import("../templates/shop/pages/ShopProfile")
 // );
 function profile() {
-  return (
-    <>
-      <ShopProfile />
-    </>
-  );
+  return <>{/* <ShopProfile /> */}</>;
 }
 
 export default profile;
