@@ -1,6 +1,8 @@
 import dynamic from "next/dynamic";
 import { memo } from "react";
 import { getListOfProducts } from "../@core/api/productApi";
+import nookies from "nookies";
+import useSetBussinessData from "../@core/hooks/useSetBussinessData";
 
 const ShopOffer = dynamic(() => import("../templates/shop/pages/ShopOffer"));
 // import ShopOffer from "../templates/shop/pages/ShopOffer";

@@ -2,7 +2,7 @@ import { Message } from "iconsax-react";
 import { FaStar } from "react-icons/fa";
 import ColorPalet from "../../../Helper/ColorPalet";
 import StaticSlider from "../../../Helper/StaticSlider";
-import useTimer from "../../../hooks/useTimer";
+import useTimer from "../../../../../../@core/hooks/useTimer";
 import Slider from "../Slider/Slider";
 const carousel = [
   {

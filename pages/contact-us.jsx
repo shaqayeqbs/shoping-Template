@@ -2,6 +2,7 @@ import nookies from "nookies";
 import useSetBussinessData from "../@core/hooks/useSetBussinessData";
 import dynamic from "next/dynamic";
 import mainData from "../@core/utils/serverProps";
+import { memo } from "react";
 
 const ShopContact = dynamic(() =>
   import("../templates/shop/pages/ShopContact")
@@ -20,7 +21,7 @@ function ContactUs({ data }) {
   );
 }
 
-export default ContactUs;
+export default memo(ContactUs);
 export const getServerSideProps = async (ctx) => {
   const cookies = nookies.get(ctx);
   const { res } = ctx;

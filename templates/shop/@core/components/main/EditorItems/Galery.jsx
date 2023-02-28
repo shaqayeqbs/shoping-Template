@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useEffect } from "react";
-import { getEventGallery } from "../../../api/BussinessApi";
+import { getEventGallery } from "../../../../../../@core/api/BussinessApi";
 import LoadingSpinner from "../../../UI/LoadingSpinner";
 
 const EditorGalery = ({ data }) => {
