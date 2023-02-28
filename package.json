@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start -p 3001",
-    "lint": "next lint"
+    "start": "next start -p 3001"
+  
   },
   "dependencies": {
     "@headlessui/react": "^1.7.7",
@@ -16,11 +16,11 @@
     "iconsax-react": "^0.0.8",
     "jalali-moment": "^3.3.11",
     "leaflet": "^1.9.3",
-    "next": "^13.1.6",
+    "next": "^13.2.1",
     "next-translate": "^1.6.0",
     "nookies": "^2.5.2",
     "react": "^18.2.0",
-    "react-dom": "18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-input-mask": "^2.0.4",
     "react-leaflet": "^4.2.0",
@@ -33,7 +33,6 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
-    "eslint": "^8.32.0",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4"
   }

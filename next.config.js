@@ -65,12 +65,13 @@ const nextConfig = {
 // const mdxConfig = {
 //   extension: /.mdx?$/,
 //   options: {
-//     remarkPlugins: [],
+//     remarkPlullgins: [],
 //     rehypePlugins: [],
 //     // If you use MDXProvider, uncomment the following line.
 //     // providerImportSource: "@mdx-js/react",
 //   },
 // };
+// config.cache.type = "memory";
 
 const nextTranslate = require("next-translate");
 // const withPWA = require("next-pwa")(pwaConfig);

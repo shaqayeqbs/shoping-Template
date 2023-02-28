@@ -4,7 +4,7 @@ import { Bag2 } from "iconsax-react";
 import { BsCheckCircle } from "react-icons/bs";
 import { cartActions } from "../../../../../../../store/Slices/CartSlice";
 import { useDispatch } from "react-redux";
-import { Messages } from "../../../../constants/messages";
+import { Messages } from "../../../../../../../@core/constants/messages";
 import { Trash } from "iconsax-react";
 import { useSelector } from "react-redux";
 import { serverError } from "../../../../../../../@core/constants/toasts-messages";

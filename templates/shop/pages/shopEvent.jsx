@@ -22,7 +22,7 @@ const ShopEvent = (props) => {
 
   return (
     <div className="container mt-16 px-4">
-      <div className="container max-w-[900px] flex flex-col gap-5">
+      <div className="flex flex-col gap-5">
         <div className="flex items-center justify-between">
           <h3 className="font-bold text-3xl">{props.title}</h3>
           <div className="text-sm flex items-center justify-center">

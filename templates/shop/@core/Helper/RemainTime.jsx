@@ -1,5 +1,5 @@
 import React from "react";
-import useTimer from "../hooks/useTimer";
+import useTimer from "../../../../@core/hooks/useTimer";
 import useCalculateRemainingTime from "../../../../@core/hooks/useCalculateRemainingTime";
 function RemainTime({ remainTime }) {
   const [nowseconds, nowminutes, nowhours, nowdays] = useCalculateRemainingTime(

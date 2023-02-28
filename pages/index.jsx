@@ -1,8 +1,7 @@
-import axios from "axios";
-import { useState } from "react";
+import { useState, memo } from "react";
 // import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
-import { memo, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { businessAction } from "../store/Slices/BussinessSlice";
 // import dynamic from "next/dynamic";
