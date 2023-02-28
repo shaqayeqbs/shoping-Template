@@ -119,9 +119,9 @@ function ShopHome({ data = null }) {
             <Event event={item} key={item.id} />
           ))}
         </section>
-        <div className="container">
+        {/* <div className="container">
           <Slider title="گیاهان آپارتمانی" data={carousel} />
-        </div>
+        </div> */}
         <section className="my-10">
           <AboutUsSection />
         </section>

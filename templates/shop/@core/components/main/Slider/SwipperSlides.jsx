@@ -3,11 +3,11 @@ import Image from "next/image";
 function LandingCarouselSlide({ itemData: item }) {
   return (
     <Link href={item.link} className="mx-4 ">
-      <div className="relative  py-20 px-8  pb-32 cursor-pointer">
+      <div className="relative py-20 px-8  pb-32 cursor-pointer">
         <Image
           quality={30}
           priority
-          className="absolute w-full h-full top-0 blur-xl z-0"
+          className="absolute  top-0 blur-xl z-0"
           src={item?.file[0]?.details.location}
           alt="cover"
           layout="fill"
@@ -17,7 +17,7 @@ function LandingCarouselSlide({ itemData: item }) {
           style={{ zIndex: 100 }}
           className="container w-full overflow-hidden gap-5 md:flex relative justify-between block md:flex-row-reverse z-50 cadr"
         >
-          <div className="relative w-full h-[12rem] !md:h-[419px]">
+          <div className="relative w-full h-[12rem] md:!h-[419px]">
             <Image
               quality={30}
               priority
@@ -28,7 +28,7 @@ function LandingCarouselSlide({ itemData: item }) {
               }
               alt={item?.file[0]?.details.location}
               layout="fill"
-              className="object-cover !h-[14rem] block  rounded-xl  !md:h-[419px] z-30"
+              className="object-cover !h-[14rem] block  rounded-xl  md:!h-[419px] z-30"
             />
           </div>
           <div className="w-full md:translate-y-[10%] md:w-[30%] pr-6 pb-20 pt-0 p-9  text-right">

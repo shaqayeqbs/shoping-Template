@@ -19,7 +19,7 @@ function UserInformation() {
   const [birthdayDate, setBirthdayDate] = useState(birthday?.slice(0, 10));
   const [cities, setCities] = useState([]);
   // const [userCity, setUserCity] = useState(city.name);
-  const [cityId, setCityId] = useState(city.id);
+  const [cityId, setCityId] = useState(city?.id);
 
   const inputsWithUsage = [
     {

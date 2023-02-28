@@ -11,6 +11,7 @@ import useSetBussinessData from "../../@core/hooks/useSetBussinessData";
 
 import ShopArticles from "../../templates/shop/pages/articles/ShopArticles";
 function Articles({ data, articles }) {
+  console.log(data, articles, "art");
   useSetBussinessData(data);
 
   return (
@@ -35,11 +36,12 @@ export const getServerSideProps = async (ctx) => {
   }
 
   let result = await GetArticles(cookies?.id);
+  console.log(result);
   let gallery = await getBussinessGallery(cookies?.id);
 
   return {
     props: {
-      articles: result.data || null,
+      articles: result.data,
       data: bussinessData.data || null,
       gallery: gallery?.data || null,
     },

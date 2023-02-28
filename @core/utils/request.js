@@ -1,7 +1,7 @@
 import axios from "axios";
 import APP_CONFIG from "../constants/app-config";
 // import logout from "../../components/Hepler/logout";
-
+import logout from "./logout";
 export function getLocalAccessToken() {
   const accessToken = localStorage.getItem("token");
   return accessToken;
@@ -41,6 +41,15 @@ instance.interceptors.response.use(
       // if (err.code === "ERR_NETWORK" || err.code === "ECONNABORTED") {
       //   return err.code;
       // }
+      if (err.response.status === 401) {
+        console.log("checked user Auth", err.response.status);
+        console.log("hooooooooooooooooooooooooooooo");
+        logout();
+        // if (!window.location.href.includes("NoTFound")) {
+        //   window.location.href = "NoTFound";
+        //   return;
+        // }
+      }
 
       if (err.response.status === 404) {
         console.log("checked user Auth", err.response.status);
