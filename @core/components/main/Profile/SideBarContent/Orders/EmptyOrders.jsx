@@ -10,10 +10,10 @@ function EmptyOrders() {
       </div>
       <h2 className="my-6">هنوز هیچ سفارشی ندادید!</h2>
       <Link href="offer">
-        <a className="text-skin-primary text-[10px] underline">
+        <div className="text-skin-primary text-[10px] underline">
           {" "}
           رفتن به صفحه شگفت انگیزها
-        </a>
+        </div>
       </Link>
     </div>
   );
