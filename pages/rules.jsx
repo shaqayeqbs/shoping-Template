@@ -1,7 +1,7 @@
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 
-// const ShopRules = dynamic(() => import("../templates/shop/pages/ShopRules"));
-import ShopRules from "../templates/shop/pages/ShopRules";
+const ShopRules = dynamic(() => import("../templates/shop/pages/ShopRules"));
+// import ShopRules from "../templates/shop/pages/ShopRules";
 function Rules() {
   return (
     <>

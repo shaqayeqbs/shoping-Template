@@ -1,11 +1,11 @@
 // import ProductsDetail from "../../@core/components/main/shop/DetailPage/ProductsDetail";
 
 import { getSpecifiedProducts } from "../../@core/api/productApi";
-// import dynamic from "next/dynamic";
-// const ShopProductsDetailPage = dynamic(() =>
-//   import("../../templates/shop/pages/products/ShopDetail")
-// );
-import ShopProductsDetailPage from "../../templates/shop/pages/products/ShopDetail";
+import dynamic from "next/dynamic";
+const ShopProductsDetailPage = dynamic(() =>
+  import("../../templates/shop/pages/products/ShopDetail")
+);
+// import ShopProductsDetailPage from "../../templates/shop/pages/products/ShopDetail";
 
 const ProductsDetailPage = ({ item = null }) => {
   console.log({ item });

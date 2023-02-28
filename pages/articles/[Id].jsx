@@ -3,21 +3,24 @@ import Head from "next/head";
 import nookies from "nookies";
 import APP_CONFIG from "../../@core/constants/app-config";
 import END_POINTS from "../../@core/constants/endpoints";
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 
-// const ShopArticleDetailPage = dynamic(() =>
-//   import("../../templates/shop/pages/articles/ShopArticleDetail")
-// );
-import ShopArticleDetailPage from "../../templates/shop/pages/articles/ShopArticleDetail";
+const ShopArticleDetailPage = dynamic(() =>
+  import("../../templates/shop/pages/articles/ShopArticleDetail")
+);
+// import ShopArticleDetailPage from "../../templates/shop/pages/articles/ShopArticleDetail";
 
 const ProductsDetailPage = ({ articleData }) => {
-  
   return (
     <div className=" !py-10">
       <Head>
         <title>{articleData?.title}</title>
-        <meta name="description" content={articleData?.editors?.find(editor => editor.type === 2)?.value?.slice(0, 160)}
-         />
+        <meta
+          name="description"
+          content={articleData?.editors
+            ?.find((editor) => editor.type === 2)
+            ?.value?.slice(0, 160)}
+        />
       </Head>
       <ShopArticleDetailPage item={articleData.editors} />
     </div>
@@ -25,7 +28,6 @@ const ProductsDetailPage = ({ articleData }) => {
 };
 
 export default ProductsDetailPage;
-
 
 export const getServerSideProps = async (ctx) => {
   const cookies = nookies.get(ctx);
@@ -45,7 +47,7 @@ export const getServerSideProps = async (ctx) => {
     url = "tivarja.ir";
   }
 
-  let id = cookies?.id
+  let id = cookies?.id;
 
   if (!cookies || !cookies.id) {
     const response = await axios(
@@ -58,7 +60,7 @@ export const getServerSideProps = async (ctx) => {
         return { notFound: true };
       }
     });
-    id = response.data.data.domin.business.id
+    id = response.data.data.domin.business.id;
     console.log(response.data.data.domin.business.id);
   }
 
