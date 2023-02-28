@@ -40,7 +40,7 @@ const ShopEvent = (props) => {
         <Image
           width={500}
           height={50}
-          src={props.files[0].details.location}
+          src={props.files[0]?.details.location}
           alt={props.title}
           className="rounded-xl w-full"
         />

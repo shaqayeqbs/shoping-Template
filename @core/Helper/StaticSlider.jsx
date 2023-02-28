@@ -39,7 +39,7 @@ function HeaderCarousel({ items }) {
                   quality={50}
                   loading="lazy"
                   alt="list of products"
-                  src={item.details?.location}
+                  src={item?.details?.location}
                   width={360}
                   height={360}
                   className="object-cover rounded  "

@@ -15,12 +15,12 @@ const EditorGalery = ({ data }) => {
         title: recievedData?.data?.data?.gallery?.name,
         data: recievedData?.data?.data?.gallery?.files?.map((data) => (
           <Image
-            src={data.details.location}
+            src={data?.details.location}
             width={300}
             height={300}
             alt={data.name}
             key={data.id}
-            className='rounded-lg w-full'
+            className="rounded-lg w-full"
           />
         )),
       };
@@ -33,7 +33,7 @@ const EditorGalery = ({ data }) => {
     <div className="w-full">
       {isLoading && <LoadingSpinner />}
       {galleryData && (
-          <div className=" grid md:grid-cols-3 gap-4">{galleryData.data}</div>
+        <div className=" grid md:grid-cols-3 gap-4">{galleryData.data}</div>
       )}
     </div>
   );

@@ -5,10 +5,10 @@ const EditorImage = ({ data }) => {
     !data ||
     !data.files ||
     !data.files.length ||
-    !data.files[0].details ||
-    !data.files[0].details.location
+    !data.files[0]?.details ||
+    !data.files[0]?.details.location
   ) {
-    return <></>
+    return <></>;
   }
   return (
     <Image
