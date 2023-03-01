@@ -1,10 +1,11 @@
 // import { digitsEnToFa } from "@persian-tools/persian-tools";
 import Link from "next/link";
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { Autoplay, Navigation, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/legacy/image";
-const Carousel = ({ products = null }) => {
+const Carousel = (products) => {
+  const [swiper, setSwiper] = useState(null);
   console.log(products, "swieppere");
   return (
     <div className="">
@@ -28,8 +29,10 @@ const Carousel = ({ products = null }) => {
         }}
         spaceBetween={10}
         navigation={true}
+        disableOnInteraction={true}
         modules={[Autoplay, Navigation, Scrollbar]}
         scrollbar={{ draggable: true, hide: true }}
+        onSwiper={setSwiper}
       >
         {products?.products?.map((item) => (
           <SwiperSlide

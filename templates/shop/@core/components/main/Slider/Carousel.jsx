@@ -1,10 +1,11 @@
 import { digitsEnToFa } from "@persian-tools/persian-tools";
 import Link from "next/link";
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { Autoplay, Navigation, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/legacy/image";
 const Carousel = ({ data = null, articles }) => {
+  const [swiper, setSwiper] = useState(null);
   return (
     <div className="">
       {" "}
@@ -33,6 +34,7 @@ const Carousel = ({ data = null, articles }) => {
         navigation={true}
         modules={[Autoplay, Navigation, Scrollbar]}
         className=""
+        onSwiper={setSwiper}
       >
         {data?.map((item) => (
           <SwiperSlide
@@ -43,7 +45,17 @@ const Carousel = ({ data = null, articles }) => {
               href={articles ? `/articles/${item.id}` : `/products/${item.id}`}
               key={item.id}
             >
-              <div className="cadr cursor-pointer w-full">
+              <div
+                className="cadr cursor-pointer w-full"
+                onMouseLeave={() => {
+                  console.log("first");
+                  swiper.autoplay.start();
+                }}
+                onMouseOver={() => {
+                  console.log("over");
+                  swiper.autoplay.stop();
+                }}
+              >
                 <div className="reltive">
                   {" "}
                   {item?.files && (
