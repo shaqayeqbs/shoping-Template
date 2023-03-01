@@ -11,13 +11,19 @@ const Carousel = ({ data, articles }) => {
       {" "}
       <Swiper
         breakpoints={{
-          400: {
+          600: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+          },
+
+          700: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          },
+
+          1000: {
             slidesPerView: 3,
             slidesPerGroup: 3,
-          },
-          700: {
-            slidesPerView: 4,
-            slidesPerGroup: 4,
           },
         }}
         spaceBetween={20}

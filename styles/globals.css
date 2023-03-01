@@ -52,7 +52,8 @@
   .cadr {
     display: block;
     width: 95%;
-    min-width: 16rem;
+    min-width: 14rem;
+
     box-sizing: border-box;
     object-fit: cover;
     padding: 9px !important;
@@ -228,12 +229,11 @@ input {
   text-align: center;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1050px) {
   .filterBtn {
     margin: 1.5rem 0.5em;
   }
   .container {
-    width: 100%;
     max-width: initial;
     margin: 0 auto;
     padding: 0rem;
@@ -242,5 +242,17 @@ input {
   input {
     display: inline-block;
     margin: 0rem;
+  }
+  .cadr {
+    display: block;
+    width: 100%;
+    min-width: min-content;
+
+    box-sizing: border-box;
+    object-fit: cover;
+    padding: 9px !important;
+    background-color: white;
+    border-radius: 15px;
+    text-align: center;
   }
 }

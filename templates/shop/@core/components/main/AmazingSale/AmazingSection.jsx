@@ -20,8 +20,8 @@ function AmazingSection(products) {
         تخفیفات شگفت انگیز
       </h1>
 
-      <div className="hidden md:block bg-black">
-        <div className="bg-[white]  ml-6  rounded-2xl w-[200px] lg:w-[262px]  h-[368px]  py-6 text-[22px] ">
+      <div className="hidden md:block  min-w-[200px] w-[35%]   ">
+        <div className="bg-[white]  ml-3  rounded-2xl   h-[358px]  py-6 text-[22px] ">
           <div className=" px-14 py-10 pt-5">
             <Offer />
           </div>
@@ -54,7 +54,7 @@ function AmazingSection(products) {
         </div>
       </div>
 
-      <div className="w-full   m-0 !md:mr-5">
+      <div className="w-full   m-0  ">
         {" "}
         <Carousel products={products} />
       </div>

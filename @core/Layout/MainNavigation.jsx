@@ -48,7 +48,7 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
       }
     >
       {<ModalVerification isOpen={openAuthModal} onClose={authHandler} />}
-      <div className=" hidden md:block   w-full h-full px-2 mb-2 md:px-16">
+      <div className=" hidden md:block   w-full h-full px-2 mb-2  ">
         <NavBar />
         <div className="container my-5 ">
           {" "}

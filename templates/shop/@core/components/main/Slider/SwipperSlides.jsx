@@ -15,7 +15,7 @@ function LandingCarouselSlide({ itemData: item }) {
 
         <div
           style={{ zIndex: 100 }}
-          className="container w-full overflow-hidden gap-5 md:flex relative justify-between block md:flex-row-reverse z-50 cadr"
+          className="container    md:flex relative justify-between block md:flex-row-reverse z-50 bg-[white] !p-[9px] rounded-xl "
         >
           <div className="relative w-full h-[12rem] md:!h-[419px]">
             <Image
