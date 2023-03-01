@@ -177,6 +177,7 @@ function ProductsDetail({ item }) {
       <FilterShowDetails
         dynamicOptions={item.inventory.options}
         options={item.inventory.product.staticOption}
+        description={item.inventory.product.editors}
       />
       <div className="container">
         <Slider title="گلدان های جدید" data={carousel} />
