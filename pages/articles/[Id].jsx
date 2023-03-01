@@ -73,6 +73,10 @@ export const getServerSideProps = async (ctx) => {
     }
   });
 
+  if (!result || result.status !== 200) {
+    return { notFound: true };
+  }
+
   return {
     props: {
       articleData: result?.data?.data?.article || null,
