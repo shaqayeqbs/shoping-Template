@@ -44,40 +44,6 @@ function ShopContact() {
   return (
     <section className="container">
       <h1 className="mt-14">راه های ارتباطی</h1>
-      <div className="md:flex justify-between w-full">
-        {dataList?.map((item) => (
-          <div
-            key={item.id}
-            className="bg-[white] flex justify-between ml-4 w-full rounded-md  py-4 mt-10 px-4  pt-8 "
-          >
-            <div>
-              <div className="bg-skin-fill flex mx-10 align-middle text-[white]  w-[3rem] h-[3rem] text-center rounded-full p-2  px-[0.6rem]">
-                {item.icon}
-              </div>
-              <div className="mx-3 mt-4 font-bold text-center">
-                {item.title}
-              </div>
-            </div>
-            <div
-              className={
-                item.items.length >= 3
-                  ? "grid grid-cols-2"
-                  : "my-2 text-center mx-3 "
-              }
-            >
-              {item?.items?.map((item, index) => (
-                <div
-                  dir="ltr"
-                  key={index}
-                  className="text-center ltr my-2 w-full "
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
       <div className="mt-4 z-0">
         <Map
           readOnly
@@ -100,6 +66,37 @@ function ShopContact() {
             </>
           )}
         </Map>
+      </div>
+      <div className="sm:flex flex-wrap justify-around w-full">
+        {dataList?.map((item) => (
+          <div
+            key={item.id}
+            className="bg-[white] flex flex-col justify-between ml-4 w-full rounded-md  py-4 my-10  px-8 items-center sm:max-w-[230px]"
+          >
+            <div className="bg-skin-fill flex mx-10 align-middle text-[white]  w-[3rem] h-[3rem] text-center rounded-full p-2  px-[0.6rem]">
+              {item.icon}
+            </div>
+            <div className="mx-3 mt-4 font-bold text-center">{item.title}</div>
+            <div className="text-skin-primary pt-6">نمایش</div>
+            {/* <div
+              className={
+                item.items.length >= 3
+                  ? "grid grid-cols-2"
+                  : "my-2 text-center mx-3 "
+              }
+            >
+              {item?.items?.map((item, index) => (
+                <div
+                  dir="ltr"
+                  key={index}
+                  className="text-center ltr my-2 w-full "
+                >
+                  {item}
+                </div>
+              ))}
+            </div> */}
+          </div>
+        ))}
       </div>
       <WorkTIme />
     </section>

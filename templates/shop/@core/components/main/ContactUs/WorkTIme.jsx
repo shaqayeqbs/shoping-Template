@@ -63,14 +63,14 @@ function WorkTIme() {
   return (
     <section className="mb-4">
       <h1>ساعات کاری</h1>
-      <ul className="flex w-full my-8">
+      <ul className="flex flex-wrap w-full my-8 justify-center">
         {weekData?.map((item) => (
           <li
             key={item.index}
             className={
               item.day === today
-                ? "w-full !text-[white] bg-skin-fill ml-6 rounded-xl p-4 text-center"
-                : "w-full bg-[white] ml-6 rounded-xl p-4 text-center"
+                ? "!text-[white] bg-skin-fill ml-6 mb-6 rounded-xl p-4 text-center w-[140px] h-[140px]"
+                : "bg-[white] ml-6 mb-6 rounded-xl p-4 text-center w-[140px] h-[140px]"
             }
           >
             <div>{item.day}</div>
