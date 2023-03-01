@@ -16,7 +16,6 @@ import mainData from "../@core/utils/serverProps";
 import { getListOfProducts } from "../@core/api/productApi";
 
 function Home({ data, articles, products }) {
-  console.log(articles, "dataaaaaaaaaa", products);
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   useEffect(() => {

@@ -1,21 +1,7 @@
 .section {
   display: flex;
 }
-.items {
-  overflow: hidden;
-  color: #238b44;
-  margin: 0rem 0;
-  width: 100%;
-  padding: 0.8rem 2rem;
-}
 
-.items:hover {
-  color: white;
-  background-color: #238b44;
-
-  text-align: right;
-  border-radius: 6px;
-}
 .children {
   margin: 1rem 2rem;
   padding: 0 1rem;

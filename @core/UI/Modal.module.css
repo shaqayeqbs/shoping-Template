@@ -15,9 +15,11 @@
 }
 .megaModal {
   position: fixed;
-  top: 20rem;
+  top: 27.1rem;
   left: 0rem;
   right: 0rem;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
   transform: translate(-0%, -50%);
   padding: 0rem;
   z-index: 1000000 !important;

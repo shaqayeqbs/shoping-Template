@@ -3,13 +3,18 @@ import items from "../data/data.json";
 import Modal from "../UI/Modal";
 import classes from "./MegaMenu.module.css";
 import MegaMenuList from "./MegaMenuList";
+import { useSelector } from "react-redux";
 
 function MegaMenu({ isOpen, onCloseModalHandler }) {
-  const [children, setChildren] = useState(items[0]?.children);
+  const productCategorys = useSelector(
+    (state) => state?.businessSlice.productCategorys
+  );
+  const [children, setChildren] = useState(productCategorys[0].children);
 
   const changeChildrenHandler = (item) => {
     setChildren(item.children);
   };
+  console.log({ productCategorys }, "hereee");
   return (
     <div>
       <Modal
@@ -19,21 +24,25 @@ function MegaMenu({ isOpen, onCloseModalHandler }) {
         MegaMenu={true}
       >
         <ul className={classes.section}>
-          <div>
-            {items?.map((item) => (
-              <MegaMenuList
-                key={item.id}
-                item={item}
-                color
-                onChangeChildren={changeChildrenHandler}
-              />
+          <div className="overflow-y-scroll max-h-[32.5rem] text-skin-primary">
+            {productCategorys?.map((item) => (
+              <div>
+                <MegaMenuList
+                  key={item.id}
+                  item={item}
+                  color
+                  onChangeChildren={changeChildrenHandler}
+                />
+              </div>
             ))}
           </div>
-          <div>
-            {children?.map((item) => (
-              <MegaMenuList key={item.id} item={item} />
-            ))}
-          </div>
+          {children && (
+            <div>
+              {children?.map((item) => (
+                <MegaMenuList key={item.id} item={item} />
+              ))}
+            </div>
+          )}
         </ul>
       </Modal>
     </div>

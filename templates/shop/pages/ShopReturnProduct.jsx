@@ -1,7 +1,6 @@
 import MainEditor from "../@core/components/main/EditorItems/MainEditor";
 
 function ShopReturnProduct({ data }) {
-  console.log(data);
   return (
     <div className=" container !py-10">
       <div className=" flex flex-col gap-5">
