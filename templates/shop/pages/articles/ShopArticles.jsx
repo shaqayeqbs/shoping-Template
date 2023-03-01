@@ -33,16 +33,17 @@ const SortList = [
 ];
 
 function ShopArticles({ data, articles }) {
+  console.log(articles?.data?.articles);
   return (
     <section className="container">
       <div className="mt-12 ">
         {" "}
-        <Gallery />
+        <Gallery data = {articles?.data?.articles}/>
       </div>
       <h1 className="mt-16 mb-8">همه مقاله ها</h1>
       <OrderingList data={SortList} />
       <List data={articles?.data?.articles} articles={true} />
-      <Pagination />
+      {/* <Pagination /> */}
     </section>
   );
 }

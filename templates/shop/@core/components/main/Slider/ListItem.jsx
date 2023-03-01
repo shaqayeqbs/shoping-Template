@@ -26,28 +26,16 @@ function ListItem({
   return (
     <Link
       href={articles ? `/articles/${item.id}` : `/products/${item.id}`}
-      className=" mx-2 w-1/2 relative"
+      className=" mx-2 w-[100%] relative ml-2 pb-0"
     >
       <div
         className={
           favorties
-            ? "cadr my-2 w-full  border-r-2 relative rounded-none border-bordercolor "
-            : "cadr my-2  w-full mx-1 relative"
+            ? "cadr w-full h-full  border-r-2 relative rounded-none border-bordercolor "
+            : "cadr w-full h-full relative"
         }
       >
-        {item.business?.files[0] && (
-          <Image
-            quality={50}
-            decoding="async"
-            alt="slider photo"
-            loading="lazy"
-            src={item.business?.files[0]?.details?.location}
-            width={200}
-            height={200}
-            className="h-[10rem] rounded-lg w-full mx-auto"
-          />
-        )}
-        <div className="relative w-full h-[2rem]">
+        <div className="relative w-full">
           {" "}
           {item.files && (
             <img
@@ -61,7 +49,6 @@ function ListItem({
                   : "https://via.placeholder.com/300/ccc/fff.png"
               }
               className="object-cover rounded-md mb-5"
-              style={{ width: "15rem", height: "15rem" }}
             />
           )}
         </div>
