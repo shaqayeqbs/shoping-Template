@@ -30,7 +30,7 @@ const Carousel = ({ data = null, articles }) => {
       >
         {data?.map((item) => (
           <SwiperSlide
-            className="flex w-full   justify-center lg:text-right "
+            className="flex w-full bg-[red]  justify-center lg:text-right "
             key={item.id}
           >
             <Link
@@ -40,7 +40,7 @@ const Carousel = ({ data = null, articles }) => {
               <div className="cadr cursor-pointer w-full">
                 <div className="reltive">
                   {" "}
-                  {item.files && (
+                  {item?.files && (
                     <Image
                       quality={50}
                       decoding="async"
