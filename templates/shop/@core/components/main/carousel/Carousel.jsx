@@ -1,4 +1,4 @@
-import { digitsEnToFa } from "@persian-tools/persian-tools";
+// import { digitsEnToFa } from "@persian-tools/persian-tools";
 import Link from "next/link";
 import React, { memo } from "react";
 import { Autoplay, Navigation, Scrollbar } from "swiper";
