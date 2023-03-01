@@ -7,7 +7,7 @@ export const getListOfProducts = async (businessId) => {
     const res = await instance.get(
       END_POINTS.get_list_of_products + businessId
     );
-    console.log({ res });
+
     return res;
   } catch (err) {
     if (err?.response) {

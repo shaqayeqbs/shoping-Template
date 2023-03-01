@@ -12,7 +12,6 @@ function Footer() {
   const socials = useSelector((state) => state.businessSlice?.connections);
   const title = useSelector((state) => state.businessSlice?.name);
   const logo = useSelector((state) => state.businessSlice?.logo);
-  console.log(logo);
 
   return (
     <footer className="container block !pt-4 !md:pt-16 border-t-2 border-primary !mt-16 ">

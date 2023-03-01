@@ -10,7 +10,6 @@ import useCalculateRemainingTime from "../../../../../../@core/hooks/useCalculat
 function AmazingSection({ products }) {
   let offDate = new Date();
 
-  console.log(offDate, "lllll");
   for (const each in products) {
     if (products[each]?.price?.off) {
       const productEndOff = new Date(products[each]?.price?.off?.end);
@@ -35,14 +34,11 @@ function AmazingSection({ products }) {
     .slice(0, 19)
     .replaceAll(",", "");
 
-  console.log(formattedDate, "end");
   const [nowseconds, nowminutes, nowhours, nowdays] =
     useCalculateRemainingTime(formattedDate);
 
   const [hours, minutes, seconds, farsMin, FaHours, Faseconds, refreshTimer] =
     useTimer(nowseconds, nowminutes, nowhours, nowdays);
-
-  console.log(hours, minutes, seconds, farsMin, FaHours, Faseconds);
 
   const timerBtn =
     "bg-skin-secondary md:h-[2.5rem] w-[2.5rem]  p-2 px-5 text-skin-primary rounded-md";

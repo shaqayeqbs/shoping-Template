@@ -6,7 +6,7 @@ import "swiper/css/scrollbar";
 
 function HeaderCarousel({ items }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  console.log(items, ":(ooooooooooooooooooo");
+
   return null;
   return (
     <div className="flex  w-full relative gap-0  text-right ltr h-[17rem]  md:h-max ">

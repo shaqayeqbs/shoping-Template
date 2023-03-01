@@ -68,15 +68,10 @@ function InputMask({
   onAddDate,
 }) {
   const valueFinal = value ? fixNumbers(value.toString()) : "";
-  console.log(
-    valueFinal,
-    moment.from(valueFinal, "fa", "YYYY/MM/DD").format("YYYY/MM/DD")
-  );
+
   const test = moment.from(valueFinal, "fa", "YYYY/MM/DD").format("YYYY/MM/DD");
   const onClickHandler = () => {
-    console.log("joooooooooooooo");
     if (test) {
-      console.log(test);
       onAddDate(test);
     }
   };

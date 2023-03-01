@@ -10,6 +10,7 @@ export const initialState = {
   phone: [],
   workTimes: [],
   colors: {},
+  productCategorys: [],
 };
 
 const businessSlice = createSlice({
@@ -36,6 +37,7 @@ const businessSlice = createSlice({
       state.description = data?.description;
       state.workTimes = data?.workTimes;
       state.colors = data?.template?.colorPalette;
+      state.productCategorys = data?.category?.productCategorys;
     },
   },
 });

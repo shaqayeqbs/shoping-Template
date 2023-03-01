@@ -17,7 +17,6 @@ function NavBar({ onCloseModalHandler }) {
     setOpenAuthModal((prevState) => !prevState);
   };
   const showSearchHandler = () => {
-    console.log(showSearchForm);
     setShowSearchForm((prev) => !prev);
   };
   const businessName = useSelector((state) => state?.businessSlice?.name);

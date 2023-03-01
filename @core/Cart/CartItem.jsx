@@ -6,7 +6,7 @@ const CartItem = (props) => {
   const [amount, setAmount] = useState(+props.amount);
   const { price, off_price, final_price } = props.price;
   //   const price = `$${+props.price.toFixed(2)}`;
-  console.log(props);
+
   const onRemoveHandler = () => {
     props.onRemove();
     setAmount((prev) => prev - 1);
@@ -15,7 +15,7 @@ const CartItem = (props) => {
     props.onAdd();
     setAmount((prev) => prev + 1);
   };
-  console.log(props.price);
+
   return (
     <li className="bg-[white] text-center mb-8 rounded-xl flex justify-between p-4">
       <div className="flex">
