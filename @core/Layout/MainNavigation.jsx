@@ -17,6 +17,7 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
   const [isVisible, setIsVisible] = useState(true);
   const businessName = useSelector((state) => state?.businessSlice?.name);
   const isLoggedIn = useSelector((state) => state?.user.isLoggedIn);
+  const logo = useSelector((state) => state?.businessSlice?.logo);
   const authHandler = () => {
     setOpenAuthModal((prevState) => !prevState);
   };
@@ -43,8 +44,8 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
     <div
       className={
         nav
-          ? "!w-full bg-[white] fixed z-50"
-          : " w-full bg-[white]  !right-0 fixed z-50"
+          ? "!w-full bg-skin-background fixed z-50"
+          : " w-full bg-skin-background !right-0 fixed z-50"
       }
     >
       {<ModalVerification isOpen={openAuthModal} onClose={authHandler} />}
@@ -64,31 +65,31 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
       </div>
 
       {/* Hamburger Icon */}
-      <div className=" md:hidden w-full p-4 pt-8 flex gap-0 justify-between">
+      <div className="w-full px-4 container mx-auto"><div className=" md:hidden w-full pt-6 flex gap-0 justify-between border-b-2 border-primary ">
         {" "}
-        <div className="flex">
+        {/* <div className="flex"> */}
           {" "}
-          <div onClick={handleNav} className="ml-1">
+          <div onClick={handleNav} className="ml-1 h-fit">
             <AiOutlineMenu size={25} />
           </div>
-          <div className=" float-left text-left -mt-2 ">
+        {/* </div> */}
+          {/* <div className=" float-left text-left -mt-2 "> */}
             {" "}
-            <div className="relative flex w-full">
+            <Link href={'/'} className="relative flex">
               {" "}
               <Image
                 quality={50}
                 loading="lazy"
-                src="http://core.behzi.net/storage/image/business/logo/1670323071.png"
+                src={logo}
                 width={60}
                 height={60}
                 // loader={myLoader}
                 alt="logo"
-                className="w-[2.5rem] h-[2.5rem] md:w-full md:h-full"
+                className="w-[2.5rem] h-[2.5rem] md:w-full md:h-full rounded-full ml-3"
               />
               <h2 className="ml-4 mt-2 md:mt-0 w-full"> {businessName} </h2>
-            </div>
-          </div>
-        </div>
+            </Link>
+          {/* </div> */}
         <div className="text-left ">
           {" "}
           <Link href="/">
@@ -121,7 +122,7 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
       {/* Mobile Menu */}
 
       {nav && <Nav nav={nav} closeNav={closeNav} />}
-    </div>
+    </div></div>
   );
 }
 

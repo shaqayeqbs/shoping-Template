@@ -39,13 +39,14 @@ function NavBar({ onCloseModalHandler }) {
       >
         <Link href="/">
           <div className="flex">
-            <div className="relative w-[4rem] h-[4rem]">
+            <div className="relative w-[4rem] h-[4rem] rounded-full overflow-hidden">
               {" "}
               <Image
                 quality={50}
                 src={logo}
-                width={60}
-                height={60}
+                fill
+                // width={60}
+                // height={60}
                 loading="lazy"
                 alt="logo"
               />
