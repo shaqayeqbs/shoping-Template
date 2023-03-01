@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { digitsEnToFa } from "@persian-tools/persian-tools";
 
-export default function useTimer(sec, min, hour, day = 0) {
+export default function useTimer(sec = 0, min = 0, hour = 0, day = 0) {
   const initialMinute = min;
   const initialSeconds = sec;
   const initialHours = hour;

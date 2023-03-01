@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-function LandingCarouselSlide({ itemData: item }) {
+function LandingCarouselSlide({ itemData: item, swiper }) {
   return (
     <Link href={item.link} className="mx-4 ">
       <div className="relative py-20 px-8  pb-32 cursor-pointer">
@@ -17,7 +17,17 @@ function LandingCarouselSlide({ itemData: item }) {
           style={{ zIndex: 100 }}
           className="container    md:flex relative justify-between block md:flex-row-reverse z-50 bg-[white] !p-[9px] rounded-xl "
         >
-          <div className="relative w-full h-[12rem] md:!h-[419px]">
+          <div
+            className="relative w-full h-[12rem] md:!h-[419px]"
+            onMouseLeave={() => {
+              console.log("first");
+              swiper.autoplay.start();
+            }}
+            onMouseOver={() => {
+              console.log("over");
+              swiper.autoplay.stop();
+            }}
+          >
             <Image
               quality={30}
               priority

@@ -80,9 +80,10 @@ export const getServerSideProps = async (ctx) => {
   }
 
   let bussinessData = await mainData(ctx);
+  const id = bussinessData?.data.data.domin.business.id;
 
-  let articles = await GetArticles(cookies?.id);
-  let products = await getListOfProducts(cookies?.id);
+  let articles = await GetArticles(id);
+  let products = await getListOfProducts(id);
 
   return {
     props: {

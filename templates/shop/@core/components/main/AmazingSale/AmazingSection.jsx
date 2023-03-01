@@ -5,10 +5,44 @@ import useTimer from "../../../../../../@core/hooks/useTimer";
 import Offer from "../../../icons/Offer";
 // const Carousel = dynamic(() => import("../carousel/carousel"));
 import Carousel from "../Carousel/Carousel";
+import useCalculateRemainingTime from "../../../../../../@core/hooks/useCalculateRemainingTime";
 
-function AmazingSection(products) {
+function AmazingSection({ products }) {
+  let offDate = new Date();
+
+  console.log(offDate, "lllll");
+  for (const each in products) {
+    if (products[each]?.price?.off) {
+      const productEndOff = new Date(products[each]?.price?.off?.end);
+
+      if (offDate.getTime() < productEndOff.getTime()) {
+        offDate = productEndOff;
+      }
+    }
+  }
+  const options = {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+  };
+
+  let formattedDate = offDate
+    .toLocaleString("en-US", options)
+    .replaceAll("/", "-")
+    .slice(0, 19)
+    .replaceAll(",", "");
+
+  console.log(formattedDate, "end");
+  const [nowseconds, nowminutes, nowhours, nowdays] =
+    useCalculateRemainingTime(formattedDate);
+
   const [hours, minutes, seconds, farsMin, FaHours, Faseconds, refreshTimer] =
-    useTimer(0, 2, 0);
+    useTimer(nowseconds, nowminutes, nowhours, nowdays);
+
+  console.log(hours, minutes, seconds, farsMin, FaHours, Faseconds);
 
   const timerBtn =
     "bg-skin-secondary md:h-[2.5rem] w-[2.5rem]  p-2 px-5 text-skin-primary rounded-md";
@@ -26,21 +60,18 @@ function AmazingSection(products) {
             <Offer />
           </div>
 
-          <h1 className="text-xl text-center mb-8">تخفیفات شگفت انگیز</h1>
-          <div>
-            {(hours === 0) & (minutes === 0) && seconds === 0 ? null : (
-              <h3 className="text-center my-4" dir="rtl">
-                <span className={timerBtn}>{FaHours}</span>
-                <span className={timerDevider}>:</span>
-                <span className={timerBtn}>{farsMin}</span>{" "}
-                <span className={timerDevider}>:</span>
-                {seconds < 10 ? (
-                  <span className={timerBtn}>۰{Faseconds}</span>
-                ) : (
-                  <span className={timerBtn}>{Faseconds}</span>
-                )}
-              </h3>
-            )}
+          <h1 className="text-xl text-center mb-4">تخفیفات شگفت انگیز</h1>
+          <div className=" flex h-max   justify-center  !mb-9 ">
+            <div className="relative  m-2 mb-10  flex ltr text-skin-primary text-left h-6">
+              {(hours === 0) & (minutes === 0) && seconds === 0 ? null : (
+                <div className="mb-9">
+                  <h3 className="ltr" dir="ltr">
+                    {FaHours}: {farsMin} :
+                    {seconds < 10 ? `۰${Faseconds}` : Faseconds}
+                  </h3>
+                </div>
+              )}
+            </div>
           </div>
         </div>
         <div className=" flex justify-center text-[white] mt-6 mx-4 md:text-[20px]">
