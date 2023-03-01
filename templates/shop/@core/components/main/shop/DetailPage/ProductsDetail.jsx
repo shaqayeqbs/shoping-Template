@@ -179,9 +179,9 @@ function ProductsDetail({ item }) {
         options={item.inventory.product.staticOption}
         description={item.inventory.product.editors}
       />
-      <div className="container">
+      {/* <div className="container">
         <Slider title="گلدان های جدید" data={carousel} />
-      </div>
+      </div> */}
     </>
   );
 }

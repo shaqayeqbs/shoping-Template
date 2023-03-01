@@ -28,6 +28,11 @@
       "href": "/offer"
     },
     {
+      "id": 2,
+      "title": "وبلاگ",
+      "href": "/articles"
+    },
+    {
       "id": 3,
       "title": "درباره ما",
       "href": "/about-us"
