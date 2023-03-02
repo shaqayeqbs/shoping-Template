@@ -1,9 +1,9 @@
 import instance from "../utils/request";
 import END_POINTS from "../constants/endpoints";
 
-export const gateWayBanks = async () => {
+export const gateWayBanks = async (id) => {
   try {
-    const res = await instance.get(END_POINTS.get_current_user);
+    const res = await instance.get(END_POINTS.gate_way + id);
     console.log(res);
 
     return res?.data;
