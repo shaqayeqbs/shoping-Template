@@ -1,18 +1,11 @@
 import React from "react";
-import useTimer from "../../../../../../@core/hooks/useTimer";
-import useCalculateRemainingTime from "../../../../../../@core/hooks/useCalculateRemainingTime";
-import classes from "../Carousel/Carousel.module.css";
-import TimeHistory from "../../../icons/TimeHistory";
-import Link from "next/link";
-import Image from "next/image";
-import { Trash } from "iconsax-react";
 import { digitsEnToFa } from "@persian-tools/persian-tools";
-function ListItem({
-  item,
-  offcerPage = null,
-  articles = null,
-  favorties = null,
-}) {
+import Link from "next/link";
+import Image from "next/legacy/image";
+import useCalculateRemainingTime from "../../../../../../@core/hooks/useCalculateRemainingTime";
+import TimeHistory from "../../../icons/TimeHistory";
+import useTimer from "../../../../../../@core/hooks/useTimer";
+function OfferCarousel({ item }) {
   const [nowseconds, nowminutes, nowhours, nowdays] = useCalculateRemainingTime(
     item.price?.off?.end
   );
@@ -22,40 +15,66 @@ function ListItem({
     nowhours,
     nowdays
   );
-
   return (
-    <Link
-      href={articles ? `/articles/${item.id}` : `/products/${item.id}`}
-      className=" mx-2 w-[100%] relative ml-2 pb-0"
-    >
+    <Link href={`/products/${item.id}`} key={item.id}>
       <div
-        className={
-          favorties
-            ? "cadr w-full h-full  border-r-2 relative rounded-none border-bordercolor "
-            : "cadr w-full h-full relative"
-        }
+        className="cadr cursor-pointer w-full"
+        onMouseLeave={() => {
+          console.log("first");
+          swiper.autoplay.start();
+        }}
+        onMouseOver={() => {
+          console.log("over");
+          swiper.autoplay.stop();
+        }}
       >
-        <div className="relative w-full">
+        <div className="reltive">
           {" "}
-          {item?.product && (
-            <img
+          {item?.files && (
+            <Image
               quality={50}
               decoding="async"
               alt="slider photo"
               loading="lazy"
+              placeholder="blur"
+              blurDataURL={item?.files[0]?.details?.location}
+              src={item?.files[0]?.details?.location}
+              width={500}
+              height={500}
+              className="object-cover md:mx-auto"
+            />
+          )}
+        </div>
+        <div className="reltive">
+          {" "}
+          {item?.product && (
+            <Image
+              quality={50}
+              decoding="async"
+              alt="slider photo"
+              loading="lazy"
+              placeholder="blur"
+              blurDataURL={
+                item?.product?.files[0]
+                  ? item?.product.files[0]?.details?.location
+                  : "https://via.placeholder.com/300/ccc/fff.png"
+              }
               src={
                 item?.product?.files[0]
                   ? item?.product.files[0]?.details?.location
                   : "https://via.placeholder.com/300/ccc/fff.png"
               }
-              className="object-cover h-[15rem] rounded-md mb-9"
+              width={500}
+              height={500}
+              className="object-cover md:mx-auto"
             />
           )}
         </div>
-        {/* {item.category && <div>{item.category.name}</div>} */}
-        <h2 className="text-right">{item?.product?.translate[0]?.data}</h2>
-        {!articles && (
-          <div className={classes.flexBetween}>
+        <h2 className="font-bold my-3 text-lg md:text-right">
+          {item.title ? item.title : item.product.translate[0].data}
+        </h2>
+        <p className="text-[#6F6F6F] py-2">
+          <div className="flex justify-between">
             {item?.price?.price && (
               <div className=" bg-skin-secondary text-skin-primary rounded-lg pt-3 px-2  w-max ml-[.3rem] text-center">
                 {digitsEnToFa(item?.price?.price?.toLocaleString())}
@@ -80,23 +99,9 @@ function ListItem({
               <div className="mt-[.3rem] text-base mr-2">تومان</div>
             </div>
           </div>
-        )}
-        {articles && (
-          <div className="flex flex-col items-start">
-            <h2>{item.title}</h2>
-            <div className="my-4  text-justify tracking-tight text-sm px-2">
-              {
-                <p>
-                  {item.editors
-                    .find((editor) => editor.type === 2)
-                    .value.slice(0, 250)}
-                  ...
-                </p>
-              }
-            </div>
-          </div>
-        )}
-        {offcerPage && (
+        </p>
+
+        {item?.price?.price && (
           <div className="relative m-2 mb-6 flex ltr text-skin-primary text-left h-6">
             {(hours === 0) & (minutes === 0) && seconds === 0 ? null : (
               <div className="flex">
@@ -112,17 +117,25 @@ function ListItem({
             )}
           </div>
         )}
-        {favorties && (
-          <div className="flex justify-between text-skin-primary">
-            <div className="mt-1">
-              <Trash size="24" variant="Bold" />
+
+        <div className="lg:flex w-full text-center  mb-8 lg:max-w-[15rem] mx-0  p-0 justify-between">
+          {item?.new && (
+            <div className=" max-w-[3.5rem] text-center  md:mx-auto lg:mx-0  my-4 lg:my-0   text-skin-primary  bg-skin-secondary rounded-[3px] md:p-1 md:px-3 ">
+              جدید
             </div>
-            <button className="rounded-md p-1 px-5">+ افزودن </button>
+          )}
+          {/* {item?.price && (
+          <div className=" flex justify-between w-full gap-1 ">
+            <div className="font-bold text-xl   md:mx-auto lg:mx-0">
+              {digitsEnToFa(item?.price)}
+            </div>
+            <div className="text-lg">تومان</div>
           </div>
-        )}
+        )} */}
+        </div>
       </div>
     </Link>
   );
 }
 
-export default ListItem;
+export default OfferCarousel;
