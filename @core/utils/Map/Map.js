@@ -14,6 +14,7 @@ import "leaflet/dist/leaflet.css";
 
 function LocationMarker({ value, change, readOnly }) {
   const markerRef = useRef(null);
+
   const eventHandlers = useMemo(
     () => ({
       dragend() {
@@ -78,7 +79,10 @@ const Map = ({
         shadowUrl: shadowUrl.src,
       });
     })();
-  }, []);
+  }, [typeof window]);
+  if (typeof window === "undefined") {
+    return;
+  }
 
   return (
     <MapContainer
