@@ -38,3 +38,20 @@ export const getSpecifiedProducts = async (productId) => {
     }
   }
 };
+
+export const getListOfOffProducts = async (businessId) => {
+  try {
+    const res = await instance.get(
+      END_POINTS.get_list_of_products + businessId + "&filters[just_off]=1"
+    );
+
+    return res;
+  } catch (err) {
+    if (err?.response) {
+      console.log(err.response.data, err.response.status, err);
+      return err.response.data;
+    } else {
+      console.log(`ERROR:${err}`);
+    }
+  }
+};
