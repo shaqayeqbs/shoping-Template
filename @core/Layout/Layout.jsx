@@ -48,7 +48,11 @@ const Layout = ({ children }) => {
           {`{${primaryColor} ${backgroundColor} ${secondaryColor} ${textColor} }`}
         </style>
       </Head>
+
+      <main className="w-full h-full p-0 ">
+
       <main className="w-full h-full p-0">
+      @core/Layout/Layout.jsx
         <div className={classes.navbar}>
           <MainNavigation
             open={showMenu}

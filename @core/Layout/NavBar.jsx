@@ -53,6 +53,7 @@ function NavBar({ onCloseModalHandler }) {
             <h2 className="mt-5 mx-2"> {businessName} </h2>
           </div>
         </Link>
+
         <div className="flex">
           <div className="flex justify-end text-skin-color  w-full ">
             <button
@@ -61,6 +62,7 @@ function NavBar({ onCloseModalHandler }) {
             >
               <SearchNormal1 size="28" />
             </button>
+            <CartBtn />
 
             {!isLoggedIn && (
               <button
@@ -71,7 +73,7 @@ function NavBar({ onCloseModalHandler }) {
               </button>
             )}
           </div>
-          {isLoggedIn && <CartBtn />}
+
           {isLoggedIn && <ProfileDrop />}
         </div>
       </nav>

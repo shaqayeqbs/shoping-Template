@@ -56,7 +56,7 @@ function NewProducts({
         </div>
       </div>
       {articles && <Carousel data={data} articles />}
-      {!articles && <ProductCarousel data={data} articles />}
+      {!articles && <ProductCarousel data={data} />}
     </section>
   );
 }

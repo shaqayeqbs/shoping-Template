@@ -1,5 +1,5 @@
 import React from "react";
-import { Radio } from "@material-tailwind/react";
+
 import Card from "../../../templates/shop/@core/UI/Card";
 
 function PostType() {

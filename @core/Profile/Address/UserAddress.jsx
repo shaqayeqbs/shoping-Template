@@ -12,6 +12,9 @@ function UserAddress({ addresses, onRemoveAddress, onUpdateAddress }) {
     setShowUpdateForm((prv) => !prv);
     if (!myItem && item?.id != myItem?.id) setItem(item);
   };
+  if (typeof window === "undefined") {
+    return;
+  }
 
   return (
     <div>
