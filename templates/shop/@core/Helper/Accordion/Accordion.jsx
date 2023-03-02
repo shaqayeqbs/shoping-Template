@@ -25,7 +25,7 @@ const Accordion = () => {
   ];
 
   return (
-    <div className="flex w-full flex-col justify-center items-center    rounded-xl h-auto py-4 bg-gray-50">
+    <div className="flex w-full flex-col justify-center items-center  text-sm whitespace-nowrap  rounded-xl h-auto py-4 bg-gray-50">
       {data?.map((data, index) => (
         <AccordionUI
           key={data.id}

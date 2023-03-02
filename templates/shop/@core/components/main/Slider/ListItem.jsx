@@ -5,7 +5,7 @@ import classes from "../Carousel/Carousel.module.css";
 import TimeHistory from "../../../icons/TimeHistory";
 import Link from "next/link";
 import Image from "next/image";
-import { Trash } from "iconsax-react";
+import { Add, Trash } from "iconsax-react";
 import { digitsEnToFa } from "@persian-tools/persian-tools";
 function ListItem({
   item,
@@ -23,10 +23,11 @@ function ListItem({
     nowdays
   );
 
+  console.log(item);
   return (
     <Link
       href={articles ? `/articles/${item.id}` : `/products/${item.id}`}
-      className=" mx-2 w-[100%] relative ml-2 pb-0"
+      className=" relative pb-0 w-full max-w-[270px]"
     >
       <div
         className={
@@ -37,18 +38,18 @@ function ListItem({
       >
         <div className="relative w-full">
           {" "}
-          {item.files && (
+          {item?.product?.files && (
             <img
               quality={50}
               decoding="async"
               alt="slider photo"
               loading="lazy"
               src={
-                item?.files.length > 0
-                  ? item?.files[0]?.details?.location
+                item?.product?.files?.length > 0
+                  ? item?.product?.files?.[0]?.details?.location
                   : "https://via.placeholder.com/300/ccc/fff.png"
               }
-              className="object-cover rounded-md mb-5"
+              className="object-cover rounded-md mb-5 w-full"
             />
           )}
         </div>
@@ -57,8 +58,8 @@ function ListItem({
         {!articles && (
           <div className={classes.flexBetween}>
             {item?.price?.price && (
-              <div className=" bg-skin-secondary text-skin-primary rounded-lg pt-3 px-2  w-max ml-[.3rem] text-center">
-                {digitsEnToFa(item?.price?.price?.toLocaleString())}
+              <div className=" bg-skin-secondary text-skin-primary rounded-lg p-1 ml-[.3rem] text-center w-10 h-10">
+                <Add size={32}/>
               </div>
             )}
             <div className="flex">

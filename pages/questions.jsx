@@ -8,6 +8,7 @@ const ShopQuestions = dynamic(() =>
 
 // import ShopQuestions from "../templates/shop/pages/ShopQuestions";
 function Questions({ questions }) {
+  console.log(questions);
   return (
     <>
       <ShopQuestions data={questions.data.businessfqs} />
