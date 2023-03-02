@@ -10,13 +10,9 @@ export default function Gallery({data}) {
     { id: 5, title: "ارتباط گیاهان و یوگا ", images: "/images/plant.png" },
   ];
 
-  const dataa = [...data, ...data, ...data, ...data, ...data]
-  const dataaa = [...dataa, ...dataa, ...dataa]
-
-
   return (
     <div className=" grid grid-cols-2 gap-4 lg:grid-cols-4 ltr w-full mt-4">
-      {dataaa?.slice(0, 5).map((item, index) => (
+      {data?.slice(0, 5).map((item, index) => (
         <div
           key={item.id}
           className={

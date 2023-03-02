@@ -52,7 +52,7 @@ function ListItem({
             />
           )}
         </div>
-        {item.category && <div>{item.category.name}</div>}
+        {/* {item.category && <div>{item.category.name}</div>} */}
         <h2 className="text-right">{item?.product?.translate[0]?.data}</h2>
         {!articles && (
           <div className={classes.flexBetween}>
@@ -82,9 +82,10 @@ function ListItem({
           </div>
         )}
         {articles && (
-          <div className="my-4  text-justify tracking-tight">
-            {item.description}
-          </div>
+          <div className="flex flex-col items-start"><h2>{item.title}</h2>
+          <div className="my-4  text-justify tracking-tight text-sm px-2">
+            {<p>{item.editors.find(editor => editor.type === 2).value.slice(0, 250)}...</p>}
+          </div></div>
         )}
         {offcerPage && (
           <div className="relative m-2 mb-6 flex ltr text-skin-primary text-left h-6">
