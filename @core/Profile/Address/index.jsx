@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import UserAddress from "./UserAddress";
 import AddAddressSection from "./AddAddressSection";
 import { useSelector } from "react-redux";
-import { Trash } from "iconsax-react";
+// import { Trash } from "iconsax-react";
 import {
   getUserAddressApi,
   storeNewAddressToUserApi,
@@ -24,6 +24,9 @@ function Index() {
     }
     fetchData();
   }, []);
+  if (typeof window === "undefiend") {
+    return;
+  }
   const addNewAddressHandler = async (address) => {
     const data = {
       userId: id,

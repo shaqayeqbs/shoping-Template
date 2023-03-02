@@ -222,7 +222,7 @@ input[type="radio"] {
 }
 input {
   display: inline-block;
-  margin: 0 1rem;
+  margin: 0rem;
 }
 .whatsappLink {
   background: #56c679;

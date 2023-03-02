@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useSelector } from "react-redux";
-function PriceDetails() {
+function PriceDetails({ changeStep }) {
   const cartData = useSelector((state) => state.cart.items);
 
   const hasItems = cartData?.length || false;
@@ -34,12 +34,25 @@ function PriceDetails() {
       </div>
       <div className="w-full">
         {hasItems && (
-          <Link
-            href="/shopping"
-            className="bg-skin-fill text-[white] mx-auto inline-block text-center py-2 w-full mt-12 text-white font-medium  rounded-lg  my-2"
-          >
-            <div> ادامه فرآیند خرید</div>
-          </Link>
+          <div>
+            {!changeStep && (
+              <Link
+                href="/shopping"
+                className="bg-skin-fill text-[white] mx-auto inline-block text-center py-2 w-full mt-12 text-white font-medium  rounded-lg  my-2"
+              >
+                <div> ادامه فرآیند خرید</div>
+              </Link>
+            )}
+            {changeStep && (
+              <button
+                className="bg-skin-fill text-[white] mx-auto inline-block text-center py-2 w-full mt-12 text-white font-medium  rounded-lg  my-2"
+                onClick={changeStep.bind(null, 2)}
+              >
+                {" "}
+                <div> ادامه فرآیند خرید</div>
+              </button>
+            )}
+          </div>
         )}
       </div>
     </div>

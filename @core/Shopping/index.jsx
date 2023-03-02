@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import UserAddress from "../Profile/Address/index";
 import PriceDetails from "../Cart/PriceDetails";
 import AddressSteps from "./AddressStep/index";
+import Payment from "./Payment";
 
 function Index() {
   const [buyStep, setByStep] = useState(1);
-  const changeByStepHandler = (item) => {
-    setByStep(item);
+  const changeByStepHandler = (num) => {
+    setByStep(num);
   };
 
   let content = "";
   switch (buyStep) {
     case 2:
-      content = <UserAddress />;
+      content = <Payment />;
       break;
     default:
       content = <AddressSteps />;
@@ -27,7 +28,7 @@ function Index() {
         </h2>
         {/* <button
           onClick={() => {
-            onChangeStep((prev) => prev + 1);
+            setByStep(1);
           }}
         >
           change step
@@ -35,7 +36,7 @@ function Index() {
         <div>{content}</div>
       </div>
       <div className="w-[40%] mt-[7.5rem] rounded-lg font-extrabold mr-6 h-max bg-[white] p-4">
-        <PriceDetails />
+        <PriceDetails changeStep={changeByStepHandler} />
       </div>
     </section>
   );

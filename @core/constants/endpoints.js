@@ -17,7 +17,7 @@ const END_POINTS = {
   verfy_phone: "api/auth/login",
   verfy_code: "api/auth/confirm",
   getArticles: "api/article?business_id=",
-  getSpecifiedCurrentBusinessArticle: 'api/article',
+  getSpecifiedCurrentBusinessArticle: "api/article",
   get_bussiness_gallery: "api/business/gallery?business_id=",
   get_FQ: "api/business/fq?business_id=",
   get_current_user: "api/user?lang=fa",
@@ -28,6 +28,7 @@ const END_POINTS = {
   get_specified_products: `api/products/inventory/`,
   store_a_new_favorite_to_selected_user: "api/user/favorits",
   getBusinessEditors: "api/business/details",
+  gate_way: "",
 };
 export const CART_END_POINTS = {
   get_list_of_order: "api/orders?lang=fa&business_id=",
