@@ -26,11 +26,11 @@ function PriceDetails({ changeStep }) {
       </div>
       <div className=" flex justify-between my-6 border-b-2 border-bordercolor pb-6 text-skin-primary">
         <div className="">تخفیف محصولات :</div>
-        <span>{totalOffPrice}</span>
+        <span>{totalOffPrice || 0}</span>
       </div>
       <div className=" flex justify-between">
         <div className=""> مبلغ قابل پرداخت</div>
-        <span>{finalPrice}</span>
+        <span>{finalPrice ? finalPrice : totalPrice}</span>
       </div>
       <div className="w-full">
         {hasItems && (

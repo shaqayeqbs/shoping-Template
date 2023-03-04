@@ -19,16 +19,6 @@ import {
   storedFavortie,
   unAuthorized,
 } from "../../../../../../../@core/constants/toasts-messages";
-const carousel = [
-  {
-    id: "9",
-    image: "/images/plant.png",
-    price: "285000",
-    new: true,
-  },
-  { id: "10", image: "/images/plant.png", price: "285000", new: true },
-  { id: "11", image: "/images/plant.png", price: "285000", new: true },
-];
 
 function ProductsDetail({ item }) {
   const [showSharedModal, setShowSharedModal] = useState(false);
@@ -36,7 +26,7 @@ function ProductsDetail({ item }) {
 
   const addToCartHandler = async () => {
     const res = await dispatch(storeNewProductOrder(item.inventory.id));
-
+    console.log(res, "addddddddd");
     return res;
   };
 
@@ -153,6 +143,7 @@ function ProductsDetail({ item }) {
                 id={item.inventory.id}
                 onAddToCart={addToCartHandler}
                 title={item.title}
+                item={item}
               />
               {/* <button className="bg-skin-fill mb-5 rounded-lg p-2 text-[white]">
                 افزودن به سبد خرید
