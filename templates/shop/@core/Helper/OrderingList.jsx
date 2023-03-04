@@ -4,12 +4,12 @@ import Link from "next/link";
 
 function OrderingList({ data, url }) {
   return (
-    <div className="md:flex mb-4">
+    <div className=" hidden lg:flex mb-4">
       <div className="flex">
         <p>
           <SortIcon />{" "}
         </p>
-        <h3>مرتب سازی:</h3>
+        <h4 className=" whitespace-nowrap">مرتب سازی:</h4>
       </div>
       {data?.map((item) => (
         <Link
