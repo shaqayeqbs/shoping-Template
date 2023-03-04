@@ -29,6 +29,7 @@ const END_POINTS = {
   store_a_new_favorite_to_selected_user: "api/user/favorits",
   getBusinessEditors: "api/business/details",
   gate_way: "api/business-getWay?lang=fa&business_id=",
+  set_business_getWay_to_specified_order: "/api/orders/",
 };
 export const CART_END_POINTS = {
   get_list_of_order: "api/orders?lang=fa&business_id=",
@@ -39,6 +40,8 @@ export const CART_END_POINTS = {
 
 export const USER_ADDRESS_END_POINTS = {
   get_user_address: "api/user/",
+  set_user_address_to_specified_order: "/api/orders/",
+
   //   store_user_address: "api/user/",
   // update_user_address: "api/user/",
   // delete_user_address: "api/user/",

@@ -24,8 +24,6 @@ function ListItem({
     nowdays
   );
 
-  console.log(item, "inja");
-
   return (
     <>
       {type === "articles" && (

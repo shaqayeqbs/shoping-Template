@@ -1,6 +1,5 @@
 import axios from "axios";
 import Head from "next/head";
-import nookies from "nookies";
 import APP_CONFIG from "../../@core/constants/app-config";
 import END_POINTS from "../../@core/constants/endpoints";
 import dynamic from "next/dynamic";
@@ -30,8 +29,7 @@ const ProductsDetailPage = ({ articleData }) => {
 export default ProductsDetailPage;
 
 export const getServerSideProps = async (ctx) => {
-  const cookies = nookies.get(ctx);
-  const { res, req } = ctx;
+  const { res } = ctx;
 
   res.setHeader(
     "Cache-Control",

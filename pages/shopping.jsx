@@ -3,7 +3,7 @@
 import { useState } from "react";
 import PriceDetails from "../@core/Cart/PriceDetails";
 import AddressSteps from "../@core/Shopping/AddressStep/index";
-import PostType from "../@core/Shopping/AddressStep/PostType";
+// import PostType from "../@core/Shopping/AddressStep/PostType";
 import Payment from "../@core/Shopping/Payment";
 function Shopping() {
   const [buyStep, setByStep] = useState(1);
