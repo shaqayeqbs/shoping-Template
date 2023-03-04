@@ -77,7 +77,7 @@ function ShopHome({ data = null, articles, products }) {
           ))}
         </section>
         <div className="container">
-          <Slider title="آخرین محصولات" data={products} />
+          <Slider title="آخرین محصولات" data={products} type ='products'/>
         </div>
 
         <section className={classes}>
@@ -96,6 +96,7 @@ function ShopHome({ data = null, articles, products }) {
             title={t("landing:articles")}
             data={articles?.articles}
             articles
+            type='articles'
           />
         </div>
       </main>

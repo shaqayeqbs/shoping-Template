@@ -2,38 +2,29 @@
 import Link from "next/link";
 import React from "react";
 import { AiOutlineLeft } from "react-icons/ai";
-import Carousel from "./Carousel";
+import ArticleCarousel from "./ArticleCarousel";
+// import Carousel from "./Carousel";
 import ProductCarousel from "./ProductCarousel";
 // const Carousel = dynamic(() => import("./Carousel"));
 
 function NewProducts({
   data,
   title,
-  regular,
-  value,
-  onIndexHandler,
-  articles,
+  // regular,
+  // value,
+  // onIndexHandler,
+  type,
 }) {
-  const content = (
-    <div className="font-bold">
-      <div className="mx-8"> مشاهده همه</div>
-      <div className="absolute left-0 top-[6px]">
-        <AiOutlineLeft />
-      </div>
-    </div>
-  );
-  const changeIndex = (e) => {
-    onIndexHandler(e?.target?.value);
-  };
+  // const changeIndex = (e) => {
+  //   onIndexHandler(e?.target?.value);
+  // };
   console.log(data, "products");
   return (
     <section className=" block  text-center">
       <div className=" flex justify-between my-8">
-        <h2 className={regular ? "pr-6" : "font-bold md:text-2xl mx-3"}>
-          {title}
-        </h2>
+        <h2 className={"font-bold md:text-2xl mx-3"}>{title}</h2>
         <div className=" relative flex text-skin-primary text-md">
-          {regular && (
+          {/* {regular && (
             <button
               value={value}
               onClick={changeIndex}
@@ -45,18 +36,29 @@ function NewProducts({
               </div>
             </button>
           )}
-          {!regular && (
-            <Link
-              href={articles ? "/articles" : "/products"}
-              className="cursor-pointer"
-            >
-              {content}
-            </Link>
-          )}
+          {!regular && ( */}
+          <Link
+            href={
+              type === "articles"
+                ? "/articles"
+                : type === "products"
+                ? "/products"
+                : "later for other pathes"
+            }
+            className="cursor-pointer"
+          >
+            <div className="font-bold">
+              <div className="mx-8"> مشاهده همه</div>
+              <div className="absolute left-0 top-[6px]">
+                <AiOutlineLeft />
+              </div>
+            </div>
+          </Link>
+          {/* )} */}
         </div>
       </div>
-      {articles && <Carousel data={data} articles />}
-      {!articles && <ProductCarousel data={data} />}
+      {type === "articles" && <ArticleCarousel data={data} />}
+      {type === "products" && <ProductCarousel data={data} />}
     </section>
   );
 }

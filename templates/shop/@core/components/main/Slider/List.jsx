@@ -1,6 +1,6 @@
 import ListItem from "./ListItem";
 import { memo } from "react";
-function List({ data, offcerPage = null, articles = null, favorties = null }) {
+function List({ data, offcerPage = null, type = null, favorties = null }) {
 
   return (
     <ul className="flex flex-col items-center sm:grid max-w-full sm:grid-cols-2 md:grid-cols-3 content-center gap-3">
@@ -9,7 +9,7 @@ function List({ data, offcerPage = null, articles = null, favorties = null }) {
           key={item.id}
           item={item}
           offcerPage={offcerPage}
-          articles={articles}
+          type={type}
           favorties={favorties}
         />
       ))}
