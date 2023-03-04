@@ -15,15 +15,16 @@
 }
 .megaModal {
   position: fixed;
-  top: 27.1rem;
+  top: 23.5rem;
   left: 0rem;
+
   right: 0rem;
   scroll-behavior: smooth;
   overflow-y: scroll;
   transform: translate(-0%, -50%);
   padding: 0rem;
   z-index: 1000000 !important;
-  min-height: 300px;
+  min-height: 400px;
   background: #ffffff;
   border-radius: 15px;
   overflow: hidden;
