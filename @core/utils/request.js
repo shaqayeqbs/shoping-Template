@@ -1,5 +1,6 @@
 import axios from "axios";
 import APP_CONFIG from "../constants/app-config";
+
 // import logout from "../../components/Hepler/logout";
 import logout from "./logout";
 export function getLocalAccessToken() {
@@ -44,7 +45,7 @@ instance.interceptors.response.use(
       if (err.response.status === 401) {
         console.log("checked user Auth", err.response.status);
         console.log("hooooooooooooooooooooooooooooo");
-        logout();
+        return 401;
         // if (!window.location.href.includes("NoTFound")) {
         //   window.location.href = "NoTFound";
         //   return;

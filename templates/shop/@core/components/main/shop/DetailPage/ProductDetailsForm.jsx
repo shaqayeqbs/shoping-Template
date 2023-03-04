@@ -12,35 +12,49 @@ import {
   deleteProductOrder,
   removeWholeItems,
 } from "../../../../../../../store/Slices/CartSlice";
-const ProductDetailForm = ({ onAddToCart, id, title }) => {
+
+const ProductDetailForm = ({ onAddToCart, id, title, item }) => {
   const [productAddedModal, setProductAddedModal] = useState(false);
   const [message, setMessage] = useState(Messages.ADDED_TO_CART);
   const cartData = useSelector((state) => state.cart?.items);
 
   let numOfCartItems = 0;
 
-  for (const each in cartData) {
-    numOfCartItems = numOfCartItems + cartData[each].qty;
-  }
-  const [counter, setCounter] = useState(numOfCartItems);
+  const _d = cartData.filter((item) => {
+    return item.id === id;
+  });
+  console.log(_d);
+  numOfCartItems = _d?.length ? +_d[0]?.qty : 0;
+  console.log(numOfCartItems, id, cartData, cartData[id]);
+
+  const [counter, setCounter] = useState(+numOfCartItems);
+  console.log(counter);
 
   const dispatch = useDispatch();
 
   const AddToCartHanlder = async () => {
     const res = await onAddToCart();
-    console.log(res.payload);
+    console.log(res, "ress");
     if (res?.payload) {
       setCounter((prev) => prev + 1);
       setMessage(Messages.ADDED_TO_CART);
       setProductAddedModal((prev) => !prev);
     } else {
-      serverError();
+      dispatch(cartActions.addItem(item));
+      setCounter((prev) => prev + 1);
+      setMessage(Messages.ADDED_TO_CART);
+      setProductAddedModal((prev) => !prev);
     }
   };
-  const removefromCartHanlder = () => {
+  const removefromCartHanlder = async () => {
     setCounter((prev) => prev - 1);
     console.log(id);
-    dispatch(deleteProductOrder(id));
+    const res = await dispatch(deleteProductOrder(id));
+    console.log(res);
+    if (res.payload === 401) {
+      console.log("hereeeeeeeeeeee");
+      dispatch(cartActions.removeItem(id));
+    }
   };
   const showModalHandler = () => {
     setProductAddedModal((prev) => !prev);
