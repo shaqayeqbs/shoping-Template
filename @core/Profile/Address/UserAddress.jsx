@@ -1,23 +1,31 @@
 import React, { useState } from "react";
-import Card from "../../../templates/shop/@core/UI/Card";
 import { User, Mobile, Sms, Location, Edit, Trash } from "iconsax-react";
 import Modal from "../../UI/Modal";
 import AddAddressForm from "./AddAddressForm";
+import { RecordCircle } from "iconsax-react";
+import { setUserAddressTospecifiedOrderAPi } from "../../api/userApi";
+import { useSelector } from "react-redux";
 
 function UserAddress({ addresses, onRemoveAddress, onUpdateAddress }) {
   const [showUpdateForm, setShowUpdateForm] = useState(false);
+  console.log(addresses);
+  const [primaryAddress, setPrimaryAddress] = useState(addresses[0]?.id);
   const [myItem, setItem] = useState();
-
+  const orderId = useSelector((state) => state.cart.orderId);
   const showUpdateFormHandler = (item) => {
     setShowUpdateForm((prv) => !prv);
     if (!myItem && item?.id != myItem?.id) setItem(item);
   };
-  if (typeof window === "undefined") {
-    return;
-  }
 
+  const setUserAddressHandler = async (id) => {
+    setPrimaryAddress(id);
+    const res = await setUserAddressTospecifiedOrderAPi({
+      id: orderId,
+      user_address_id: id,
+    });
+  };
   return (
-    <div>
+    <div className="mb-8 ">
       {showUpdateForm && (
         <Modal
           open={showUpdateForm}
@@ -35,9 +43,28 @@ function UserAddress({ addresses, onRemoveAddress, onUpdateAddress }) {
         </Modal>
       )}
       {addresses?.map((item, index) => (
-        <Card key={index}>
-          <div className="flex justify-between w-full">
-            <div className="w-[80%]">
+        <div key={index}>
+          <div className="flex bg-[white] rounded-xl mb-10 relative justify-between w-full">
+            <div
+              className={
+                primaryAddress === item.id
+                  ? "bg-skin-fill border-2 border-primary text-[white]   justify-center  rounded-r-xl  w-[3rem]"
+                  : "border-2   justify-center  rounded-r-xl  w-[3rem]"
+              }
+            >
+              <button
+                onClick={setUserAddressHandler.bind(null, item.id)}
+                className="text-center border-0 border-none"
+              >
+                <RecordCircle
+                  size="20"
+                  variant={primaryAddress === item?.id ? "Bulk" : "TwoTone"}
+                  className="absolute top-[40%] right-3 mx-auto"
+                />
+              </button>
+            </div>
+
+            <div className="w-[80%] p-6">
               <div className="flex justify-between w-full mb-5">
                 <div>
                   <User size="20" className="inline" />
@@ -76,7 +103,7 @@ function UserAddress({ addresses, onRemoveAddress, onUpdateAddress }) {
               </button>
             </div>
           </div>
-        </Card>
+        </div>
       ))}
     </div>
   );

@@ -65,6 +65,7 @@ const initialState = {
   totalAmount: 0,
   addItem: (item) => {},
   removeItem: (id) => {},
+  orderId: "",
 };
 
 const cartSlice = createSlice({
@@ -171,10 +172,11 @@ const cartSlice = createSlice({
     });
 
     builder.addCase(listOfOrder.fulfilled, (state, action) => {
-      console.log(action.payload || action.payload === 401);
+      console.log(action.payload, "cardddddd");
       if (!action.payload) {
         return;
       }
+      state.orderId = action.payload?.data?.data?.orders[0]?.id;
       state.items = action.payload?.data?.data?.orders[0]?.items;
     });
 

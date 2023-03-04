@@ -81,7 +81,7 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
       },
     },
     {
-      id: 3,
+      id: 10,
       name: "plaque",
       label: "پلاک",
       type: "number",
@@ -152,9 +152,11 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
       reciver_phone: phone,
     };
     console.log(data, "llllllllllll");
+    console.log(cordinates);
     onAddAddress(data);
-    onCloseModal();
+    // onCloseModal();
   };
+  console.log("corrrrrr", cordinates);
 
   return (
     <form className="p-6 ">
@@ -195,13 +197,12 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
       <div className="mt-4 z-0">
         <div className="w-full h-[400px]">
           <p className="my-4"> انتخاب محل در نقشه</p>
-          {typeof window && (
-            <Map
-              value={cordinates}
-              change={setCordinates}
-              className="w-full h-[200px]"
-            />
-          )}
+
+          <Map
+            value={cordinates}
+            change={setCordinates}
+            className="w-full h-[200px]"
+          />
         </div>
         <div className="flex mb-5">
           <button

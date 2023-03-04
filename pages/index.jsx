@@ -11,7 +11,6 @@ import { listOfOrder } from "../store/Slices/CartSlice";
 // const ShopHome = dynamic(() => import("../templates/shop/pages/Home"));
 import { GetArticles } from "../@core/api/articlesApi";
 import ShopHome from "../templates/shop/pages/Home";
-import nookies from "nookies";
 import mainData from "../@core/utils/serverProps";
 import { getListOfProducts } from "../@core/api/productApi";
 
@@ -27,11 +26,11 @@ function Home({ data, articles, products }) {
   const id = useSelector((state) => state?.businessSlice.id);
   useEffect(() => {
     async function fetchData() {
-      const response = await dispatch(listOfOrder(id));
-      const orders = response.payload?.data?.data?.orders;
+      await dispatch(listOfOrder(id));
+      // const orders = response.payload?.data?.data?.orders;
     }
     fetchData();
-  }, []);
+  }, [dispatch, id]);
 
   const { description } = useSelector((state) => state.businessSlice);
 
@@ -63,8 +62,7 @@ function Home({ data, articles, products }) {
 export default memo(Home);
 
 export const getServerSideProps = async (ctx) => {
-  const cookies = nookies.get(ctx);
-  const { req, query, res, asPath, pathname } = ctx;
+  const { req } = ctx;
   res.setHeader(
     "Cache-Control",
     "public, s-maxage=43200, stale-while-revalidate=3600"

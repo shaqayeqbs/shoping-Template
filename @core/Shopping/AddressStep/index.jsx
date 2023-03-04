@@ -7,7 +7,7 @@ function Index() {
   return (
     <>
       <UserAddress />
-      <PostType />
+      {/* <PostType /> */}
     </>
   );
 }

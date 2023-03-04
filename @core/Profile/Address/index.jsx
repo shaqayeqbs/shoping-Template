@@ -24,9 +24,7 @@ function Index() {
     }
     fetchData();
   }, []);
-  if (typeof window === "undefiend") {
-    return;
-  }
+
   const addNewAddressHandler = async (address) => {
     const data = {
       userId: id,

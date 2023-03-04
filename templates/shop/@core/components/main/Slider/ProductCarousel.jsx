@@ -25,7 +25,6 @@ const ProductCarousel = ({ data = [] }) => {
           slidesPerGroup: 3,
         },
       }}
-      loop={true}
       spaceBetween={20}
       autoplay={{
         delay: 2500,
@@ -40,7 +39,7 @@ const ProductCarousel = ({ data = [] }) => {
           className="flex w-full justify-center lg:text-right "
           key={item.id}
         >
-          <ListItem item={item} type = 'product'/>
+          <ListItem item={item} type="product" />
         </SwiperSlide>
       ))}
     </Swiper>
