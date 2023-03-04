@@ -3,9 +3,9 @@ import { Autoplay, Navigation, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import OfferCarousel from "./OfferCarousel";
-const Carousel = ({ data = null, articles }) => {
+const Carousel = ({ data = [], articles }) => {
   const [swiper, setSwiper] = useState(null);
-
+  console.log(data);
   return (
     <div className="">
       {" "}
@@ -41,7 +41,8 @@ const Carousel = ({ data = null, articles }) => {
             className="flex w-full  justify-center lg:text-right "
             key={item.id}
           >
-            <OfferCarousel key={item.id} item={item} swiper={swiper} />
+            {!articles && <OfferCarousel key={item.id} item={item} swiper={swiper} />}
+
           </SwiperSlide>
         ))}
       </Swiper>

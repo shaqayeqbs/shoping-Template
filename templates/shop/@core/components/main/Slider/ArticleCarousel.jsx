@@ -1,12 +1,8 @@
-import { digitsEnToFa } from "@persian-tools/persian-tools";
-import Link from "next/link";
 import React, { memo } from "react";
 import { Autoplay, Navigation, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Image from "next/legacy/image";
 import ListItem from "./ListItem";
-const ProductCarousel = ({ data = [] }) => {
-  console.log(data);
+const ArticleCarousel = ({ data = [] }) => {
   return (
     <Swiper
       breakpoints={{
@@ -40,11 +36,11 @@ const ProductCarousel = ({ data = [] }) => {
           className="flex w-full justify-center lg:text-right "
           key={item.id}
         >
-          <ListItem item={item} type = 'product'/>
+          <ListItem item={item} type="articles" />
         </SwiperSlide>
       ))}
     </Swiper>
   );
 };
 
-export default memo(ProductCarousel);
+export default memo(ArticleCarousel);
