@@ -1,7 +1,7 @@
 import { CloseCircle } from "iconsax-react";
 import React, { useState } from "react";
 import { ProgressBar } from "../../../../../Helper/ProgressBar";
-import StarRating from "../../../../../Helper/StarRating";
+// import StarRating from "../../../../../Helper/StarRating";
 import Modal from "../../../../../UI/Modal";
 import Vote from "../Vote";
 import AddComment from "./AddComment";
@@ -114,7 +114,7 @@ function Comments() {
       {comments?.map((item) => (
         <UserComment key={item.id} comment={item} />
       ))}
-      <StarRating />
+      {/* <StarRating /> */}
     </section>
   );
 }

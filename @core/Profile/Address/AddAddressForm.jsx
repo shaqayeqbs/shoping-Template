@@ -5,7 +5,9 @@ import dynamic from "next/dynamic";
 
 // import Map from "../../utils/Map/Map";
 import { emptyInput } from "../../constants/toasts-messages";
-// const Map = dynamic(() => import("../../utils/Map/Map"));
+const Map = dynamic(() => import("../../utils/Map/Map"), {
+  ssr: false,
+});
 
 function AddAddressForm({ onAddAddress, onCloseModal, item }) {
   const [lat, setLat] = useState(item ? item.lat : 37.27644303848);
@@ -191,7 +193,7 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
         className="border-2 border-bordercolor w-full block rounded-md p-2 m-0"
       ></textarea>
       <div className="mt-4 z-0">
-        {/* <div className="w-full h-[400px]">
+        <div className="w-full h-[400px]">
           <p className="my-4"> انتخاب محل در نقشه</p>
           {typeof window && (
             <Map
@@ -200,7 +202,7 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
               className="w-full h-[200px]"
             />
           )}
-        </div> */}
+        </div>
         <div className="flex mb-5">
           <button
             onClick={() => {

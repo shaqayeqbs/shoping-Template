@@ -4,12 +4,16 @@ import { useSelector } from "react-redux";
 import WorkTIme from "../@core/components/main/ContactUs/WorkTIme";
 import HeartShine from "../@core/icons/HeartShine";
 import dynamic from "next/dynamic";
-const Map = dynamic(() => import("../@core/utils/Map/Map"));
+const Map = dynamic(() => import("../../../@core/utils/Map/Map"), {
+  ssr: false,
+});
 
 function ShopContact() {
-  const [lat, setLat] = useState(0);
-  const [lng, setLng] = useState(0);
   const [defaultCenter, setDefaultCenter] = useState([0, 0]);
+  const [lng, setLng] = useState(49.57137831479);
+  const [lat, setLat] = useState(37.27644303848);
+
+  const [cordinates, setCordinates] = useState([lat, lng]);
   const address = useSelector((state) => state.businessSlice?.addresses);
 
   useEffect(() => {
@@ -45,27 +49,15 @@ function ShopContact() {
     <section className="container">
       <h1 className="mt-14">راه های ارتباطی</h1>
       <div className="mt-4 z-0">
-        <Map
-          readOnly
-          zoomControl={false}
-          width="800"
-          height="300"
-          center={defaultCenter}
-          zoom={5}
-          className="rounded-2xl"
-        >
-          {({ TileLayer, Marker, Popup }) => (
-            <>
-              <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              />
-              <Marker position={defaultCenter} Location={defaultCenter}>
-                <Popup></Popup>
-              </Marker>
-            </>
+        <div className="w-full h-[400px]">
+          {typeof window && (
+            <Map
+              value={cordinates}
+              change={setCordinates}
+              className="w-full h-[200px]"
+            />
           )}
-        </Map>
+        </div>
       </div>
       <div className="sm:flex flex-wrap justify-around w-full">
         {dataList?.map((item) => (

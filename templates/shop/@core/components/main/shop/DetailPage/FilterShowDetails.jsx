@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Comments from "./Filter/Comments";
+// import Comments from "./Filter/Comments";
 import Description from "./Filter/Description";
 import Specification from "./Filter/Specification";
 
@@ -46,8 +46,8 @@ function FilterShowDetails({ dynamicOptions, options, description }) {
         </button> */}
       </div>
 
-      {activeIndex === 0 && <Description description = {description}/>}
-      {activeIndex === 1 && <Comments />}
+      {activeIndex === 0 && <Description description={description} />}
+      {/* {activeIndex === 1 && <Comments />} */}
       {activeIndex === 2 && (
         <Specification options={options} dynamicOptions={dynamicOptions} />
       )}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import ReadOnlyStars from "../../../../../Helper/StarRating";
+// import ReadOnlyStars from "../../../../../Helper/StarRating";
 
 function UserComment({ comment, ideas }) {
   return (
@@ -32,10 +32,10 @@ function UserComment({ comment, ideas }) {
         {comment?.stars?.map((item) => (
           <div className="flex w-full justify-between">
             <div className="text-skin-muted mt-2 ml-10 ">{item.title}</div>
-            <div>
+            {/* <div>
               {" "}
               <ReadOnlyStars value={item.value} />
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

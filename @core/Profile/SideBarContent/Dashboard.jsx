@@ -1,4 +1,3 @@
-import React from "react";
 import { AiOutlineLeft } from "react-icons/ai";
 import BackCross from "../../../../icons/profile/BackCross";
 import BagHappy from "../../../../icons/profile/BagHappy";

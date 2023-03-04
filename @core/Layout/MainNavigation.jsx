@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { memo, useEffect, useState } from "react";
-import ReactDom from "react-dom";
+import { memo, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import MyLinks from "./MyLinks";
 import NavBar from "./NavBar";
-import { SearchNormal1 } from "iconsax-react";
+
 import CartBtn from "./CartBtn";
 import ProfileDrop from "../Profile/ProfileDrop";
 import ModalVerification from "./modals/ModalVerification";
@@ -65,64 +65,64 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
       </div>
 
       {/* Hamburger Icon */}
-      <div className="w-full px-4 container mx-auto"><div className=" md:hidden w-full pt-6 flex gap-0 justify-between border-b-2 border-primary ">
-        {" "}
-        {/* <div className="flex"> */}
+      <div className="w-full px-4 container mx-auto">
+        <div className=" md:hidden w-full pt-6 flex gap-0 justify-between border-b-2 border-primary ">
           {" "}
+          {/* <div className="flex"> */}{" "}
           <div onClick={handleNav} className="ml-1 h-fit">
             <AiOutlineMenu size={25} />
           </div>
-        {/* </div> */}
-          {/* <div className=" float-left text-left -mt-2 "> */}
-            {" "}
-            <Link href={'/'} className="relative flex">
-              {" "}
-              <Image
-                quality={50}
-                loading="lazy"
-                src={logo}
-                width={60}
-                height={60}
-                // loader={myLoader}
-                alt="logo"
-                className="w-[2.5rem] h-[2.5rem] md:w-full md:h-full rounded-full ml-3"
-              />
-              <h2 className="ml-4 mt-2 md:mt-0 w-full"> {businessName} </h2>
-            </Link>
           {/* </div> */}
-        <div className="text-left ">
-          {" "}
-          <Link href="/">
-            <div className="flex justify-start mt-[-1rem] md:mt-0  text-sm md:text-xl">
-              <div className="flex">
-                <div className="flex justify-end text-skin-color  w-full ">
-                  {/* <button
+          {/* <div className=" float-left text-left -mt-2 "> */}{" "}
+          <Link href={"/"} className="relative flex">
+            {" "}
+            <Image
+              quality={50}
+              loading="lazy"
+              src={logo}
+              width={60}
+              height={60}
+              // loader={myLoader}
+              alt="logo"
+              className="w-[2.5rem] h-[2.5rem] md:w-full md:h-full rounded-full ml-3"
+            />
+            <h2 className="ml-4 mt-2 md:mt-0 w-full"> {businessName} </h2>
+          </Link>
+          {/* </div> */}
+          <div className="text-left ">
+            {" "}
+            <Link href="/">
+              <div className="flex justify-start mt-[-1rem] md:mt-0  text-sm md:text-xl">
+                <div className="flex">
+                  <div className="flex justify-end text-skin-color  w-full ">
+                    {/* <button
                     className=" border-0 mt-[-4px] ml-3"
                     // onClick={showSearchHandler}
                   >
                     <SearchNormal1 size="28" />
                   </button> */}
 
-                  {!isLoggedIn && (
-                    <button
-                      onClick={authHandler}
-                      className="bg-skin-fill  text-[white]  w-full px-3 md:mt-4 h-[2.5rem] rounded-md"
-                    >
-                      ثبت نام | ورود
-                    </button>
-                  )}
+                    {!isLoggedIn && (
+                      <button
+                        onClick={authHandler}
+                        className="bg-skin-fill  text-[white]  w-full px-3 md:mt-4 h-[2.5rem] rounded-md"
+                      >
+                        ثبت نام | ورود
+                      </button>
+                    )}
+                  </div>
+                  {isLoggedIn && <CartBtn />}
+                  {isLoggedIn && <ProfileDrop />}
                 </div>
-                {isLoggedIn && <CartBtn />}
-                {isLoggedIn && <ProfileDrop />}
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
-      </div>
-      {/* Mobile Menu */}
+        {/* Mobile Menu */}
 
-      {nav && <Nav nav={nav} closeNav={closeNav} />}
-    </div></div>
+        {nav && <Nav nav={nav} closeNav={closeNav} />}
+      </div>
+    </div>
   );
 }
 
@@ -136,7 +136,7 @@ function Nav({ nav, closeNav }) {
   }, []);
 
   return mounted
-    ? ReactDom.createPortal(
+    ? createPortal(
         <div>
           <div
             className="fixed top-0 left-0 bottom-0 bg-[#4040406b] blur- bg-opacity-25  z-40 w-full h-screen"
