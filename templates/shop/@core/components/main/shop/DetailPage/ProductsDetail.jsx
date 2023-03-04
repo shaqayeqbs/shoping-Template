@@ -1,10 +1,10 @@
 import { Check, Heart, Message, Share } from "iconsax-react";
 import { useState } from "react";
-import ColorPalet from "../../../../Helper/ColorPalet";
+// import ColorPalet from "../../../../Helper/ColorPalet";
 import RemainTime from "../../../../Helper/RemainTime";
-import SelectInput from "../../../../Helper/SelectInput";
+// import SelectInput from "../../../../Helper/SelectInput";
 import StaticSlider from "../../../../Helper/StaticSlider";
-import Slider from "../../Slider/Slider";
+// import Slider from "../../Slider/Slider";
 import FilterShowDetails from "./FilterShowDetails";
 import PropertiesOfProduct from "./PropertiesOfProduct";
 import Vote from "./Vote";

@@ -5,7 +5,7 @@ import Image from "next/legacy/image";
 import useCalculateRemainingTime from "../../../../../../@core/hooks/useCalculateRemainingTime";
 import TimeHistory from "../../../icons/TimeHistory";
 import useTimer from "../../../../../../@core/hooks/useTimer";
-function OfferCarousel({ item }) {
+function OfferCarousel({ item, swiper }) {
   const [nowseconds, nowminutes, nowhours, nowdays] = useCalculateRemainingTime(
     item.price?.off?.end
   );

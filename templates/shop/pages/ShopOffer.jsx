@@ -17,18 +17,22 @@ function ShopOffer({ products }) {
     {
       id: 1,
       title: "بیشترین تخفیف",
+      params: "most-off",
     },
     {
       id: 2,
       title: "محبوب ترین",
+      params: "most-famous",
     },
     {
       id: 3,
       title: "جدیدترین",
+      params: "newest",
     },
     {
       id: 4,
       title: "پرفروش ترین",
+      params: "most-seller",
     },
   ];
   return (
@@ -44,7 +48,7 @@ function ShopOffer({ products }) {
       </section>
       <section className="container">
         <h1 className="my-12 mb-8">همه شگفت انگیزها</h1>
-        <OrderingList data={SortList} />
+        <OrderingList data={SortList} url="/offer" />
         <List data={products} offcerPage={true} />
         {/* <Pagination /> */}
       </section>
