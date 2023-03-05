@@ -51,7 +51,7 @@ function Index() {
   const removeAddressHandler = async (addressId) => {
     const res = await removeTheUserAddressApi(id, addressId);
     if (res == 200) {
-      const updatedArray = addrsses.filter(
+      const updatedArray = addrsses?.filter(
         (address) => address.id != addressId
       );
       setAddress(updatedArray);

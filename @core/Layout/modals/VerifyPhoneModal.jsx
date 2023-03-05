@@ -15,13 +15,13 @@ function VerifyPhoneModal({ onMobileVerified }) {
 
   const phoneChangeHandler = (e) => {
     e.preventDefault();
-    if (+e.target.value || +e.target.value === 0 || e.target.value === "+") {
-      setPhone(e.target.value);
+    if (+e.target?.value || +e.target?.value === 0 || e.target?.value === "+") {
+      setPhone(e.target?.value);
     } else {
-      const position = e.target.selectionStart;
+      const position = e.target?.selectionStart;
       e.target.value =
-        e.target.value.substring(0, position - 1) +
-        e.target.value.substring(position + 1);
+        e.target?.value.substring(0, position - 1) +
+        e.target?.value.substring(position + 1);
     }
     if (
       phone === "" &&

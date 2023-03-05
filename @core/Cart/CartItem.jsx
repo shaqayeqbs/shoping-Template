@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Trash } from "iconsax-react";
 import { digitsEnToFa } from "@persian-tools/persian-tools";
 import { useState } from "react";
+import { Gallery } from "iconsax-react";
 const CartItem = (props) => {
   const [amount, setAmount] = useState(+props.amount);
   const { price, off_price, final_price } = props.price;
@@ -17,7 +18,7 @@ const CartItem = (props) => {
   };
 
   return (
-    <li className="bg-[white] text-center mb-8 rounded-xl lg:flex justify-between p-4">
+    <li className="bg-[white] relative text-center mb-8 rounded-xl lg:flex justify-between p-4">
       <div className="lg:flex ">
         <div className="relative ml-4 h-[15rem] lg:h-[6.8rem]  w-full lg:w-[6.8rem]">
           {props?.image && (
@@ -29,12 +30,9 @@ const CartItem = (props) => {
             />
           )}
           {!props.image && (
-            <Image
-              src="https://via.placeholder.com/300/ccc/fff.png"
-              layout="fill"
-              className="h-[100%]  mx-auto inline-block"
-              alt="item"
-            />
+            <div className="bg-skin-background rounded-xl h-full  w-full flex items-center justify-center   ">
+              <Gallery size="40" className="top-[30%] " />
+            </div>
           )}
         </div>
         <div>

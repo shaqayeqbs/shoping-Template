@@ -55,7 +55,7 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
       value: item ? item.name : addressTitle,
 
       onChange: (val) => {
-        setAddressTitle(val.target.value);
+        setAddressTitle(val?.target?.value);
       },
     },
     {
@@ -66,7 +66,7 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
       maxLength: 15,
       value: item ? item.zip_code : zip,
       onChange: (val) => {
-        setZip(val.target.value);
+        setZip(val.target?.value);
       },
     },
     {
@@ -77,7 +77,7 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
       maxLength: 20,
       value: item ? item.unit : unit,
       onChange: (val) => {
-        setUnit(val.target.value);
+        setUnit(val?.target?.value);
       },
     },
     {
@@ -89,7 +89,7 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
       placeholder: "نام",
       value: item ? item.plague : plaque,
       onChange: (val) => {
-        setPlaque(val.target.value);
+        setPlaque(val?.target?.value);
       },
     },
   ];

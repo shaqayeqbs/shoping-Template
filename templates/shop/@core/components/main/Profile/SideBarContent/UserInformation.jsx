@@ -94,7 +94,7 @@ function UserInformation() {
   const onChangeCityHandler = async (e) => {
     e.preventDefault();
 
-    const cName = e.target.value;
+    const cName = e.target?.value;
     if (cName.length >= 2) {
       const cities = await getListOfCitys(cName);
 
@@ -109,9 +109,9 @@ function UserInformation() {
 
   const submitFormHandler = (e) => {
     e.preventDefault();
-    const enteredName = nameInputRef.current.value;
-    const enteredLastName = lastNameInputRef.current.value;
-    const enteredGender = genderInputRef.current.value;
+    const enteredName = nameInputRef.current?.value;
+    const enteredLastName = lastNameInputRef.current?.value;
+    const enteredGender = genderInputRef.current?.value;
     const formatetBirthday = birthdayDate?.replace(/\//g, "-");
 
     if (enteredName.length < 2 || enteredLastName < 2) {
@@ -138,7 +138,7 @@ function UserInformation() {
         <form className="">
           <div className="relative grid grid-cols-2">
             {inputsWithUsage?.map((item, index) =>
-              item.type != "date" ? (
+              item?.type != "date" ? (
                 <div key={index} className="">
                   <label htmlFor={item.name}>{item.label}</label>
                   <input
@@ -148,14 +148,14 @@ function UserInformation() {
                         ? "input bg-skin-secondary border-0 "
                         : "input "
                     }
-                    name={item.name}
-                    id={item.name}
+                    name={item?.name}
+                    id={item?.name}
                     // onFocus={onFocus}
-                    value={item.value}
-                    defaultValue={!item.value ? item.defaultValue : undefined}
+                    value={item?.value}
+                    defaultValue={!item?.value ? item.defaultValue : undefined}
                     placeholder={item.placeholder}
-                    readOnly={item.readOnly ? true : false}
-                    ref={item.ref ? item.ref : null}
+                    readOnly={item?.readOnly ? true : false}
+                    ref={item.ref ? item?.ref : null}
                     onChange={
                       item.name === "city"
                         ? onChangeCityHandler
@@ -180,7 +180,7 @@ function UserInformation() {
                               onClick={(e) => {
                                 e.preventDefault();
 
-                                cityInputRef.current.value = item.name;
+                                cityInputRef.current?.value = item.name;
                                 setCityId(item.id);
 
                                 setCities([]);

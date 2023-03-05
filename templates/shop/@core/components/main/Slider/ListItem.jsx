@@ -5,6 +5,7 @@ import classes from "../Carousel/Carousel.module.css";
 import TimeHistory from "../../../icons/TimeHistory";
 import Link from "next/link";
 import Image from "next/image";
+import { Gallery } from "iconsax-react";
 import { Add, Trash } from "iconsax-react";
 import { digitsEnToFa } from "@persian-tools/persian-tools";
 function ListItem({
@@ -34,18 +35,9 @@ function ListItem({
           <div className={"cadr w-full h-full relative"}>
             <div className="relative w-full">
               {item?.files && (
-                <img
-                  quality={50}
-                  decoding="async"
-                  alt="slider photo"
-                  loading="lazy"
-                  src={
-                    item?.files?.length > 0
-                      ? item?.files?.[0]?.details?.location
-                      : "https://via.placeholder.com/300/ccc/fff.png"
-                  }
-                  className="object-cover rounded-md mb-5 w-full"
-                />
+                <div className="bg-skin-background rounded-xl   h-[15rem] mb-5 w-full flex items-center justify-center   ">
+                  <Gallery size="70" className="top-[30%] " />
+                </div>
               )}
             </div>
             <div className="flex flex-col items-start">
@@ -55,7 +47,7 @@ function ListItem({
                   <p>
                     {item.editors
                       .find((editor) => editor.type === 2)
-                      .value.slice(0, 250)}
+                      .value?.slice(0, 250)}
                     ...
                   </p>
                 }
@@ -78,18 +70,21 @@ function ListItem({
             }
           >
             <div className="relative w-full">
-              <img
-                quality={50}
-                decoding="async"
-                alt="slider photo"
-                loading="lazy"
-                src={
-                  item?.product?.files?.length > 0
-                    ? item?.product?.files?.[0]?.details?.location
-                    : "https://via.placeholder.com/300/ccc/fff.png"
-                }
-                className="object-cover rounded-md mb-5 w-full"
-              />
+              {item?.product?.files[0] && (
+                <img
+                  quality={50}
+                  decoding="async"
+                  alt="slider photo"
+                  loading="lazy"
+                  src={item?.product?.files?.[0]?.details?.location}
+                  className="object-cover rounded-md mb-5 w-full h-[15rem]"
+                />
+              )}
+              {!item?.product?.files[0] && (
+                <div className="bg-skin-background rounded-xl h-[15rem]  mb-5 w-full flex items-center justify-center   ">
+                  <Gallery size="70" className="top-[30%] " />
+                </div>
+              )}
             </div>
             {/* {item.category && <div>{item.category.name}</div>} */}
             <h2 className="text-right">{item?.product?.translate[0]?.data}</h2>

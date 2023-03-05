@@ -19,7 +19,7 @@ function Dashboard({ onChangeIndex }) {
 
   const changeIndexHandler = (e) => {
     if (e?.target) {
-      onChangeIndex(e.target.value);
+      onChangeIndex(e.target?.value);
     } else {
       onChangeIndex(e);
     }
