@@ -32,7 +32,7 @@ function UserAddress({ addresses, onRemoveAddress, onUpdateAddress }) {
           onClose={showUpdateFormHandler}
           selector="#portal"
         >
-          <div className="max-h-[500px] overflow-y-scroll">
+          <div className="lg:max-h-[500px] overflow-y-scroll">
             {" "}
             <AddAddressForm
               item={myItem}
@@ -49,7 +49,7 @@ function UserAddress({ addresses, onRemoveAddress, onUpdateAddress }) {
               className={
                 primaryAddress === item.id
                   ? "bg-skin-fill border-2 border-primary text-[white]   justify-center  rounded-r-xl  w-[3rem]"
-                  : "border-2   justify-center  rounded-r-xl  w-[3rem]"
+                  : "border-2   justify-center  rounded-r-xl w-[3rem]"
               }
             >
               <button
@@ -65,24 +65,27 @@ function UserAddress({ addresses, onRemoveAddress, onUpdateAddress }) {
             </div>
 
             <div className="w-[80%] p-6">
-              <div className="flex justify-between w-full mb-5">
+              <div className="lg:flex justify-between w-full lg:mb-5">
                 <div>
                   <User size="20" className="inline" />
 
                   <span> {item?.reciver_name}</span>
-                  <span> {item?.reciver_surname}</span>
+                  <span className="block my-2 lg:inline-block">
+                    {" "}
+                    {item?.reciver_surname}
+                  </span>
                 </div>
                 <div>
-                  <Mobile size="20" className="inline mx-3" />
+                  <Mobile size="20" className="inline lg:mx-3 ml-3" />
                   {item?.reciver_phone}
                 </div>
                 <div>
-                  <Sms size="20" className="inline mx-3" />
+                  <Sms size="20" className="inline lg:mx-3 ml-3" />
                   {item?.zip_code}
                 </div>
               </div>
-              <div>
-                <Location size="20" className="inline ml-3" />
+              <div className="w-">
+                <Location size="20" className="inline lg:mx-3 ml-3" />
                 {item?.address}
               </div>
             </div>

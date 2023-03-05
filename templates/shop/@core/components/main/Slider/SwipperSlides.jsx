@@ -3,7 +3,7 @@ import Image from "next/image";
 function LandingCarouselSlide({ itemData: item, swiper }) {
   return (
     <Link href={item.link} className="mx-4 ">
-      <div className="relative py-20 px-8  pb-32 cursor-pointer">
+      <div className="relative py-20 lg:px-8  pb-32 cursor-pointer">
         <Image
           quality={30}
           priority
@@ -47,7 +47,7 @@ function LandingCarouselSlide({ itemData: item, swiper }) {
             </h1>
             <p className="text-lg">{item.sub_title}</p>
             <button
-              className="border-2  rounded-lg p-2 px-8 mt-4 md:my-8"
+              className="border-2  rounded-lg p-2 lg:px-8 mt-4 md:my-8"
               style={{ color: item.color, borderColor: item.color }}
             >
               مشاهده

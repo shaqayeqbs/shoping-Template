@@ -29,7 +29,7 @@ function ListItem({
       {type === "articles" && (
         <Link
           href={`/articles/${item.id}`}
-          className=" relative pb-0 w-full max-w-[270px]"
+          className=" relative pb-0 w-full lg:max-w-[270px]"
         >
           <div className={"cadr w-full h-full relative"}>
             <div className="relative w-full">
@@ -68,7 +68,7 @@ function ListItem({
       {type !== "articles" && (
         <Link
           href={`/products/${item.id}`}
-          className=" relative pb-0 w-full max-w-[270px]"
+          className=" relative pb-0 w-full lg:max-w-[270px]"
         >
           <div
             className={
