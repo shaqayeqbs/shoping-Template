@@ -1,9 +1,13 @@
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 import axios from "axios";
 import nookies from "nookies";
 import { Get_Business_Editors_By_Type } from "../@core/api/BussinessApi";
 
-import ShopAboutUs from "../templates/shop/pages/ShopAboutUs";
+// import ShopAboutUs from "../templates/shop/pages/ShopAboutUs";
+
+const ShopAboutUs = dynamic(() =>
+  import("../templates/shop/pages/ShopAboutUs")
+);
 function AboutUs({ aboutUs }) {
   console.log(aboutUs);
   return (
@@ -30,7 +34,7 @@ export const getServerSideProps = async (ctx) => {
     url === "localhost:3001" ||
     url === "localhost:3002"
   ) {
-    url = "zaay.ir";
+    url = "tivarja.ir";
   }
 
   let id = cookies?.id;

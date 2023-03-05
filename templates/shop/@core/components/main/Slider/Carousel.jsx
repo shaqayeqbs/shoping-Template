@@ -7,7 +7,7 @@ const Carousel = ({ data = [], articles }) => {
   const [swiper, setSwiper] = useState(null);
   console.log(data);
   return (
-    <div className="">
+    <div className="w-full">
       {" "}
       <Swiper
         breakpoints={{
@@ -41,8 +41,9 @@ const Carousel = ({ data = [], articles }) => {
             className="flex w-full  justify-center lg:text-right "
             key={item.id}
           >
-            {!articles && <OfferCarousel key={item.id} item={item} swiper={swiper} />}
-
+            {!articles && (
+              <OfferCarousel key={item.id} item={item} swiper={swiper} />
+            )}
           </SwiperSlide>
         ))}
       </Swiper>

@@ -3,7 +3,12 @@ import axios from "axios";
 import nookies from "nookies";
 import { Get_Business_Editors_By_Type } from "../@core/api/BussinessApi";
 
-import ShopProductSend from "../templates/shop/pages/ShopProductSend";
+import dynamic from "next/dist/shared/lib/dynamic";
+const ShopProductSend = dynamic(() =>
+  import("../templates/shop/pages/ShopProductSend")
+);
+
+// import ShopProductSend from "../templates/shop/pages/ShopProductSend";
 function ProductSend({ productSend }) {
   return (
     <>
@@ -29,7 +34,7 @@ export const getServerSideProps = async (ctx) => {
     url === "localhost:3001" ||
     url === "localhost:3002"
   ) {
-    url = "zaay.ir";
+    url = "tivarja.ir";
   }
 
   let id = cookies?.id;

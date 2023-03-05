@@ -51,7 +51,7 @@ const ProductDetailForm = ({ onAddToCart, id, title, item }) => {
     console.log(id);
     const res = await dispatch(deleteProductOrder(id));
     console.log(res);
-    if (res.payload === 401) {
+    if (res.payload === 401 || !res.payload) {
       console.log("hereeeeeeeeeeee");
       dispatch(cartActions.removeItem(id));
     }

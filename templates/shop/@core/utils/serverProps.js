@@ -10,7 +10,7 @@ export default async function mainData(ctx) {
     url === "localhost:3001" ||
     url === "localhost:3002"
   ) {
-    url = "zaayk.ir/";
+    url = "tivarja.ir/";
   }
 
   let response = await axios(

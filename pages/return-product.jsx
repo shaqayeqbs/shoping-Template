@@ -2,8 +2,12 @@
 import axios from "axios";
 import nookies from "nookies";
 import { Get_Business_Editors_By_Type } from "../@core/api/BussinessApi";
+import dynamic from "next/dist/shared/lib/dynamic";
+const ShopReturnProduct = dynamic(() =>
+  import("../templates/shop/pages/ShopReturnProduct")
+);
 
-import ShopReturnProduct from "../templates/shop/pages/ShopReturnProduct";
+// import ShopReturnProduct from "../templates/shop/pages/ShopReturnProduct";
 function ReturnProduct({ returnProduct }) {
   return (
     <>
@@ -29,7 +33,7 @@ export const getServerSideProps = async (ctx) => {
     url === "localhost:3001" ||
     url === "localhost:3002"
   ) {
-    url = "zaay.ir";
+    url = "tivarja.ir";
   }
 
   let id = cookies?.id;

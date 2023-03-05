@@ -9,10 +9,9 @@ import {
 export const listOfOrder = createAsyncThunk(
   "product/list",
   async (id, thunkAPI) => {
-    console.log({ id });
     try {
       const response = await getListOfOrderApi(id);
-      console.log({ response });
+
       return response;
     } catch (err) {
       console.log(err);
@@ -47,10 +46,9 @@ export const removeWholeItems = createAsyncThunk(
   "product/deleteAll",
   async (indentory_id, thunkAPI) => {
     try {
-      console.log(indentory_id, "kkk");
       const response = await deleteAllProductOrderApi(indentory_id);
-      console.log(response);
-      if (response === 401) {
+
+      if (response === 401 || !response) {
         return indentory_id;
       }
       return response;
@@ -182,9 +180,7 @@ const cartSlice = createSlice({
 
     builder.addCase(removeWholeItems.fulfilled, (state, action) => {
       console.log(action.payload || action.payload === 401);
-      if (!action.payload) {
-        return;
-      }
+
       let _d = [];
       console.log(typeof action.payload);
       if (typeof action.payload == "number") {

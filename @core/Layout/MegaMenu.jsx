@@ -23,7 +23,10 @@ function MegaMenu({ isOpen, onCloseModalHandler }) {
         selector="#portal"
         MegaMenu={true}
       >
-        <ul className="flex ">
+        <ul
+          className="flex 
+        "
+        >
           <div className="overflow-y-scroll py-4 min:w-[16rem]  max-h-[32.5rem] text-skin-primary">
             {productCategorys?.map((item) => (
               <div className="">

@@ -60,7 +60,7 @@ const Carousel = (products) => {
                       className="object-cover !mx-auto  w-[90%] max-w-[300px] max-h-[300px] py-3 rounded-lg"
                     />
                   )}
-                  {!item?.product?.files[0] && (
+                  {!item?.product?.files[0]?.details && (
                     <div className="bg-skin-background relative rounded-xl flex items-center h-[270px] max-h-[300px]   w-full  justify-center   ">
                       <Gallery size="80" className="" />
                     </div>

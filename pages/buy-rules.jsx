@@ -1,9 +1,13 @@
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 import axios from "axios";
 import nookies from "nookies";
 import { Get_Business_Editors_By_Type } from "../@core/api/BussinessApi";
 
-import ShopBuyRules from "../templates/shop/pages/ShopBuyRules";
+const ShopBuyRules = dynamic(() =>
+  import("../templates/shop/pages/ShopBuyRules")
+);
+
+// import ShopBuyRules from "../templates/shop/pages/ShopBuyRules";
 function BuyRules({ buyRules }) {
   return (
     <>
@@ -29,7 +33,7 @@ export const getServerSideProps = async (ctx) => {
     url === "localhost:3001" ||
     url === "localhost:3002"
   ) {
-    url = "zaay.ir";
+    url = "tivarja.ir";
   }
 
   let id = cookies?.id;

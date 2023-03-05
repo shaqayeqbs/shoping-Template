@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-export default function Gallery({data}) {
+export default function Gallery({ data }) {
   const datad = [
     { id: 1, title: "یک باغبان حرفه‌ای باشید", images: "/images/plant.png" },
     { id: 2, title: "ارتباط گیاهان و یوگا", images: "/images/plant.png" },
@@ -9,7 +9,7 @@ export default function Gallery({data}) {
     { id: 4, title: "آبیاری صحیح گیاهان", images: "/images/plant.png" },
     { id: 5, title: "ارتباط گیاهان و یوگا ", images: "/images/plant.png" },
   ];
-
+  console.log({ data });
   return (
     <div className=" grid grid-cols-2 gap-4 lg:grid-cols-4 ltr w-full mt-4">
       {data?.slice(0, 5).map((item, index) => (
@@ -24,12 +24,12 @@ export default function Gallery({data}) {
           <div className="relative">
             {" "}
             <Image
-              alt={item.title}
+              alt={item.slug}
               quality={50}
               loading="lazy"
               width={500}
               height={500}
-              src={item.files[0].details.location}
+              src={item?.files[0]?.details.location}
               className="w-full aspect-auto"
             />
           </div>

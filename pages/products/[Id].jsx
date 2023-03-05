@@ -1,17 +1,21 @@
 // import ProductsDetail from "../../@core/components/main/shop/DetailPage/ProductsDetail";
-
+import nookies from "nookies";
 import { getSpecifiedProducts } from "../../@core/api/productApi";
 import dynamic from "next/dynamic";
+import useSetBussinessData from "../../@core/hooks/useSetBussinessData";
+import mainData from "../../@core/utils/serverProps";
 const ShopProductsDetailPage = dynamic(() =>
   import("../../templates/shop/pages/products/ShopDetail")
 );
 // import ShopProductsDetailPage from "../../templates/shop/pages/products/ShopDetail";
 
-const ProductsDetailPage = ({ item = null }) => {
-  console.log({ item });
+const ProductsDetailPage = ({ data, item = null }) => {
+  console.log({ data, item });
+
   if (!item || item?.lenght === 0) {
     return <p>No Products found!</p>;
   }
+  useSetBussinessData(data);
 
   return (
     <div>
@@ -26,14 +30,20 @@ export default ProductsDetailPage;
 
 export async function getServerSideProps(context) {
   const { params, res } = context;
+  const cookies = nookies.get(context);
   res.setHeader(
     "Cache-Control",
     "public, s-maxage=43200, stale-while-revalidate=3600"
   );
   const Id = params?.Id;
+  let bussinessData = {};
+  if (!cookies?.id) {
+    console.log("object");
+    bussinessData = await mainData(context);
+  }
 
   const product = await getSpecifiedProducts(Id);
-  console.log(product, "kkkkkkkkkkkkkkkkk");
+  console.log(bussinessData, "kkkkkkkkkkkkkkkkk");
   if (!product.data.data) {
     return { notFound: true };
   }
@@ -41,6 +51,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       item: product?.data?.data,
+      data: bussinessData?.data || null,
     },
   };
 }

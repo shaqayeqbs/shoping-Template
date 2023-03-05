@@ -2,9 +2,13 @@
 // import UserAddress from "../@core/Profile/Address/UserAddress";
 import { useState } from "react";
 import PriceDetails from "../@core/Cart/PriceDetails";
-import AddressSteps from "../@core/Shopping/AddressStep/index";
+// import AddressSteps from "../@core/Shopping/AddressStep/index";
 // import PostType from "../@core/Shopping/AddressStep/PostType";
+import dynamic from "next/dist/shared/lib/dynamic";
 import Payment from "../@core/Shopping/Payment";
+const AddressSteps = dynamic(() =>
+  import("../@core/Shopping/AddressStep/index")
+);
 function Shopping() {
   const [buyStep, setByStep] = useState(1);
   const changeByStepHandler = (num) => {

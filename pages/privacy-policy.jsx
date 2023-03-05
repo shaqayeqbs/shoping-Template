@@ -2,8 +2,11 @@
 import axios from "axios";
 import nookies from "nookies";
 import { Get_Business_Editors_By_Type } from "../@core/api/BussinessApi";
-
-import ShopPrivacyPolicy from "../templates/shop/pages/ShopPrivacyPolicy";
+import dynamic from "next/dist/shared/lib/dynamic";
+const ShopPrivacyPolicy = dynamic(() =>
+  import("../templates/shop/pages/ShopPrivacyPolicy")
+);
+// import ShopPrivacyPolicy from "../templates/shop/pages/ShopPrivacyPolicy";
 function PrivacyPolicy({ PrivacyPolicy }) {
   return (
     <>
@@ -29,7 +32,7 @@ export const getServerSideProps = async (ctx) => {
     url === "localhost:3001" ||
     url === "localhost:3002"
   ) {
-    url = "zaay.ir";
+    url = "tivarja.ir";
   }
 
   let id = cookies?.id;

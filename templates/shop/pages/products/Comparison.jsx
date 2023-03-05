@@ -35,9 +35,9 @@ function Comparison({ product }) {
               <Image
                 layout="fill"
                 placeholder="blur"
-                blurDataURL={product?.product?.files[0]?.details?.location}
-                alt={product?.product?.translate[0]?.data}
-                src={product?.product?.files[0]?.details?.location}
+                blurDataURL={product?.product?.files?.[0]?.details?.location}
+                alt={product?.product?.translate?.[0]?.data}
+                src={product?.product?.files?.[0]?.details?.location}
               />
             </div>
             <div className="text-center mt-4">

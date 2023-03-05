@@ -5,6 +5,7 @@ import Image from "next/legacy/image";
 import useCalculateRemainingTime from "../../../../../../@core/hooks/useCalculateRemainingTime";
 import TimeHistory from "../../../icons/TimeHistory";
 import useTimer from "../../../../../../@core/hooks/useTimer";
+import { Gallery } from "iconsax-react";
 function OfferCarousel({ item, swiper }) {
   const [nowseconds, nowminutes, nowhours, nowdays] = useCalculateRemainingTime(
     item.price?.off?.end
@@ -15,10 +16,11 @@ function OfferCarousel({ item, swiper }) {
     nowhours,
     nowdays
   );
+  console.log(item, "itemmmmmmmm");
   return (
-    <Link href={`/products/${item.id}`} key={item.id}>
+    <Link href={`/products/${item.id}`} className="w-full" key={item.id}>
       <div
-        className="cadr cursor-pointer w-full"
+        className="cadr cursor-pointer  w-full"
         onMouseLeave={() => {
           console.log("first");
           swiper.autoplay.start();
@@ -28,9 +30,8 @@ function OfferCarousel({ item, swiper }) {
           swiper.autoplay.stop();
         }}
       >
-        <div className="reltive">
-          {" "}
-          {item?.files && (
+        <div className="reltive w-full">
+          {item?.products?.files && (
             <Image
               quality={50}
               decoding="async"
@@ -47,23 +48,24 @@ function OfferCarousel({ item, swiper }) {
         </div>
         <div className="reltive">
           {" "}
-          {item?.product && (
-            <Image
-              quality={50}
-              decoding="async"
-              alt="slider photo"
-              loading="lazy"
-              placeholder="blur"
-              blurDataURL={item?.product.files[0]?.details?.location}
-              src={item?.product.files[0]?.details?.location}
-              width={500}
-              height={500}
-              className="object-cover md:mx-auto"
-            />
+          {item?.product?.files[0] && (
+            <div className="relative w-full aspect-square">
+              <Image
+                quality={50}
+                decoding="async"
+                alt="slider photo"
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={item?.product.files[0]?.details?.location}
+                src={item?.product.files[0]?.details?.location}
+                layout="fill"
+                className="object-cover md:mx-auto"
+              />
+            </div>
           )}
           {!item?.product?.files[0] && (
-            <div className="bg-skin-background rounded-xl !h-[15rem]  w-full flex items-center justify-center   ">
-              <Gallery size="70" className="top-[30%] " />
+            <div className="bg-skin-background aspect-square rounded-xl   w-full flex items-center justify-center   ">
+              <Gallery size="70" className="" />
             </div>
           )}
         </div>

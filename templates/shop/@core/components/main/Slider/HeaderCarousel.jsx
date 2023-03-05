@@ -58,7 +58,7 @@ function HeaderCarousel({ items }) {
               {" "}
               <button
                 onClick={nextSlide}
-                className="right-5 lg:mr-8 md:mr-0  z-10 md:w-[6rem] text-[white] border-2  border-[white] h-[3rem] align-middle rounded-md p-1 "
+                className="right-5   md:mr-0  z-10 md:w-[6rem] text-[white] border-2  border-[white] h-[3rem] align-middle rounded-md p-1 "
               >
                 <ArrowRight2 className="inline-block" size="32" />
               </button>
@@ -76,11 +76,12 @@ function HeaderCarousel({ items }) {
             watchSlidesProgress={true}
             modules={[FreeMode, Navigation, Scrollbar, Thumbs]}
             // slideActiveClass="border-2  w-[10rem]"
+            className="flex  bg-[red] items-start"
           >
             {items?.map((item, index) => (
               <SwiperSlide
                 key={index}
-                className=" relative rounded-lg    !md:h-[4rem]  md:mx-6   "
+                className=" relative rounded-lg   md:mx-6   "
               >
                 {/* <div className="md:relative  bg-[red] h-[3rem] rounded-md m-0 !z-40"> */}
                 <img
@@ -90,7 +91,7 @@ function HeaderCarousel({ items }) {
                   loading="lazy"
                   height={48}
                   src={item?.file[0]?.details.location}
-                  className="object-cover inline-block w-[4rem] md:w-[7rem] h-[3rem] md:h-[3rem] rounded-lg !z-50"
+                  className="object-cover   rounded-lg !z-50"
                 />
                 {/* </div> */}
               </SwiperSlide>
@@ -100,7 +101,7 @@ function HeaderCarousel({ items }) {
             {" "}
             <button
               onClick={prevSlide}
-              className=" md:w-[6rem] lg:ml-8 md:ml-0  text-[white] border-[white] border-2 p-1 h-[3rem]  rounded-md align-middle"
+              className=" md:w-[6rem]  md:ml-0  text-[white] border-[white] border-2 p-1 h-[3rem]  rounded-md align-middle"
             >
               <ArrowLeft2 className="inline-block" size="32" />
             </button>

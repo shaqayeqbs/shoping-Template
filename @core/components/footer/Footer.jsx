@@ -49,7 +49,7 @@ function Footer() {
           <h3 className="text-xl mb-6 text-center">لینک‌های مفید</h3>
           <div className="  mx-auto  ">
             {" "}
-            <ul className="lg:grid grid-cols-2  text-center  w-full gap-2  justify-start text-sm lg:text-right mr-8 mx-auto">
+            <ul className="lg:grid grid-cols-2  text-center  w-full gap-2  justify-start text-sm lg:text-right mr-8  mx-auto">
               {" "}
               {data?.links?.map((item, index) => (
                 <li

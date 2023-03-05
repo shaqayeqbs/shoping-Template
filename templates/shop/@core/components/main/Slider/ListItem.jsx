@@ -28,15 +28,28 @@ function ListItem({
   return (
     <>
       {type === "articles" && (
-        <Link
-          href={`/articles/${item.id}`}
-          className=" relative pb-0 w-full lg:max-w-[270px]"
-        >
+        <Link href={`/articles/${item.id}`} className=" relative pb-0 w-full ">
           <div className={"cadr w-full h-full relative"}>
             <div className="relative w-full">
-              {item?.files && (
-                <div className="bg-skin-background rounded-xl   h-[15rem] mb-5 w-full flex items-center justify-center   ">
+              {!item?.files[0] && (
+                <div className="bg-skin-background rounded-xl   aspect-[16/9] mb-8 flex items-center justify-center   ">
                   <Gallery size="70" className="top-[30%] " />
+                </div>
+              )}
+              {item?.files[0] && (
+                <div className=" rounded-xl w-[100%] mb-8 aspect-[16/9]  flex items-center justify-center   ">
+                  <Image
+                    quality={50}
+                    decoding="async"
+                    alt="slider photo"
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={item?.files[0]?.details?.location}
+                    src={item?.files[0]?.details?.location}
+                    height={400}
+                    width={400}
+                    className="object-cover w-[100%]  md:mx-auto rounded-lg"
+                  />
                 </div>
               )}
             </div>
@@ -58,10 +71,7 @@ function ListItem({
       )}
 
       {type !== "articles" && (
-        <Link
-          href={`/products/${item.id}`}
-          className=" relative pb-0 w-full lg:max-w-[270px]"
-        >
+        <Link href={`/products/${item.id}`} className=" relative pb-0 w-full ">
           <div
             className={
               favorties
@@ -77,11 +87,11 @@ function ListItem({
                   alt="slider photo"
                   loading="lazy"
                   src={item?.product?.files?.[0]?.details?.location}
-                  className="object-cover rounded-md mb-5 w-full h-[15rem]"
+                  className="object-cover rounded-md mb-5 w-full aspect-square "
                 />
               )}
               {!item?.product?.files[0] && (
-                <div className="bg-skin-background rounded-xl h-[15rem]  mb-5 w-full flex items-center justify-center   ">
+                <div className="bg-skin-background rounded-xl aspect-square  mb-5 w-full flex items-center justify-center   ">
                   <Gallery size="70" className="top-[30%] " />
                 </div>
               )}
