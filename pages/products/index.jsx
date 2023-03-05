@@ -11,7 +11,7 @@ const ShopAllProducts = dynamic(() =>
 // import ShopAllProducts from "../../templates/shop/pages/products/ShopProducts";
 
 function AllProducts({ data, products }) {
-  console.log({ products }, "llllllllllllll");
+  console.log({ data }, "llllllllllllll");
   useSetBussinessData(data);
 
   return (

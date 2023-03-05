@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import AccordionUI from "./AccordionUI";
 
-const Accordion = () => {
+const Accordion = ({categories = []}) => {
   const [Index, setIndex] = useState(false);
 
+  console.log(categories);
   const data = [
     {
       id: 1,
@@ -31,7 +32,7 @@ const Accordion = () => {
           key={data.id}
           title={data.question}
           Id={data.id}
-          children={data.answer}
+          child={data.answer}
           Index={Index}
           setIndex={setIndex}
         ></AccordionUI>

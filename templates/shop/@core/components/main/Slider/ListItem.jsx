@@ -24,7 +24,7 @@ function ListItem({
     nowhours,
     nowdays
   );
-
+  
   return (
     <>
       {type === "articles" && (
