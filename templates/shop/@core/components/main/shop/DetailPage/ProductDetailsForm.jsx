@@ -20,12 +20,12 @@ const ProductDetailForm = ({ onAddToCart, id, title, item }) => {
 
   let numOfCartItems = 0;
 
-  const _d = cartData.filter((item) => {
+  const _d = cartData?.filter((item) => {
     return item.id === id;
   });
-  console.log(_d);
-  numOfCartItems = _d?.length ? +_d[0]?.qty : 0;
-  console.log(numOfCartItems, id, cartData, cartData[id]);
+  // console.log(_d);
+  numOfCartItems = _d?.length? +_d?.[0]?.qty : 0;
+  // console.log(numOfCartItems, id, cartData, cartData[id]);
 
   const [counter, setCounter] = useState(+numOfCartItems);
   console.log(counter);

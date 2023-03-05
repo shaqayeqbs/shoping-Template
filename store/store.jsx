@@ -6,6 +6,7 @@ import userSlice from "./Slices/UserSlice";
 import cartSlice from "./Slices/CartSlice";
 import thunk from "redux-thunk";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
+import filterModalSlice from "./Slices/filterModalSlice";
 
 const createNoopStorage = () => {
   return {
@@ -25,6 +26,7 @@ const reducers = combineReducers({
   user: userSlice.reducer,
   businessSlice: businessSlice.reducer,
   cart: cartSlice.reducer,
+  filterModal: filterModalSlice.reducer,
 });
 const storage =
   typeof window !== "undefined"

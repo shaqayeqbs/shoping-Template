@@ -66,7 +66,7 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
 
       {/* Hamburger Icon */}
       <div className="w-full px-4 container mx-auto">
-        <div className=" md:hidden w-full pt-6 flex gap-0 justify-between border-b-2 border-primary ">
+        <div className=" md:hidden w-full py-3 flex gap-0 justify-between items-center border-b-2 border-primary ">
           {" "}
           {/* <div className="flex"> */}{" "}
           <div onClick={handleNav} className="ml-1 h-fit">
@@ -74,7 +74,7 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
           </div>
           {/* </div> */}
           {/* <div className=" float-left text-left -mt-2 "> */}{" "}
-          <Link href={"/"} className="relative flex">
+          <Link href={"/"} className="relative flex pb-0">
             {" "}
             <Image
               quality={50}
@@ -92,7 +92,7 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
           <div className="text-left ">
             {" "}
             <Link href="/">
-              <div className="flex justify-start mt-[-1rem] md:mt-0  text-sm md:text-xl">
+              <div className="flex justify-start md:mt-0  text-sm md:text-xl">
                 <div className="flex">
                   <div className="flex justify-end text-skin-color  w-full ">
                     {/* <button

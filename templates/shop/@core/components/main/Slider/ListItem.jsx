@@ -23,9 +23,7 @@ function ListItem({
     nowhours,
     nowdays
   );
-
-  console.log(item, "inja");
-
+  
   return (
     <>
       {type === "articles" && (

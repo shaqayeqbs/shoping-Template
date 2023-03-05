@@ -17,7 +17,6 @@
   position: fixed;
   top: 23.5rem;
   left: 0rem;
-
   right: 0rem;
   scroll-behavior: smooth;
   overflow-y: scroll;
@@ -44,21 +43,32 @@
 
 .modal {
   position: fixed;
-  top: 50%;
   left: 0rem;
-  right: 0rem;
-  transform: translate(-0%, -50%);
   padding: 0rem;
   z-index: 1000000 !important;
   min-height: 300px;
   background: #ffffff;
-  border-radius: 15px;
-  width: 40%;
   overflow: hidden;
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  bottom: 0;
+  right: 0;
 }
 
-@media only screen and (max-width: 1000px) {
+@media (min-width: 400px) {
   .modal {
-    width: 80% !important;
+    top: 50%;
+    right: 0rem;
+    transform: translate(-0%, -50%);
+    border-radius: 15px;
+    width: 50%;
+    bottom: unset;
+    margin: auto;
+  }
+  @media only screen and (max-width: 1000px) {
+    .modal {
+      width: 80%;
+    }
   }
 }
+

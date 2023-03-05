@@ -7,14 +7,14 @@ const MyModal = ({ children, onClose, MegaMenu, className }) => {
   const modalClass = MegaMenu ? classes.megaModal : classes.modal;
 
   return (
-    <div className="container">
+    <div className="sm:container">
       <div
         className={overlayClass}
         onClick={onClose}
         onMouseEnter={MegaMenu ? onClose : () => console.log("")}
       ></div>
 
-      <div className={`${modalClass} container   ${className}`}>{children}</div>
+      <div className={`${modalClass} sm:container   ${className}`}>{children}</div>
     </div>
   );
 };
