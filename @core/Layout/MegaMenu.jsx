@@ -24,9 +24,9 @@ function MegaMenu({ isOpen, onCloseModalHandler }) {
         MegaMenu={true}
       >
         <ul className={classes.section}>
-          <div className="overflow-y-scroll max-h-[32.5rem] text-skin-primary">
+          <div className="overflow-y-scroll py-4 min:w-[16rem]  max-h-[32.5rem] text-skin-primary">
             {productCategorys?.map((item) => (
-              <div>
+              <div className="">
                 <MegaMenuList
                   key={item.id}
                   item={item}
@@ -37,9 +37,15 @@ function MegaMenu({ isOpen, onCloseModalHandler }) {
             ))}
           </div>
           {children && (
-            <div>
+            <div
+              className={
+                children.length < 15
+                  ? " grid grid-cols-2  py-4   max-h-[7rem]"
+                  : "grid grid-cols-3  py-4   max-h-[7rem]"
+              }
+            >
               {children?.map((item) => (
-                <MegaMenuList key={item.id} item={item} />
+                <MegaMenuList children key={item.id} item={item} />
               ))}
             </div>
           )}
