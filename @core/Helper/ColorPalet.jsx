@@ -13,7 +13,7 @@ function ColorPalet() {
   ];
   const [active, setActive] = useState(data[0]?.color);
   const colorChangeHandler = (e) => {
-    setActive(e.target.value);
+    setActive(e?.target?.value);
   };
 
   return (

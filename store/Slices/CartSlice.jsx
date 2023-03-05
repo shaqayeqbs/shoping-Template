@@ -144,7 +144,7 @@ const cartSlice = createSlice({
       const updatedTotalAmount =
         +state.totalAmount -
         +parseFloat(existingItem.price) * +existingItem.qty;
-      let updatedItems = state.items.filter(
+      let updatedItems = state.items?.filter(
         (item) => item.id !== action.payload
       );
 
@@ -188,7 +188,7 @@ const cartSlice = createSlice({
       let _d = [];
       console.log(typeof action.payload);
       if (typeof action.payload == "number") {
-        _d = state.items.filter((item) => {
+        _d = state.items?.filter((item) => {
           return item.id != action.payload;
         });
       }

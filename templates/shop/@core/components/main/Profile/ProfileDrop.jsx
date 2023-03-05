@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 import { userActions } from "../../../../store/Slices/UserSlice";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes?.filter(Boolean).join(" ");
 }
 
 export default function ProfileDrop() {

@@ -15,7 +15,7 @@ import { userActions } from "../../store/Slices/UserSlice";
 import { cartActions } from "../../store/Slices/CartSlice";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes?.filter(Boolean).join(" ");
 }
 
 export default function ProfileDrop() {

@@ -9,7 +9,7 @@ const EditorGalery = ({ data }) => {
   const [galleryData, setGalleryData] = useState();
   useEffect(() => {
     const trigger = async () => {
-      const recievedData = await getEventGallery(data.value);
+      const recievedData = await getEventGallery(data?.value);
       setIsLoading(false);
       const mappedData = {
         title: recievedData?.data?.data?.gallery?.name,
