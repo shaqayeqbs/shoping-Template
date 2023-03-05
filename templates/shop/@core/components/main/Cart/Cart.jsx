@@ -44,10 +44,10 @@ const Cart = (props) => {
       </h2>
       <div className="md:flex ">
         <div className="w-full "> {cartItems}</div>
-        <div className="w-[40%] font-extrabold mr-6 h-max bg-[white] p-4">
+        <div className="lg:w-[40%] font-extrabold lg:mr-6 h-max bg-[white] p-4">
           <h3 className="text-center mb-8">جزئیات قیمت</h3>
           <div className=" flex justify-between">
-            <div className="">قیمت محصولات :</div>
+            <div className="">قیمkت محصولات :</div>
             <span>{totalAmount || 0}</span>
           </div>
           <div className=" flex justify-between my-6 border-b-2 border-bordercolor pb-6 text-skin-primary">

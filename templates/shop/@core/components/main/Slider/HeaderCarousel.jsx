@@ -58,7 +58,7 @@ function HeaderCarousel({ items }) {
               {" "}
               <button
                 onClick={nextSlide}
-                className="right-5 mr-8 md:mr-0  z-10 md:w-[6rem] text-[white] border-2  border-[white] h-[3rem] align-middle rounded-md p-1 "
+                className="right-5 lg:mr-8 md:mr-0  z-10 md:w-[6rem] text-[white] border-2  border-[white] h-[3rem] align-middle rounded-md p-1 "
               >
                 <ArrowRight2 className="inline-block" size="32" />
               </button>
@@ -100,7 +100,7 @@ function HeaderCarousel({ items }) {
             {" "}
             <button
               onClick={prevSlide}
-              className=" md:w-[6rem] ml-8 md:ml-0  text-[white] border-[white] border-2 p-1 h-[3rem]  rounded-md align-middle"
+              className=" md:w-[6rem] lg:ml-8 md:ml-0  text-[white] border-[white] border-2 p-1 h-[3rem]  rounded-md align-middle"
             >
               <ArrowLeft2 className="inline-block" size="32" />
             </button>

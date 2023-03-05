@@ -54,13 +54,13 @@ function ProductsDetail({ item }) {
       {showSharedModal && (
         <ShareModal isOpen={showSharedModal} onClose={toggleShowSharedModal} />
       )}
-      <section className="cadr container   !mt-16 !p-8 text-skin-">
+      <section className=" bg-[white] rounded-xl container   !mt-16 !p-8 text-skin-">
         <div className="xl:flex justify-between space-x-0 !gap-0">
-          <div className="w-full mx-auto ">
+          <div className="lg:w-full mx-auto ">
             <StaticSlider items={item.inventory.business.files} />
           </div>
           <div className=" text-right w-full">
-            <div className=" border-b-2  !py-20 w-full  border-bordercolor ">
+            <div className=" border-b-2  py-8 lg:!py-20 w-full  border-bordercolor ">
               <h2 className="text-right m-6 text-[24px] mr-0">
                 {item.inventory?.product?.translate[0]?.data}
               </h2>

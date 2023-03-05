@@ -14,7 +14,7 @@ const Cart = () => {
         <div className="w-full ">
           <ShowCartItems cartData={cartData} />
         </div>
-        <div className="w-[40%] font-extrabold mr-6 h-max bg-[white] p-4">
+        <div className="lg:w-[40%] font-extrabold lg:mr-6 h-max bg-[white] p-4">
           <PriceDetails />
         </div>
       </div>

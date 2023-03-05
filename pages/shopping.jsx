@@ -21,7 +21,7 @@ function Shopping() {
   }
   return (
     <>
-      <section className="container flex justify-between py-6">
+      <section className="container lg:flex justify-between py-6">
         <div className="w-full">
           {" "}
           <h2 className="text-[24px] my-8 border-r-[.3rem]  border-primary p-4">
@@ -37,7 +37,7 @@ function Shopping() {
           </button> */}
           <div>{content}</div>
         </div>
-        <div className="w-[40%] mt-[7.5rem] rounded-lg font-extrabold mr-6 h-max bg-[white] p-4">
+        <div className="lg:w-[40%] lg:mt-[7.5rem] rounded-lg font-extrabold lg:mr-6 h-max bg-[white] p-4">
           <PriceDetails changeStep={changeByStepHandler} />
         </div>
       </section>

@@ -62,7 +62,7 @@ function Home({ data, articles, products }) {
 export default memo(Home);
 
 export const getServerSideProps = async (ctx) => {
-  const { req } = ctx;
+  const { req, res } = ctx;
   res.setHeader(
     "Cache-Control",
     "public, s-maxage=43200, stale-while-revalidate=3600"
