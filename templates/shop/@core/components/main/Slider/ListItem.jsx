@@ -24,7 +24,7 @@ function ListItem({
     nowhours,
     nowdays
   );
-  
+
   return (
     <>
       {type === "articles" && (
@@ -45,9 +45,9 @@ function ListItem({
               <div className="my-4  text-justify tracking-tight text-sm px-2">
                 {
                   <p>
-                    {item.editors
-                      .find((editor) => editor.type === 2)
-                      .value?.slice(0, 250)}
+                    {item?.editors
+                      .find((editor) => editor?.type === 2)
+                      ?.value?.slice(0, 250)}
                     ...
                   </p>
                 }

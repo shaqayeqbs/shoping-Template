@@ -7,7 +7,7 @@ if (typeof window !== "undefined") {
     url === "http://localhost:3001/" ||
     url === "http://localhost:3002/"
   ) {
-    url = "tivarja.ir";
+    url = "zaay.ir";
   }
 }
 

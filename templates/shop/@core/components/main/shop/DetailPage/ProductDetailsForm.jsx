@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "../../../../UI/Modal";
+import Modal from "../../../../../../../@core/UI/Modal";
 import { Bag2 } from "iconsax-react";
 import { BsCheckCircle } from "react-icons/bs";
 import { cartActions } from "../../../../../../../store/Slices/CartSlice";
@@ -24,7 +24,7 @@ const ProductDetailForm = ({ onAddToCart, id, title, item }) => {
     return item.id === id;
   });
   // console.log(_d);
-  numOfCartItems = _d?.length? +_d?.[0]?.qty : 0;
+  numOfCartItems = _d?.length ? +_d?.[0]?.qty : 0;
   // console.log(numOfCartItems, id, cartData, cartData[id]);
 
   const [counter, setCounter] = useState(+numOfCartItems);

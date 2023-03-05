@@ -9,7 +9,7 @@ function MyLinks({ onAddClose, showMenu, openModal, mobile, closeSidebar }) {
   const router = useRouter();
 
   return (
-    <div className="border-t-2 border-primary">
+    <div className="border-t-2 conatainer border-primary">
       {showMenu && (
         <MegaMenu isOpen={showMenu} onCloseModalHandler={onAddClose} />
       )}

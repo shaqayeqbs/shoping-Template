@@ -73,7 +73,7 @@ export const getServerSideProps = async (ctx) => {
     url === "localhost:3001" ||
     url === "localhost:3002"
   ) {
-    url = "tivarja.ir/";
+    url = "zaay.ir/";
   }
 
   let bussinessData = await mainData(ctx);

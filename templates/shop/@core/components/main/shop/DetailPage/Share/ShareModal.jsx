@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "../../../../../UI/Modal";
+import Modal from "../../../../../../../../@core/UI/Modal";
 import { copiedSuccessfully } from "../../../../../../../../@core/constants/toasts-messages";
 
 import {

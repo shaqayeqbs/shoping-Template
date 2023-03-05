@@ -30,10 +30,10 @@ export const getServerSideProps = async (ctx) => {
     url === "localhost:3001" ||
     url === "localhost:3002"
   ) {
-    url = "tivarja.ir";
+    url = "zaay.ir";
   }
 
-  let id = cookies?.id
+  let id = cookies?.id;
   console.log(cookies, cookies.id);
 
   if (!cookies || !cookies.id) {
@@ -47,13 +47,11 @@ export const getServerSideProps = async (ctx) => {
         return { notFound: true };
       }
     });
-    id = response.data.data.domin.business.id
+    id = response.data.data.domin.business.id;
     console.log(response.data.data.domin.business.id);
   }
 
-
-
-  let result = await Get_Business_Editors_By_Type(id, 'about_us');
+  let result = await Get_Business_Editors_By_Type(id, "about_us");
   console.log(result);
   return {
     props: {
@@ -61,4 +59,3 @@ export const getServerSideProps = async (ctx) => {
     },
   };
 };
-

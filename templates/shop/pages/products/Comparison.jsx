@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Card from "../../@core/UI/Card";
+import Modal from "../../../../@core/UI/Modal";
 import Image from "next/dist/client/image";
 import { digitsEnToFa } from "@persian-tools/persian-tools";
 import Specification from "../../@core/components/main/shop/DetailPage/Filter/Specification";
-import Modal from "../../../../@core/UI/Modal";
 import { CloseCircle } from "iconsax-react";
 
 function Comparison({ product }) {
