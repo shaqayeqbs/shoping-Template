@@ -8,6 +8,7 @@ import StaticSlider from "../../../../Helper/StaticSlider";
 import FilterShowDetails from "./FilterShowDetails";
 import PropertiesOfProduct from "./PropertiesOfProduct";
 import Vote from "./Vote";
+import Link from "next/dist/client/link";
 import ProductDetailForm from "./ProductDetailsForm";
 
 import { useDispatch } from "react-redux";
@@ -150,10 +151,16 @@ function ProductsDetail({ item }) {
               </button> */}
               <div className="flex">
                 {" "}
-                <div className={emojiStyle}>
+                <Link
+                  href={{
+                    pathname: "/products/comparison",
+                    query: { id: item.inventory.id },
+                  }}
+                  className={emojiStyle}
+                >
                   {" "}
                   <Check size="32" />
-                </div>
+                </Link>
                 <button onClick={toggleShowSharedModal} className={emojiStyle}>
                   <Share size="32" />
                 </button>
