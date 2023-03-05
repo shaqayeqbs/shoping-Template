@@ -3,8 +3,8 @@ import React, { useState } from "react";
 function SelectInput({ onSelect }) {
   const [active, setActive] = useState("");
   const activeSelectChangeHandler = (e) => {
-    setActive(e.target.value);
-    onSelect(e.target.value);
+    setActive(e.target?.value);
+    onSelect(e.target?.value);
   };
   return (
     <div className="border-bordercolor border-1">

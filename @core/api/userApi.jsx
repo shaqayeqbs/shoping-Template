@@ -74,6 +74,35 @@ export const storeNewFavoriteToUser = async ({ type = "product", id }) => {
   }
 };
 
+export const setUserAddressTospecifiedOrderAPi = async ({
+  id,
+  lang = "en",
+  user_address_id,
+}) => {
+  try {
+    const res = await instance.post(
+      USER_ADDRESS_END_POINTS.set_user_address_to_specified_order +
+        id +
+        "/set-address",
+      {
+        user_address_id,
+        lang,
+        id,
+      }
+    );
+
+    console.log(res);
+    return res;
+  } catch (err) {
+    console.log(err.status);
+    if (err.response) {
+      return err.response.status;
+    } else {
+      console.log(`ERROR:${err}`);
+    }
+  }
+};
+
 export const getUserAddressApi = async (userId) => {
   try {
     const res = await instance.get(

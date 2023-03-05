@@ -20,7 +20,8 @@ function LocationMarker({ value, change, readOnly }) {
       dragend() {
         const marker = markerRef.current;
         if (marker && !readOnly) {
-          change(marker.getLatLng());
+          const { lat, lng } = marker.getLatLng();
+          change([lat, lng]);
         }
       },
     }),

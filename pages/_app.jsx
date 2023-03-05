@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
     if (pageProps && Component && Layout && Component) {
       setIsLoading(false);
     }
-  }, [pageProps, Component, Layout, Component]);
+  }, [pageProps, Component]);
   if (isLoading) {
     return <LoadingSpinner />;
   }

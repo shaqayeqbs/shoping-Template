@@ -151,7 +151,7 @@ function UserInformation() {
                     name={item.name}
                     id={item.name}
                     // onFocus={onFocus}
-                    value={item.value}
+                    value={item?.value}
                     defaultValue={!item.value ? item.defaultValue : undefined}
                     placeholder={item.placeholder}
                     readOnly={item.readOnly ? true : false}
@@ -180,7 +180,7 @@ function UserInformation() {
                               onClick={(e) => {
                                 e.preventDefault();
 
-                                cityInputRef.current.value = item.name;
+                                cityInputRef.current?.value = item.name;
                                 setCityId(item.id);
 
                                 setCities([]);

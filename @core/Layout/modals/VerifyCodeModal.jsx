@@ -27,8 +27,8 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
   };
 
   const onChangeCodeHandler = async (e) => {
-    setCode(e.target.value);
-    const temp = e.target.value;
+    setCode(e?.target?.value);
+    const temp = e?.target?.value;
 
     if (temp.length === 5) {
       setLoading(true);

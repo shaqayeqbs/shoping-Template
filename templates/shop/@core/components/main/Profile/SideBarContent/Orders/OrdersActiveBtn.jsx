@@ -25,7 +25,7 @@ function OrdersActiveBrn({ activeState, onChangeState }) {
   ];
 
   const onChangeAvtiveState = (e) => {
-    onChangeState(e.target.value);
+    onChangeState(e.target?.value);
   };
   return (
     <section className="border-b-2 border-bordercolor">

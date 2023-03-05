@@ -65,6 +65,7 @@ const initialState = {
   totalAmount: 0,
   addItem: (item) => {},
   removeItem: (id) => {},
+  orderId: "",
 };
 
 const cartSlice = createSlice({
@@ -143,7 +144,7 @@ const cartSlice = createSlice({
       const updatedTotalAmount =
         +state.totalAmount -
         +parseFloat(existingItem.price) * +existingItem.qty;
-      let updatedItems = state.items.filter(
+      let updatedItems = state.items?.filter(
         (item) => item.id !== action.payload
       );
 
@@ -171,10 +172,11 @@ const cartSlice = createSlice({
     });
 
     builder.addCase(listOfOrder.fulfilled, (state, action) => {
-      console.log(action.payload || action.payload === 401);
+      console.log(action.payload, "cardddddd");
       if (!action.payload) {
         return;
       }
+      state.orderId = action.payload?.data?.data?.orders[0]?.id;
       state.items = action.payload?.data?.data?.orders[0]?.items;
     });
 
@@ -186,7 +188,7 @@ const cartSlice = createSlice({
       let _d = [];
       console.log(typeof action.payload);
       if (typeof action.payload == "number") {
-        _d = state.items.filter((item) => {
+        _d = state.items?.filter((item) => {
           return item.id != action.payload;
         });
       }

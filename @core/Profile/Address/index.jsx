@@ -24,9 +24,7 @@ function Index() {
     }
     fetchData();
   }, []);
-  if (typeof window === "undefiend") {
-    return;
-  }
+
   const addNewAddressHandler = async (address) => {
     const data = {
       userId: id,
@@ -53,7 +51,7 @@ function Index() {
   const removeAddressHandler = async (addressId) => {
     const res = await removeTheUserAddressApi(id, addressId);
     if (res == 200) {
-      const updatedArray = addrsses.filter(
+      const updatedArray = addrsses?.filter(
         (address) => address.id != addressId
       );
       setAddress(updatedArray);

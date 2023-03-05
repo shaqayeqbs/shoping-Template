@@ -54,20 +54,17 @@ function OfferCarousel({ item, swiper }) {
               alt="slider photo"
               loading="lazy"
               placeholder="blur"
-              blurDataURL={
-                item?.product?.files[0]
-                  ? item?.product.files[0]?.details?.location
-                  : "https://via.placeholder.com/300/ccc/fff.png"
-              }
-              src={
-                item?.product?.files[0]
-                  ? item?.product.files[0]?.details?.location
-                  : "https://via.placeholder.com/300/ccc/fff.png"
-              }
+              blurDataURL={item?.product.files[0]?.details?.location}
+              src={item?.product.files[0]?.details?.location}
               width={500}
               height={500}
               className="object-cover md:mx-auto"
             />
+          )}
+          {!item?.product?.files[0] && (
+            <div className="bg-skin-background rounded-xl !h-[15rem]  w-full flex items-center justify-center   ">
+              <Gallery size="70" className="top-[30%] " />
+            </div>
           )}
         </div>
         <h2 className="font-bold my-3 text-lg md:text-right">

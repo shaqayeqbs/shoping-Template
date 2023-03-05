@@ -6,7 +6,7 @@ import Specification from "./Filter/Specification";
 function FilterShowDetails({ dynamicOptions, options, description }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const FilterHandler = (e) => {
-    let value = e.target.value;
+    let value = e.target?.value;
     if (value === "0") {
       setActiveIndex(0);
     } else if (value === "1") {

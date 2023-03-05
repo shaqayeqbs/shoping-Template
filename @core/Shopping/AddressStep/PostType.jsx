@@ -17,21 +17,21 @@ function PostType() {
           defaultChecked
           style={{ accentColor: "inherit", marginRight: 0 }}
         />
-          <label for="post-pishtaz">پست پیشتاز</label> {" "}
+          <label htmlFor="post-pishtaz">پست پیشتاز</label> {" "}
         <input
           type="radio"
           name="post-type"
           value="tipax"
           style={{ accentColor: "inherit" }}
         />
-          <label for="tipax">تیپاکس</label> {" "}
+          <label htmlFor="tipax">تیپاکس</label> {" "}
         <input
           type="radio"
           name="post-type"
           value="kara-resan"
           style={{ accentColor: "inherit" }}
         />
-          <label for="kala-resan">کالارسان</label>
+          <label htmlFor="kala-resan">کالارسان</label>
       </div>
     </Card>
   );

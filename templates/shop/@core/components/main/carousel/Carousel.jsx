@@ -4,6 +4,7 @@ import React, { memo, useState } from "react";
 import { Autoplay, Navigation, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/legacy/image";
+import { Gallery } from "iconsax-react";
 const Carousel = (products) => {
   const [swiper, setSwiper] = useState(null);
   console.log(products, "swieppere");
@@ -60,16 +61,9 @@ const Carousel = (products) => {
                     />
                   )}
                   {!item?.product?.files[0] && (
-                    <img
-                      quality={50}
-                      decoding="async"
-                      alt="slider photo"
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL="https://via.placeholder.com/300/ccc/fff.png"
-                      src="https://via.placeholder.com/300/ccc/fff.png"
-                      className="object-cover !mx-auto w-[90%] py-3 !rounded-xl"
-                    />
+                    <div className="bg-skin-background relative rounded-xl flex items-center h-[270px] max-h-[300px]   w-full  justify-center   ">
+                      <Gallery size="80" className="" />
+                    </div>
                   )}
                 </div>
                 <h2 className="font-bold mx-2 my-3 w-fit text-lg text-right">

@@ -55,7 +55,7 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
       value: item ? item.name : addressTitle,
 
       onChange: (val) => {
-        setAddressTitle(val.target.value);
+        setAddressTitle(val?.target?.value);
       },
     },
     {
@@ -66,7 +66,7 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
       maxLength: 15,
       value: item ? item.zip_code : zip,
       onChange: (val) => {
-        setZip(val.target.value);
+        setZip(val.target?.value);
       },
     },
     {
@@ -77,11 +77,11 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
       maxLength: 20,
       value: item ? item.unit : unit,
       onChange: (val) => {
-        setUnit(val.target.value);
+        setUnit(val?.target?.value);
       },
     },
     {
-      id: 3,
+      id: 10,
       name: "plaque",
       label: "پلاک",
       type: "number",
@@ -89,7 +89,7 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
       placeholder: "نام",
       value: item ? item.plague : plaque,
       onChange: (val) => {
-        setPlaque(val.target.value);
+        setPlaque(val?.target?.value);
       },
     },
   ];
@@ -152,9 +152,11 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
       reciver_phone: phone,
     };
     console.log(data, "llllllllllll");
+    console.log(cordinates);
     onAddAddress(data);
-    onCloseModal();
+    // onCloseModal();
   };
+  console.log("corrrrrr", cordinates);
 
   return (
     <form className="p-6 ">
@@ -195,13 +197,12 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
       <div className="mt-4 z-0">
         <div className="w-full h-[400px]">
           <p className="my-4"> انتخاب محل در نقشه</p>
-          {typeof window && (
-            <Map
-              value={cordinates}
-              change={setCordinates}
-              className="w-full h-[200px]"
-            />
-          )}
+
+          <Map
+            value={cordinates}
+            change={setCordinates}
+            className="w-full h-[200px]"
+          />
         </div>
         <div className="flex mb-5">
           <button
