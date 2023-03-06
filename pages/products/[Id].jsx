@@ -11,11 +11,11 @@ const ShopProductsDetailPage = dynamic(() =>
 
 const ProductsDetailPage = ({ data, item = null }) => {
   console.log({ data, item });
+  useSetBussinessData(data);
 
   if (!item || item?.lenght === 0) {
     return <p>No Products found!</p>;
   }
-  useSetBussinessData(data);
 
   return (
     <div>
