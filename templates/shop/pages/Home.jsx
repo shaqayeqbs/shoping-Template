@@ -32,7 +32,7 @@ function ShopHome({ data = null, articles, products, offProducts }) {
   if (isLoading) {
     return <LoadingSpinner />;
   }
-  console.log(products, "pro");
+  console.log(products, "pro", offProducts);
 
   return (
     <>

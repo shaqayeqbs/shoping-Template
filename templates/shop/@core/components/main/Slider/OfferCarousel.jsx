@@ -90,7 +90,7 @@ function OfferCarousel({ item, swiper }) {
                 </div>
 
                 {item.price?.price && (
-                  <p className="text-skin-muted line-through">
+                  <p className="ltr text-skin-muted line-through">
                     {digitsEnToFa(item?.price?.price?.toLocaleString() || 0)}
                   </p>
                 )}

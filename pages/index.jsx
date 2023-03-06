@@ -98,7 +98,7 @@ export const getServerSideProps = async (ctx) => {
       data: bussinessData?.data || null,
       articles: articles?.data?.data || null,
       products: products?.data?.data?.inventorys || null,
-      offProducts: products?.data?.data?.inventorys || null,
+      offProducts: offProducts?.data?.data?.inventorys || null,
     },
   };
 };
