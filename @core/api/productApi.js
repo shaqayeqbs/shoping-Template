@@ -41,10 +41,13 @@ export const getSpecifiedProducts = async (productId) => {
 
 export const getListOfOffProducts = async (businessId) => {
   try {
+    console.log(
+      END_POINTS.get_list_of_products + businessId + "&filters[just_off]=1"
+    );
     const res = await instance.get(
       END_POINTS.get_list_of_products + businessId + "&filters[just_off]=1"
     );
-
+    console.log(res);
     return res;
   } catch (err) {
     if (err?.response) {

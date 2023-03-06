@@ -37,10 +37,8 @@ export async function getServerSideProps(context) {
   );
   const Id = params?.Id;
   let bussinessData = {};
-  if (!cookies?.id) {
-    console.log("object");
-    bussinessData = await mainData(context);
-  }
+
+  bussinessData = await mainData(context);
 
   const product = await getSpecifiedProducts(Id);
   console.log(bussinessData, "kkkkkkkkkkkkkkkkk");

@@ -13,7 +13,7 @@ import dynamic from "next/dynamic";
 const Slider = dynamic(() => import("../@core/components/main/Slider/Slider"));
 const Event = dynamic(() => import("../@core/components/main/Event"));
 
-function ShopHome({ data = null, articles, products }) {
+function ShopHome({ data = null, articles, products, offProducts }) {
   const [isLoading, setIsLoading] = useState(true);
   const banners = data?.data?.domin.business.banners;
 
@@ -44,9 +44,9 @@ function ShopHome({ data = null, articles, products }) {
           <Description />
         </Suspense>
         <Suspense fallback={<p>Loading feed...</p>}>
-          {products?.length > 0 && (
+          {offProducts?.length > 0 && (
             <div className=" bg-skin-fill">
-              <AmazingSection products={products} />
+              <AmazingSection products={offProducts} />
             </div>
           )}
         </Suspense>

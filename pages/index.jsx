@@ -12,10 +12,13 @@ import { listOfOrder } from "../store/Slices/CartSlice";
 import { GetArticles } from "../@core/api/articlesApi";
 import ShopHome from "../templates/shop/pages/Home";
 import mainData from "../@core/utils/serverProps";
-import { getListOfProducts } from "../@core/api/productApi";
+import {
+  getListOfProducts,
+  getListOfOffProducts,
+} from "../@core/api/productApi";
 import useSetBussinessData from "../@core/hooks/useSetBussinessData";
 
-function Home({ data, articles, products }) {
+function Home({ data, articles, products, offProducts }) {
   const [isLoading, setIsLoading] = useState(true);
   useSetBussinessData(data);
   const dispatch = useDispatch();
@@ -55,7 +58,12 @@ function Home({ data, articles, products }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Suspense fallback={<p>Loading feed...</p>}>
-        <ShopHome data={data} articles={articles} products={products} />
+        <ShopHome
+          data={data}
+          articles={articles}
+          products={products}
+          offProducts={offProducts}
+        />
       </Suspense>
     </>
   );
@@ -75,7 +83,7 @@ export const getServerSideProps = async (ctx) => {
     url === "localhost:3001" ||
     url === "localhost:3002"
   ) {
-    url = "tivarja.ir/";
+    url = "zaay.ir/";
   }
 
   let bussinessData = await mainData(ctx);
@@ -83,12 +91,14 @@ export const getServerSideProps = async (ctx) => {
 
   let articles = await GetArticles(id);
   let products = await getListOfProducts(id);
+  let offProducts = await getListOfOffProducts(id);
 
   return {
     props: {
       data: bussinessData?.data || null,
       articles: articles?.data?.data || null,
       products: products?.data?.data?.inventorys || null,
+      offProducts: products?.data?.data?.inventorys || null,
     },
   };
 };

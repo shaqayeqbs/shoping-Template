@@ -31,9 +31,8 @@ export const getServerSideProps = async (ctx) => {
   );
 
   let bussinessData = {};
-  if (!cookies?.id) {
-    bussinessData = await mainData(ctx);
-  }
+
+  bussinessData = await mainData(ctx);
 
   let result = await GetArticles(cookies?.id);
 

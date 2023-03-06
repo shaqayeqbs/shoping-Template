@@ -19,7 +19,7 @@ function WorkTIme() {
         found = true;
         const startTime = times[0].startTime;
         const endTime = times[0].endTime;
-        return weekData[i].times.push({ startTime, endTime });
+        return weekData[i]?.times?.push({ startTime, endTime });
       }
     }
 

@@ -56,5 +56,14 @@ export default function useTimer(sec = 0, min = 0, hour = 0, day = 0) {
   const Faseconds = digitsEnToFa(farsSec);
   const FaHours = digitsEnToFa(FarsHours);
 
-  return [hours, minutes, seconds, farsMin, FaHours, Faseconds, FarsDays, days];
+  return [
+    +hours,
+    +minutes,
+    +seconds,
+    farsMin,
+    FaHours,
+    Faseconds,
+    FarsDays,
+    days,
+  ];
 }

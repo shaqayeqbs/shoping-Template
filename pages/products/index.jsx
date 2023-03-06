@@ -31,9 +31,9 @@ export const getServerSideProps = async (ctx) => {
     "public, s-maxage=43200, stale-while-revalidate=3600"
   );
   let bussinessData = {};
-  if (!cookies?.id) {
-    bussinessData = await mainData(ctx);
-  }
+
+  bussinessData = await mainData(ctx);
+
   let result = await getListOfProducts(cookies?.id);
 
   return {

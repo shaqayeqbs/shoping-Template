@@ -3,13 +3,15 @@ import Head from "next/head";
 import APP_CONFIG from "../../@core/constants/app-config";
 import END_POINTS from "../../@core/constants/endpoints";
 import dynamic from "next/dynamic";
-
+import mainData from "../../@core/utils/serverProps";
+import useSetBussinessData from "../../@core/hooks/useSetBussinessData";
 const ShopArticleDetailPage = dynamic(() =>
   import("../../templates/shop/pages/articles/ShopArticleDetail")
 );
 // import ShopArticleDetailPage from "../../templates/shop/pages/articles/ShopArticleDetail";
 
-const ProductsDetailPage = ({ articleData }) => {
+const ProductsDetailPage = ({ articleData, data }) => {
+  useSetBussinessData(data);
   return (
     <div className="container !py-10">
       <Head>
@@ -36,30 +38,9 @@ export const getServerSideProps = async (ctx) => {
     "public, s-maxage=43200, stale-while-revalidate=3600"
   );
 
-  // let url = req.headers.host;
-  // if (
-  //   url === "localhost:3000" ||
-  //   url === "localhost:3001" ||
-  //   url === "localhost:3002"
-  // ) {
-  //   url = "tivarja.ir";
-  // }
-
-  // let id = cookies?.id;
-
-  // if (!cookies || !cookies.id) {
-  //   const response = await axios(
-  //     `http://core.behzi.net/api/business/byDomin/${url}?lang=fa`
-  //   ).catch(function (error) {
-  //     if (error.response) {
-  //       console.log(error.response.data);
-  //       console.log(error.response.status);
-  //       console.log(error.response.headers);
-  //       return { notFound: true };
-  //     }
-  //   });
-  //   id = response.data.data.domin.business.id;
-  // }
+  let bussinessData = {};
+  // if (!cookies?.id) {
+  bussinessData = await mainData(ctx);
 
   let result = await axios(
     `${APP_CONFIG.apiBaseUrl}${END_POINTS.getSpecifiedCurrentBusinessArticle}/${ctx.params.Id}`
@@ -79,6 +60,7 @@ export const getServerSideProps = async (ctx) => {
   return {
     props: {
       articleData: result?.data?.data?.article || null,
+      data: bussinessData.data || null,
     },
   };
 };

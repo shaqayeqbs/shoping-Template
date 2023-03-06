@@ -13,7 +13,7 @@ function AmazingSection({ products }) {
   for (const each in products) {
     if (products[each]?.price?.off) {
       const productEndOff = new Date(products[each]?.price?.off?.end);
-
+      console.log(products[each], "eeeeeeee");
       if (offDate.getTime() < productEndOff.getTime()) {
         offDate = productEndOff;
       }
@@ -31,15 +31,32 @@ function AmazingSection({ products }) {
   let formattedDate = offDate
     .toLocaleString("en-US", options)
     .replaceAll("/", "-")
-    .slice(0, 19)
+    .slice(0, 17)
     .replaceAll(",", "");
 
   const [nowseconds, nowminutes, nowhours, nowdays] =
     useCalculateRemainingTime(formattedDate);
 
-  const [hours, minutes, seconds, farsMin, FaHours, Faseconds, refreshTimer] =
+  console.log(
+    nowseconds,
+    nowminutes,
+    nowhours,
+    nowdays,
+    "amaziiiiiiiiiiiiiiiii",
+    formattedDate
+  );
+  const [hours, minutes, seconds, farsMin, FaHours, Faseconds, FarsDays, days] =
     useTimer(nowseconds, nowminutes, nowhours, nowdays);
-
+  console.log(
+    hours,
+    minutes,
+    seconds,
+    farsMin,
+    FaHours,
+    Faseconds,
+    FarsDays,
+    days
+  );
   const timerBtn =
     "bg-skin-secondary md:h-[2.5rem] w-[2.5rem]  p-2 px-5 text-skin-primary rounded-md";
   const timerDevider = "text-skin-primary mx-2";
