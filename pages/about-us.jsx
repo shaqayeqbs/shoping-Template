@@ -5,15 +5,21 @@ import { Get_Business_Editors_By_Type } from "../@core/api/BussinessApi";
 import mainData from "../@core/utils/serverProps";
 import useSetBussinessData from "../@core/hooks/useSetBussinessData";
 // import ShopAboutUs from "../templates/shop/pages/ShopAboutUs";
+import Head from "next/head";
+import { useSelector } from "react-redux";
 
 const ShopAboutUs = dynamic(() =>
   import("../templates/shop/pages/ShopAboutUs")
 );
 function AboutUs({ aboutUs, data }) {
   useSetBussinessData(data);
+  const businessName = useSelector((state) => state?.businessSlice?.name);
   console.log(aboutUs);
   return (
     <>
+      <Head>
+        <title>{businessName} | درباره ما</title>
+      </Head>
       <ShopAboutUs data={aboutUs} />
     </>
   );

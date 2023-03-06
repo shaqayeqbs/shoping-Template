@@ -53,7 +53,6 @@ function Home({ data, articles, products, offProducts }) {
   return (
     <>
       <Head>
-        <title>tenant</title>
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

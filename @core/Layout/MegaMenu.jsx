@@ -9,7 +9,7 @@ function MegaMenu({ isOpen, onCloseModalHandler }) {
   const productCategorys = useSelector(
     (state) => state?.businessSlice.productCategorys
   );
-  const [children, setChildren] = useState(productCategorys[0].children);
+  const [children, setChildren] = useState(productCategorys[0]?.children);
 
   const changeChildrenHandler = (item) => {
     setChildren(item.children);

@@ -16,6 +16,8 @@ import MainNavigation from "./MainNavigation";
 const Layout = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
   const { colors } = useSelector((state) => state.businessSlice);
+  const businessName = useSelector((state) => state?.businessSlice?.name);
+  const logo = useSelector((state) => state?.businessSlice?.logo);
 
   const openModalHandler = () => {
     setShowMenu(true);
@@ -42,7 +44,8 @@ const Layout = ({ children }) => {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+        <title>{businessName}</title>
+        <link rel="shortcut icon" href={logo} />
         <style>
           :root{" "}
           {`{${primaryColor} ${backgroundColor} ${secondaryColor} ${textColor} }`}
