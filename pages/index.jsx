@@ -13,9 +13,11 @@ import { GetArticles } from "../@core/api/articlesApi";
 import ShopHome from "../templates/shop/pages/Home";
 import mainData from "../@core/utils/serverProps";
 import { getListOfProducts } from "../@core/api/productApi";
+import useSetBussinessData from "../@core/hooks/useSetBussinessData";
 
 function Home({ data, articles, products }) {
   const [isLoading, setIsLoading] = useState(true);
+  useSetBussinessData(data);
   const dispatch = useDispatch();
   useEffect(() => {
     if (data) {

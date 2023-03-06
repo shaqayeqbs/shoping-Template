@@ -12,7 +12,7 @@ import {
   deleteProductOrder,
   removeWholeItems,
 } from "../../../../../../../store/Slices/CartSlice";
-
+import Link from "next/link";
 const ProductDetailForm = ({ onAddToCart, id, title, item }) => {
   const [productAddedModal, setProductAddedModal] = useState(false);
   const [message, setMessage] = useState(Messages.ADDED_TO_CART);
@@ -83,7 +83,8 @@ const ProductDetailForm = ({ onAddToCart, id, title, item }) => {
 
             <p className="text-center my-4"> {message}</p>
             <div className="flex justify-center">
-              <button
+              <Link
+                href="/basket"
                 className="bg-skin-fill text-[white] flex text-white mx-2 pt-2 px-6 py-1 rounded-lg"
                 type="submit"
               >
@@ -91,7 +92,7 @@ const ProductDetailForm = ({ onAddToCart, id, title, item }) => {
                   <Bag2 variant="Bold" />
                 </span>
                 سبد خرید
-              </button>
+              </Link>
               <button
                 onClick={showModalHandler}
                 className="  border-[gray] py-2 px-6 rounded-md text-[gray]"

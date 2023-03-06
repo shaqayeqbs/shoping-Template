@@ -82,15 +82,15 @@ function HeaderCarousel({ items }) {
                   key={index}
                   className=" relative rounded-lg  lg:h-[3rem]  aspect-[16/9]   md:mx-6   "
                 >
-                  <div className="md:relative lg:w-max  h-full min-h-[3rem]  rounded-md m-0 !z-40">
-                    <img
+                  <div className="relative   h-[3rem] w-full   rounded-md m-0 !z-40">
+                    <Image
                       alt="slider"
                       quality={50}
                       loading="lazy"
                       layout="fill"
                       onClick={setSwiper}
                       src={item?.file[0]?.details.location}
-                      className="object-cover w-full cursor-pointer min-h-[3rem] !h-full rounded-lg !z-50"
+                      className="object-cover w-full cursor-pointer  h-[3rem] rounded-lg !z-50"
                     />
                   </div>
                 </SwiperSlide>

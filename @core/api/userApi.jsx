@@ -248,3 +248,17 @@ export const removeTheUserAddressApi = async (userId, addressId) => {
     }
   }
 };
+export const getCurrentUser = async () => {
+  try {
+    const res = await instance.get(END_POINTS.get_user);
+
+    return res;
+  } catch (err) {
+    if (err?.response) {
+      console.log(err.response.data, err.response.status, err);
+      return err.response.data;
+    } else {
+      console.log(`ERROR:${err}`);
+    }
+  }
+};

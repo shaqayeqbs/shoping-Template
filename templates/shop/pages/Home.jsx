@@ -44,7 +44,7 @@ function ShopHome({ data = null, articles, products }) {
           <Description />
         </Suspense>
         <Suspense fallback={<p>Loading feed...</p>}>
-          {products.length > 0 && (
+          {products?.length > 0 && (
             <div className=" bg-skin-fill">
               <AmazingSection products={products} />
             </div>

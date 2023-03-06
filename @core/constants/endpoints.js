@@ -30,6 +30,7 @@ const END_POINTS = {
   getBusinessEditors: "api/business/details",
   gate_way: "api/business-getWay?lang=fa&business_id=",
   set_business_getWay_to_specified_order: "/api/orders/",
+  get_user: "api/user?lang=fa",
 };
 export const CART_END_POINTS = {
   get_list_of_order: "api/orders?lang=fa&business_id=",

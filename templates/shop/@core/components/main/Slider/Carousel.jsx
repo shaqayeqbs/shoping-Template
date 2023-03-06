@@ -3,9 +3,9 @@ import { Autoplay, Navigation, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import OfferCarousel from "./OfferCarousel";
-const Carousel = ({ data = [], articles }) => {
+const Carousel = ({ data, articles }) => {
   const [swiper, setSwiper] = useState(null);
-  console.log(data);
+
   return (
     <div className="w-full">
       {" "}

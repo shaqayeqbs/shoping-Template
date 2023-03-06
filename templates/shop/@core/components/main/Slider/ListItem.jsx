@@ -1,7 +1,7 @@
 import React from "react";
 import useTimer from "../../../../../../@core/hooks/useTimer";
 import useCalculateRemainingTime from "../../../../../../@core/hooks/useCalculateRemainingTime";
-import classes from "../Carousel/Carousel.module.css";
+// import classes from "../Carousel/Carousel.module.css";
 import TimeHistory from "../../../icons/TimeHistory";
 import Link from "next/link";
 import Image from "next/image";
@@ -98,7 +98,7 @@ function ListItem({
             </div>
             {/* {item.category && <div>{item.category.name}</div>} */}
             <h2 className="text-right">{item?.product?.translate[0]?.data}</h2>
-            <div className={classes.flexBetween}>
+            <div className="flex justify-between">
               {item?.price?.price && (
                 <div className=" bg-skin-secondary text-skin-primary rounded-lg p-1 ml-[.3rem] text-center w-10 h-10">
                   <Add size={32} />

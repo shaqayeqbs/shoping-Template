@@ -3,8 +3,8 @@ import React, { memo } from "react";
 import { AiOutlineLeft } from "react-icons/ai";
 import useTimer from "../../../../../../@core/hooks/useTimer";
 import Offer from "../../../icons/Offer";
-// const Carousel = dynamic(() => import("../carousel/carousel"));
-import Carousel from "../Carousel/Carousel";
+
+import Carousel from "../Slider/Carousel";
 import useCalculateRemainingTime from "../../../../../../@core/hooks/useCalculateRemainingTime";
 
 function AmazingSection({ products }) {
@@ -83,7 +83,7 @@ function AmazingSection({ products }) {
 
       <div className="w-full   m-0  ">
         {" "}
-        <Carousel products={products} />
+        <Carousel data={products} />
       </div>
     </section>
   );

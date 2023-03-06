@@ -3,6 +3,7 @@ import { verifyCode } from "../../@core/api/authApi";
 import {
   uploadCurrentUserPictureApi,
   updateUserProfile,
+  getCurrentUser,
 } from "../../@core/api/userApi";
 
 export const userData = createAsyncThunk(
@@ -10,6 +11,17 @@ export const userData = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const response = await verifyCode(data);
+      return response;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
+export const setUser = createAsyncThunk(
+  "setUser/data",
+  async (data, thunkAPI) => {
+    try {
+      const response = await getCurrentUser();
       return response;
     } catch (err) {
       console.log(err);
@@ -74,8 +86,27 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(setUser.fulfilled, (state, action) => {
+      const data = action.payload?.data?.data;
+      if (action.payload && data) {
+        state.id = data?.user?.id;
+        state.name = data?.user?.name;
+        state.surname = data?.user?.surname;
+        state.gender = data?.user[0]?.gender?._;
+        state.mobile = data?.user?.mobile;
+        state.city = data?.user[0]?.city;
+        state.image = data?.user?.files[0]?.details?.location;
+        state.id_card = data?.user?.id_card;
+        state.birthday = data?.user[0]?.birthday;
+        state.token = data?.token;
+        state.balance = data?.user[0]?.balance;
+
+        state.isLoggedIn = true;
+      }
+    });
     builder.addCase(userData.fulfilled, (state, action) => {
       const data = action.payload?.data?.data;
+      console.log({ data });
       if (action.payload) {
         state.id = data.user?.id;
         state.name = data?.user?.name;

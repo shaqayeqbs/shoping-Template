@@ -16,7 +16,7 @@ function OfferCarousel({ item, swiper }) {
     nowhours,
     nowdays
   );
-  console.log(item, "itemmmmmmmm");
+
   return (
     <Link href={`/products/${item.id}`} className="w-full" key={item.id}>
       <div
