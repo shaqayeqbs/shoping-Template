@@ -3,11 +3,11 @@ import Image from "next/image";
 function LandingCarouselSlide({ itemData: item, swiper }) {
   return (
     <Link href={item.link} className="mx-4 ">
-      <div className="relative py-20 lg:px-8  pb-32 cursor-pointer">
+      <div className="relative pt-0 lg:pt-20 py-20 lg:px-8  pb-32 cursor-pointer">
         <Image
           quality={30}
           priority
-          className="absolute  top-0 blur-xl z-0"
+          className="absolute  top-0 backdrop-blur-lg blur-lg  overflow-hidden backdrop-brightness-0 z-0"
           src={item?.file[0]?.details.location}
           alt="cover"
           layout="fill"
@@ -21,11 +21,11 @@ function LandingCarouselSlide({ itemData: item, swiper }) {
             className="relative w-full h-[12rem] md:!h-[419px]"
             onMouseLeave={() => {
               console.log("first");
-              swiper.autoplay.start();
+              swiper?.autoplay?.start();
             }}
             onMouseOver={() => {
               console.log("over");
-              swiper.autoplay.stop();
+              swiper?.autoplay?.stop();
             }}
           >
             <Image
@@ -41,7 +41,7 @@ function LandingCarouselSlide({ itemData: item, swiper }) {
               className="object-cover !h-[14rem] block  rounded-xl  md:!h-[419px] z-30"
             />
           </div>
-          <div className="w-full md:translate-y-[10%] md:w-[30%] pr-6 pb-20 pt-0 p-9  text-right">
+          <div className="w-full md:translate-y-[10%] md:w-[30%] pr-6 lg:pb-20 pt-0 p-9  text-right">
             <h1 className=" md:text-[32px] md:leading-[54.5px] font-extrabold mt-14 my-6 md:my-8 text-right ">
               {item.title}
             </h1>

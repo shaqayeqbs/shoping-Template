@@ -51,7 +51,7 @@ function HeaderCarousel({ items }) {
         ))}
       </Swiper>
       <div className=" container relative  ">
-        <div className=" absolute bottom-[-13px] w-full flex justify-between   !mb-[6rem]  z-20  ">
+        <div className=" absolute bottom-[-13px] text-right float-right justify-start flex w-full flex justify-between   !mb-[6rem]  z-20  ">
           {" "}
           <div className="flex">
             <div>
@@ -63,45 +63,45 @@ function HeaderCarousel({ items }) {
                 <ArrowRight2 className="inline-block" size="32" />
               </button>
             </div>
+            <Swiper
+              onSwiper={setThumbsSwiper}
+              spaceBetween={0}
+              slidesPerView={4}
+              freeMode={true}
+              autoplay={{
+                delay: 2500,
+              }}
+              scrollbar={{ draggable: true, hide: true }}
+              watchSlidesProgress={true}
+              modules={[FreeMode, Navigation, Scrollbar, Thumbs]}
+              // slideActiveClass="border-2  w-[10rem]"
+              className="  min-w-[15rem]"
+            >
+              {items?.map((item, index) => (
+                <SwiperSlide
+                  key={index}
+                  className=" relative rounded-lg  lg:h-[3rem]  aspect-[16/9]   md:mx-6   "
+                >
+                  <div className="md:relative lg:w-max  h-full min-h-[3rem]  rounded-md m-0 !z-40">
+                    <img
+                      alt="slider"
+                      quality={50}
+                      loading="lazy"
+                      layout="fill"
+                      onClick={setSwiper}
+                      src={item?.file[0]?.details.location}
+                      className="object-cover w-full cursor-pointer min-h-[3rem] !h-full rounded-lg !z-50"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
-          <Swiper
-            onSwiper={setThumbsSwiper}
-            spaceBetween={0}
-            slidesPerView={4}
-            freeMode={true}
-            autoplay={{
-              delay: 2500,
-            }}
-            scrollbar={{ draggable: true, hide: true }}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Navigation, Scrollbar, Thumbs]}
-            // slideActiveClass="border-2  w-[10rem]"
-            className="flex  bg-[red] items-start"
-          >
-            {items?.map((item, index) => (
-              <SwiperSlide
-                key={index}
-                className=" relative rounded-lg   md:mx-6   "
-              >
-                {/* <div className="md:relative  bg-[red] h-[3rem] rounded-md m-0 !z-40"> */}
-                <img
-                  alt="slider"
-                  quality={50}
-                  width={90}
-                  loading="lazy"
-                  height={48}
-                  src={item?.file[0]?.details.location}
-                  className="object-cover   rounded-lg !z-50"
-                />
-                {/* </div> */}
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div>
+          <div className="  ">
             {" "}
             <button
               onClick={prevSlide}
-              className=" md:w-[6rem]  md:ml-0  text-[white] border-[white] border-2 p-1 h-[3rem]  rounded-md align-middle"
+              className=" md:w-[6rem] absolute md:block left-0 md:ml-0  text-[white] border-[white] border-2 p-1 h-[3rem]  rounded-md align-middle"
             >
               <ArrowLeft2 className="inline-block" size="32" />
             </button>

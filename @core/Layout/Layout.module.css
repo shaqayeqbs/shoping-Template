@@ -1,5 +1,7 @@
 .navbar {
   /* padding-bottom: 1rem; */
+  background-color: red;
+  z-index: 1000 !important;
 }
 .logo {
   display: flex;

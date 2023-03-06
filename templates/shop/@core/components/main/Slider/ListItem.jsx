@@ -53,11 +53,11 @@ function ListItem({
                 </div>
               )}
             </div>
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start  hover:text-clip">
               <h2>{item.title}</h2>
-              <div className="my-4  text-justify tracking-tight text-sm px-2">
+              <div className="my-4  text-justify  text-sm px-2">
                 {
-                  <p>
+                  <p className="truncatee">
                     {item?.editors
                       .find((editor) => editor?.type === 2)
                       ?.value?.slice(0, 250)}
@@ -104,7 +104,7 @@ function ListItem({
                   <Add size={32} />
                 </div>
               )}
-              <div className="flex">
+              <div className="flex justify-start">
                 <div>
                   <div className="text-xl !containerfont-extrabold">
                     {item?.price?.price && (
@@ -115,7 +115,7 @@ function ListItem({
                   </div>
 
                   {item.price?.price && (
-                    <p className="text-skin-muted line-through">
+                    <p className="text-skin-muted ltr line-through">
                       {digitsEnToFa(item?.price?.price?.toLocaleString() || 0)}
                     </p>
                   )}

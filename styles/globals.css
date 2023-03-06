@@ -48,7 +48,17 @@
     max-height: 200px;
     overflow-y: scroll;
   }
-
+  .truncatee {
+    display: block;
+    max-height: 6rem;
+    line-height: 1.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
   .cadr {
     display: block;
     width: 95%;
@@ -167,24 +177,29 @@ body.overlays,
 .swiper-button-prev:after {
   color: black;
 
-  width: 2.5rem;
-  height: 2.5rem;
   background-color: var(--color-text-base);
   background: transparent\10;
   padding: 1rem;
-  padding-top: 0.6rem;
+
   display: block;
   font-size: 16px !important;
   margin: 0 0rem;
-  border-radius: 50%;
+  border-radius: 100%;
   font-weight: 900;
 }
 .swiper-button-prev:after {
-  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 .swiper-button-next:after {
-  margin-left: 1rem;
+  display: flex;
+
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 .swiper-wrapper {

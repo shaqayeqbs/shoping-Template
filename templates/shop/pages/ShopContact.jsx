@@ -49,12 +49,13 @@ function ShopContact() {
     <section className="container">
       <h1 className="mt-14">راه های ارتباطی</h1>
       <div className="mt-4 z-0">
-        <div className="w-full h-[400px]">
+        <div className="w-full h-[450px]  -z-20">
           {typeof window && (
             <Map
               value={cordinates}
               change={setCordinates}
-              className="w-full h-[200px]"
+              className="w-full h-[400px] -z-30"
+              readOnly
             />
           )}
         </div>

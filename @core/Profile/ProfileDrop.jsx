@@ -10,8 +10,8 @@ import {
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { Fragment } from "react";
-import { useDispatch } from "react-redux";
-import { userActions } from "../../store/Slices/UserSlice";
+import { useDispatch, useSelector } from "react-redux";
+import userSlice, { userActions } from "../../store/Slices/UserSlice";
 import { cartActions } from "../../store/Slices/CartSlice";
 
 function classNames(...classes) {
@@ -19,6 +19,8 @@ function classNames(...classes) {
 }
 
 export default function ProfileDrop() {
+  const userProfile = useSelector((state) => state?.user?.image);
+  const userName = useSelector((state) => state?.user?.name);
   const dispatch = useDispatch();
   const logoutHandler = () => {
     dispatch(userActions.logout());
@@ -31,36 +33,35 @@ export default function ProfileDrop() {
       href: "/",
       icon: <Wallet size="24" variant="Outline" />,
     },
-    {
-      id: 2,
-      title: "علاقه مندی ها",
-      href: "/",
-      icon: <Heart size="24" variant="Outline" />,
-    },
-    {
-      id: 3,
-      title: "مدیریت فروشگاه",
-      href: "/",
-      icon: <Shop size="24" variant="Outline" />,
-    },
-    {
-      id: 4,
-      title: "دیدگاه ها",
-      href: "/",
-      icon: <Message size="24" variant="Outline" />,
-    },
+    // {
+    //   id: 2,
+    //   title: "علاقه مندی ها",
+    //   href: "/",
+    //   icon: <Heart size="24" variant="Outline" />,
+    // },
+    // {
+    //   id: 3,
+    //   title: "مدیریت فروشگاه",
+    //   href: "/",
+    //   icon: <Shop size="24" variant="Outline" />,
+    // },
+    // {
+    //   id: 4,
+    //   title: "دیدگاه ها",
+    //   href: "/",
+    //   icon: <Message size="24" variant="Outline" />,
+    // },
   ];
   return (
-    <Menu as="div" className="relative  inline-block text-left ">
+    <Menu as="div" className="relative   text-left ">
       <div>
-        <Menu.Button className="inline-flex  !w-[3.5rem] !h-[3.5rem] md:w-full md:h-full rounded-full md:mt-[20%] justify-center  border-0 border-gray-300 bg-white md:pr-4 py-2 text-sm font-medium text-gray-700  hover:bg-[transparent]">
+        <Menu.Button className="relative inline-flex  !w-[3.5rem] !h-[3.5rem] md:w-full md:h-full rounded-full md:mt-[20%] justify-center  border-0 border-gray-300 bg-white  py-2 text-sm font-medium text-gray-700  hover:bg-[transparent]">
           <Image
             alt="profile"
             quality={50}
             loading="lazy"
-            src="/images/plant.png"
-            width={90}
-            height={90}
+            src={userProfile}
+            layout="fill"
             className="object-cover rounded-full "
           />
         </Menu.Button>
@@ -84,7 +85,7 @@ export default function ProfileDrop() {
                   href="/profile"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-3 text-sm "
+                    "block py-3 text-sm "
                   )}
                 >
                   <div className="flex  justify-between py-1">
@@ -93,14 +94,17 @@ export default function ProfileDrop() {
                         <Image
                           alt="profile"
                           quality={50}
-                          src="/images/plant.png"
+                          src={userProfile}
                           loading="lazy"
                           width={40}
                           height={40}
                           className="object-cover rounded-full "
                         />
                       </div>
-                      <p className="inline-block my-[rem] mr-2"> مهسا توفیق</p>
+                      <p className="inline-block p-1 my-[rem] mr-2">
+                        {" "}
+                        {userName}
+                      </p>
                     </div>
 
                     <div className="mt-1 text-bold  !font-bolder">
@@ -119,7 +123,7 @@ export default function ProfileDrop() {
                     href="#"
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block px-4 py-2 text-sm "
+                      "block py-2 text-sm "
                     )}
                   >
                     <div className="flex">

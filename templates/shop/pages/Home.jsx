@@ -8,7 +8,6 @@ import AmazingSection from "../@core/components/main/AmazingSale/AmazingSection"
 // import Slider from "../@core/components/main/Slider/Slider";
 // import Event from "../@core/components/main/Event";
 import Description from "../@core/components/main/About/Description";
-import AboutUsSection from "../@core/components/main/About/AboutUsSection";
 
 import dynamic from "next/dynamic";
 const Slider = dynamic(() => import("../@core/components/main/Slider/Slider"));
@@ -20,29 +19,6 @@ function ShopHome({ data = null, articles, products }) {
 
   const { t } = useTranslation();
   const { events } = useSelector((state) => state.businessSlice);
-
-  const carousel = [
-    {
-      id: "9",
-      image: "/images/plant.png",
-      price: "285000",
-      new: true,
-    },
-    {
-      id: "12",
-      image: "/images/plant.png",
-      price: "285000",
-      new: true,
-    },
-    { id: "10", image: "/images/plant.png", price: "285000", new: true },
-    { id: "11", image: "/images/plant.png", price: "285000", new: true },
-    {
-      id: "14",
-      image: "/images/plant.png",
-      price: "285000",
-      new: true,
-    },
-  ];
 
   const classes = "container  md:flex  ";
   useEffect(() => {
@@ -56,6 +32,7 @@ function ShopHome({ data = null, articles, products }) {
   if (isLoading) {
     return <LoadingSpinner />;
   }
+  console.log(products, "pro");
 
   return (
     <>
@@ -67,9 +44,11 @@ function ShopHome({ data = null, articles, products }) {
           <Description />
         </Suspense>
         <Suspense fallback={<p>Loading feed...</p>}>
-          <div className=" bg-skin-fill">
-            <AmazingSection products={products} />
-          </div>
+          {products.length > 0 && (
+            <div className=" bg-skin-fill">
+              <AmazingSection products={products} />
+            </div>
+          )}
         </Suspense>
         <section className={classes}>
           {events?.slice(2, 4)?.map((item) => (
@@ -77,7 +56,7 @@ function ShopHome({ data = null, articles, products }) {
           ))}
         </section>
         <div className="container">
-          <Slider title="آخرین محصولات" data={products} type ='products'/>
+          <Slider title="آخرین محصولات" data={products} type="products" />
         </div>
 
         <section className={classes}>
@@ -96,7 +75,7 @@ function ShopHome({ data = null, articles, products }) {
             title={t("landing:articles")}
             data={articles?.articles}
             articles
-            type='articles'
+            type="articles"
           />
         </div>
       </main>

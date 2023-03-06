@@ -66,10 +66,10 @@ function VerifyCodeModal({ phone, onCodeVerified, returnToVerifyModal }) {
           <input
             onChange={onChangeCodeHandler}
             length={4}
-            className=" border-2 w-full border-primary rounded-[6.3px] h-[40px] p-3"
+            className="ltr border-2 w-full border-primary rounded-[6.3px] h-[40px] p-3 pl-[8rem]"
           />
         </div>
-        <div className="absolute flex left-[13%] md:left-[27%] top-[38%] border-r-2 pr-4 border-primary">
+        <div className="absolute flex left-[13%] md:left-[27%] top-[56%] border-r-2 pr-4 border-primary">
           <span className="mt-[px] ml-1 inline-block">
             {" "}
             {minutes === 0 && seconds === 0 ? (

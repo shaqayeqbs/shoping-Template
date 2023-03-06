@@ -50,7 +50,7 @@ const Layout = ({ children }) => {
       </Head>
 
       <main className="w-full h-full p-0 ">
-        <div className={classes.navbar}>
+        <div className="z-50">
           <MainNavigation
             open={showMenu}
             selector="#portal"

@@ -1,64 +1,63 @@
 import { ArrowLeft } from "iconsax-react";
 import React, { useState } from "react";
 import phoneRegex from "../../constants/PhoneRegex";
-
+import { digitsEnToFa, digitsFaToEn } from "@persian-tools/persian-tools";
 import Link from "next/link";
 import { verifyPhone } from "../../api/authApi";
 import {
   notValidPhone,
   persianKeyboard,
 } from "../../constants/toasts-messages";
-function VerifyPhoneModal({ onMobileVerified }) {
+function VerifyPhoneModal({ onMobileVerified, title, close }) {
   // const phoneInputRef = useRef();
   const [phone, setPhone] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const phoneChangeHandler = (e) => {
-    e.preventDefault();
-    if (+e.target?.value || +e.target?.value === 0 || e.target?.value === "+") {
-      setPhone(e.target?.value);
-    } else {
-      const position = e.target?.selectionStart;
-      e.target.value =
-        e.target?.value.substring(0, position - 1) +
-        e.target?.value.substring(position + 1);
+  const phoneChangeHandler = (val) => {
+    // e.preventDefault();
+    let enNum = digitsFaToEn(val);
+    let faNum = digitsEnToFa(val);
+    if (+enNum || +enNum === 0 || enNum === "+") {
+      setPhone(faNum);
     }
+
     if (
       phone === "" &&
-      !phoneRegex(+e.target.value) &&
-      !+e.target.value &&
-      +e.target.value != 0 &&
-      e.target.value != "+"
+      !phoneRegex(+enNum) &&
+      !+enNum &&
+      +enNum != 0 &&
+      val != "+"
     ) {
       persianKeyboard();
-      e.target.value = "";
+      setPhone("");
     }
   };
   const submitHandler = async (event) => {
     event.preventDefault();
-
+    let enNum = digitsFaToEn(phone);
     console.log({ phone });
-    if (phone === "") {
+    if (enNum === "") {
       return;
     }
-    if (!phoneRegex(phone)) {
+    if (!phoneRegex(enNum)) {
       console.log("here");
       notValidPhone();
       return;
     }
+    console.log(enNum);
     setIsSubmitting(true);
-    const response = await verifyPhone({ phone });
+    const response = await verifyPhone({ phone: enNum });
     // const response = 200;
     console.log(response);
 
     if (response === 200) {
       console.log("ok");
-      onMobileVerified(phone);
+      onMobileVerified(enNum);
     }
   };
-
+  console.log({ phone });
   return (
-    <section className="m-16 mx-auto w-[80%] md:w-[52%]">
+    <section className=" m-16 mt-5 mx-auto w-[80%] md:w-[52%]">
       <h3>
         ثبت نام
         <span className="text-skin-primary"> | </span>
@@ -75,18 +74,26 @@ function VerifyPhoneModal({ onMobileVerified }) {
           maxLength="12"
           id="phone"
           name="phone"
-          onChange={phoneChangeHandler}
-          defaultValue={phone}
-          className="border-2 w-full border-primary rounded-[6.3px] h-[40px] p-3"
+          onChange={(e) => phoneChangeHandler(e.target.value)}
+          value={phone}
+          className="ltr border-2 w-full border-primary rounded-[6.3px] h-[40px] p-3"
         />
-        <p className="text-[10px] my-2 text-[#6f6f6f]">مثال: 09112345678</p>
+        <p className="text-[10px] my-2 text-[#6f6f6f]">
+          <span>مثال:</span>
+          <span> {digitsEnToFa("09112345678")}</span>
+        </p>
         <div className="text-[12px] my-2 text-black font-medium">
           ورود شما به معنای پذیرش
-          <span className="text-skin-primary inline-block mx-1">
-            {" "}
-            شرایط و قوانین
-          </span>
-          باغ هیوا است.
+          <Link href="/privacy-policy">
+            <span
+              className="text-skin-primary inline-block mx-1"
+              onClick={close}
+            >
+              {" "}
+              شرایط و قوانین
+            </span>
+          </Link>
+          {title} است.
         </div>
 
         <div>

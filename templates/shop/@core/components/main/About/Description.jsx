@@ -3,20 +3,20 @@ import { DescriptionData } from "../../../data/description";
 
 function Description() {
   return (
-    <section className="container  text-sm text--lg flex md:justify-between  ">
+    <section className="container  text-sm  text-center justify-center flex   ">
       {DescriptionData?.map((item) => (
         <div
-          className="block md:flex text-[10px] w-full relative my-16 text-center mx-auto "
+          className="block md:flex justify-end text-[10px] relative my-16 text-center mx-auto "
           key={item.id}
         >
-          <div className="inline-block  md:absolute items-center  top-1 mx-[10%] md:mx-auto text-skin-primary ">
+          <div className="inline-block   items-center  top-1  !mx-4 md:mx-auto text-skin-primary ">
             {item.icon}
           </div>
-          <div className="md:mr-12 text-[12px] w-full">
-            <h3 className="font-bold text-md md:text-xl mb-1 text-center">
+          <div className=" text-[12px]  ">
+            <h3 className="font-bold w-full text-md  md:text-xl mb-1 text-center">
               {item.title}
             </h3>
-            <p className="text-[10px] md:text-sm w-full text-center">
+            <p className="text-[10px] w-full md:text-sm text-center">
               {item.description}
             </p>
           </div>
