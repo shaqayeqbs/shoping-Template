@@ -116,7 +116,7 @@
   }
 
   h2 {
-    @apply text-base;
+    @apply font-semibold  text-[24px];
   }
 
   li {

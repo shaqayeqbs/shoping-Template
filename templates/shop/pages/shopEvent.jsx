@@ -21,12 +21,10 @@ const ShopEvent = (props) => {
   );
 
   return (
-    <div className="container mt-16 px-4">
+    <div className=" mt-16">
       <div className="lg:flex flex-col gap-5">
-        <div className="lg:flex  items-center justify-between">
-          <h3 className="font-bold  w-max lg:text-3xl mb-3 md:mb-0">
-            {props.title}
-          </h3>
+        <div className="lg:flex items-center justify-between">
+          <h3 className="font-bold  lg:text-3xl mb-3 md:mb-0">{props.title}</h3>
           <div className="text-sm flex mb-8 md:mb-0 items-center justify-center ">
             <Calendar className="text-skin-primary ml-3" />
             <p className="mt-1">

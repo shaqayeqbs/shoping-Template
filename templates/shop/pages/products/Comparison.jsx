@@ -5,9 +5,10 @@ import Image from "next/dist/client/image";
 import { digitsEnToFa } from "@persian-tools/persian-tools";
 import Specification from "../../@core/components/main/shop/DetailPage/Filter/Specification";
 import { CloseCircle } from "iconsax-react";
+import AddComparisonModal from "./AddComparisonModal";
 
-function Comparison({ product }) {
-  console.log(product);
+function Comparison({ product, ListOFProduct }) {
+  console.log(ListOFProduct);
   const [showCompareForm, setShowCompareForm] = useState(false);
   const showCompareFormHandler = (item) => {
     setShowCompareForm((prv) => !prv);
@@ -18,6 +19,7 @@ function Comparison({ product }) {
         open={showCompareForm}
         onClose={showCompareFormHandler}
         selector="#portal"
+        className=""
       >
         <button
           onClick={showCompareFormHandler}
@@ -25,7 +27,9 @@ function Comparison({ product }) {
         >
           <CloseCircle />
         </button>
-        <div className="lg:max-h-[500px]"> hiiiiiiiii</div>
+        <div className="lg:max-h-[500px]">
+          <AddComparisonModal ListOFProduct={ListOFProduct} />
+        </div>
       </Modal>
       <Card>
         <div className="flex justify-between px-0">

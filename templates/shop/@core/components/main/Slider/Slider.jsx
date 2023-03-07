@@ -58,7 +58,7 @@ function NewProducts({
         </div>
       </div>
       {type === "articles" && <ArticleCarousel data={data} />}
-      {type === "products" && <ProductCarousel data={data} />}
+      {type === "products" && <ProductCarousel data={data} type="products" />}
     </section>
   );
 }

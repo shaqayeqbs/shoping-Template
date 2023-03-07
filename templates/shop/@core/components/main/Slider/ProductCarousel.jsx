@@ -36,10 +36,10 @@ const ProductCarousel = ({ data = [] }) => {
     >
       {data?.map((item) => (
         <SwiperSlide
-          className="flex w-full justify-center lg:text-right "
+          className="flex  w-full justify-center lg:text-right "
           key={item.id}
         >
-          <ListItem item={item} type="product" />
+          <ListItem item={item} type="products" />
         </SwiperSlide>
       ))}
     </Swiper>

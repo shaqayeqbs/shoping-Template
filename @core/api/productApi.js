@@ -2,11 +2,12 @@ import instance from "../utils/request";
 import END_POINTS from "../constants/endpoints";
 import axios from "axios";
 import APP_CONFIG from "../constants/app-config";
-export const getListOfProducts = async (businessId) => {
+export const getListOfProducts = async (businessId, limit) => {
+  const url = limit
+    ? END_POINTS.get_list_of_products + businessId + `&limit=${limit}`
+    : END_POINTS.get_list_of_products + businessId;
   try {
-    const res = await instance.get(
-      END_POINTS.get_list_of_products + businessId
-    );
+    const res = await instance.get(url);
 
     return res;
   } catch (err) {

@@ -70,16 +70,96 @@ function ListItem({
         </Link>
       )}
 
-      {type !== "articles" && (
+      {type === "products" && (
         <Link href={`/products/${item.id}`} className=" relative pb-0 w-full ">
           <div
             className={
               favorties
                 ? "cadr w-full h-full  border-r-2 relative rounded-none border-bordercolor "
-                : "cadr w-full h-full relative"
+                : "cadr w-full overflow-scroll  "
             }
           >
-            <div className="relative w-full">
+            <div className="relative w-full ">
+              {item?.product?.files[0] && (
+                <img
+                  quality={50}
+                  decoding="async"
+                  alt="slider photo"
+                  loading="lazy"
+                  src={item?.product?.files?.[0]?.details?.location}
+                  className="object-cover rounded-md mb-5 w-full aspect-square "
+                />
+              )}
+              {!item?.product?.files[0] && (
+                <div className="bg-skin-background rounded-xl aspect-square  mb-5 w-full flex items-center justify-center   ">
+                  <Gallery size="70" className="top-[30%] " />
+                </div>
+              )}
+            </div>
+            {/* {item.category && <div>{item.category.name}</div>} */}
+            <h2 className="text-right">{item?.product?.translate[0]?.data}</h2>
+            <div className="flex justify-between">
+              {item?.price?.price && (
+                <div className=" bg-skin-secondary text-skin-primary rounded-lg p-1 ml-[.3rem] text-center w-10 h-10">
+                  <Add size={32} />
+                </div>
+              )}
+              <div className="flex justify-start">
+                <div>
+                  <div className="text-xl !containerfont-extrabold">
+                    {item?.price?.price && (
+                      <strong>
+                        {digitsEnToFa(item?.price?.price?.toLocaleString())}
+                      </strong>
+                    )}
+                  </div>
+
+                  {item.price?.price && (
+                    <p className="text-skin-muted ltr line-through">
+                      {digitsEnToFa(item?.price?.price?.toLocaleString() || 0)}
+                    </p>
+                  )}
+                </div>
+                <div className="mt-[.3rem] text-base mr-2">تومان</div>
+              </div>
+            </div>
+            {offcerPage && (
+              <div className="relative m-2 mb-6 flex ltr text-skin-primary text-left h-6">
+                {(hours === 0) & (minutes === 0) && seconds === 0 ? null : (
+                  <div className="flex">
+                    <h3 className="ltr" dir="ltr">
+                      {FaHours}: {Faminutes} :
+                      {seconds < 10 ? `۰${Faseconds}` : Faseconds}
+                    </h3>
+                    <span className="flex text-skin -primary font-xl">
+                      {" "}
+                      <TimeHistory />
+                    </span>
+                  </div>
+                )}
+              </div>
+            )}
+            {favorties && (
+              <div className="flex justify-between text-skin-primary">
+                <div className="mt-1">
+                  <Trash size="24" variant="Bold" />
+                </div>
+                <button className="rounded-md p-1 px-5">+ افزودن </button>
+              </div>
+            )}
+          </div>
+        </Link>
+      )}
+      {type === "compare" && (
+        <Link href={`/products/${item.id}`} className=" relative pb-0 w-full ">
+          <div
+            className={
+              favorties
+                ? "cadr w-full bg-[blue] h-full  border-r-2 relative rounded-none border-bordercolor "
+                : "cadr w-full overflow-scroll bg-[red] "
+            }
+          >
+            <div className="relative w-full ">
               {item?.product?.files[0] && (
                 <img
                   quality={50}

@@ -1,4 +1,4 @@
-import { Call, Instagram, Location, Youtube } from "iconsax-react";
+import { Call, Location } from "iconsax-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

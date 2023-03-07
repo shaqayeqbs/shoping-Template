@@ -9,6 +9,7 @@ export const initialState = {
   connections: [],
   phone: [],
   workTimes: [],
+
   colors: {},
   productCategorys: [],
 };
@@ -19,7 +20,7 @@ const businessSlice = createSlice({
   reducers: {
     fetchFirspageData: (state, action) => {
       const data = action.payload?.data?.domin?.business;
-
+      console.log(data, "dataaaaaaaaaaaaaaaaaaaaaa");
       let logoImg = "";
       data?.files?.forEach((item) => {
         if (item.type._ === "logo") {
@@ -34,6 +35,7 @@ const businessSlice = createSlice({
       state.phone = data?.connections?.phone;
       state.addresses = data?.addresses;
       state.connections = data?.connections?.social;
+
       state.description = data?.description;
       state.workTimes = data?.workTimes;
       state.colors = data?.template?.colorPalette;

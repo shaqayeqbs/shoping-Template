@@ -21,6 +21,7 @@ import useSetBussinessData from "../@core/hooks/useSetBussinessData";
 function Home({ data, articles, products, offProducts }) {
   const [isLoading, setIsLoading] = useState(true);
   useSetBussinessData(data);
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (data) {
@@ -60,7 +61,7 @@ function Home({ data, articles, products, offProducts }) {
         <ShopHome
           data={data}
           articles={articles}
-          products={products}
+          products={products.inventorys}
           offProducts={offProducts}
         />
       </Suspense>
@@ -96,7 +97,7 @@ export const getServerSideProps = async (ctx) => {
     props: {
       data: bussinessData?.data || null,
       articles: articles?.data?.data || null,
-      products: products?.data?.data?.inventorys || null,
+      products: products?.data?.data || null,
       offProducts: offProducts?.data?.data?.inventorys || null,
     },
   };
