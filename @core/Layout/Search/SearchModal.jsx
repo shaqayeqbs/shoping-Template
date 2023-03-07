@@ -1,22 +1,26 @@
 import React, { useState, useEffect, memo } from "react";
 import ReactDom from "react-dom";
 
-const MyModal = ({ children, onClose }) => {
+const MyModal = ({ children, onClose, className }) => {
   return (
     <div className="text-center">
-      <div
-        className="fixed z-20  bg-[#8585856b]  right-0 bottom-0 top-0 left-0 backdrop:blur-lg w-full h-screen"
-        onClick={onClose}
-      ></div>
+      {!className && (
+        <div
+          className="fixed !z-50  bg-[#8585856b]  right-0 top-28 bottom-[0rem] left-0 backdrop:blur-lg w-full h-screen"
+          onClick={onClose}
+        ></div>
+      )}
 
-      <div className="fixed z-50 bg-[white] h-[11rem]  top-[0rem] w-[100%]">
+      <div
+        className={`fixed z-50 bg-[whie] h-[7rem] mx-auto bg-[#f6f6f6]   top-[0rem] w-[100%] ${className}`}
+      >
         {children}
       </div>
     </div>
   );
 };
 
-function SearchModal({ open, children, selector, onClose }) {
+function SearchModal({ open, children, selector, onClose, className = "" }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -30,7 +34,7 @@ function SearchModal({ open, children, selector, onClose }) {
 
   return mounted
     ? ReactDom.createPortal(
-        <MyModal onClose={onClose} children={children} />,
+        <MyModal onClose={onClose} children={children} className={className} />,
         document.querySelector("#search")
       )
     : null;

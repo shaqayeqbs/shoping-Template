@@ -27,6 +27,7 @@ export default Comparison;
 
 export const getServerSideProps = async (ctx) => {
   const id = ctx.query?.id;
+
   const { res } = ctx;
 
   res.setHeader(

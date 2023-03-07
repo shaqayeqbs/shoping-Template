@@ -5,7 +5,7 @@ import { Autoplay, Navigation, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/legacy/image";
 import ListItem from "./ListItem";
-const ProductCarousel = ({ data = [] }) => {
+const ProductCarousel = ({ data = [], type, onAddComparedProduct = null }) => {
   console.log(data);
   return (
     <Swiper
@@ -21,8 +21,8 @@ const ProductCarousel = ({ data = [] }) => {
         },
 
         1000: {
-          slidesPerView: 3,
-          slidesPerGroup: 3,
+          slidesPerView: type ? 4 : 3,
+          slidesPerGroup: type ? 4 : 3,
         },
       }}
       spaceBetween={20}
@@ -36,10 +36,14 @@ const ProductCarousel = ({ data = [] }) => {
     >
       {data?.map((item) => (
         <SwiperSlide
-          className="flex  w-full justify-center lg:text-right "
+          className=" flex justify-start w-full lg:text-right "
           key={item.id}
         >
-          <ListItem item={item} type="products" />
+          <ListItem
+            item={item}
+            type={type ? type : "products"}
+            onAddComparedProduct={onAddComparedProduct}
+          />
         </SwiperSlide>
       ))}
     </Swiper>

@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import Card from "../../@core/UI/Card";
 import Modal from "../../../../@core/UI/Modal";
-import Image from "next/dist/client/image";
-import { digitsEnToFa } from "@persian-tools/persian-tools";
 import Specification from "../../@core/components/main/shop/DetailPage/Filter/Specification";
 import { CloseCircle } from "iconsax-react";
 import AddComparisonModal from "./AddComparisonModal";
-
+import CompItem from "./CompItem";
 function Comparison({ product, ListOFProduct }) {
-  console.log(ListOFProduct);
+  console.log(product, "ddd");
   const [showCompareForm, setShowCompareForm] = useState(false);
+  const [comparedProduct, setComparedProduct] = useState(null);
   const showCompareFormHandler = (item) => {
+    setShowCompareForm((prv) => !prv);
+  };
+
+  const onAddComparedProduct = (item) => {
+    setComparedProduct(item);
     setShowCompareForm((prv) => !prv);
   };
   return (
@@ -28,40 +32,26 @@ function Comparison({ product, ListOFProduct }) {
           <CloseCircle />
         </button>
         <div className="lg:max-h-[500px]">
-          <AddComparisonModal ListOFProduct={ListOFProduct} />
+          <AddComparisonModal
+            ListOFProduct={ListOFProduct}
+            onAddComparedProduct={onAddComparedProduct}
+          />
         </div>
       </Modal>
       <Card>
         <div className="flex justify-between px-0">
-          {" "}
-          <div className="w-full ">
-            <div className="relative  h-[20rem] w-[20rem] mx-auto">
-              <Image
-                layout="fill"
-                placeholder="blur"
-                blurDataURL={product?.product?.files?.[0]?.details?.location}
-                alt={product?.product?.translate?.[0]?.data}
-                src={product?.product?.files?.[0]?.details?.location}
-              />
+          <CompItem product={product} />
+          {!comparedProduct && (
+            <div className="flex justify-center items-center w-full">
+              <button
+                onClick={showCompareFormHandler}
+                className="p-2 px-6 rounded-lg"
+              >
+                انتخاب کالا
+              </button>
             </div>
-            <div className="text-center mt-4">
-              {product?.product?.translate[0]?.data}
-            </div>
-            <div className="text-center my-6">
-              <span className="text-[24px]">
-                {digitsEnToFa(product?.price?.price.toLocaleString())}
-              </span>
-              <span className="inline-block mx-3 text-skin-muted">تومان</span>
-            </div>
-          </div>
-          <div className="flex justify-center items-center w-full">
-            <button
-              onClick={showCompareFormHandler}
-              className="p-2 px-6 rounded-lg"
-            >
-              انتخاب کالا
-            </button>
-          </div>
+          )}
+          {comparedProduct && <CompItem product={comparedProduct} />}
         </div>
       </Card>
 

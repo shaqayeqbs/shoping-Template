@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 // import Comments from "../@core/components/main/EditorItems/Comments";
 import Event from "../@core/components/main/Event";
-import "tailwindcss/tailwind.css";
 import { Calendar } from "iconsax-react";
 import Image from "next/image";
 import moment from "jalali-moment";

@@ -19,6 +19,24 @@ export const GetArticles = async (id) => {
     }
   }
 };
+export const getSearchedArticless = async (id, name) => {
+  const url = END_POINTS.get_list_of_products + id + `&filters[filter]=${name}`;
+
+  try {
+    const res = await instance.get(url);
+
+    console.log({ res });
+    return res?.data?.data;
+  } catch (err) {
+    if (err?.response) {
+      console.log(err.response.data, err.response.status, err);
+      return err.response.data;
+    } else {
+      console.log(`ERROR:${err}`);
+    }
+  }
+};
+
 export const getBussinessGallery = async (id) => {
   try {
     const res = await axios(

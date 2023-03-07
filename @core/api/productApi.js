@@ -19,6 +19,23 @@ export const getListOfProducts = async (businessId, limit) => {
     }
   }
 };
+export const getSearchedProducts = async (businessId, name) => {
+  const url =
+    END_POINTS.get_list_of_products + businessId + `&filters[filter]=${name}`;
+
+  try {
+    const res = await instance.get(url);
+
+    return res?.data?.data;
+  } catch (err) {
+    if (err?.response) {
+      console.log(err.response.data, err.response.status, err);
+      return err.response.data;
+    } else {
+      console.log(`ERROR:${err}`);
+    }
+  }
+};
 
 export const getSpecifiedProducts = async (productId) => {
   try {

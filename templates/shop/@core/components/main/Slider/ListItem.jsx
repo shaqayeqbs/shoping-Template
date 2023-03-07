@@ -14,6 +14,7 @@ function ListItem({
   offcerPage = null,
   articles = null,
   favorties = null,
+  onAddComparedProduct = null,
 }) {
   const [nowseconds, nowminutes, nowhours, nowdays] = useCalculateRemainingTime(
     item.price?.off?.end
@@ -76,7 +77,7 @@ function ListItem({
             className={
               favorties
                 ? "cadr w-full h-full  border-r-2 relative rounded-none border-bordercolor "
-                : "cadr w-full overflow-scroll  "
+                : "cadr w-full   "
             }
           >
             <div className="relative w-full ">
@@ -151,12 +152,15 @@ function ListItem({
         </Link>
       )}
       {type === "compare" && (
-        <Link href={`/products/${item.id}`} className=" relative pb-0 w-full ">
+        <button
+          onClick={onAddComparedProduct?.bind(null, item)}
+          className=" relative pb-0 w-full border-0"
+        >
           <div
             className={
               favorties
-                ? "cadr w-full bg-[blue] h-full  border-r-2 relative rounded-none border-bordercolor "
-                : "cadr w-full overflow-scroll bg-[red] "
+                ? "cadr w-full h-full  border-r-2 relative rounded-none border-bordercolor "
+                : " max-w-[10rem] w-full "
             }
           >
             <div className="relative w-full ">
@@ -167,26 +171,23 @@ function ListItem({
                   alt="slider photo"
                   loading="lazy"
                   src={item?.product?.files?.[0]?.details?.location}
-                  className="object-cover rounded-md mb-5 w-full aspect-square "
+                  className="object-cover  rounded-md mb-5 w-full aspect-square "
                 />
               )}
               {!item?.product?.files[0] && (
-                <div className="bg-skin-background rounded-xl aspect-square  mb-5 w-full flex items-center justify-center   ">
+                <div className="bg-skin-background rounded-xl  aspect-square  mb-5 w-full flex items-center justify-center   ">
                   <Gallery size="70" className="top-[30%] " />
                 </div>
               )}
             </div>
             {/* {item.category && <div>{item.category.name}</div>} */}
-            <h2 className="text-right">{item?.product?.translate[0]?.data}</h2>
-            <div className="flex justify-between">
-              {item?.price?.price && (
-                <div className=" bg-skin-secondary text-skin-primary rounded-lg p-1 ml-[.3rem] text-center w-10 h-10">
-                  <Add size={32} />
-                </div>
-              )}
-              <div className="flex justify-start">
+            <h2 className="text-right mb-4 text-sm">
+              {item?.product?.translate[0]?.data}
+            </h2>
+            <div className="flex ltr justify-between">
+              <div className=" flex justify-start">
                 <div>
-                  <div className="text-xl !containerfont-extrabold">
+                  <div className="text-sm !containerfont-extrabold">
                     {item?.price?.price && (
                       <strong>
                         {digitsEnToFa(item?.price?.price?.toLocaleString())}
@@ -195,12 +196,12 @@ function ListItem({
                   </div>
 
                   {item.price?.price && (
-                    <p className="text-skin-muted ltr line-through">
+                    <p className="text-skin-muted ltr text-sm line-through">
                       {digitsEnToFa(item?.price?.price?.toLocaleString() || 0)}
                     </p>
                   )}
                 </div>
-                <div className="mt-[.3rem] text-base mr-2">تومان</div>
+                <div className=" text-base mr-2">تومان</div>
               </div>
             </div>
             {offcerPage && (
@@ -228,7 +229,7 @@ function ListItem({
               </div>
             )}
           </div>
-        </Link>
+        </button>
       )}
     </>
   );
