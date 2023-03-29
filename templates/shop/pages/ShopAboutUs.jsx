@@ -5,7 +5,7 @@ function ShopAboutUs({ data }) {
   return (
     <div className=" container !py-10">
       <div className=" flex flex-col gap-5">
-        <MainEditor details={data.editors} />
+        <MainEditor details={data?.editors} />
       </div>
     </div>
   );
