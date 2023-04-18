@@ -31,13 +31,13 @@ function ShopContact() {
     console.log(item);
     setShowModal((prev) => !prev);
   };
-  useEffect(() => {
-    if (address[0]?.address) {
-      setLat(+address[0]?.address?.lat);
-      setLng(+address[0]?.address?.lng);
-    }
-    setDefaultCenter([lat, lng]);
-  }, [address, lat, lng]);
+  // useEffect(() => {
+  //   if (address[0]?.address) {
+  //     setLat(+address[0]?.address?.lat);
+  //     setLng(+address[0]?.address?.lng);
+  //   }
+  //   setDefaultCenter([lat, lng]);
+  // }, [address, lat, lng]);
 
   const dataList = [
     {
@@ -56,7 +56,7 @@ function ShopContact() {
       id: 3,
       title: " آدرس ",
       icon: <Location variant="Bold" size={36} />,
-      items: [address[0]?.address?.address],
+      items: ["کوچه نوغان6،مغازه سوم، پلاک 6", "رشت ، مطهری"],
     },
   ];
 

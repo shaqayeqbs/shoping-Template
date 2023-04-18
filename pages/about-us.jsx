@@ -60,15 +60,15 @@ export const getServerSideProps = async (ctx) => {
       return { notFound: true };
     }
   });
-  id = response.data.data.domin.business.id;
-  console.log(response.data.data.domin.business.id);
+  id = response?.data?.data.domin.business.id;
+
   // }
 
   let result = await Get_Business_Editors_By_Type(id, "about_us");
   console.log(result);
   return {
     props: {
-      data: bussinessData?.data || null,
+      data: bussinessData || null,
       aboutUs: result?.data?.data || null,
     },
   };

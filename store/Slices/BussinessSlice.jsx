@@ -19,18 +19,20 @@ const businessSlice = createSlice({
   initialState,
   reducers: {
     fetchFirspageData: (state, action) => {
-      const data = action.payload?.data?.domin?.business;
+      // const data = action.payload?.data?.domin?.business;
+      console.log(action.payload);
+      const data = action.payload;
       console.log(data, "dataaaaaaaaaaaaaaaaaaaaaa");
       let logoImg = "";
-      data?.files?.forEach((item) => {
-        if (item.type._ === "logo") {
-          logoImg = item?.details.location;
-        }
-      });
+      // data?.files?.forEach((item) => {
+      //   if (item.type._ === "logo") {
+      //     logoImg = item?.details.location;
+      //   }
+      // });
 
       state.id = data?.id;
-      state.name = data?.name;
-      state.logo = logoImg;
+      state.name = data?.title;
+      state.logo = "/images/about.png";
       state.events = data?.events;
       state.phone = data?.connections?.phone;
       state.addresses = data?.addresses;

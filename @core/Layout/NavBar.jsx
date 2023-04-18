@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 // import ProfileDrop from "../components/main/Profile/ProfileDrop";
 import ModalVerification from "./modals/ModalVerification";
 import ProfileDrop from "../Profile/ProfileDrop";
-
 import CartBtn from "./CartBtn";
 import SearchForm from "./Search/SearchForm";
 
@@ -54,7 +53,7 @@ function NavBar({ onCloseModalHandler }) {
           </div>
         </Link>
 
-        <div className="flex">
+        <div className="flex !text-skin-primary">
           <div className="flex justify-end text-skin-color  w-full ">
             <button
               className=" border-0 mt-[-4px] ml-3"

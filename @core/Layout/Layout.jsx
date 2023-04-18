@@ -35,11 +35,14 @@ const Layout = ({ children }) => {
     }
   }, [showMenu]);
 
-  const primaryColor = getRGBColor(colors?.primary_color, "primary");
-  const backgroundColor = getRGBColor(colors?.background_color, "background");
-  const secondaryColor = getRGBColor(colors?.secondary_color, "secondary");
-  const textColor = getRGBColor(colors?.text_color, "text");
-
+  let primaryColor = getRGBColor(colors?.primary_color, "primary");
+  let backgroundColor = getRGBColor(colors?.background_color, "background");
+  let secondaryColor = getRGBColor(colors?.secondary_color, "secondary");
+  let textColor = getRGBColor(colors?.text_color, "text");
+  primaryColor = "rgb(100,200,300)";
+  backgroundColor = "green";
+  secondaryColor = "blue";
+  console.log(primaryColor, backgroundColor, secondaryColor);
   return (
     <>
       <Head>
@@ -47,7 +50,8 @@ const Layout = ({ children }) => {
         <title>{businessName}</title>
         <link rel="shortcut icon" href={logo} />
         <style>
-          :root{" "}
+          :root
+          {/* {`{${primaryColor} ${backgroundColor} ${secondaryColor} ${textColor} }`} */}
           {`{${primaryColor} ${backgroundColor} ${secondaryColor} ${textColor} }`}
         </style>
       </Head>

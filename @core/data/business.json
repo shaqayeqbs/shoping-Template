@@ -1,0 +1,347 @@
+
+
+
+   [  {
+    "business": {
+      "id": 19,
+      "id_card": "1680080530765",
+      "name": "",
+      "description": null,
+      "category": {
+        "id": 12,
+        "translate": [
+          {
+            "_id": "91cbfa4e-116b-4fe1-8984-a55bda6e303d",
+            "lang": "fa",
+            "type": {
+              "_": 0,
+              "name": "title"
+            },
+            "data": "مد و پوشاک",
+            "created_at": "2023-01-12T07:08:42.000000Z",
+            "updated_at": "2023-01-12T07:08:42.000000Z"
+          }
+        ],
+        "status": {
+          "_": 1
+        },
+        "files": [
+          {
+            "id": 10,
+            "name": "",
+            "type": {
+              "_": "logo"
+            },
+            "details": {
+              "location": "http://core.behzi.net//storage/image/connectionType/logo/1673267926.jpg"
+            }
+          }
+        ]
+      },
+      "files": [
+        
+      ],
+      "life_cycle": {
+        "started_at": "2022-01-01 11:16:53",
+        "expired_at": "2022-01-01 11:16:53",
+        "active_plan": {
+          "id": 10,
+          "status": {
+            "_": 1
+          },
+          "translate": [
+            {
+              "_id": "8a1a04cb-86de-46ad-819f-7370febea218",
+              "lang": "fa",
+              "type": {
+                "_": 0,
+                "name": "title"
+              },
+              "data": "بهزی فروشگاهی پلن 3",
+              "created_at": "2023-02-01T12:14:40.000000Z",
+              "updated_at": "2023-02-01T12:14:40.000000Z"
+            }
+          ],
+          "duration": 365,
+          "role_id": 1,
+          "price": "20000000.00",
+          "off": {
+            "off": 50,
+            "off_expired_at": "1401-12-13 00:00:00"
+          },
+          "options": [
+            {
+              "id": 46,
+              "name": "امکان بارگذاری عکس به صورت نامحدود",
+              "is_active": 1
+            },
+            {
+              "id": 47,
+              "name": "آگهی های شتاب دهنده",
+              "is_active": 0
+            },
+            {
+              "id": 48,
+              "name": "نقشه گوگل مپ ",
+              "is_active": 1
+            },
+            {
+              "id": 49,
+              "name": "دریافت سایت با دامنه اختصاصی",
+              "is_active": 1
+            },
+            {
+              "id": 50,
+              "name": "امکان وارد کردن محصول",
+              "is_active": 1
+            },
+            {
+              "id": 51,
+              "name": "امکان قیمت گذاری محصولات",
+              "is_active": 1
+            },
+            {
+              "id": 52,
+              "name": "امکان فروش آنلاین",
+              "is_active": 1
+            },
+            {
+              "id": 53,
+              "name": "امکان چت آنلاین",
+              "is_active": 1
+            },
+            {
+              "id": 54,
+              "name": "امکان تعویض پالت رنگ",
+              "is_active": 1
+            },
+            {
+              "id": 55,
+              "name": "مقایسه قیمت‌ها",
+              "is_active": 1
+            }
+          ]
+        }
+      },
+      "status": {
+        "_": 1
+      },
+      "connections": {
+        "social": [
+          
+        ],
+        "phone": [
+          {
+            "id": 35,
+            "data": "09154408834",
+            "details": null,
+            "status": {
+              "_": 1
+            },
+            "connection": {
+              "id": 1,
+              "prefix": "tel::",
+              "type": {
+                "type": 0
+              },
+              "status": {
+                "_": 1
+              },
+              "translate": [
+                {
+                  "_id": "a77bfcd1-0398-468e-ac3b-4a1a7c9fa645",
+                  "lang": "fa",
+                  "type": {
+                    "_": 0,
+                    "name": "title"
+                  },
+                  "data": "تلفن همراه",
+                  "created_at": "2023-01-03T09:21:45.000000Z",
+                  "updated_at": "2023-01-03T09:21:45.000000Z"
+                }
+              ],
+              "files": [
+                {
+                  "id": 9,
+                  "name": "",
+                  "type": {
+                    "_": "logo"
+                  },
+                  "details": {
+                    "location": "http://core.behzi.net//storage/image/connectionType/logo/1673768533.png"
+                  }
+                }
+              ],
+              "created_at": "2023-01-03T09:21:44.000000Z",
+              "updated_at": "2023-01-15T07:42:12.000000Z"
+            },
+            "created_at": "2023-03-29T05:32:10.000000Z",
+            "updated_at": "2023-03-29T05:32:10.000000Z"
+          }
+        ]
+      },
+      "events": [
+        
+      ],
+      "workTimes": [
+        {
+          "id": 51,
+          "start_time": "08:00:00",
+          "end_time": "12:00:00",
+          "status": {
+            "_": 1
+          },
+          "week_day": {
+            "index": 0
+          }
+        },
+        {
+          "id": 52,
+          "start_time": "08:00:00",
+          "end_time": "12:00:00",
+          "status": {
+            "_": 1
+          },
+          "week_day": {
+            "index": 1
+          }
+        },
+        {
+          "id": 53,
+          "start_time": "08:00:00",
+          "end_time": "12:00:00",
+          "status": {
+            "_": 1
+          },
+          "week_day": {
+            "index": 2
+          }
+        },
+        {
+          "id": 54,
+          "start_time": "08:00:00",
+          "end_time": "12:00:00",
+          "status": {
+            "_": 1
+          },
+          "week_day": {
+            "index": 3
+          }
+        },
+        {
+          "id": 55,
+          "start_time": "08:00:00",
+          "end_time": "12:00:00",
+          "status": {
+            "_": 1
+          },
+          "week_day": {
+            "index": 4
+          }
+        },
+        {
+          "id": 56,
+          "start_time": "08:00:00",
+          "end_time": "12:00:00",
+          "status": {
+            "_": 1
+          },
+          "week_day": {
+            "index": 5
+          }
+        },
+        {
+          "id": 57,
+          "start_time": "09:00:00",
+          "end_time": "16:00:00",
+          "status": {
+            "_": 1
+          },
+          "week_day": {
+            "index": 6
+          }
+        }
+      ],
+      "banners": [
+        
+      ],
+      "template": {
+        "id": 19,
+        "template": {
+          "id": 1,
+          "name": "firstshoping",
+          "title": "قالب فروشگاه بزرگ",
+          "description": "این عالیه",
+          "publishdate": "2023-01-15 13:11:16",
+          "status": {
+            "_": 1
+          },
+          "created_at": "2023-01-15T13:11:16.000000Z",
+          "updated_at": "2023-01-15T13:11:16.000000Z"
+        },
+        "colorPalette": {
+          "id": 1,
+          "background_color": "#f6f6f6",
+          "primary_color": "#238b44",
+          "secondary_color": "#e9f3ec",
+          "card_color": "#FFFFFF",
+          "text_color": "#424242"
+        }
+      },
+      "user_id": 137,
+      "domain": null,
+      "options": [
+        
+      ],
+      "addresses": [
+        {
+          "id": 19,
+          "name": "دفتر مرکزی",
+          "address": {
+            "address": "کوچه نوغان6،مغازه سوم، پلاک 6",
+            "lat": "36.295647",
+            "lng": "59.655288"
+          },
+          "status": {
+            "_": 1
+          },
+          "city": {
+            "id": 134948,
+            "name": "مه ولات",
+            "state": {
+              "id": 3927,
+              "name": "خراسان رضوی",
+              "fips_code": "42",
+              "iso2": "09",
+              "latitude": 35.1020253,
+              "longitude": 59.1041758,
+              "created_at": "2019-10-05T19:48:56.000000Z",
+              "updated_at": "2023-01-10T09:23:33.000000Z"
+            },
+            "country": {
+              "id": 103,
+              "name": "Iran",
+              "iso3": "IRN",
+              "iso2": "IR",
+              "numeric_code": "364",
+              "capital": "Tehran",
+              "currency": {
+                "currency": "IRR",
+                "currency_name": "Iranian rial",
+                "currency_symbol": "﷼"
+              }
+            },
+            "latitude": 34.98333,
+            "longitude": 58.78333
+          },
+          "is_primery": true,
+          "zip_code": null,
+          "created_at": "2023-03-29T05:32:10.000000Z",
+          "updated_at": "2023-03-29T05:32:10.000000Z"
+        }
+      ],
+      "created_at": "2023-03-29T05:32:10.000000Z",
+      "updated_at": "2023-03-29T05:32:10.000000Z"
+    }
+  }
+]

@@ -24,7 +24,7 @@ function MegaMenuList({ item, color, onChangeChildren, children }) {
           }
           value={item?.translate?.data}
         >
-          {item?.translate[0]?.data}
+          {item?.title}
         </button>
       </div>
     </section>

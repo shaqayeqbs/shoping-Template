@@ -32,16 +32,17 @@ const CartBtn = ({ onShow }) => {
       clearTimeout(timer);
     };
   }, [cartData]);
-  if (!numOfCartItems) {
-    return;
-  }
+  // if (!numOfCartItems) {
+  //   return;
+  // }
 
   return (
-    <Link href="/basket" className="relative border-0 text-white mt-6 flex ">
-      <span className="absolute left-[2.3rem] top-[-.5rem]   bg-skin-fill text-[12px] pt-[2px] text-[white] bg-white text-black rounded-full w-[1.3rem] h-[1.3rem]  text-center ">
+    <Link href="/basket" className="relative  border-0 text-white mt-6 flex">
+      <span className="absolute left-[2.2rem] -z-0 top-[-.4rem]   bg-skin-fill text-[12px] pt-[2px] text-[white] bg-white text-black rounded-full w-[1.3rem] h-[1.3rem]  text-center ">
         {digitsEnToFa(numOfCartItems)}
       </span>
-      <span className="ml-4 mt-[] ">
+
+      <span className="ml-4 mt-[] !z-40 ">
         <Bag2 size="28" />
       </span>
     </Link>

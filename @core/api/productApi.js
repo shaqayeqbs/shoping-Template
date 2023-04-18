@@ -25,7 +25,6 @@ export const getSearchedProducts = async (businessId, name) => {
 
   try {
     const res = await instance.get(url);
-
     return res?.data?.data;
   } catch (err) {
     if (err?.response) {

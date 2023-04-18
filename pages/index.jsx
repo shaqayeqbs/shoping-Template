@@ -17,10 +17,11 @@ import {
   getListOfOffProducts,
 } from "../@core/api/productApi";
 import useSetBussinessData from "../@core/hooks/useSetBussinessData";
-
+import bussinessDa from "../@core/data/business.json";
 function Home({ data, articles, products, offProducts }) {
   const [isLoading, setIsLoading] = useState(true);
   useSetBussinessData(data);
+  console.log(data, "eeeeeeeeeeeeeeeeeeeeeeeee");
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -61,7 +62,7 @@ function Home({ data, articles, products, offProducts }) {
         <ShopHome
           data={data}
           articles={articles}
-          products={products.inventorys}
+          products={products?.inventorys}
           offProducts={offProducts}
         />
       </Suspense>
@@ -86,8 +87,9 @@ export const getServerSideProps = async (ctx) => {
     url = "zaay.ir/";
   }
 
-  let bussinessData = await mainData(ctx);
-  const id = bussinessData?.data.data.domin.business.id;
+  // let bussinessData = await mainData(ctx);
+  let bussinessData = bussinessDa;
+  const id = bussinessData?.data?.data.domin.business.id;
 
   let articles = await GetArticles(id);
   let products = await getListOfProducts(id);
@@ -95,7 +97,7 @@ export const getServerSideProps = async (ctx) => {
 
   return {
     props: {
-      data: bussinessData?.data || null,
+      data: bussinessData[0]?.business?.template.template || null,
       articles: articles?.data?.data || null,
       products: products?.data?.data || null,
       offProducts: offProducts?.data?.data?.inventorys || null,

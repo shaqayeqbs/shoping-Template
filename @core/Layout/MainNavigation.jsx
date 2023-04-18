@@ -6,6 +6,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import MyLinks from "./MyLinks";
 import NavBar from "./NavBar";
+import { SearchNormal1 } from "iconsax-react";
 
 import CartBtn from "./CartBtn";
 import ProfileDrop from "../Profile/ProfileDrop";
@@ -44,13 +45,14 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
     <div
       className={
         nav
-          ? "!w-full bg-skin-background fixed z-50"
-          : " w-full bg-skin-background !right-0 fixed z-50"
+          ? "!w-full bg-skin-backgund fixed z-50"
+          : " w-full bg-skin-backgro !right-0 fixed z-50"
       }
     >
       {<ModalVerification isOpen={openAuthModal} onClose={authHandler} />}
       <div className=" hidden md:block   w-full h-full px-2 mb-2  ">
         <NavBar />
+
         <div className="container my-5 ">
           {" "}
           {isVisible && (
@@ -95,23 +97,23 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
               <div className="flex justify-start md:mt-0  text-sm md:text-xl">
                 <div className="flex">
                   <div className="flex justify-end text-skin-color  w-full ">
-                    {/* <button
-                    className=" border-0 mt-[-4px] ml-3"
-                    // onClick={showSearchHandler}
-                  >
-                    <SearchNormal1 size="28" />
-                  </button> */}
+                    <button
+                      className=" border-0 mt-[-4px] ml-3"
+                      // onClick={showSearchHandler}
+                    >
+                      <SearchNormal1 size="28" />
+                    </button>
 
                     {!isLoggedIn && (
                       <button
                         onClick={authHandler}
-                        className="bg-skin-fill  text-[white]  w-full px-3 md:mt-4 h-[2.5rem] rounded-md"
+                        className="!bg-skin-fill      w-full px-3 md:mt-4 h-[2.5rem] rounded-md"
                       >
-                        ثبت نام | ورود
+                        <div className="!text-[red]"> ثبت نام | ورودffff</div>
                       </button>
                     )}
                   </div>
-                  {isLoggedIn && <CartBtn />}
+                  <CartBtn />
                   {isLoggedIn && <ProfileDrop />}
                 </div>
               </div>

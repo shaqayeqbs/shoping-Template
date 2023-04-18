@@ -4,17 +4,18 @@ import Modal from "../UI/Modal";
 import classes from "./MegaMenu.module.css";
 import MegaMenuList from "./MegaMenuList";
 import { useSelector } from "react-redux";
+import megadata from "../data/data.json";
 
 function MegaMenu({ isOpen, onCloseModalHandler }) {
   const productCategorys = useSelector(
     (state) => state?.businessSlice.productCategorys
   );
-  const [children, setChildren] = useState(productCategorys[0]?.children);
+  const [children, setChildren] = useState(megadata);
 
   const changeChildrenHandler = (item) => {
     setChildren(item.children);
   };
-  console.log({ productCategorys }, "hereee");
+
   return (
     <div className="">
       <Modal

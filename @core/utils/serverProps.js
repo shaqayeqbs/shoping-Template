@@ -2,6 +2,7 @@ import axios from "axios";
 import nookies from "nookies";
 import END_POINTS from "../constants/endpoints";
 import APP_CONFIG from "../constants/app-config";
+import data from "../data/business.json";
 export default async function mainData(ctx) {
   const { req, query, res, asPath, pathname } = ctx;
   let url = req.headers.host;
@@ -35,8 +36,9 @@ export default async function mainData(ctx) {
 
   const cookies = nookies.get(ctx);
   if (cookies) {
-    const id = response?.data.data.domin.business.id;
+    const id = response?.data?.data?.domin.business.id;
     nookies.set(ctx, "id", id);
   }
-  return response || null;
+  // return response || null;
+  return data;
 }
