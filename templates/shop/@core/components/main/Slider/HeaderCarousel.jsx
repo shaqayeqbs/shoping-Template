@@ -33,25 +33,25 @@ function HeaderCarousel({ items }) {
         }}
         scrollbar={{ draggable: true, hide: true }}
         spaceBetween={20}
-        disableOnInteraction={true}
+        disableoninteraction="true"
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
         autoplay={{
-          delay: 2500,
+          delay: 2000,
         }}
         modules={[FreeMode, Navigation, Thumbs, Autoplay, Scrollbar]}
         className="mySwiper2 "
         onSwiper={setSwiper}
       >
         {items?.map((item, index) => (
-          <SwiperSlide key={index} className="md:pt-3 w-full">
+          <SwiperSlide key={index} className="md:pt-3 w-full ">
             <LandingCarouselSlide swiper={swiper} itemData={item} />
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className=" container relative  ">
-        <div className=" absolute bottom-[-13px] text-right float-right justify-start flex w-full flex justify-between   !mb-[6rem]  z-20  ">
+      <div className=" container relative">
+        <div className=" absolute  bottom-[-13px] text-right float-right  w-full flex justify-between   !mb-[6rem]  z-20  ">
           {" "}
           <div className="flex">
             <div>
@@ -89,7 +89,7 @@ function HeaderCarousel({ items }) {
                       loading="lazy"
                       layout="fill"
                       onClick={setSwiper}
-                      src={item?.file[0]?.details.location}
+                      src={item?.image}
                       className="object-cover w-full cursor-pointer  h-[3rem] rounded-lg !z-50"
                     />
                   </div>

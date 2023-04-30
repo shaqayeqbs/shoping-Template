@@ -26,7 +26,7 @@ module.exports = {
         // primary: "var(--color-text-base)",
         primary: "#7286D3",
         muted: "rgb(166, 166, 166)",
-        text: "rgb(33, 33, 33)",
+        text: "rgb(33, 33, 33,.8)",
         color: "#7286D3",
       },
     },

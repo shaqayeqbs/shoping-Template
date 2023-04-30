@@ -263,6 +263,31 @@
         }
       ],
       "banners": [
+        {
+          "id": "130",
+          "color": "#238B44",
+          "title": "تاثیرات گیاهان بر روان انسان",
+          "description": "رابطه بین گل و گیاه و سلامت روانی",
+          "href": "/",
+          "image": "/images/slider1.png"
+        },
+       
+        {
+          "id": "3",
+          "color": "#c9A6A6",
+          "title": "تاثیرات گیاهان بر روان انسان",
+          "description": "رابطه بین گل و گیاه و سلامت روانی",
+          "href": "/",
+          "image": "/images/about.png"
+        },
+        {
+          "id": "4",
+          "color": "#76A7B6",
+          "title": "تاثیرات گیاهان بر روان انسان",
+          "description": "رابطه بین گل و گیاه و سلامت روانی",
+          "href": "/",
+          "image": "/images/description.png"
+        }
         
       ],
       "template": {

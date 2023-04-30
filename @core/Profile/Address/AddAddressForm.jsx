@@ -151,12 +151,10 @@ function AddAddressForm({ onAddAddress, onCloseModal, item }) {
       reciver_surname: reciverSurName,
       reciver_phone: phone,
     };
-    console.log(data, "llllllllllll");
-    console.log(cordinates);
+
     onAddAddress(data);
     // onCloseModal();
   };
-  console.log("corrrrrr", cordinates);
 
   return (
     <form className="p-6 ">

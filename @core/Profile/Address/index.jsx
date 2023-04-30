@@ -58,15 +58,14 @@ function Index() {
     }
   };
   const updateAddressHandler = async (item) => {
-    console.log(item);
     const data = { ...item, id, addressId: item?.addressId };
     const res = await updateTheUserAddressApi(data);
-    console.log(res);
+
     // if (res == 200) {
     //   setAddress(updatedArray);
     // }
   };
-  console.log({ addrsses });
+
   return (
     <div>
       <UserAddress

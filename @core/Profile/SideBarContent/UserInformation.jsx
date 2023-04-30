@@ -81,12 +81,12 @@ function UserInformation() {
   ];
 
   const changeBirthdayDate = (data) => {
-    console.log(data, "wwwwwwwwwwwwwwwwwwwww");
+ 
     if (data != "" && birthdayDate != data) {
       const date = moment
         .from("1367/11/04", "fa", "YYYY/MM/DD")
         .format("YYYY/MM/DD");
-      console.log(date, data);
+  
       setBirthdayDate(data);
     }
   };
@@ -118,7 +118,7 @@ function UserInformation() {
       emptyInput();
       return;
     }
-    console.log(cityId);
+
     const data = {
       birthday: formatetBirthday,
       city_id: cityId,

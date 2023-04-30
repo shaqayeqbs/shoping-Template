@@ -35,27 +35,24 @@ function VerifyPhoneModal({ onMobileVerified, title, close }) {
   const submitHandler = async (event) => {
     event.preventDefault();
     let enNum = digitsFaToEn(phone);
-    console.log({ phone });
+
     if (enNum === "") {
       return;
     }
     if (!phoneRegex(enNum)) {
-      console.log("here");
       notValidPhone();
       return;
     }
-    console.log(enNum);
+
     setIsSubmitting(true);
     const response = await verifyPhone({ phone: enNum });
     // const response = 200;
-    console.log(response);
 
     if (response === 200) {
-      console.log("ok");
       onMobileVerified(enNum);
     }
   };
-  console.log({ phone });
+
   return (
     <section className=" m-16 mt-5 mx-auto w-[80%] md:w-[52%]">
       <h3>

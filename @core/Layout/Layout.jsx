@@ -42,7 +42,7 @@ const Layout = ({ children }) => {
   primaryColor = "rgb(100,200,300)";
   backgroundColor = "green";
   secondaryColor = "blue";
-  console.log(primaryColor, backgroundColor, secondaryColor);
+
   return (
     <>
       <Head>
@@ -56,7 +56,7 @@ const Layout = ({ children }) => {
         </style>
       </Head>
 
-      <main className="w-full h-full p-0 ">
+      <main className="w-full  h-full p-0 ">
         <div className="z-50">
           <MainNavigation
             open={showMenu}
@@ -67,7 +67,7 @@ const Layout = ({ children }) => {
             showMenu={showMenu}
           />
         </div>
-        <div className="pt-[4.5rem] md:pt-[11rem] "> {children}</div>
+        <div className="pt-[4.5rem] md:pt-[6rem] "> {children}</div>
       </main>
       <Footer />
     </>

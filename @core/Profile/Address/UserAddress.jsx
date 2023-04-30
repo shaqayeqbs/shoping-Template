@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 function UserAddress({ addresses, onRemoveAddress, onUpdateAddress }) {
   const [showUpdateForm, setShowUpdateForm] = useState(false);
-  console.log(addresses);
+
   const [primaryAddress, setPrimaryAddress] = useState(addresses[0]?.id);
   const [myItem, setItem] = useState();
   const orderId = useSelector((state) => state.cart.orderId);

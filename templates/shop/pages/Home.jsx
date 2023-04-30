@@ -15,11 +15,9 @@ const Event = dynamic(() => import("../@core/components/main/Event"));
 
 function ShopHome({ data = null, articles, products, offProducts }) {
   const [isLoading, setIsLoading] = useState(true);
-  const banners = data?.data?.domin.business.banners;
-  console.log(products, "eeeeeeeeeeeeee");
 
   const { t } = useTranslation();
-  const { events } = useSelector((state) => state.businessSlice);
+  const { events, banners } = useSelector((state) => state.businessSlice);
 
   const classes = "container  md:flex  ";
   useEffect(() => {

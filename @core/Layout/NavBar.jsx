@@ -8,6 +8,7 @@ import ModalVerification from "./modals/ModalVerification";
 import ProfileDrop from "../Profile/ProfileDrop";
 import CartBtn from "./CartBtn";
 import SearchForm from "./Search/SearchForm";
+import placeHolderImge from "../../public/images/plant.png";
 
 function NavBar({ onCloseModalHandler }) {
   const [openAuthModal, setOpenAuthModal] = useState(false);
@@ -32,22 +33,24 @@ function NavBar({ onCloseModalHandler }) {
         />
       )}
       <nav
-        className="container bg-[white] z-50 px-7 md:px-0  !pt-[1rem]  text-center w-full  flex  justify-between "
+        className="container  z-50 px-7 md:px-0  !pt-[1rem]  text-center w-full  flex  justify-between "
         onMouseEnter={onCloseModalHandler}
       >
         <Link href="/">
           <div className="flex">
             <div className="relative w-[4rem] h-[4rem] rounded-full overflow-hidden">
               {" "}
-              <Image
-                quality={50}
-                src={logo}
-                fill
-                // width={60}
-                // height={60}
-                loading="lazy"
-                alt="logo"
-              />
+              {logo && (
+                <Image
+                  quality={50}
+                  src={logo ? logo : placeHolderImge}
+                  fill
+                  // width={60}
+                  // height={60}
+                  loading="lazy"
+                  alt="logo"
+                />
+              )}
             </div>
             <h2 className="mt-5 mx-2"> {businessName} </h2>
           </div>

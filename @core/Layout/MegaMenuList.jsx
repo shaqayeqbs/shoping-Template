@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./MegaMenu.module.css";
 
 function MegaMenuList({ item, color, onChangeChildren, children }) {
-  console.log({ item });
   const setBtnActive = (e) => {
     onChangeChildren(item);
   };

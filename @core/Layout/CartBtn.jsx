@@ -9,7 +9,7 @@ const CartBtn = ({ onShow }) => {
   const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
 
   const cartData = useSelector((state) => state.cart?.items);
-  console.log({ cartData });
+
   let numOfCartItems = 0;
 
   for (const each in cartData) {
@@ -42,7 +42,7 @@ const CartBtn = ({ onShow }) => {
         {digitsEnToFa(numOfCartItems)}
       </span>
 
-      <span className="ml-4 mt-[] !z-40 ">
+      <span className="ml-4  !z-40 ">
         <Bag2 size="28" />
       </span>
     </Link>

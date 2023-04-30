@@ -1,14 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 function LandingCarouselSlide({ itemData: item, swiper }) {
+  console.log(item, "itme");
   return (
-    <Link href={item.link} className="mx-4 ">
-      <div className="relative pt-0 lg:pt-20 py-20 lg:px-8  pb-32 cursor-pointer">
+    <Link href={item.href} className="mx-4 ">
+      <div className="relative pt-0 lg:pt-20  pt-20 pb-40 lg:px-8  pb-32 cursor-pointer">
         <Image
           quality={30}
           priority
           className="absolute  top-0 backdrop-blur-lg blur-lg  overflow-hidden backdrop-brightness-0 z-0"
-          src={item?.file[0]?.details.location}
+          src={item?.image}
           alt="cover"
           layout="fill"
         />
@@ -31,12 +32,8 @@ function LandingCarouselSlide({ itemData: item, swiper }) {
             <Image
               quality={30}
               priority
-              src={
-                item?.file[0]?.details.location
-                  ? item?.file[0]?.details.location
-                  : "/"
-              }
-              alt={item?.file[0]?.details.location}
+              src={item?.image ? item?.image : "/"}
+              alt={item?.image}
               layout="fill"
               className="object-cover !h-[14rem] block  rounded-xl  md:!h-[419px] z-30"
             />

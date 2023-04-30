@@ -46,14 +46,16 @@ function ModalVerification({ isOpen, onClose }) {
         </button>
         <div className=" mx-auto text-center">
           {/* <div className=" w-[5rem] h-[5rem] rounded-full overflow-hidden"> */}{" "}
-          <img
-            quality={50}
-            src={logo}
-            fill
-            loading="lazy"
-            className="mx-auto block w-[6rem] h-[6rem] rounded-full mt-10"
-            alt="logo"
-          />
+          {logo && (
+            <img
+              quality={50}
+              src={logo}
+              fill
+              loading="lazy"
+              className="mx-auto block w-[6rem] h-[6rem] rounded-full mt-10"
+              alt="logo"
+            />
+          )}
           {/* </div> */}
           <h2 className="mt-5 mx-2"> {businessName} </h2>
         </div>

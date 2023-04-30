@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import MyLinks from "./MyLinks";
 import NavBar from "./NavBar";
 import { SearchNormal1 } from "iconsax-react";
+import placeHolderImge from "../../public/images/plant.png";
 
 import CartBtn from "./CartBtn";
 import ProfileDrop from "../Profile/ProfileDrop";
@@ -46,11 +47,11 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
       className={
         nav
           ? "!w-full bg-skin-backgund fixed z-50"
-          : " w-full bg-skin-backgro !right-0 fixed z-50"
+          : " !w-full bg-skin-backgro right-0 fixed z-50"
       }
     >
       {<ModalVerification isOpen={openAuthModal} onClose={authHandler} />}
-      <div className=" hidden md:block   w-full h-full px-2 mb-2  ">
+      <div className=" hidden md:block   w-full !z-50 bg-skin-background h-full px-2 mb-2  ">
         <NavBar />
 
         <div className="container my-5 ">
@@ -67,7 +68,7 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
       </div>
 
       {/* Hamburger Icon */}
-      <div className="w-full px-4 container mx-auto">
+      <div className="w-full  px-4 container mx-auto">
         <div className=" md:hidden w-full py-3 flex gap-0 justify-between items-center border-b-2 border-primary ">
           {" "}
           {/* <div className="flex"> */}{" "}
@@ -78,46 +79,48 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
           {/* <div className=" float-left text-left -mt-2 "> */}{" "}
           <Link href={"/"} className="relative flex pb-0">
             {" "}
-            <Image
-              quality={50}
-              loading="lazy"
-              src={logo}
-              width={60}
-              height={60}
-              // loader={myLoader}
-              alt="logo"
-              className="w-[2.5rem] h-[2.5rem] md:w-full md:h-full rounded-full ml-3"
-            />
+            {logo && (
+              <Image
+                quality={50}
+                loading="lazy"
+                src={logo ? logo : placeHolderImge}
+                width={60}
+                height={60}
+                // loader={myLoader}
+                alt="logo"
+                className="w-[2.5rem] h-[2.5rem] md:w-full md:h-full rounded-full ml-3"
+              />
+            )}
             <h2 className="ml-4 mt-2 md:mt-0 w-full"> {businessName} </h2>
           </Link>
           {/* </div> */}
           <div className="text-left ">
             {" "}
-            <Link href="/">
-              <div className="flex justify-start md:mt-0  text-sm md:text-xl">
-                <div className="flex">
-                  <div className="flex justify-end text-skin-color  w-full ">
-                    <button
-                      className=" border-0 mt-[-4px] ml-3"
-                      // onClick={showSearchHandler}
-                    >
-                      <SearchNormal1 size="28" />
-                    </button>
+            {/* <Link href="/"> */}
+            <div className="flex justify-start md:mt-0  text-sm md:text-xl">
+              <div className="flex">
+                <div className="flex justify-end text-skin-color  w-full ">
+                  <button
+                    className=" border-0 mt-[-4px] ml-3"
+                    // onClick={showSearchHandler}
+                  >
+                    <SearchNormal1 size="28" />
+                  </button>
 
-                    {!isLoggedIn && (
-                      <button
-                        onClick={authHandler}
-                        className="!bg-skin-fill      w-full px-3 md:mt-4 h-[2.5rem] rounded-md"
-                      >
-                        <div className="!text-[red]"> ثبت نام | ورودffff</div>
-                      </button>
-                    )}
-                  </div>
-                  <CartBtn />
-                  {isLoggedIn && <ProfileDrop />}
+                  {!isLoggedIn && (
+                    <button
+                      onClick={authHandler}
+                      className="!bg-skin-fill      w-full px-3 md:mt-4 h-[2.5rem] rounded-md"
+                    >
+                      <div className="!text-[red]"> ثبت نام | ورودffff</div>
+                    </button>
+                  )}
                 </div>
+                <CartBtn />
+                {isLoggedIn && <ProfileDrop />}
               </div>
-            </Link>
+            </div>
+            {/* </Link> */}
           </div>
         </div>
         {/* Mobile Menu */}

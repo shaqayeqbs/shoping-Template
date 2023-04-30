@@ -9,7 +9,7 @@ export const initialState = {
   connections: [],
   phone: [],
   workTimes: [],
-
+  banners: [],
   colors: {},
   productCategorys: [],
 };
@@ -20,7 +20,7 @@ const businessSlice = createSlice({
   reducers: {
     fetchFirspageData: (state, action) => {
       // const data = action.payload?.data?.domin?.business;
-      console.log(action.payload);
+
       const data = action.payload;
       console.log(data, "dataaaaaaaaaaaaaaaaaaaaaa");
       let logoImg = "";
@@ -32,6 +32,7 @@ const businessSlice = createSlice({
 
       state.id = data?.id;
       state.name = data?.title;
+      state.banners = data?.banners;
       state.logo = "/images/about.png";
       state.events = data?.events;
       state.phone = data?.connections?.phone;

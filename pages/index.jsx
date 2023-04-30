@@ -21,7 +21,6 @@ import bussinessDa from "../@core/data/business.json";
 function Home({ data, articles, products, offProducts }) {
   const [isLoading, setIsLoading] = useState(true);
   useSetBussinessData(data);
-  console.log(data, "eeeeeeeeeeeeeeeeeeeeeeeee");
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -97,7 +96,7 @@ export const getServerSideProps = async (ctx) => {
 
   return {
     props: {
-      data: bussinessData[0]?.business?.template.template || null,
+      data: bussinessData[0]?.business || null,
       articles: articles?.data?.data || null,
       products: products?.data?.data || null,
       offProducts: offProducts?.data?.data?.inventorys || null,
