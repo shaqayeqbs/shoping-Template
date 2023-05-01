@@ -23,6 +23,7 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
   const authHandler = () => {
     setOpenAuthModal((prevState) => !prevState);
   };
+  console.log(businessName, "name");
 
   const handleNav = () => {
     setNav((prev) => !prev);
@@ -51,7 +52,7 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
       }
     >
       {<ModalVerification isOpen={openAuthModal} onClose={authHandler} />}
-      <div className=" hidden md:block   w-full !z-50 bg-skin-background h-full px-2 mb-2  ">
+      <div className=" hidden md:block   w-full !z-50 bg-[white] h-full px-2 mb-2  ">
         <NavBar />
 
         <div className="container my-5 ">
@@ -91,7 +92,7 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
                 className="w-[2.5rem] h-[2.5rem] md:w-full md:h-full rounded-full ml-3"
               />
             )}
-            <h2 className="ml-4 mt-2 md:mt-0 w-full"> {businessName} </h2>
+            <h2 className="ml-4 mt-2 md:mt-0 w-full"> {businessName}nnnnn</h2>
           </Link>
           {/* </div> */}
           <div className="text-left ">

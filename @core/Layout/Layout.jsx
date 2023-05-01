@@ -67,7 +67,7 @@ const Layout = ({ children }) => {
             showMenu={showMenu}
           />
         </div>
-        <div className="pt-[4.5rem] md:pt-[6rem] "> {children}</div>
+        <div className="!pt-[9rem] md:pt-[6rem] "> {children}</div>
       </main>
       <Footer />
     </>

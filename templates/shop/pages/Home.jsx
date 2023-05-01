@@ -7,6 +7,7 @@ import LoadingSpinner from "../../../@core/UI/LoadingSpinner";
 import AmazingSection from "../@core/components/main/AmazingSale/AmazingSection";
 // import Slider from "../@core/components/main/Slider/Slider";
 // import Event from "../@core/components/main/Event";
+
 import Description from "../@core/components/main/About/Description";
 
 import dynamic from "next/dynamic";
@@ -64,15 +65,13 @@ function ShopHome({ data = null, articles, products, offProducts }) {
           ))}
         </section>
         {/* <div className="container">
-          <Slider title="گیاهان آپارتمانی" data={carousel} />
+          <Slider title="گیاهان آپارتمانی" data={products} />
         </div> */}
-        {/* <section className="my-10">
-          <AboutUsSection />
-        </section> */}
+
         <div className="container">
           <Slider
             title={t("landing:articles")}
-            data={articles?.articles}
+            data={articles}
             articles
             type="articles"
           />

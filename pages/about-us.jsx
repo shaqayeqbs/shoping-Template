@@ -12,9 +12,9 @@ const ShopAboutUs = dynamic(() =>
   import("../templates/shop/pages/ShopAboutUs")
 );
 function AboutUs({ aboutUs, data }) {
-  useSetBussinessData(data);
+  // useSetBussinessData(data);
   const businessName = useSelector((state) => state?.businessSlice?.name);
-  console.log(aboutUs);
+
   return (
     <>
       <Head>
@@ -28,48 +28,47 @@ function AboutUs({ aboutUs, data }) {
 export default AboutUs;
 
 export const getServerSideProps = async (ctx) => {
-  const cookies = nookies.get(ctx);
-  const { res, req } = ctx;
+  // const cookies = nookies.get(ctx);
+  // const { res, req } = ctx;
 
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=43200, stale-while-revalidate=3600"
-  );
+  // res.setHeader(
+  //   "Cache-Control",
+  //   "public, s-maxage=43200, stale-while-revalidate=3600"
+  // );
 
-  let url = req.headers.host;
-  if (
-    url === "localhost:3000" ||
-    url === "localhost:3001" ||
-    url === "localhost:3002"
-  ) {
-    url = "zaay.ir";
-  }
+  // let url = req.headers.host;
+  // if (
+  //   url === "localhost:3000" ||
+  //   url === "localhost:3001" ||
+  //   url === "localhost:3002"
+  // ) {
+  //   url = "zaay.ir";
+  // }
 
-  let id = cookies?.id;
-  console.log(cookies, cookies.id);
-  let bussinessData = await mainData(ctx);
+  // let id = cookies?.id;
+  // console.log(cookies, cookies.id);
+  // let bussinessData = await mainData(ctx);
 
   // if (!cookies || !cookies.id) {
-  const response = await axios(
-    `http://core.behzi.net/api/business/byDomin/${url}?lang=fa`
-  ).catch(function (error) {
-    if (error.response) {
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
-      return { notFound: true };
-    }
-  });
-  id = response?.data?.data.domin.business.id;
+  // const response = await axios(
+  //   `http://core.behzi.net/api/business/byDomin/${url}?lang=fa`
+  // ).catch(function (error) {
+  //   if (error.response) {
+  //     console.log(error.response.data);
+  //     console.log(error.response.status);
+  //     console.log(error.response.headers);
+  //     return { notFound: true };
+  //   }
+  // });
+  // id = response?.data?.data.domin.business.id;
 
   // }
 
-  let result = await Get_Business_Editors_By_Type(id, "about_us");
-  console.log(result);
+  // let result = await Get_Business_Editors_By_Type(id, "about_us");
+  // console.log(result);
   return {
     props: {
-      data: bussinessData || null,
-      aboutUs: result?.data?.data || null,
+      aboutUs: null,
     },
   };
 };

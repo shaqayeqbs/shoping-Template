@@ -8,7 +8,7 @@ function PropertiesOfProduct({ options }) {
         {options?.map((item) => (
           <li key={item.id}>
             <span className="ml-2 text-skin-muted">{item.data}</span>
-            <span>{item.categoryOption.property.translate[0].data}</span>
+            <span>{item?.properties?.title}</span>
           </li>
         ))}
       </ul>

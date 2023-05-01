@@ -8,6 +8,7 @@ import StaticSlider from "../../../../Helper/StaticSlider";
 import FilterShowDetails from "./FilterShowDetails";
 import PropertiesOfProduct from "./PropertiesOfProduct";
 import Vote from "./Vote";
+
 import Link from "next/dist/client/link";
 import ProductDetailForm from "./ProductDetailsForm";
 
@@ -58,18 +59,16 @@ function ProductsDetail({ item }) {
       <section className=" bg-[white] rounded-xl container   !mt-16 !p-8 text-skin-">
         <div className="xl:flex justify-between space-x-0 !gap-0">
           <div className="lg:w-full mx-auto ">
-            <StaticSlider items={item.inventory.business.files} />
+            <StaticSlider items={item?.carousel} />
           </div>
           <div className=" text-right w-full">
             <div className=" border-b-2  py-8 lg:!py-20 w-full  border-bordercolor ">
-              <h2 className="text-right m-6 text-[24px] mr-0">
-                {item.inventory?.product?.translate[0]?.data}
-              </h2>
+              <h2 className="text-right m-6 text-[24px] mr-0">{item.title}</h2>
               <div className="md:flex justify-between  w-[100%] mb-8 break-all">
                 <div className="text-right w-[70%]  ">
                   <span className="ml-2 ">برند:</span>
                   <span className=" inline-block  text-skin-primary ml-2">
-                    {item.inventory?.product?.brand?.translate[0]?.data}
+                    {item?.brand}
                   </span>
                   {/* <Vote /> */}
                 </div>
@@ -77,56 +76,47 @@ function ProductsDetail({ item }) {
                 <div className="w-full ">
                   <span className="mx-4 mr-0">دسته بندی:</span>
                   <span className="text-skin-primary w-full  ">
-                    {
-                      item.inventory?.product?.productCategory?.translate[0]
-                        ?.data
-                    }
+                    {item?.categoy}
                   </span>
-                  {/* <div className="flex mt-5">
+                  <div className="flex mt-5">
                     <Message size="16" variant="Outline" />
                     <div className="mr-2 text-[12px]"> 20 نظر</div>
-                  </div> */}
+                  </div>
                 </div>
 
                 <div className="">
                   {" "}
-                  <RemainTime remainTime={item.inventory.price.off} />
+                  <RemainTime remainTime="2023-09-04" />
                 </div>
               </div>
             </div>
             <div className="text-right">
               {" "}
               <div className="md:flex justify-between">
-                {/* <ColorPalet />
-                <div>
+                {/* <div>
                   <div className="my-4 font-bold">اندازه :{size}</div>
                   <SelectInput onSelect={onSelectHandler} />
                 </div> */}
-                {item?.inventory?.options?.map((each) => (
+                {item?.properties?.map((each) => (
                   <div key={each.id} className="my-4">
                     <span>{each.data}:</span>
-                    <span className="mx-4">
-                      {each.CategoryOption?.property.translate[0]?.data}
-                    </span>
+                    <span className="mx-4">{each.title}</span>
                   </div>
                 ))}
               </div>
-              <PropertiesOfProduct
-                options={item.inventory.product.staticOption}
-              />
+              <PropertiesOfProduct options={item.properties} />
               <div className="flex justify-between w-full my-10 font-bold ">
                 {" "}
                 <div>
                   <div> قیمت کالا :</div>
                   <div className="my-4">
                     <span className="text-skin-primary mx-2 md:text-2xl">
-                      {item.inventory.price.off.price
-                        ? item.inventory.price.off.price.toLocaleString()
-                        : item.inventory.price.price.toLocaleString()}
+                      {item?.price
+                        ? item.price.toLocaleString()
+                        : item.lastPrice.toLocaleString()}
                     </span>
                     <span className="text-sm text-skin-muted line-through">
-                      {item.inventory.price.off.price &&
-                        item.inventory.price.price.toLocaleString()}
+                      {item.lastPrice && item.price.toLocaleString()}
                     </span>
                     <span>تومان</span>
                   </div>
@@ -134,14 +124,14 @@ function ProductsDetail({ item }) {
                 <div className="mr-10 w-full">
                   <div> وضعیت کالا :</div>
                   <div className="text-skin-primary my-4">
-                    {item.inventory.inventory > 0 ? "موجود" : "نا موجود"}
+                    {item.avalable > 0 ? "موجود" : "نا موجود"}
                   </div>
                 </div>
               </div>
             </div>
             <div className=" lg:flex justify-between">
               <ProductDetailForm
-                id={item.inventory.id}
+                id={item.id}
                 onAddToCart={addToCartHandler}
                 title={item.title}
                 item={item}
@@ -154,7 +144,7 @@ function ProductsDetail({ item }) {
                 <Link
                   href={{
                     pathname: "/products/comparison",
-                    query: { id: item.inventory.id },
+                    query: { id: item?.id },
                   }}
                   className={emojiStyle}
                 >
@@ -173,9 +163,9 @@ function ProductsDetail({ item }) {
         </div>
       </section>
       <FilterShowDetails
-        dynamicOptions={item.inventory.options}
-        options={item.inventory.product.staticOption}
-        description={item.inventory.product.editors}
+        dynamicOptions={item.properties}
+        options={item?.properties}
+        description={item?.properties}
       />
       {/* <div className="container">
         <Slider title="گلدان های جدید" data={carousel} />

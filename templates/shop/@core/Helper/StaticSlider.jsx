@@ -79,7 +79,7 @@ function HeaderCarousel({ items }) {
                   alt="list of products"
                   height={360}
                   className="h-[2rem] object-cover"
-                  src={item?.details.location}
+                  src={item?.image}
                 />
               </div>
             </SwiperSlide>

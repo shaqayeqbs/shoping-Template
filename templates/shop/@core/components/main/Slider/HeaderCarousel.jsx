@@ -45,7 +45,7 @@ function HeaderCarousel({ items }) {
         onSwiper={setSwiper}
       >
         {items?.map((item, index) => (
-          <SwiperSlide key={index} className="md:pt-3 w-full ">
+          <SwiperSlide key={index} className=" w-full ">
             <LandingCarouselSlide swiper={swiper} itemData={item} />
           </SwiperSlide>
         ))}

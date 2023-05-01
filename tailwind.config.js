@@ -41,9 +41,9 @@ module.exports = {
       },
     },
     bordercolor: {
-      background: withOpacity("#FFF2F2"),
-      fill: withOpacity("#7286D3"),
-      secondary: withOpacity("#8EA7E9"),
+      background: "#FFF2F2",
+      fill: "#7286D3",
+      secondary: "#8EA7E9",
       opacity: "var(--color-fill-oppacity)",
       gray: "#E5E0FF",
       "button-primary-hover": "var(--color-button-primary-hover)",

@@ -4,7 +4,7 @@ function LandingCarouselSlide({ itemData: item, swiper }) {
   console.log(item, "itme");
   return (
     <Link href={item.href} className="mx-4 ">
-      <div className="relative pt-0 lg:pt-20  pt-20 pb-40 lg:px-8  pb-32 cursor-pointer">
+      <div className="relative pt-0 lg:pt-20  pt-20 pb-40 overflow-hidden lg:px-8  pb-32 cursor-pointer">
         <Image
           quality={30}
           priority

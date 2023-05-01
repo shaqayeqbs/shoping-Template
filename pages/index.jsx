@@ -12,12 +12,14 @@ import { listOfOrder } from "../store/Slices/CartSlice";
 import { GetArticles } from "../@core/api/articlesApi";
 import ShopHome from "../templates/shop/pages/Home";
 import mainData from "../@core/utils/serverProps";
-import {
-  getListOfProducts,
-  getListOfOffProducts,
-} from "../@core/api/productApi";
+import { ArticlesData } from "../@core/data/articles";
+// import {
+//   getListOfProducts,
+//   getListOfOffProducts,
+// } from "../@core/api/productApi";
 import useSetBussinessData from "../@core/hooks/useSetBussinessData";
 import bussinessDa from "../@core/data/business.json";
+import { ProductsData } from "../@core/data/products";
 function Home({ data, articles, products, offProducts }) {
   const [isLoading, setIsLoading] = useState(true);
   useSetBussinessData(data);
@@ -61,7 +63,7 @@ function Home({ data, articles, products, offProducts }) {
         <ShopHome
           data={data}
           articles={articles}
-          products={products?.inventorys}
+          products={products}
           offProducts={offProducts}
         />
       </Suspense>
@@ -72,34 +74,34 @@ function Home({ data, articles, products, offProducts }) {
 export default memo(Home);
 
 export const getServerSideProps = async (ctx) => {
-  const { req, res } = ctx;
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=43200, stale-while-revalidate=3600"
-  );
-  let url = req.headers.host;
-  if (
-    url === "localhost:3000" ||
-    url === "localhost:3001" ||
-    url === "localhost:3002"
-  ) {
-    url = "zaay.ir/";
-  }
+  // const { req, res } = ctx;
+  // res.setHeader(
+  //   "Cache-Control",
+  //   "public, s-maxage=43200, stale-while-revalidate=3600"
+  // );
+  // let url = req.headers.host;
+  // if (
+  //   url === "localhost:3000" ||
+  //   url === "localhost:3001" ||
+  //   url === "localhost:3002"
+  // ) {
+  //   url = "zaay.ir/";
+  // }
 
   // let bussinessData = await mainData(ctx);
   let bussinessData = bussinessDa;
-  const id = bussinessData?.data?.data.domin.business.id;
+  // const id = bussinessData?.data?.data.domin.business.id;
 
-  let articles = await GetArticles(id);
-  let products = await getListOfProducts(id);
-  let offProducts = await getListOfOffProducts(id);
+  // let articles = await GetArticles(id);
+  // let products = await getListOfProducts(id);
+  // let offProducts = await getListOfOffProducts(id);
 
   return {
     props: {
       data: bussinessData[0]?.business || null,
-      articles: articles?.data?.data || null,
-      products: products?.data?.data || null,
-      offProducts: offProducts?.data?.data?.inventorys || null,
+      articles: ArticlesData || null,
+      products: ProductsData || null,
+      // offProducts: offProducts?.data?.data?.inventorys || null,
     },
   };
 };

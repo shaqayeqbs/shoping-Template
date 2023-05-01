@@ -7,36 +7,13 @@ import ArticleCarousel from "./ArticleCarousel";
 import ProductCarousel from "./ProductCarousel";
 // const Carousel = dynamic(() => import("./Carousel"));
 
-function NewProducts({
-  data,
-  title,
-  // regular,
-  // value,
-  // onIndexHandler,
-  type,
-}) {
-  // const changeIndex = (e) => {
-  //   onIndexHandler(e?.target?.value);
-  // };
+function NewProducts({ data, title, type }) {
   console.log(data, "products");
   return (
     <section className=" block  text-center">
       <div className=" flex justify-between my-8">
         <h2 className={"font-bold md:text-2xl mx-3"}>{title}</h2>
         <div className=" relative flex text-skin-primary text-md">
-          {/* {regular && (
-            <button
-              value={value}
-              onClick={changeIndex}
-              className="border-0 flex"
-            >
-              مشاهده همه
-              <div className="mt-1 mr-1">
-                <AiOutlineLeft />
-              </div>
-            </button>
-          )}
-          {!regular && ( */}
           <Link
             href={
               type === "articles"

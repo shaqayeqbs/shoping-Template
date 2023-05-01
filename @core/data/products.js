@@ -3,7 +3,7 @@ export const ProductsData = [
     id: "1",
     title: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم ...",
     image: "/images/plant.png",
-
+    size: "small",
     precent: "   25%",
     price: "285000",
     lastPrice: "400000000",

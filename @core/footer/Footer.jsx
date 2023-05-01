@@ -129,7 +129,7 @@ function Footer() {
       </section>
       <div className=" text-center m-8 mt-16">
         کلیه حقوق این سایت محفوظ و متعلق به شرکت
-        <span className="text-skin-primary"> نگارگر اندیشه </span>
+        <span className="text-skin-primary"> فروشگاه </span>
         می‌باشد.
       </div>
     </footer>

@@ -31,7 +31,7 @@ const businessSlice = createSlice({
       // });
 
       state.id = data?.id;
-      state.name = data?.title;
+      state.name = data?.name;
       state.banners = data?.banners;
       state.logo = "/images/about.png";
       state.events = data?.events;

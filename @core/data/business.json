@@ -5,7 +5,7 @@
     "business": {
       "id": 19,
       "id_card": "1680080530765",
-      "name": "",
+      "name": "قالب فروشگاه بزرگ",
       "description": null,
       "category": {
         "id": 12,
@@ -181,6 +181,34 @@
         ]
       },
       "events": [
+        {
+          "id": "5",
+          "image": "/images/about.png",
+          "precent": "20٪",
+          "description": " انواع گیاهان آپارتمانی",
+          "color": "#238B44"
+        },
+        {
+          "id": "6",
+          "image": "/images/slider1.png",
+          "precent": "15٪",
+          "description": " انواع تراریوم زینتی ",
+          "color": "#45BCE1"
+        },
+        {
+          "id": "7",
+          "image": "/images/description.png",
+          "title": "يک بغل محبت",
+          "description": "انواع دسته گل",
+          "color": "#EC8916"
+        },
+        {
+          "id": "8",
+          "image": "/images/about.png",
+          "title": "انتخاب خاص و لوکس",
+          "description": "  انواع باکس های گل",
+          "color": "#D71F46"
+        }
         
       ],
       "workTimes": [

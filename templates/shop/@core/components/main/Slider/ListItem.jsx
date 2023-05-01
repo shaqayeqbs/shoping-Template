@@ -29,15 +29,18 @@ function ListItem({
   return (
     <>
       {type === "articles" && (
-        <Link href={`/articles/${item.id}`} className=" relative pb-0 w-full ">
+        <Link
+          href={`/articles/${item.id}`}
+          className=" relative pb-0 w-full rounded-xl bg-skin-background shadow-inner"
+        >
           <div className={"cadr w-full h-full relative"}>
             <div className="relative w-full">
-              {!item?.files[0] && (
+              {!item?.image && (
                 <div className="bg-skin-background rounded-xl   aspect-[16/9] mb-8 flex items-center justify-center   ">
                   <Gallery size="70" className="top-[30%] " />
                 </div>
               )}
-              {item?.files[0] && (
+              {item?.image && (
                 <div className=" rounded-xl w-[100%] mb-8 aspect-[16/9]  flex items-center justify-center   ">
                   <Image
                     quality={50}
@@ -45,8 +48,8 @@ function ListItem({
                     alt="slider photo"
                     loading="lazy"
                     placeholder="blur"
-                    blurDataURL={item?.files[0]?.details?.location}
-                    src={item?.files[0]?.details?.location}
+                    blurDataURL={item?.image}
+                    src={item?.image}
                     height={400}
                     width={400}
                     className="object-cover w-[100%]  md:mx-auto rounded-lg"
@@ -55,12 +58,13 @@ function ListItem({
               )}
             </div>
             <div className="flex flex-col items-start  hover:text-clip">
-              <h2>{item.title}</h2>
+              <h3>{item.title}</h3>
               <div className="my-4  text-justify  text-sm px-2">
+                {item.description}
                 {
                   <p className="truncatee">
                     {item?.editors
-                      .find((editor) => editor?.type === 2)
+                      ?.find((editor) => editor?.type === 2)
                       ?.value?.slice(0, 250)}
                     ...
                   </p>
@@ -72,45 +76,48 @@ function ListItem({
       )}
 
       {type === "products" && (
-        <Link href={`/products/${item.id}`} className=" relative pb-0 w-full ">
+        <Link
+          href={`/products/${item.id}`}
+          className=" relative  shadow-lg   border-bordercolor pb-0 w-full md:mb-16 rounded-xl bg-skin-background "
+        >
           <div
             className={
               favorties
-                ? "cadr w-full h-full  border-r-2 relative rounded-none border-bordercolor "
+                ? "cadr w-full h-full   border-r-2 relative rounded-none   "
                 : "cadr w-full   "
             }
           >
-            <div className="relative w-full ">
-              {item?.product?.files[0] && (
+            <div className="relative w-full  ">
+              {item?.image && (
                 <img
                   quality={50}
                   decoding="async"
                   alt="slider photo"
                   loading="lazy"
-                  src={item?.product?.files?.[0]?.details?.location}
+                  src={item?.image}
                   className="object-cover rounded-md mb-5 w-full aspect-square "
                 />
               )}
-              {!item?.product?.files[0] && (
+              {!item.image && (
                 <div className="bg-skin-background rounded-xl aspect-square  mb-5 w-full flex items-center justify-center   ">
                   <Gallery size="70" className="top-[30%] " />
                 </div>
               )}
             </div>
-            {/* {item.category && <div>{item.category.name}</div>} */}
-            <h2 className="text-right">{item?.product?.translate[0]?.data}</h2>
-            <div className="flex justify-between">
-              {item?.price?.price && (
-                <div className=" bg-skin-secondary text-skin-primary rounded-lg p-1 ml-[.3rem] text-center w-10 h-10">
+            {item?.category && <div>{item.category.name}</div>}
+            <h3 className="text-right text-md">{item?.title}</h3>
+            <div className="flex my-4 align-middle items-center justify-between">
+              {item?.price && (
+                <div className=" bg-skin-secondary  text-[white] rounded-lg p-1 ml-[.3rem] text-center w-10 h-10">
                   <Add size={32} />
                 </div>
               )}
               <div className="flex justify-start">
                 <div>
                   <div className="text-xl !containerfont-extrabold">
-                    {item?.price?.price && (
+                    {item?.price && (
                       <strong>
-                        {digitsEnToFa(item?.price?.price?.toLocaleString())}
+                        {digitsEnToFa(item?.price.toLocaleString())}
                       </strong>
                     )}
                   </div>
@@ -195,9 +202,9 @@ function ListItem({
                     )}
                   </div>
 
-                  {item.price?.price && (
+                  {item.price && (
                     <p className="text-skin-muted ltr text-sm line-through">
-                      {digitsEnToFa(item?.price?.price?.toLocaleString() || 0)}
+                      {digitsEnToFa(item?.price?.toLocaleString() || 0)}
                     </p>
                   )}
                 </div>
