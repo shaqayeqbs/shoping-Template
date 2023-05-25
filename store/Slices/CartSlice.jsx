@@ -77,15 +77,15 @@ const cartSlice = createSlice({
         state.items = [];
       }
 
-      const item = action?.payload?.inventory;
+      const item = action?.payload;
       console.log({ item });
       const qty = item?.qty ? item.qty : 1;
-      const price = item?.price?.price;
+      const price = item?.price;
       const updatedTotalAmount = +state.totalAmount + parseFloat(price) * +qty;
       console.log(+state.totalAmount, parseFloat(price), +qty);
-      console.log(item.price);
+      console.log(item?.price);
       const existingCartItemIndex = state.items?.findIndex(
-        (myitem) => myitem.id == item.id
+        (myitem) => myitem?.id == item?.id
       );
       let existingCartItem = undefined;
       if (state?.items) {
@@ -114,18 +114,20 @@ const cartSlice = createSlice({
     removeItem(state, action) {
       console.log(action);
       const existingCartItemIndex = state.items.findIndex(
-        (item) => item.id == action.payload
+        (item) => item?.id == action?.payload
       );
       const existingItem = state.items[existingCartItemIndex];
       const updatedTotalAmount =
         +state.totalAmount - +parseFloat(existingItem?.price);
       let updatedItems;
-      if (existingItem.qty === 1) {
-        updatedItems = state.items.filter((item) => item.id !== action.payload);
+      if (existingItem?.qty === 1) {
+        updatedItems = state?.items.filter(
+          (item) => item.id !== action.payload
+        );
       } else {
         const updatedItem = {
           ...existingItem,
-          qty: existingItem.qty - 1,
+          qty: existingItem?.qty - 1,
         };
         updatedItems = [...state.items];
         updatedItems[existingCartItemIndex] = updatedItem;

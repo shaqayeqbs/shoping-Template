@@ -1,20 +1,21 @@
 import dynamic from "next/dynamic";
-import axios from "axios";
-import nookies from "nookies";
-import { Get_Business_Editors_By_Type } from "../@core/api/BussinessApi";
-import mainData from "../@core/utils/serverProps";
+// import axios from "axios";
+// import nookies from "nookies";
+// import { Get_Business_Editors_By_Type } from "../@core/api/BussinessApi";
+// import mainData from "../@core/utils/serverProps";
 import useSetBussinessData from "../@core/hooks/useSetBussinessData";
 // import ShopAboutUs from "../templates/shop/pages/ShopAboutUs";
 import Head from "next/head";
 import { useSelector } from "react-redux";
 
+import bussinessDa from "../@core/data/business.json";
 const ShopAboutUs = dynamic(() =>
   import("../templates/shop/pages/ShopAboutUs")
 );
 function AboutUs({ aboutUs, data }) {
   // useSetBussinessData(data);
   const businessName = useSelector((state) => state?.businessSlice?.name);
-
+  useSetBussinessData(data);
   return (
     <>
       <Head>
@@ -63,12 +64,13 @@ export const getServerSideProps = async (ctx) => {
   // id = response?.data?.data.domin.business.id;
 
   // }
-
+  let bussinessData = bussinessDa;
   // let result = await Get_Business_Editors_By_Type(id, "about_us");
   // console.log(result);
   return {
     props: {
       aboutUs: null,
+      data: bussinessData[0]?.business || null,
     },
   };
 };

@@ -14,9 +14,9 @@ function MyLinks({ onAddClose, showMenu, openModal, mobile, closeSidebar }) {
         <MegaMenu isOpen={showMenu} onCloseModalHandler={onAddClose} />
       )}
       <ul className={!mobile ? classes.links : ""}>
-        <li className={!mobile ? "" : " my-4"}>
+        {/* <li className={!mobile ? "" : " my-4"}>
           <div onMouseEnter={openModal}> دسته بندی</div>
-        </li>
+        </li> */}
 
         {Headerlinks?.map((item) => (
           <li

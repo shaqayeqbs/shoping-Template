@@ -48,7 +48,7 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
       className={
         nav
           ? "!w-full bg-skin-backgund fixed z-50"
-          : " !w-full bg-skin-backgro right-0 fixed z-50"
+          : " !w-full bg-[white] right-0 fixed z-50"
       }
     >
       {<ModalVerification isOpen={openAuthModal} onClose={authHandler} />}
@@ -73,51 +73,62 @@ function MainNavigation({ onCloseHandler, openModalHandler, showMenu }) {
         <div className=" md:hidden w-full py-3 flex gap-0 justify-between items-center border-b-2 border-primary ">
           {" "}
           {/* <div className="flex"> */}{" "}
-          <div onClick={handleNav} className="ml-1 h-fit">
-            <AiOutlineMenu size={25} />
+          <div className="flex items-center text-left ">
+            <div onClick={handleNav} className="ml-1 h-fit">
+              <AiOutlineMenu size={25} />
+            </div>
+            {/* </div> */}
+
+            <Link
+              href={"/"}
+              className="relative flex justify-items-center mr-2 pb-0"
+            >
+              {" "}
+              {logo && (
+                <Image
+                  quality={50}
+                  loading="lazy"
+                  src={logo ? logo : placeHolderImge}
+                  width={60}
+                  height={60}
+                  // loader={myLoader}
+                  alt="logo"
+                  className="w-[2.5rem] h-[2.5rem] md:w-full md:h-full rounded-full ml-1"
+                />
+              )}
+              <h2 className=" mt-2 md:mt-0 w-full text-[16px]">
+                {" "}
+                {businessName}
+              </h2>
+            </Link>
           </div>
-          {/* </div> */}
-          {/* <div className=" float-left text-left -mt-2 "> */}{" "}
-          <Link href={"/"} className="relative flex pb-0">
-            {" "}
-            {logo && (
-              <Image
-                quality={50}
-                loading="lazy"
-                src={logo ? logo : placeHolderImge}
-                width={60}
-                height={60}
-                // loader={myLoader}
-                alt="logo"
-                className="w-[2.5rem] h-[2.5rem] md:w-full md:h-full rounded-full ml-3"
-              />
-            )}
-            <h2 className="ml-4 mt-2 md:mt-0 w-full"> {businessName}nnnnn</h2>
-          </Link>
-          {/* </div> */}
           <div className="text-left ">
             {" "}
             {/* <Link href="/"> */}
-            <div className="flex justify-start md:mt-0  text-sm md:text-xl">
-              <div className="flex">
-                <div className="flex justify-end text-skin-color  w-full ">
-                  <button
-                    className=" border-0 mt-[-4px] ml-3"
+            <div className="flex items-center justify-start md:mt-0  text-sm md:text-xl">
+              <div className="flex items-center">
+                <CartBtn />
+                <div className="flex justify-  text-skin-color   w-full ">
+                  {/* <button
+                    className=" border-0 mt-[-4px] ml-"
                     // onClick={showSearchHandler}
                   >
                     <SearchNormal1 size="28" />
-                  </button>
+                  </button> */}
 
                   {!isLoggedIn && (
                     <button
                       onClick={authHandler}
-                      className="!bg-skin-fill      w-full px-3 md:mt-4 h-[2.5rem] rounded-md"
+                      className="!bg-skin-fill inline-block ml-2   w-full px-3 md:mt-4 h-[2.5rem] rounded-md"
                     >
-                      <div className="!text-[red]"> ثبت نام | ورودffff</div>
+                      <div className="text-[white] text-md">
+                        {" "}
+                        ثبت نام | ورود
+                      </div>
                     </button>
                   )}
                 </div>
-                <CartBtn />
+
                 {isLoggedIn && <ProfileDrop />}
               </div>
             </div>

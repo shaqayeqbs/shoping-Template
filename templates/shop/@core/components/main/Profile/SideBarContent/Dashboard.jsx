@@ -35,7 +35,7 @@ function Dashboard({ onChangeIndex }) {
             <button
               onClick={changeIndexHandler}
               value="orders"
-              className="flex font-bold text-[14px] text-skin-primary border-0 "
+              className="flex font-bold text-[14px] bh- text-skin-primary border-0 "
             >
               مشاهده همه
               <div className="mt-1 mr-3">

@@ -1,5 +1,10 @@
 export const Headerlinks = [
   {
+    id: "100",
+    title: "محصولات",
+    href: "/products",
+  },
+  {
     id: "10",
     title: "شگفت انگیزها",
     href: "/offer",

@@ -24,9 +24,9 @@ function NewProducts({ data, title, type }) {
             }
             className="cursor-pointer"
           >
-            <div className="font-bold">
-              <div className="mx-8"> مشاهده همه</div>
-              <div className="absolute left-0 top-[6px]">
+            <div className="font-bold flex items-center ">
+              <div className="mx-4"> مشاهده همه</div>
+              <div className="">
                 <AiOutlineLeft />
               </div>
             </div>

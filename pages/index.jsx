@@ -9,9 +9,9 @@ import { Suspense } from "react";
 import LoadingSpinner from "../@core/UI/LoadingSpinner";
 import { listOfOrder } from "../store/Slices/CartSlice";
 // const ShopHome = dynamic(() => import("../templates/shop/pages/Home"));
-import { GetArticles } from "../@core/api/articlesApi";
+// import { GetArticles } from "../@core/api/articlesApi";
 import ShopHome from "../templates/shop/pages/Home";
-import mainData from "../@core/utils/serverProps";
+// import mainData from "../@core/utils/serverProps";
 import { ArticlesData } from "../@core/data/articles";
 // import {
 //   getListOfProducts,

@@ -25,9 +25,9 @@ import {
 function ProductsDetail({ item }) {
   const [showSharedModal, setShowSharedModal] = useState(false);
   const dispatch = useDispatch();
-
+  console.log(item, "item");
   const addToCartHandler = async () => {
-    const res = await dispatch(storeNewProductOrder(item.inventory.id));
+    const res = await dispatch(storeNewProductOrder(item?.id));
     console.log(res, "addddddddd");
     return res;
   };
@@ -40,7 +40,7 @@ function ProductsDetail({ item }) {
       data: "product",
       id: item.inventory.id,
     };
-    const res = await storeNewFavoriteToUser(item.inventory.id);
+    const res = await storeNewFavoriteToUser(item?.id);
 
     if (res === 200) {
       storedFavortie();
@@ -92,11 +92,13 @@ function ProductsDetail({ item }) {
             </div>
             <div className="text-right">
               {" "}
-              <div className="md:flex justify-between">
+              <div className=" justify-between">
                 {/* <div>
                   <div className="my-4 font-bold">اندازه :{size}</div>
                   <SelectInput onSelect={onSelectHandler} />
                 </div> */}
+                {/* <PropertiesOfProduct options={item.properties} /> */}
+                <h2 className="my-4 mt-10">ویژگی های محصول :</h2>
                 {item?.properties?.map((each) => (
                   <div key={each.id} className="my-4">
                     <span>{each.data}:</span>
@@ -104,7 +106,6 @@ function ProductsDetail({ item }) {
                   </div>
                 ))}
               </div>
-              <PropertiesOfProduct options={item.properties} />
               <div className="flex justify-between w-full my-10 font-bold ">
                 {" "}
                 <div>

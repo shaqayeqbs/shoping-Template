@@ -5,7 +5,7 @@
     "business": {
       "id": 19,
       "id_card": "1680080530765",
-      "name": "قالب فروشگاه بزرگ",
+      "name": "قالب فروشگاه ",
       "description": null,
       "category": {
         "id": 12,
@@ -323,7 +323,7 @@
         "template": {
           "id": 1,
           "name": "firstshoping",
-          "title": "قالب فروشگاه بزرگ",
+          "title": "قالب فروشگاه ",
           "description": "این عالیه",
           "publishdate": "2023-01-15 13:11:16",
           "status": {

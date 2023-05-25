@@ -4,8 +4,9 @@ import { digitsEnToFa } from "@persian-tools/persian-tools";
 import { useState } from "react";
 import { Gallery } from "iconsax-react";
 const CartItem = (props) => {
+  console.log(props);
   const [amount, setAmount] = useState(+props.amount);
-  const { price, off_price, final_price } = props.price;
+  const { price, off_price } = props;
   //   const price = `$${+props.price.toFixed(2)}`;
 
   const onRemoveHandler = () => {

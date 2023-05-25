@@ -10,7 +10,7 @@ import { Add, Trash } from "iconsax-react";
 import { digitsEnToFa } from "@persian-tools/persian-tools";
 function ListItem({
   item,
-  type,
+  type = "products",
   offcerPage = null,
   articles = null,
   favorties = null,
@@ -25,7 +25,7 @@ function ListItem({
     nowhours,
     nowdays
   );
-
+  console.log(item, type, "ppppppppppppppppp");
   return (
     <>
       {type === "articles" && (

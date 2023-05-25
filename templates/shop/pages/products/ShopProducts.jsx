@@ -20,10 +20,10 @@ function ShopAllProducts({ products }) {
   const productCategories = useSelector(
     (state) => state?.businessSlice.productCategorys
   );
-  const brands = useSelector(state => state.businessSlice.brands)
-  const filterModalStatus = useSelector(state => state.filterModal);
+  const brands = useSelector((state) => state.businessSlice.brands);
+  const filterModalStatus = useSelector((state) => state.filterModal);
   const dispatch = useDispatch();
-  console.log(products, 'products');
+  console.log(products, "products");
   console.log(productCategories);
   const SortList = [
     {
@@ -45,22 +45,28 @@ function ShopAllProducts({ products }) {
   ];
 
   const openFilterModalHandler = () => {
-    dispatch(filterModalAction.openFilterModal())
-  }
+    dispatch(filterModalAction.openFilterModal());
+  };
   const openSortingModalHandler = () => {
-    dispatch(filterModalAction.openSortingModal())
-  }
+    dispatch(filterModalAction.openSortingModal());
+  };
   return (
     <main className="container !mt-20">
       <Categories data={productCategories} />
       <div className="lg:hidden w-full flex items-center justify-between">
-        <button className="flex items-center mb-4 border-0" onClick = {openFilterModalHandler}>
+        <button
+          className="flex items-center mb-4 border-0"
+          onClick={openFilterModalHandler}
+        >
           <p className="ml-1">
             <Setting5 size={20} />
           </p>{" "}
           <h4>فیلتر‌ها</h4>
         </button>
-        <button className="flex items-center mb-4 border-0" onClick = {openSortingModalHandler}>
+        <button
+          className="flex items-center mb-4 border-0"
+          onClick={openSortingModalHandler}
+        >
           <p className="ml-1">
             <Sort size={20} />
           </p>{" "}
@@ -69,15 +75,15 @@ function ShopAllProducts({ products }) {
       </div>
       <div className=" flex justify-between">
         <div className="w-[350px] hidden lg:block ml-4">
-          <FilterBar categories={productCategories}/>
+          <FilterBar categories={productCategories} />
         </div>
         <div className="w-[100%]">
           <OrderingList data={SortList} />
-          <List data={products} offcerPage={true} />
+          <List data={products} offcerPage={true} type="products" />
         </div>
       </div>
       {/* <Pagination /> */}
-      {filterModalStatus.isModalOpen && <FilterModal/>}
+      {filterModalStatus.isModalOpen && <FilterModal />}
     </main>
   );
 }

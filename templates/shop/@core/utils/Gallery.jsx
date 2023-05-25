@@ -29,7 +29,7 @@ export default function Gallery({ data }) {
               loading="lazy"
               width={500}
               height={500}
-              src={item?.files[0]?.details.location}
+              src={item?.image}
               className="w-full aspect-auto"
             />
           </div>
